@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="">
+  <meta property="og:title" content="Few-Shot Recognition via Stage-Wise Augmented Finetuning." />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/teaser_v7.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="Few-Shot Recognition via Stage-Wise Augmented Finetuning.">
+  <meta name="twitter:description" content="">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/teaser_v7.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="VLMs,few-shot_recognition">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Few-Shot Recognition via Stage-Wise Augmented Finetuning.</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Few-Shot Recognition via Stage-Wise Augmented Finetuning
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://tian1327.github.io/" target="_blank">Tian Liu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/huixin-zhang-a2670a229/" target="_blank">Huixin Zhang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://shubhamprshr27.github.io/" target="_blank">Shubham Parashar</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://aimerykong.github.io/" target="_blank">Shu Kong</a><sup>1</sup><sup>,</sup><sup>2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Texas A&M University<br></span>
+              <span class="author-block"><sup>2</sup>University of Macau<br></span>        
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2406.11148" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/tian1327/SWAT" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2406.11148" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+            <!-- <h1><strong style="color: red; font-size: x-large;">CVPR 2024</strong></h1> -->
+            <h2 class="subtitle has-text-centered">
+              <b>tl;dr:</b> We explore retriaval-augmented learning for<br>few-shot recognition using Vision-Language Models</h2>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </section>
+
+    <!-- Paper overview -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview</h2>
+            <div class="content has-text-justified">
+              <p style="text-align: justify;">
+                Movitated by the significant improvements of retrieval-augmented learning
+                (RAL) in zero-shot recognition with Vision-Language Models (VLMs, e.g. OpenCLIP), for the 
+                first time, we explore RAL for few-shot recognition. We identify novel  
+                challenges and opportunities: 
+                <ol>
+                  <li>Simply finetuning VLMs on a large amount of retrieved data barely 
+                    surpasses state-of-the-art zero-shot methods due to the imbalanced 
+                    distribution of retrieved data and its domain gaps compared to few-shot 
+                    annotated data.</li>
+                  <li>Finetuning a VLM on few-shot examples alone significantly outperforms 
+                    prior methods, and finetuning on the mix of retrieved and few-shot data 
+                    yields even better results.</li>
+                  <li>To mitigate the imbalanced distribution and domain gap issue, we propose 
+                    Stage-Wise Augmented fineTuning (SWAT) method, which involves end-to-end 
+                    finetuning on mixed data for the first stage and retraining the classifier 
+                    solely on the few-shot data in the second stage.</li>
+                </ol>
+                
+                Our SWAT resoundingly outperforms prior works by ~10% in accuracy on standard
+                benchmark datasets.
+              </p>         
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End paper overview -->
+
+  <!-- Paper abstract -->
+  <!-- <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p style="text-align: justify;">
+              Few-shot recognition aims to train a classification model with only 
+              a few labeled examples of pre-defined concepts, where annotation can 
+              be costly in a downstream task. In another related research area, 
+              zero-shot recognition, which assumes no access to any downstream-task 
+              data, has been greatly advanced by using pretrained Vision-Language 
+              Models (VLMs). In this area, retrieval-augmented learning (RAL) 
+              effectively boosts zero-shot accuracy by retrieving and learning from 
+              external data relevant to downstream concepts. Motivated by these 
+              advancements, our work explores RAL for few-shot recognition. 
+              While seemingly straightforward despite being under-explored in the 
+              literature (till now!), we present novel challenges and opportunities 
+              for applying RAL for few-shot recognition. First, perhaps surprisingly, 
+              simply finetuning the VLM on a large amount of retrieved data barely 
+              surpasses state-of-the-art zero-shot methods due to the imbalanced 
+              distribution of retrieved data and its domain gaps compared to few-shot 
+              annotated data. Second, finetuning a VLM on few-shot examples alone 
+              significantly outperforms prior methods, and finetuning on the mix of 
+              retrieved and few-shot data yields even better results. Third, to 
+              mitigate the imbalanced distribution and domain gap issue, we propose 
+              Stage-Wise Augmented fineTuning (SWAT) method, which involves end-to-end 
+              finetuning on mixed data for the first stage and retraining the 
+              classifier solely on the few-shot data in the second stage. Extensive 
+              experiments show that SWAT achieves the best performance on standard 
+              benchmark datasets, resoundingly outperforming prior works by ~10% in 
+              accuracy.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End paper abstract -->
+
+
+  <section class="section hero is-light2">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Stage-Wise Augmented fineTuning (SWAT)</h2>          
+          <div class="content has-text-justified">
+
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/teaser_v7.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                Given a data annotation guideline consisting of few-shot images of downstream concepts, 
+                SWAT first retrieves relevant pretraining images from VLM's pretraining set (e.g. <a href="https://laion.ai/blog/laion-400-open-dataset/">LAION</a>), 
+                and then finetunes the VLM (e.g. <a href="https://github.com/mlfoundations/open_clip?tab=readme-ov-file">OpenCLIP</a>) in a stage-wise strategy:
+                <ul>
+                  <li>Stage 1: end-to-end finetuning on the mixed data of retrieved and few-shot images.</li>
+                  <li>Stage 2: retraining the classifier solely on the few-shot images.</li>
+                </ul>
+                SWAT effectively mitigates the domain gap and imbalanced distribution of retrieved data,
+                as illustrated below. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method Overview -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Challenges</h2>
+          <h2 class="title is-4">Retrieved data has domain gaps compared to donwstream few-shot data and follows an imbalanced distribution</h2>
+          <div class="content has-text-justified">
+
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/challenges.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                Left: we show that the retrieved data exhibits different visual patterns 
+                (styles, background, resolution, semantics, etc.) compared to the few-shot data.
+                Right: the retrieved data follows an imbalanced distribution, where some classes
+                naturally less frequently appear in the Internet.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Method Overview -->
+
+
+  <!-- Text-Image generation -->
+  <section class="section hero is-light2">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Benchmarking SWAT</h2>
+          <!-- <h2 class="title is-3">Results</h2> -->
+          <!-- <h2 class="title is-4">SWAT</h2> -->
+          <div class="content has-text-justified">
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/benchmark.png" alt="1" style="width: 600px; height: auto; display: block; margin: 0 auto;"/> 
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                <!-- Compareing SWAT -->
+                Across five standard benchmark datasets, we show that:
+                <ul>
+                  <li><span style="color: green;">finetuning visual encoder</span> on few-shot data already outperforms previous methods</li>
+                  <li><span style="color: orange;">finetuning on retrieved data</span> merely outperforms zero-shot methods due to domain gap and imbalanced distribution</li>
+                  <li><span style="color: red;">SWAT</span> achieves the best performance, with > 10% accuracy improvements over previous methods</li>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Prompt Inversion -->
+
+
+  <!-- Prompt Inversion -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-4">Solutions</h2> -->
+          <h2 class="title is-4">Comparison with SOTA zero-shot and few-shot methods</h2>
+          <div class="content has-text-justified">
+            <img src="static/images/sota.png" alt="comparison with SOTA."
+                style="height: auto; display: block; margin: 10px;">
+              <p>
+                Suprisingly, finetuning on few-shot data already outperforms previous zero-shot and few-shot methods,
+                without suffering from overfitting issue.
+                In addition, SWAT largely outperforms existing zero-shot and few-shot methods on standard benchmark datasets. 
+                We mark the accuracy improvements over <a href="https://arxiv.org/abs/2312.12730">CLAP</a> in <span style="color: green;">superscripts.</span>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light2">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-4">Solutions</h2> -->
+          <h2 class="title is-4">SWAT mitigates domain gap and imbalanced performance</h2>
+          <div class="content has-text-justified">
+            <img src="static/images/stage-wise_training.png" alt="comparison with SOTA."
+                style="height: auto; display: block; margin: 10px;">
+              <p>
+                Across different finetuning scenario in stage 1, SWAT effectively improves the recognition 
+                accuracy on both common and rare classes (least frequent 10%). The improvement on the rare 
+                classes is more significant than the common classes, confirming that SWAT mitigates the 
+                imbalanced learning. We mark the accuracy improvements over stage 1 model in
+                <span style="color: green;">superscripts.</span> and standard deviation across three different
+                runs in <span style="color: grey;">subscripts.</span>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-4">Solutions</h2> -->
+          <h2 class="title is-4">Ablation study on important components of SWAT</h2>
+          <div class="content has-text-justified">
+            <img src="static/images/ablation.png" alt="comparison with SOTA."
+                style="height: auto; display: block; margin: 10px;">
+              <p>
+                Compared to the SOTA adapter-based method <a href="https://arxiv.org/abs/2312.12730">CLAP</a>, 
+                finetuning the model on few-shot data results in 5% accuracy improvement, and adding retrieved 
+                data further improves the performance by 4%. Applying <a href="https://arxiv.org/abs/1905.04899">CutMix</a>
+                data augmentation provides additional 2% improvement. Finally,retraining the classifier on few-shot 
+                data in stage 2 leads to another 1% improvement. We mark the accuracy improvements of each component 
+                (relative to the corresponding row above) in <span style="color: green;">superscripts.</span>.
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section hero is-light2">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-4">Solutions</h2> -->
+          <h2 class="title is-4">Comparing efficiency between SWAT and adapter-based methods</h2>
+          <div class="content has-text-justified">
+            <img src="static/images/efficiency.png" alt="1" style="width: 400px; height: auto; display: block; margin: 0 auto;"/> 
+              <p>
+                We estimate the compute cost using Semi-Aves dataset (200 classes with 16 few-shot examples per class). 
+                All experiments are conducted on a single Quadro RTX 6000 (24GB) GPU with 50GB storage for hosting the
+                retrieved data for all five datasets. SWAT improves accuracy significantly by >10% over 
+                <a href="https://arxiv.org/abs/2312.12730">CLAP</a> with very affordable retrieval and training cost.
+                We mark the accuracy improvements over <a href="https://arxiv.org/abs/2312.12730">CLAP</a> in <span style="color: green;">superscripts.</span>              
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End Prompt Inversion -->
+
+  <!-- Acknowledgement -->
+
+
+  <!--BibTex citation -->
+  <section class="section hero is-light" id="BibTeX">
+    <div class="container is-max-desktop content ">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{parashar2024neglected,
+        title={The Neglected Tails of Vision-Language Models},
+        author={Parashar, Shubham and Lin, Zhiqiu and Liu, Tian and Dong, Xiangjue and Li, Yanan and Ramanan, Deva and Caverlee, James and Kong, Shu},
+        journal={arXiv preprint arXiv:2401.12425},
+        year={2024}
+      }</code></pre>
+
+      
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
