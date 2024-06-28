@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Few-Shot Recognition via Stage-Wise Augmented Finetuning</h1>
 
-[**Tian Liu**](https://tian1327.github.io/)<sup>1&dagger;</sup> · [**Huixin Zhang**](https://www.linkedin.com/in/huixin-zhang-a2670a229/)<sup>1</sup> · [**Shubham Parashar**](https://shubhamprshr27.github.io/)<sup>1</sup> · [**Shu Kong**](https://aimerykong.github.io/)<sup>12*</sup>
+[**Tian Liu**](https://tian1327.github.io/)<sup>1&dagger;</sup> · [**Huixin Zhang**](https://www.linkedin.com/in/huixin-zhang-a2670a229/)<sup>1</sup> · [**Shubham Parashar**](https://shubhamprshr27.github.io/)<sup>1</sup> · [**Shu Kong**](https://aimerykong.github.io/)<sup>1,2*</sup>
 
 <sup>1</sup>Texas A&M University&emsp;&emsp;&emsp;<sup>2</sup>University of Macau
 <br>
