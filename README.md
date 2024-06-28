@@ -20,7 +20,8 @@ Our work explores retrieval-augmented learning for few-shot recognition. We prop
 
 ## News
 
-- **2024-06-17:** arXiv paper released.
+- **2024-06-28:** [project page]() launched.
+- **2024-06-17:** [arXiv paper](https://arxiv.org/abs/2406.11148) released.
 
 
 <!-- ## Pre-trained Models
