@@ -8,7 +8,7 @@
 &dagger;project lead&emsp;*corresponding author
 
 <a href="https://arxiv.org/abs/2406.11148"><img src='https://img.shields.io/badge/arXiv-SWAT-red' alt='Paper PDF'></a>
-<a href='https://depth-anything-v2.github.io'><img src='https://img.shields.io/badge/Project_Page-SWAT-green' alt='Project Page'></a>
+<a href='https://tian1327.github.io/SWAT/'><img src='https://img.shields.io/badge/Project_Page-SWAT-green' alt='Project Page'></a>
 <!-- <a href='https://huggingface.co/spaces/depth-anything/Depth-Anything-V2'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'></a>
 <a href='https://huggingface.co/datasets/depth-anything/DA-2K'><img src='https://img.shields.io/badge/Benchmark-DA--2K-yellow' alt='Benchmark'></a> -->
 </div>
@@ -20,7 +20,7 @@ Our work explores retrieval-augmented learning for few-shot recognition. We prop
 
 ## News
 
-- **2024-06-28:** [project page]() launched.
+- **2024-06-28:** [project page](https://tian1327.github.io/SWAT/) launched.
 - **2024-06-17:** [arXiv paper](https://arxiv.org/abs/2406.11148) released.
 
 
