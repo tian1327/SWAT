@@ -13,7 +13,7 @@
 <a href='https://huggingface.co/datasets/depth-anything/DA-2K'><img src='https://img.shields.io/badge/Benchmark-DA--2K-yellow' alt='Benchmark'></a> -->
 </div>
 
-Our work explores retrieval-augmented learning for few-shot recognition. We propose a novel **Stage-Wise Augmented fineTuning (SWAT)** method to address the `domain gap` and `imbalanced distribution` of retrieved data, outperforming previous works by >10% in accuracy.
+Our work explores retrieval-augmented learning for few-shot recognition with Vision-Language Models (VLMs), retrieving relevant images from VLMs' pretraining set. We propose a novel **Stage-Wise Augmented fineTuning (SWAT)** method to address the `domain gap` and `imbalanced distribution` of retrieved data, outperforming previous methods by >10% in accuracy.
 
 
 ![teaser](assets/teaser_v7.png)
