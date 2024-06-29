@@ -111,7 +111,7 @@
             <!-- <h1><strong style="color: red; font-size: x-large;">CVPR 2024</strong></h1> -->
             <h2 class="subtitle has-text-centered">
               <!-- <b>tl;dr:</b> We explore retriaval-augmented learning for<br>few-shot recognition using Vision-Language Models</h2> -->
-              <b>tl;dr:</b> We adapt pretrained Vision-Language Models and retrieve relevant pretraining images to boost few-shot recognition performance</h2>
+              <b>tl;dr:</b> We adapt a pretrained Vision-Language Model and repurpose its pretraining data to boost few-shot recognition performance</h2>
 
           </div>
         </div>
@@ -210,7 +210,7 @@
               <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
                 Given a data annotation guideline consisting of few-shot images of downstream concepts, 
                 SWAT first retrieves relevant pretraining images from VLM's pretraining set (e.g. <a href="https://laion.ai/blog/laion-400-open-dataset/">LAION</a>), 
-                and then finetunes the VLM (e.g. <a href="https://github.com/mlfoundations/open_clip?tab=readme-ov-file">OpenCLIP</a>) in a stage-wise strategy:
+                and then finetunes the VLM (e.g. <a href="https://github.com/mlfoundations/open_clip?tab=readme-ov-file">OpenCLIP</a>) following a stage-wise strategy:
                 <ul>
                   <li>Stage 1: end-to-end finetuning on the mixed data of retrieved and few-shot images.</li>
                   <li>Stage 2: retraining the classifier solely on the few-shot images.</li>
@@ -239,9 +239,9 @@
               <img src="static/images/challenges.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
               <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
                 Left: we show that the retrieved data exhibits different visual patterns 
-                (styles, background, resolution, semantics, etc.) compared to the few-shot data.
+                (styles, backgrounds, resolutions, semantics, etc.) compared to the downstream few-shot data.
                 Right: the retrieved data follows an imbalanced distribution, where some classes
-                naturally less frequently appear in the Internet.
+                naturally appear less frequently on the Internet.
               </p>
             </div>
 
@@ -269,9 +269,9 @@
                 <!-- Compareing SWAT -->
                 Across five standard benchmark datasets, we show that:
                 <ul>
-                  <li><span style="color: green;">finetuning visual encoder</span> on few-shot data already outperforms previous methods</li>
-                  <li><span style="color: orange;">finetuning on retrieved data</span> merely outperforms zero-shot methods due to domain gap and imbalanced distribution</li>
-                  <li><span style="color: red;">SWAT</span> achieves the best performance, with > 10% accuracy improvements over previous methods</li>
+                  <li><span style="color: green;">finetuning visual encoder</span> on few-shot data already outperforms previous methods.</li>
+                  <li><span style="color: orange;">finetuning on retrieved data</span> merely outperforms zero-shot methods due to domain gap and imbalanced distribution.</li>
+                  <li><span style="color: red;">SWAT</span> achieves the best performance, with > 10% accuracy improvements over previous methods.</li>
               </p>
             </div>
 
@@ -298,7 +298,7 @@
                 Suprisingly, finetuning on few-shot data already outperforms previous zero-shot and few-shot methods,
                 without suffering from overfitting issue.
                 In addition, SWAT largely outperforms existing zero-shot and few-shot methods on standard benchmark datasets. 
-                We mark the accuracy improvements over <a href="https://arxiv.org/abs/2312.12730">CLAP</a> in <span style="color: green;">superscripts.</span>
+                We mark the accuracy improvements over <a href="https://arxiv.org/abs/2312.12730">CLAP</a> in <span style="color: green;">superscripts</span>.
               </p>
           </div>
         </div>
@@ -321,8 +321,8 @@
                 accuracy on both common and rare classes (least frequent 10%). The improvement on the rare 
                 classes is more significant than the common classes, confirming that SWAT mitigates the 
                 imbalanced learning. We mark the accuracy improvements over stage 1 model in
-                <span style="color: green;">superscripts.</span> and standard deviation across three different
-                runs in <span style="color: grey;">subscripts.</span>
+                <span style="color: green;">superscripts</span> and standard deviation across three different
+                runs in <span style="color: grey;">subscripts</span>.
               </p>
           </div>
         </div>
@@ -346,7 +346,7 @@
                 data further improves the performance by 4%. Applying <a href="https://arxiv.org/abs/1905.04899">CutMix</a>
                 data augmentation provides additional 2% improvement. Finally,retraining the classifier on few-shot 
                 data in stage 2 leads to another 1% improvement. We mark the accuracy improvements of each component 
-                (relative to the corresponding row above) in <span style="color: green;">superscripts.</span>.
+                (relative to the corresponding row above) in <span style="color: green;">superscripts</span>.
               </p>
           </div>
         </div>
@@ -369,7 +369,7 @@
                 All experiments are conducted on a single Quadro RTX 6000 (24GB) GPU with 50GB storage for hosting the
                 retrieved data for all five datasets. SWAT improves accuracy significantly by >10% over 
                 <a href="https://arxiv.org/abs/2312.12730">CLAP</a> with very affordable retrieval and training cost.
-                We mark the accuracy improvements over <a href="https://arxiv.org/abs/2312.12730">CLAP</a> in <span style="color: green;">superscripts.</span>              
+                We mark the accuracy improvements over <a href="https://arxiv.org/abs/2312.12730">CLAP</a> in <span style="color: green;">superscripts</span>.              
               </p>
           </div>
         </div>
@@ -386,13 +386,14 @@
   <section class="section hero is-light" id="BibTeX">
     <div class="container is-max-desktop content ">
       <h2 class="title">BibTeX</h2>
+      <p> If you find our work useful, please consider citing our papers:</p>
       <pre><code>@article{liu2024few,
           title={Few-Shot Recognition via Stage-Wise Augmented Finetuning},
           author={Liu, Tian and Zhang, Huixin and Parashar, Shubham and Kong, Shu},
           journal={arXiv preprint arXiv:2406.11148},
           year={2024}
       }</code></pre>
-      <pre><code>inproceedings{parashar2024neglected,
+      <pre><code>@inproceedings{parashar2024neglected,
         title={The Neglected Tails in Vision-Language Models},
         author={Parashar, Shubham and Lin, Zhiqiu and Liu, Tian and Dong, Xiangjue and Li, Yanan and Ramanan, Deva and Caverlee, James and Kong, Shu},
         booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
