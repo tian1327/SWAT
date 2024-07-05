@@ -25,119 +25,67 @@ To mitigate the problems of `domain gap` and `imbalanced distribution` of retrie
 - **2024-06-17:** [arXiv paper](https://arxiv.org/abs/2406.11148) released.
 
 
-<!-- ## Pre-trained Models
+<!-- ## Finetuned Models
 
-We provide **four models** of varying scales for robust relative depth estimation:
+We provide SWAT finetuned model (based on OpenCLIP ViT-B/32) for each dataset experimented in the paper:
 
-| Model | Params | Checkpoint |
-|:-|-:|:-:|
-| Depth-Anything-V2-Small | 24.8M | [Download](https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth?download=true) |
-| Depth-Anything-V2-Base | 97.5M | [Download](https://huggingface.co/depth-anything/Depth-Anything-V2-Base/resolve/main/depth_anything_v2_vitb.pth?download=true) |
-| Depth-Anything-V2-Large | 335.3M | [Download](https://huggingface.co/depth-anything/Depth-Anything-V2-Large/resolve/main/depth_anything_v2_vitl.pth?download=true) |
-| Depth-Anything-V2-Giant | 1.3B | Coming soon |
+| Dataset | Size | Checkpoint |
+|:-|:-|:-:|
+| Semi-Aves |  | [Download]() |
+| Flowers102 |  | [Download]() |
+| FGVC-Aircraft |  | [Download]() |
+| EuroSAT |  | [Download]() |
+| DTD |  | [Download]() | -->
+
 
 ## Usage
 
 ### Prepraration
-
+Create conda environment and install dependencies:
 ```bash
-git clone https://github.com/DepthAnything/Depth-Anything-V2
-cd Depth-Anything-V2
+git clone https://github.com/tian1327/SWAT.git 
+cd SWAT
+
+conda create -n swat python=3.8 -y
+conda activate swat
+
+conda install -y pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 torchmetrics -c pytorch
 pip install -r requirements.txt
 ```
 
-Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
+Prepare the datasets following the instructions in [dataset.md](./dataset.md).
 
-### Use our models
-```python
-import cv2
-import torch
+Retrieve relevant pretraining data following the instructions in [retrieval.md](./retrieval/retrieval.md).
 
-from depth_anything_v2.dpt import DepthAnythingV2
 
-model_configs = {
-    'vits': {'encoder': 'vits', 'features': 64, 'out_channels': [48, 96, 192, 384]},
-    'vitb': {'encoder': 'vitb', 'features': 128, 'out_channels': [96, 192, 384, 768]},
-    'vitl': {'encoder': 'vitl', 'features': 256, 'out_channels': [256, 512, 1024, 1024]},
-    'vitg': {'encoder': 'vitg', 'features': 384, 'out_channels': [1536, 1536, 1536, 1536]}
-}
-
-encoder = 'vitl' # or 'vits', 'vitb', 'vitg'
-
-model = DepthAnythingV2(**model_configs[encoder])
-model.load_state_dict(torch.load(f'checkpoints/depth_anything_v2_{encoder}.pth', map_location='cpu'))
-model.eval()
-
-raw_img = cv2.imread('your/image/path')
-depth = model.infer_image(raw_img) # HxW raw depth map in numpy
-```
-
-### Running script on *images*
+<!-- ### Test our model checkpoints
+Download the checkpoints listed [here](#finetuned-models) and put them under the `checkpoints` directory.
 
 ```bash
-python run.py \
-  --encoder <vits | vitb | vitl | vitg> \
-  --img-path <path> --outdir <outdir> \
-  [--input-size <size>] [--pred-only] [--grayscale]
-```
-Options:
-- `--img-path`: You can either 1) point it to an image directory storing all interested images, 2) point it to a single image, or 3) point it to a text file storing all image paths.
-- `--input-size` (optional): By default, we use input size `518` for model inference. ***You can increase the size for even more fine-grained results.***
-- `--pred-only` (optional): Only save the predicted depth map, without raw image.
-- `--grayscale` (optional): Save the grayscale depth map, without applying color palette.
+# coming soon
 
-For example:
+``` -->
+
+### Running SWAT
+
+You can run SWAT by either using the bash script or the python script.
+For example, using the bash script:
 ```bash
-python run.py --encoder vitl --img-path assets/examples --outdir depth_vis
+bash 
 ```
 
-### Running script on *videos*
-
+For example using the python `main.py` script with more fine-grained options:
 ```bash
-python run_video.py \
-  --encoder <vits | vitb | vitl | vitg> \
-  --video-path assets/examples_video --outdir video_depth_vis \
-  [--input-size <size>] [--pred-only] [--grayscale]
+
 ```
 
-***Our larger model has better temporal consistency on videos.***
 
+## Acknowledgement
+This code base is developed with some references on the following projects. We sincerely thanks the authors for open-sourcing their projects.
 
-### Gradio demo
-
-To use our gradio demo locally:
-
-```bash
-python app.py
-```
-
-You can also try our [online demo](https://huggingface.co/spaces/Depth-Anything/Depth-Anything-V2).
-
-***Note: Compared to V1, we have made a minor modification to the DINOv2-DPT architecture (originating from this [issue](https://github.com/LiheYoung/Depth-Anything/issues/81)).*** In V1, we *unintentionally* used features from the last four layers of DINOv2 for decoding. In V2, we use [intermediate features](https://github.com/DepthAnything/Depth-Anything-V2/blob/2cbc36a8ce2cec41d38ee51153f112e87c8e42d8/depth_anything_v2/dpt.py#L164-L169) instead. Although this modification did not improve details or accuracy, we decided to follow this common practice.
-
-
-
-## Fine-tuned to Metric Depth Estimation
-
-Please refer to [metric depth estimation](./metric_depth).
-
-
-## DA-2K Evaluation Benchmark
-
-Please refer to [DA-2K benchmark](./DA-2K.md).
-
-## Community Support
-
-**We sincerely appreciate all the community support for our Depth Anything series. Thank you a lot!**
-
-- TensorRT: https://github.com/spacewalk01/depth-anything-tensorrt
-- ComfyUI: https://github.com/kijai/ComfyUI-DepthAnythingV2
-- Transformers.js (real-time depth in web): https://huggingface.co/spaces/Xenova/webgpu-realtime-depth-estimation
-- Android:
-  - https://github.com/shubham0204/Depth-Anything-Android
-  - https://github.com/FeiGeChuanShu/ncnn-android-depth_anything -->
-
-
+- REAL: https://github.com/shubhamprshr27/NeglectedTailsVLM
+- Cross-modal few-shot adaptation: https://github.com/linzhiqiu/cross_modal_adaptation
+- OpenCLIP: https://github.com/mlfoundations/open_clip 
 
 ## Citation
 
