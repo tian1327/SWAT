@@ -2,7 +2,7 @@
 
 *The dataset download instruction is modified from official [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md).*
 
-We suggest putting all datasets under the same folder (say `$DATA`) to ease management and following the instructions below to organize datasets to avoid modifying the source code. The file structure looks like
+We suggest putting all datasets under the same folder (say `$DATA`) to ease management and following the instructions below to organize datasets to avoid modifying the source code. The file structure looks like:
 
 ```
 $DATA/
@@ -11,7 +11,16 @@ $DATA/
 |–– fgvc-aircraft/
 |–– eurosat/
 |–– dtd/
+
+$RETRIEVED/
+|–– semi-aves/
+|–– flowers102/
+|–– fgvc-aircraft/
+|–– eurosat/
+|–– dtd/
 ```
+
+Update the `config.yml` with the path to the datasets and retrieved data.
 
 If you have some datasets already installed somewhere else, you can create symbolic links in `$DATA/dataset_name` that point to the original data to avoid duplicate download.
 
