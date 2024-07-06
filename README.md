@@ -21,6 +21,7 @@ To mitigate the problems of `domain gap` and `imbalanced distribution` of retrie
 
 ## News
 
+- **2024-07-05:** SWAT finetuning code released.
 - **2024-06-28:** [project page](https://tian1327.github.io/SWAT/) launched.
 - **2024-06-17:** [arXiv paper](https://arxiv.org/abs/2406.11148) released.
 
@@ -104,7 +105,7 @@ python main.py --dataset semi-aves --method cutmix --data_source mixed --cls_ini
 
 
 ## Acknowledgment
-This code base is developed with some references on the following projects. We sincerely thanks the authors for open-sourcing their projects.
+This code base is developed with some references on the following projects. We sincerely thank the authors for open-sourcing their projects.
 
 - REAL: https://github.com/shubhamprshr27/NeglectedTailsVLM
 - Cross-modal few-shot adaptation: https://github.com/linzhiqiu/cross_modal_adaptation
