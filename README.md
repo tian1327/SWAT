@@ -1,11 +1,11 @@
 <div align="center">
 <h1>Few-Shot Recognition via Stage-Wise Augmented Finetuning</h1>
 
-[**Tian Liu**](https://tian1327.github.io/)<sup>1&dagger;</sup> · [**Huixin Zhang**](https://www.linkedin.com/in/huixin-zhang-a2670a229/)<sup>1</sup> · [**Shubham Parashar**](https://shubhamprshr27.github.io/)<sup>1</sup> · [**Shu Kong**](https://aimerykong.github.io/)<sup>1,2*</sup>
+[**Tian Liu**](https://tian1327.github.io/)<sup>1</sup> · [**Huixin Zhang**](https://www.linkedin.com/in/huixin-zhang-a2670a229/)<sup>1</sup> · [**Shubham Parashar**](https://shubhamprshr27.github.io/)<sup>1</sup> · [**Shu Kong**](https://aimerykong.github.io/)<sup>1,2</sup>
 
 <sup>1</sup>Texas A&M University&emsp;&emsp;&emsp;<sup>2</sup>University of Macau
 <br>
-&dagger;project lead&emsp;*corresponding author
+<!-- &dagger;project lead&emsp;*corresponding author -->
 
 <a href="https://arxiv.org/abs/2406.11148"><img src='https://img.shields.io/badge/arXiv-SWAT-red' alt='Paper PDF'></a>
 <a href='https://tian1327.github.io/SWAT/'><img src='https://img.shields.io/badge/Project_Page-SWAT-green' alt='Project Page'></a>
