@@ -54,7 +54,7 @@ gdown https://drive.google.com/uc?id=1BiEkIp8yuqB5Vau_ZAFAhwp8CNoqVjRk
 # unzip
 tar -xzf *.gz
 ```
-- The annotations are extracted from the [official annotation json files](https://github.com/cvl-umass/semi-inat-2020) and reformatted as `ltrain.txt`, `ltrain+val.txt`,`val.txt` and `test.txt` in the `data/semi-aves/` folder.
+- The annotations are extracted from the [official annotation json files](https://github.com/cvl-umass/semi-inat-2020). We have reformatted and provided to you as `ltrain.txt`, `ltrain+val.txt`,`val.txt` and `test.txt` in the `SWAT/data/semi-aves/` folder.
   
 The directory structure should look like:
 
