@@ -3,14 +3,21 @@
 # Define arrays of values for each parameter
 
 # methods=("mixup" "saliencymix" "CMO" "cutmix-fs" "resizemix" "CMLP" "probing" "finetune" "FLYP" "cutmix")
-methods=("finetune") # this is finetune on few-shot
-# methods=("cutmix") # this SWAT
+# methods=("finetune") # this is finetune on few-shot
+methods=("cutmix") # this SWAT
 
 
 
-# data_sources=("fewshot" "retrieved" "mixed" )
-data_sources=("fewshot")
+# data_sources=("fewshot" "retrieved" "mixed" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
+# data_sources=("fewshot")
 # data_sources=("mixed")
+# data_sources=("fewshot+unlabeled")
+data_sources=("fewshot+retrieved+unlabeled")
+
+
+# folder="test_finetune_on_fewshot"
+# folder="ft_fewshot+unlabeled_in"
+folder="swat_fewshot+retr+unlabeled_in"
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )
@@ -18,7 +25,7 @@ cls_inits=("REAL-Prompt")
 
 
 # shot_values=(4 8 16)
-shot_values=(4)
+shot_values=(16)
 
 
 # retrieval_splits=("T2T100+T2I0.25" "T2T300+T2I0.25" "T2T1000+T2I0.25" "T2T2000+T2I0.25")
@@ -27,6 +34,9 @@ shot_values=(4)
 # retrieval_splits=("T2T500+I2I0.65")
 retrieval_splits=("T2T500+T2I0.25")
 
+
+# unlabeled_in_splits=("u_train_in_oracle.txt" "u_train_in.txt")
+unlabeled_in_splits=("u_train_in_oracle.txt")
 
 
 # Check if command-line arguments were provided
@@ -47,8 +57,8 @@ batch_size=32
 # batch_size=256
 
 epochs=50
+# epochs=1 # for quick testing only
 
-folder="test_finetune_on_fewshot"
 
 model_cfg="vitb32_openclip_laion400m"
 # model_cfg="vitb16_openclip_laion400m"
@@ -56,7 +66,6 @@ model_cfg="vitb32_openclip_laion400m"
 
 # log_mode="file"
 log_mode="both"
-
 
 
 #------------------------------
@@ -89,8 +98,18 @@ for dataset in "${datasets[@]}"; do
                 for init in "${cls_inits[@]}"; do                
                     for seed in "${seeds[@]}"; do
                         for retrieval_split in "${retrieval_splits[@]}"; do
+                            for unlabeled_in_split in "${unlabeled_in_splits[@]}"; do
+                                echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split $unlabeled_in_split"
 
-                            # Run the script and capture the output
+                                # Run the script and capture the output
+                                output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --bsz "$batch_size" --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --unlabeled_in_split "$unlabeled_in_split" --model_cfg "$model_cfg" --folder "$output_folder")
+                                
+                                # Print the output to the console
+                                echo "$output"
+
+                                # Append the results to the CSV file
+                                echo "$output" >> "$output_file"
+                            done
 
                             # ablate retrieval size
                             # output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --log_mode file --retrieval_split "${retrieval_split}.txt" --prefix "$retrieval_split" --folder output_ablate_retrieval_size)
@@ -100,15 +119,6 @@ for dataset in "${datasets[@]}"; do
 
                             # run CMLP for different shots and seeds
                             # output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --log_mode file --pre_extracted True --recal_fea --model_cfg vitb16_openclip_laion400m --folder output_CMLP_vitb16_50eps)                        
-
-                            # run finetune/cutmix 
-                            output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --bsz "$batch_size" --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --model_cfg "$model_cfg" --folder "$output_folder")
-                            
-                            # Print the output to the console
-                            echo "$output"
-
-                            # Append the results to the CSV file
-                            echo "$output" >> "$output_file"
                         done
                     done
                 done

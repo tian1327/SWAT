@@ -2,9 +2,12 @@ results/
 output/
 backup/
 
-
-# data folder
+# pre extracted features
 pre_extracted/
+
+tian_log.md
+run.slurm
+slurm_log/
 
 
 tSNE/

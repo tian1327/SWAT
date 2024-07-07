@@ -36,11 +36,13 @@ def parse_args():
     parser.add_argument('--database', type=str, default='LAION400M', help='Database from which images are mined.')
 
     # training data
-    parser.add_argument('--data_source', type=str, default='fewshot', choices=['fewshot','retrieved','mixed', 'dataset-cls'], 
+    parser.add_argument('--data_source', type=str, default='fewshot', 
+                        choices=['fewshot', 'retrieved', 'mixed', 'dataset-cls', 'fewshot+unlabeled', 'fewshot+retrieved+unlabeled'], 
                         help='data source, mixed means fewshot+retrieved')
     parser.add_argument('--shots', type=int, default=16, help='number of shots for fewshot data')
     parser.add_argument('--fewshot_split', type=str, default='fewshotX.txt', help='fewshot file name.')
     parser.add_argument('--retrieval_split', type=str, default='T2T500+T2I0.25.txt', help='retrieval file name.')
+    parser.add_argument('--unlabeled_in_split', type=str, default='u_train_in_oracle.txt', help='unlabeled in domain data file name.')
     parser.add_argument('--val_split', type=str, default='fewshotX.txt', help='val file name.')
     parser.add_argument('--test_split', type=str, default='test.txt', help='test file name.')
     parser.add_argument('--seed', type=int, default=1, help='Random seeds for different splits.')
@@ -159,11 +161,22 @@ def parse_args():
 
     if args.data_source == 'fewshot':
         args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+    
     elif args.data_source == 'retrieved':
         args.train_split = [[args.retrieval_split], [os.path.join(args.retrieved_path, args.dataset)]]
+    
     elif args.data_source == 'mixed':
         args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split], 
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset)]]
+    
+    elif args.data_source == 'fewshot+unlabeled':
+        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_in_split], 
+                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
+
+    elif args.data_source == 'fewshot+retrieved+unlabeled':
+        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split, args.unlabeled_in_split], 
+                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
+
     elif args.data_source == 'dataset-cls':
         args.train_split = [['dataset_train.txt'], ['']] # note here the second element for the path is empty, just for dataset classification
         args.val_split = [['dataset_val.txt'], ['']]
