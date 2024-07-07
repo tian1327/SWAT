@@ -52,7 +52,7 @@ conda activate swat
 
 conda install -y pytorch torchvision torchaudio torchmetrics -c pytorch
 
-# need to instal the correct torchvision version
+# need to install the correct torchvision version
 pip3 install torchvision==0.15.2
 
 # install openclip module
@@ -85,7 +85,7 @@ Download the checkpoints listed [here](#finetuned-models) and put them under the
 
 ### Running SWAT
 
-You can run SWAT by using the bash script `run_dataset_seed.sh` (recommended) or the python `main.py` script.
+You can run SWAT by using either the bash script `run_dataset_seed.sh` (recommended) or the python `main.py` script.
 For example, using the bash script:
 ```bash
 # 1. update the options in run_dataset_seed.sh, this can be used to run a batch of experiments
@@ -99,6 +99,7 @@ For example using the python `main.py` script with more fine-grained controls:
 python main.py --dataset semi-aves --method finetune --data_source fewshot --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/test_finetune_on_fewshot
 
 # run SWAT on semi-aves dataset with 4-shot, seed 1
+# note that SWAT uses `--method cutmix` and `--data_source mixed`
 python main.py --dataset semi-aves --method cutmix --data_source mixed --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/test_swat
 
 ```
@@ -107,9 +108,9 @@ python main.py --dataset semi-aves --method cutmix --data_source mixed --cls_ini
 ## Acknowledgment
 This code base is developed with some references on the following projects. We sincerely thank the authors for open-sourcing their projects.
 
-- REAL: https://github.com/shubhamprshr27/NeglectedTailsVLM
-- Cross-modal few-shot adaptation: https://github.com/linzhiqiu/cross_modal_adaptation
-- OpenCLIP: https://github.com/mlfoundations/open_clip 
+- [REAL](https://github.com/shubhamprshr27/NeglectedTailsVLM)
+- [Cross-modal few-shot adaptation](https://github.com/linzhiqiu/cross_modal_adaptation)
+- [OpenCLIP](https://github.com/mlfoundations/open_clip)
 
 ## Citation
 

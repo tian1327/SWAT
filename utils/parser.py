@@ -153,20 +153,21 @@ def parse_args():
         args.bsz = int(args.bsz / 2)
     
     # adjust the train and val split based on shot, seed, data_source
-    args.fewshot_split = [f'fewshot{args.shots}_seed{args.seed}.txt']
-    args.val_split = [f'fewshot{args.shots}_seed{args.seed}.txt']
-    args.test_split = ['test.txt']
+    args.fewshot_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+    args.val_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+    args.test_split = [['test.txt'], [os.path.join(args.dataset_path, args.dataset)]]
 
     if args.data_source == 'fewshot':
-        args.train_split = [f'fewshot{args.shots}_seed{args.seed}.txt']
+        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
     elif args.data_source == 'retrieved':
-        args.train_split = [args.retrieval_split]
+        args.train_split = [[args.retrieval_split], [os.path.join(args.retrieved_path, args.dataset)]]
     elif args.data_source == 'mixed':
-        args.train_split = [f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split]
+        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split], 
+                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset)]]
     elif args.data_source == 'dataset-cls':
-        args.train_split = [f'dataset_train.txt']
-        args.val_split = [f'dataset_val.txt']
-        args.test_split = [f'dataset_test.txt']
+        args.train_split = [['dataset_train.txt'], ['']] # note here the second element for the path is empty, just for dataset classification
+        args.val_split = [['dataset_val.txt'], ['']]
+        args.test_split = [['dataset_test.txt'], ['']]
     else:
         raise NotImplementedError
 
@@ -175,7 +176,7 @@ def parse_args():
 
     # build cls_num_list
     args.dataset_root = f'data/{args.dataset}'
-    test_file = os.path.join(args.dataset_root, args.test_split[0])
+    test_file = os.path.join(args.dataset_root, args.test_split[0][0])
     cls_num_list = get_class_num_list(test_file)
     args.cls_num_list = cls_num_list
 

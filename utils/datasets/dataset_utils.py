@@ -133,10 +133,15 @@ class MyDataset(Dataset):
         self.dataset_root = pathlib.Path(dataset_root)
         self.loader = loader
 
+        file_list = split[0]
+        path_list = split[1]
+
         lines = []
-        for sp in split:
-            with open(os.path.join(self.dataset_root, sp), 'r') as f:
+        for file, path in zip(file_list, path_list):
+            with open(os.path.join(self.dataset_root, file), 'r') as f:
                 line = f.readlines()
+                # prepend the path to the each line !!!
+                line = [os.path.join(path, l) for l in line]
             lines.extend(line)
 
         self.data = []

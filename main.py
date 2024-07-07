@@ -74,6 +74,7 @@ def set_logger(args):
 
     return logger, loss_logger
 
+
 def set_model(args, logger):
 
     model, preprocess, tokenizer = get_engine(model_cfg=args.model_cfg, device=args.device)
