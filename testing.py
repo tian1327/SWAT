@@ -18,7 +18,7 @@ import json
 import open_clip
 from time import time
 import random
-from utils.datasets.dataset_utils import NUM_CLASSES_DICT, load_dataset, load_unlabeled_dataset, TensorDataset
+from utils.datasets.dataset_utils import NUM_CLASSES_DICT, load_dataset, TensorDataset
 from utils.prompt_templates import prompt_maker
 from utils.features import extract_test_feats
 

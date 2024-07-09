@@ -62,23 +62,22 @@ def load_dataset(dataset_root, split, preprocess, tokenized_text_prompts, pl_lis
     return dataset
 
 
-
-def load_unlabeled_dataset(dataset, dataset_root, preprocess, 
-                           tokenized_text_prompts, predict):
+# def load_unlabeled_dataset(dataset, dataset_root, preprocess, 
+#                            tokenized_text_prompts, predict):
     
-    if dataset == 'semi-inat-2021' or dataset == 'semi-aves':
-        u_train_dataset = iNatDataset(dataset_root,
-                                    split=predict,
-                                    task=dataset,
-                                    transform=preprocess,
-                                    return_text=True,
-                                    prompts=tokenized_text_prompts,
-                                    num_prompts = 1
-                                    )
-    else:
-        raise NotImplementedError
+#     if dataset == 'semi-inat-2021' or dataset == 'semi-aves':
+#         u_train_dataset = iNatDataset(dataset_root,
+#                                     split=predict,
+#                                     task=dataset,
+#                                     transform=preprocess,
+#                                     return_text=True,
+#                                     prompts=tokenized_text_prompts,
+#                                     num_prompts = 1
+#                                     )
+#     else:
+#         raise NotImplementedError
     
-    return u_train_dataset
+#     return u_train_dataset
 
 
 class SemiAvesDataset(Dataset):
@@ -178,6 +177,60 @@ class MyDataset(Dataset):
 
         return img, label, tokenized_text, source
     
+
+
+class MyUnlabeledDataset(Dataset):
+    def __init__(self, dataset_root, split, transform,
+                 loader=dataset_parser.default_loader):
+        
+        self.dataset_root = pathlib.Path(dataset_root)
+        self.loader = loader
+
+        file_list = split[0]
+        path_list = split[1]
+
+        lines = []
+        for file, path in zip(file_list, path_list):
+            with open(os.path.join(self.dataset_root, file), 'r') as f:
+                line = f.readlines()
+                # prepend the path to the each line !!!
+                line = [os.path.join(path, l) for l in line]
+            lines.extend(line)
+
+        self.data = []
+        self.labels = []
+        for line in lines:
+            path, id, is_fewshot = line.strip('\n').split(' ')
+            file_path = path
+            self.data.append((file_path, int(id), int(is_fewshot)))
+            self.labels.append(int(id))
+        
+        self.targets = self.labels  # Sampler needs to use targets
+
+        self.transform = transform
+        # print(f'# of images in {split}: {len(self.data)}')
+
+    def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, i):
+        
+        img = self.loader(self.data[i][0])
+        label = self.data[i][1]
+        source = self.data[i][2] # 0 for retrived data, 1 for fewshot data
+        # print(f'{self.data[i][0]}')
+        # print(f'label: {label}')
+        img = self.transform(img) # this will return weak aug and strong aug
+        tokenized_text = torch.zeros(1, 1).long() # dummy tokenized text
+        # print('img.shape:', img.shape)
+        # print type(img)
+        # print('type(img):', type(img))
+        # print('img:', img)
+        # print('done')
+
+        return img, label, tokenized_text, source
+    
+
 
 class TensorDataset(torch.utils.data.Dataset):
     def __init__(self, pre_extracted_path=None, device='cuda:0'):

@@ -5,6 +5,12 @@ import open_clip, clip
 import argparse
 import json
 import os
+from torchvision import transforms
+# import sys
+# sys.path.insert(0, './utils')
+# sys.path.insert(0, '.')
+
+from .randaugment import RandAugmentMC
 
 # linear probing 30 hard classes
 # aves_hard_classes = ['95', '60', '90', '94', '143', '169', '14', '30', '65', '76', '87', '132', '11', '80', '47', '78', '106', '123', '135', '171', '2', '29', '58', '62', '91', '100', '105', '139', '146', '44']
@@ -13,6 +19,7 @@ import os
 aves_hard_classes = ['90', '87', '42', '78', '146', '95', '139', '11', '30', '51', '58', '63', '76', '80', '94', '132', '143', '169', '14', '39', '62', '65', '123', '149', '71', '105', '131', '0', '2', '38']
 
 aves_hard_classes_set = set(aves_hard_classes)
+
 
 def str2bool(v):
     if isinstance(v, bool):
@@ -26,6 +33,32 @@ def str2bool(v):
 
 def _convert_image_to_rgb(image):
     return image.convert("RGB")
+
+
+class TransformFixMatch(object):
+    def __init__(self, n_px , mode='train'):
+        self.weak = transforms.Compose([
+            RandomResizedCrop(n_px, scale=(0.9, 1.0), ratio=(0.75, 1.3333),
+                              interpolation=Image.BICUBIC),
+            RandomHorizontalFlip(),
+            _convert_image_to_rgb])
+        
+        self.strong = transforms.Compose([
+            RandomResizedCrop(n_px, scale=(0.9, 1.0), ratio=(0.75, 1.3333),
+                              interpolation=Image.BICUBIC),
+            RandomHorizontalFlip(),
+            _convert_image_to_rgb,
+            RandAugmentMC(n=2, m=10)]) # add RandAugmentMC here for strong augmentation !!!
+        
+        self.normalize = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))])
+
+    def __call__(self, x):
+        weak = self.weak(x)
+        strong = self.strong(x)
+        return self.normalize(weak), self.normalize(strong)
+
 
 def transform(n_px , mode='train'):
     normalize = Normalize((0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711))

@@ -1,4 +1,4 @@
-import os
+import os, sys
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
@@ -10,11 +10,11 @@ from utils import features
 from utils.parser import parse_args
 from utils.logger import get_logger
 from utils.optimizers import get_optimizer
-from utils.extras import transform
+from utils.extras import transform, TransformFixMatch
 from testing import validate, validate_multitask, validate_dataset
 from testing import calculate_scores
 from utils.extras import get_engine#, cal_hard_avg_acc, cal_easy_avg_acc
-from utils.datasets.dataset_utils import NUM_CLASSES_DICT, load_dataset, TensorDataset, TextTensorDataset
+from utils.datasets.dataset_utils import NUM_CLASSES_DICT, load_dataset, TensorDataset, TextTensorDataset, MyUnlabeledDataset
 import random
 from utils.prompt_templates import prompt_maker
 from utils.optimizers import get_warmup_scheduler
@@ -235,6 +235,21 @@ def get_retrieve_fewshot_dataloader(args, retrieve_split, fewshot_split, tokeniz
     return train_dataloader_retr, train_dataloader_fewshot
 
 
+def get_unlabeled_dataloader(args, unlabeled_split):
+
+    u_train_dataset = MyUnlabeledDataset(dataset_root=args.dataset_root,
+                                        split=unlabeled_split, 
+                                        transform=TransformFixMatch(224, 'train'),
+                                        # transform=transform(224, 'train'), 
+                                        )
+
+    u_train_dataloader = DataLoader(u_train_dataset, batch_size=args.bsz*args.mu, 
+                            shuffle=True, drop_last=True, num_workers=args.num_workers)
+
+    return u_train_dataloader
+
+
+
 def pre_extract_feature(args, model, tokenized_text_prompts, preprocess):
 
     pre_extract_train_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_train_features.pth'
@@ -373,6 +388,7 @@ def set_dataloaders(args, model, tokenized_text_prompts, preprocess, logger):
     logger.info(f'len(val_loader): {len(val_loader)}')
     logger.info(f'len(test_loader): {len(test_loader)}')
     
+
     # for mixup-fs two dataloaders are needed, one for retreived data, one for few-shot data
     if args.method == 'mixup-fs' or args.method == 'finetune-mixed' or args.method == 'cutmix-fs':
         # train_dataloader_retrieve, train_dataloader_fewshot = get_retrieve_fewshot_dataloader(args, 'real_T2T500_T2I0.25.txt', 'fewshot15.txt',
@@ -383,7 +399,7 @@ def set_dataloaders(args, model, tokenized_text_prompts, preprocess, logger):
          
         # logger.info(f'len(train_dataloader_retrieve): {len(train_dataloader_retrieve)}')
         logger.info(f'len(train_dataloader_fewshot): {len(train_dataloader_fewshot)}')
-        train_loader = (train_loader, train_dataloader_fewshot)
+        train_loader = (train_loader, train_dataloader_fewshot) # overwrite train_loader
 
     elif args.method == 'CMO':
 
@@ -410,7 +426,13 @@ def set_dataloaders(args, model, tokenized_text_prompts, preprocess, logger):
                                             drop_last=True, 
                                             num_workers=args.num_workers, sampler=weighted_sampler)
         
-        train_loader = (train_loader, weighted_train_loader)    
+        train_loader = (train_loader, weighted_train_loader) # overwrite train_loader    
+
+    elif args.method == 'fixmatch':
+        u_train_dataloader = get_unlabeled_dataloader(args, args.u_train_split)                
+        logger.info(f'len(u_train_dataloader): {len(u_train_dataloader)}')
+        train_loader = (train_loader, u_train_dataloader) # overwrite train_loader     
+
 
     return train_loader, val_loader, test_loader
 
@@ -482,7 +504,7 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
         args.method == "mixup" or args.method == "mixup-fs" or \
         args.method == "cutmix" or args.method == "cutmix-fs" or args.method == "resizemix" or \
         args.method == "saliencymix" or args.method == "attentivemix" or \
-        args.method == "CMO":
+        args.method == "CMO" or args.method == "fixmatch":
 
         logger.info('Training the visual encoder and linear head.')
 
@@ -541,7 +563,11 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
 def set_optimizer(args, params, train_loader):
 
     optimizer = get_optimizer(params, optim_type=args.optim, wd=args.wd)
-    total_iter = len(train_loader) * args.epochs
+    # check if train_loader is tuple
+    if isinstance(train_loader, tuple):
+        total_iter = len(train_loader[-1]) * args.epochs # this is for various mixing methods
+    else:
+        total_iter = len(train_loader) * args.epochs
     base_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, total_iter, eta_min=1e-9)
     warmup_lr = 1e-5 if args.lr_backbone > 5e-5 else 1e-6
     scheduler = get_warmup_scheduler(optimizer=optimizer, scheduler=base_scheduler, warmup_iter=50, warmup_lr=warmup_lr)
@@ -1280,6 +1306,178 @@ def train_ce_mixed(args, logger, loss_logger, model, classifier_head, train_load
     logger.info(f'Best val Acc: {round(best_val_acc, 3)} at epoch {best_epoch}, iter {best_iter}')
 
     return best_model, best_head, best_records, best_logit_scale 
+
+
+
+def train_fixmatch(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader):
+    """ 
+    Train the model with fixmatch SSL method.
+    Part of the batch from labeled data, part from unlabeled data
+    """
+
+    train_dataloader, u_train_dataloader = train_loader
+    # print(f'train_dataloader: {len(train_dataloader)}')
+    # print(f'u_train_dataloader: {len(u_train_dataloader)}')
+    train_loader = iter(train_dataloader)
+    # u_train_loader = iter(u_train_dataloader)
+
+    logger.info(f"Start FixMatch Training ......")
+
+    model.eval() if args.freeze_visual else model.train()
+    classifier_head.train()
+
+    logit_scale = args.logit_scale
+    loss = args.loss
+    optimizer = args.optimizer
+    scheduler = args.scheduler
+    
+    val_loss = -1
+    val_acc = -1
+    test_acc = -1
+    best_val_acc = -1
+    best_epoch = -1
+    best_iter = -1
+    best_model = model
+    best_head = classifier_head
+    best_logit_scale = logit_scale
+    best_records = {}
+    num_iter = 0
+
+    for epoch in range(1, args.epochs+1):        
+        train_loss_sum = 0
+
+        for u_inputs, _, _, _ in u_train_dataloader: # get a batch of weakly augmented data and strongly augmented data
+
+            num_iter += 1
+            # print(f'len(u_inputs): {len(u_inputs)}')
+            # print type of u_inputs
+            # print(f'type(u_inputs): {type(u_inputs)}')
+            # print(f'u_inputs: {u_inputs}')
+            # print(f'num_iter: {num_iter}')
+            u_input_w, u_input_s = u_inputs
+            # print(f'u_input_w: {u_input_w.size()}, u_input_s: {u_input_s.size()}')
+
+            # load a batch of labeled data
+            try:
+                inputs, labels, text, source = next(train_loader)
+            except StopIteration:
+                train_loader = iter(train_dataloader)
+                inputs, labels, text, source = next(train_loader)
+
+            # concate the labeled data and unlabeled data
+            inputs_all = torch.cat([inputs, u_input_w, u_input_s], dim=0)
+
+            images = inputs_all.to(args.device)
+            labels = labels.to(args.device).long()
+             
+            image_features = model.encode_image(images)
+            image_feature = image_features / image_features.norm(dim=-1, keepdim=True)
+            
+            logits = classifier_head(image_feature)
+
+            # get the logits for labeled data
+            logits_l = logits[:inputs.size(0)]
+
+            # get the logits for weakly augmented data and strongly augmented data
+            logits_u_w, logits_u_s = logits[inputs.size(0):].chunk(2)
+
+            # calculate the loss for labeled data
+            loss_l = F.cross_entropy(logits_l, labels, reduction='mean')
+
+            # get the pseudo labels for weakly augmented data
+            # pseudo_labels_w = torch.softmax(logits_u_w * logit_scale.exp(), dim=-1)
+            pseudo_labels_w = torch.softmax(logits_u_w, dim=-1)
+
+
+            # get the max probability and prediction based on the pseudo_labels_w
+            max_probs_w, targets_u_w = torch.max(pseudo_labels_w, dim=-1)
+            mask_w = max_probs_w.ge(args.threshold).float()
+
+            # calculate the consistency loss
+            loss_u = (F.cross_entropy(logits_u_s, targets_u_w, reduction='none') * mask_w).mean()
+
+            # add up to the total loss
+            total_loss = loss_l + args.lambda_u * loss_u
+            
+            train_loss = total_loss.item()
+            train_loss_sum += train_loss             
+                
+            optimizer.zero_grad()
+            total_loss.backward()
+            optimizer.step()
+            scheduler.step() # update learning rate for each iteration
+        
+        # validate after 1 epoch
+        # if (args.early_stop and num_iter >= args.start_validation) or \
+        #     epoch == args.epochs:
+        if args.early_stop or epoch == args.epochs:            
+            val_acc, val_loss, confusion_matrix = validate(args, 
+                                                        #    data_loader=val_loader,
+                                                           data_loader=test_loader, # note that here i used test loader for validation                                                            
+                                                           model=model, logger=logger, 
+                                                        loss=args.loss, logit_scale=logit_scale,
+                                                        classifier_head=classifier_head, show_confusion_matrix=True,
+                                                        dataset=args.dataset, 
+                                                        output_dir=args.output_dir, device=args.device,
+                                                        pre_extracted=args.pre_extracted, 
+                                                        )
+            scores = calculate_scores(confusion_matrix)        
+                        
+        # check if val acc has improved, here i use the val_acc rather than val_loss,
+        # as we might modify the loss function for confusing pairs
+        if (args.early_stop or epoch == args.epochs) and val_acc >= best_val_acc:
+            # logger.info(f'Val Acc improved from {round(best_val_acc, 3)} to {round(val_acc, 3)}')
+            best_val_acc = val_acc
+            best_logit_scale = copy.deepcopy(logit_scale)
+            best_epoch = epoch
+            best_iter = num_iter
+            best_scores = copy.deepcopy(scores)
+            best_confusion_matrix = copy.deepcopy(confusion_matrix)
+            best_head = copy.deepcopy(classifier_head)
+            best_model = copy.deepcopy(model)
+
+            # save into the best_records
+            best_records['best_val_acc'] = best_val_acc
+            best_records['best_logit_scale'] = best_logit_scale
+            best_records['best_epoch'] = best_epoch
+            best_records['best_iter'] = best_iter
+            best_records['best_scores'] = best_scores
+            best_records['best_confusion_matrix'] = best_confusion_matrix
+
+        # test after 1 epoch
+        if args.early_stop or epoch == args.epochs:
+            test_acc, _, _ = validate(args,data_loader=test_loader, model=model, logger=logger, 
+                                loss=args.loss, logit_scale=logit_scale,
+                                classifier_head=classifier_head,
+                                dataset=args.dataset, 
+                                output_dir=args.output_dir, device=args.device,
+                                pre_extracted=args.pre_extracted, 
+                                )                
+        
+        train_loss_avg = train_loss_sum / len(train_loader)
+        loss_logger.write(f'{epoch},{num_iter},{round(train_loss_avg, 6)},{round(val_loss, 6)},{round(val_acc, 6)},{round(test_acc, 6)}\n')
+        loss_logger.flush()
+        logger.info(f"Epoch {int(epoch)}, Iter {num_iter}, Trn Loss: {round(train_loss_avg, 6)}, Val Loss: {round(val_loss, 6)}, Val Acc: {round(val_acc, 3)}, Test Acc: {round(test_acc, 3)}")          
+
+        ## save model checkpoints every X epochs
+        if args.save_ckpt and (num_iter % args.save_freq == 0 or epoch == args.epochs):            
+            model_path = save_model_ckpt(args, best_records,                    
+                                        model, classifier_head, optimizer, scheduler, logit_scale,
+                                         val_acc, epoch, num_iter)
+            logger.info(f'Model ckpt saved to: {model_path}')  
+
+        if epoch == args.stop_epochs:
+            break  
+    
+    logger.info(f'Training done.')
+    logger.info(f'Best val Acc: {round(best_val_acc, 3)} at epoch {best_epoch}, iter {best_iter}')
+
+    return best_model, best_head, best_records, best_logit_scale 
+
+
+
+
+
 
 def train_ce_multitask(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader, dataset_classifier_head):
     """ Train the model with Cross-Entropy Loss, finetuning visual encoder and classifier"""
@@ -3133,7 +3331,7 @@ def run_stage1_finetuning():
     text_dataloader = set_text_dataloader(args, prompt_tensors, prompt_tensors_dict) if args.method == 'CMLP' else None
     test_loader_copy = copy.deepcopy(test_loader)
 
-    loss = set_loss(args) # depend on method
+    loss = set_loss(args)
     params, logit_scale = set_params(args, model, classifier_head, logger) # depend on method
     optimizer, scheduler, total_iter = set_optimizer(args, params, train_loader)
     
@@ -3153,33 +3351,49 @@ def run_stage1_finetuning():
     #---------- Training
     if args.method == 'probing':         
         best_model, best_head, best_records, best_logit_scale, val_loader, test_loader = train_probing(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader, reload_model, text_dataloader)
+    
     elif args.method == 'dataset-cls':
         best_model, best_head, best_records, best_logit_scale = train_dataset(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)    
+    
     elif args.method == 'CMLP': # cross modal linear probing         
         best_model, best_head, best_records, best_logit_scale, val_loader, test_loader = train_CMLP(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader, False, text_dataloader)
+    
     elif args.method == 'finetune':
         best_model, best_head, best_records, best_logit_scale = train_ce(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)    
+    
     elif args.method == 'finetune-mixed': # half batch is retrieved, half batch is fewshot
-        best_model, best_head, best_records, best_logit_scale = train_ce_mixed(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)    
+        best_model, best_head, best_records, best_logit_scale = train_ce_mixed(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)
+
+    elif args.method == 'fixmatch': # bs is labeled, bs*mu is unlabeled
+        best_model, best_head, best_records, best_logit_scale = train_fixmatch(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)       
+
     elif args.method == 'finetune-multitask': # 1 backbone 2 output heads
         best_model, best_head, best_records, best_logit_scale = train_ce_multitask(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader, dataset_classifier_head)          
+    
     elif args.method == 'mixup': # random mixup
         best_model, best_head, best_records, best_logit_scale = train_mixup(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)
+    
     elif args.method == 'mixup-fs': # mix retrieved with few-shot
         best_model, best_head, best_records, best_logit_scale = train_mixup_fs(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)        
+    
     elif args.method == 'cutmix': # cutmix
         best_model, best_head, best_records, best_logit_scale = train_cutmix(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)  
+    
     elif args.method == 'cutmix-fs': # cutmix with few-shot data
         best_model, best_head, best_records, best_logit_scale = train_cutmix_fs(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)            
+    
     elif args.method == 'CMO': # CMO
         best_model, best_head, best_records, best_logit_scale = train_CMO(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)        
+    
     elif args.method == 'resizemix': # resizemix
         best_model, best_head, best_records, best_logit_scale = train_resizemix(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)            
+    
     elif args.method == 'saliencymix': # saliencymix
         #----- paper code, use first image saliency for entire batch
         # best_model, best_head, best_records, best_logit_scale = train_saliencymix(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)        
         #----- my code, use individual image saliency for each image in the batch
         best_model, best_head, best_records, best_logit_scale = train_saliencymix2(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)                    
+    
     elif args.method == 'attentivemix': # attentivemix
         # irregular binary mask
         # best_model, best_head, best_records, best_logit_scale = train_attentivemix(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)                
@@ -3196,6 +3410,7 @@ def run_stage1_finetuning():
                                                                                              train_loader, val_loader, test_loader)
     elif args.method == 'BalancedContrastive':
         best_model, best_head, best_records, best_logit_scale = train_balanced_contrastive(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)
+    
     else:
         raise NotImplementedError(f"Method {args.method} not implemented.")
 
@@ -3319,6 +3534,13 @@ def run_stage2_probing(stage1_best_model_path, test_loader):
 
     return test_acc, best_model_path
 
+def set_training_seed(args):
+
+    # set the seed for training
+    random.seed(args.training_seed)
+    torch.manual_seed(args.training_seed)
+    np.random.seed(args.training_seed)
+    torch.cuda.manual_seed_all(args.training_seed)  
 
 
 if __name__ == '__main__':
@@ -3326,11 +3548,7 @@ if __name__ == '__main__':
     program_start = time.time()
     args = parse_args()
     logger, loss_logger = set_logger(args)
-
-    # set the random seed
-    random.seed(args.training_seed)
-    torch.manual_seed(args.training_seed)
-    np.random.seed(args.training_seed)  
+    set_training_seed(args)
 
     # load model
     model, preprocess, tokenizer = set_model(args, logger)

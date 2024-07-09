@@ -33,6 +33,8 @@ def parse_args():
                         choices=['semi-inat-2021', 'semi-aves', 'flowers102', 'cub2011', 'imagenet_1k',
                                  'fgvc-aircraft','dtd','eurosat'], 
                         help='Dataset name.')
+    
+    # retrieval
     parser.add_argument('--database', type=str, default='LAION400M', help='Database from which images are mined.')
 
     # training data
@@ -42,7 +44,7 @@ def parse_args():
     parser.add_argument('--shots', type=int, default=16, help='number of shots for fewshot data')
     parser.add_argument('--fewshot_split', type=str, default='fewshotX.txt', help='fewshot file name.')
     parser.add_argument('--retrieval_split', type=str, default='T2T500+T2I0.25.txt', help='retrieval file name.')
-    parser.add_argument('--unlabeled_in_split', type=str, default='u_train_in_oracle.txt', help='unlabeled in domain data file name.')
+    parser.add_argument('--unlabeled_split', type=str, default='u_train_in_oracle.txt', help='unlabeled in domain data file name.')
     parser.add_argument('--val_split', type=str, default='fewshotX.txt', help='val file name.')
     parser.add_argument('--test_split', type=str, default='test.txt', help='test file name.')
     parser.add_argument('--seed', type=int, default=1, help='Random seeds for different splits.')
@@ -54,7 +56,7 @@ def parse_args():
                                                                             'mixup',  'mixup-fs', 'cutmix', 'cutmix-fs',
                                                                             'resizemix', 'dataset-cls',
                                                                             'saliencymix', 'attentivemix', 'CMO',
-                                                                            'FLYP'], 
+                                                                            'FLYP', 'fixmatch'], 
                         help='Method for training.')
     parser.add_argument('--cls_init', type=str, default='REAL-Prompt', choices=['random', 'text', 'REAL-Prompt', 'REAL-Linear'], 
                         help='Initialize the classifier head in different ways.')
@@ -78,6 +80,11 @@ def parse_args():
     
     # CMO
     parser.add_argument('--cmo_alpha', type=float, default=1.0, help='alpha for CMO weights scaling for minority classes.')
+
+    # fixmatch
+    parser.add_argument('--mu', type=int, default=1, help='number of times of the batch size for few-shot data.')
+    parser.add_argument('--threshold', type=float, default=0.95, help='confidence threshold to retain the pseudo-labels.')
+    parser.add_argument('--lambda_u', type=float, default=1.0, help='weight for the consistency loss.')
 
     # parser.add_argument('--resume_epochs', type=int, default=0, help='resume training from a checkpoint of kth epoch.')
     parser.add_argument('--check_zeroshot', action='store_true', help='check zeroshot acc.')
@@ -154,7 +161,8 @@ def parse_args():
     if args.method == 'CMLP' or args.method == 'finetune-mixed':
         args.bsz = int(args.bsz / 2)
     
-    # adjust the train and val split based on shot, seed, data_source
+ 
+    #---------- adjust the train and val split based on shot, seed, data_source
     args.fewshot_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
     args.val_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
     args.test_split = [['test.txt'], [os.path.join(args.dataset_path, args.dataset)]]
@@ -170,11 +178,11 @@ def parse_args():
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset)]]
     
     elif args.data_source == 'fewshot+unlabeled':
-        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_in_split], 
+        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split], 
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
 
     elif args.data_source == 'fewshot+retrieved+unlabeled':
-        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split, args.unlabeled_in_split], 
+        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split, args.unlabeled_split], 
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
 
     elif args.data_source == 'dataset-cls':
@@ -184,6 +192,18 @@ def parse_args():
     else:
         raise NotImplementedError
 
+    # adjust train_split for fixmatch
+    if args.method == 'fixmatch':
+        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], 
+                            [os.path.join(args.dataset_path, args.dataset)]]
+        
+        # note here, we add the labeled data to the unlabeled split based on the original implementation
+        args.u_train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split], 
+                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
+ 
+        # args.u_train_split = [[args.unlabeled_split], 
+        #                     [os.path.join(args.dataset_path, args.dataset)]]
+ 
     # adjust folder
     args.folder = f'{args.folder}/output_{args.dataset}'
 
