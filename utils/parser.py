@@ -196,14 +196,14 @@ def parse_args():
     elif args.data_source == 'ltrain+val+unlabeled':
         args.train_split = [[f'ltrain+val.txt', args.unlabeled_split], [os.path.join(args.dataset_path, args.dataset), 
                                                                         os.path.join(args.dataset_path, args.dataset)]]
-        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
         args.early_stop = True
     
     elif args.data_source == 'ltrain+val+unlabeled+retrieved':
         args.train_split = [[f'ltrain+val.txt', args.unlabeled_split, args.retrieval_split], 
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset), 
                              os.path.join(args.retrieved_path, args.dataset)]]
-        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
         args.early_stop = True
 
     elif args.data_source == 'dataset-cls':

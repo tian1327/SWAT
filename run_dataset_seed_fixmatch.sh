@@ -11,8 +11,10 @@ methods=("fixmatch")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 # data_sources=("fewshot")
 # data_sources=("fewshot+retrieved")
-data_sources=("fewshot+unlabeled")
+# data_sources=("fewshot+unlabeled")
 # data_sources=("fewshot+retrieved+unlabeled")
+data_sources=("ltrain+val+unlabeled")
+
 
 
 # folder="test_finetune_on_fewshot"
