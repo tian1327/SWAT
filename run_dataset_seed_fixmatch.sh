@@ -8,9 +8,9 @@
 methods=("fixmatch")
 
 
-# data_sources=("fewshot" "retrieved" "mixed" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
+# data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 # data_sources=("fewshot")
-# data_sources=("mixed")
+# data_sources=("fewshot+retrieved")
 data_sources=("fewshot+unlabeled")
 # data_sources=("fewshot+retrieved+unlabeled")
 

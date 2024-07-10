@@ -39,8 +39,10 @@ def parse_args():
 
     # training data
     parser.add_argument('--data_source', type=str, default='fewshot', 
-                        choices=['fewshot', 'retrieved', 'mixed', 'dataset-cls', 'fewshot+unlabeled', 'fewshot+retrieved+unlabeled'], 
-                        help='data source, mixed means fewshot+retrieved')
+                        choices=['fewshot', 'retrieved', 'fewshot+retrieved', 'dataset-cls', 'ltrain+val',
+                                 'ltrain+val+unlabeled', 'ltrain+val+unlabeled+retrieved',
+                                 'fewshot+unlabeled', 'fewshot+retrieved+unlabeled'], 
+                        help='training data source.')
     parser.add_argument('--shots', type=int, default=16, help='number of shots for fewshot data')
     parser.add_argument('--fewshot_split', type=str, default='fewshotX.txt', help='fewshot file name.')
     parser.add_argument('--retrieval_split', type=str, default='T2T500+T2I0.25.txt', help='retrieval file name.')
@@ -173,7 +175,7 @@ def parse_args():
     elif args.data_source == 'retrieved':
         args.train_split = [[args.retrieval_split], [os.path.join(args.retrieved_path, args.dataset)]]
     
-    elif args.data_source == 'mixed':
+    elif args.data_source == 'fewshot+retrieved':
         args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split], 
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset)]]
     
@@ -183,7 +185,26 @@ def parse_args():
 
     elif args.data_source == 'fewshot+retrieved+unlabeled':
         args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split, args.unlabeled_split], 
-                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
+                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset), 
+                             os.path.join(args.dataset_path, args.dataset)]]
+
+    elif args.data_source == 'ltrain+val':
+        args.train_split = [[f'ltrain+val.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
+        args.early_stop = True
+    
+    elif args.data_source == 'ltrain+val+unlabeled':
+        args.train_split = [[f'ltrain+val.txt', args.unlabeled_split], [os.path.join(args.dataset_path, args.dataset), 
+                                                                        os.path.join(args.dataset_path, args.dataset)]]
+        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+        args.early_stop = True
+    
+    elif args.data_source == 'ltrain+val+unlabeled+retrieved':
+        args.train_split = [[f'ltrain+val.txt', args.unlabeled_split, args.retrieval_split], 
+                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset), 
+                             os.path.join(args.retrieved_path, args.dataset)]]
+        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+        args.early_stop = True
 
     elif args.data_source == 'dataset-cls':
         args.train_split = [['dataset_train.txt'], ['']] # note here the second element for the path is empty, just for dataset classification
@@ -191,6 +212,7 @@ def parse_args():
         args.test_split = [['dataset_test.txt'], ['']]
     else:
         raise NotImplementedError
+
 
     # adjust train_split for fixmatch
     if args.method == 'fixmatch':

@@ -99,8 +99,8 @@ For example using the python `main.py` script with more fine-grained controls:
 python main.py --dataset semi-aves --method finetune --data_source fewshot --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/test_finetune_on_fewshot
 
 # run SWAT on semi-aves dataset with 4-shot, seed 1
-# note that SWAT uses `--method cutmix` and `--data_source mixed`
-python main.py --dataset semi-aves --method cutmix --data_source mixed --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/test_swat
+# note that SWAT uses `--method cutmix` and `--data_source fewshot+retrieved`
+python main.py --dataset semi-aves --method cutmix --data_source fewshot+retrieved --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/test_swat
 
 ```
 

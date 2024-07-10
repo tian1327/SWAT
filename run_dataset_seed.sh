@@ -3,21 +3,23 @@
 # Define arrays of values for each parameter
 
 # methods=("mixup" "saliencymix" "CMO" "cutmix-fs" "resizemix" "CMLP" "probing" "finetune" "FLYP" "cutmix")
-# methods=("finetune") # this is finetune on few-shot
+# methods=("finetune") # this is strandard finetune
 methods=("cutmix") # this SWAT
 
 
-
-# data_sources=("fewshot" "retrieved" "mixed" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
-# data_sources=("fewshot")
-# data_sources=("mixed")
+# data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
+data_sources=("fewshot")
+# data_sources=("fewshot+retrieved")
 # data_sources=("fewshot+unlabeled")
-data_sources=("fewshot+retrieved+unlabeled")
+# data_sources=("fewshot+retrieved+unlabeled")
+# data_sources=("ltrain+val+unlabeled")
+# data_sources=("ltrain+val+unlabeled+retrieved")
 
 
-# folder="test_finetune_on_fewshot"
+folder="finetune_on_fewshot_CutMix"
 # folder="ft_fewshot+unlabeled_in"
-folder="swat_fewshot+retr+unlabeled_in"
+# folder="swat_fewshot+retr+unlabeled_in"
+# folder="ft_ltrain+val+unlabeled_oracle+retrieved_noCutMix"
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )
@@ -35,11 +37,12 @@ shot_values=(16)
 retrieval_splits=("T2T500+T2I0.25")
 
 
-# unlabeled_in_splits=("u_train_in_oracle.txt" "u_train_in.txt")
-unlabeled_in_splits=("u_train_in_oracle.txt")
+# unlabeled_splits=("u_train_in_oracle.txt" "u_train_in.txt")
+unlabeled_splits=("u_train_in_oracle.txt")
 
 batch_size=32
 # batch_size=256
+
 
 epochs=50
 # epochs=1 # for quick testing only
@@ -97,11 +100,11 @@ for dataset in "${datasets[@]}"; do
                 for init in "${cls_inits[@]}"; do                
                     for seed in "${seeds[@]}"; do
                         for retrieval_split in "${retrieval_splits[@]}"; do
-                            for unlabeled_in_split in "${unlabeled_in_splits[@]}"; do
+                            for unlabeled_split in "${unlabeled_splits[@]}"; do
                                 echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split $unlabeled_in_split"
 
                                 # Run the script and capture the output
-                                output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --bsz "$batch_size" --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --unlabeled_in_split "$unlabeled_in_split" --model_cfg "$model_cfg" --folder "$output_folder")
+                                output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --bsz "$batch_size" --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --unlabeled_split "$unlabeled_split" --model_cfg "$model_cfg" --folder "$output_folder")
                                 
                                 # Print the output to the console
                                 echo "$output"
