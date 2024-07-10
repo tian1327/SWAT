@@ -216,13 +216,20 @@ def parse_args():
 
     # adjust train_split for fixmatch
     if args.method == 'fixmatch':
-        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], 
-                            [os.path.join(args.dataset_path, args.dataset)]]
+        # args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], 
+        #                     [os.path.join(args.dataset_path, args.dataset)]]
         
+        args.train_split = [[f'ltrain+val.txt'], 
+                            [os.path.join(args.dataset_path, args.dataset)]]
+
         # note here, we add the labeled data to the unlabeled split based on the original implementation
-        args.u_train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split], 
+        # args.u_train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split], 
+        #                     [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
+ 
+        args.u_train_split = [['ltrain+val.txt', args.unlabeled_split], 
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
  
+
         # args.u_train_split = [[args.unlabeled_split], 
         #                     [os.path.join(args.dataset_path, args.dataset)]]
  

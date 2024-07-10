@@ -18,9 +18,11 @@ data_sources=("ltrain+val+unlabeled")
 
 
 # folder="test_finetune_on_fewshot"
-# folder="ft_fewshot+unlabeled_in"
-# folder="swat_fewshot+retr+unlabeled_in"
-folder="fixmatch_fewshot+unlabeled_in_tau0.9"
+# folder="ft_fewshot+unlabeled"
+# folder="swat_fewshot+retr+unlabeled"
+# folder="fixmatch_fewshot+unlabeled_tau0.9"
+folder="fixmatch_ltrain+val+unlabeled_tau0.95"
+
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )
@@ -41,7 +43,6 @@ retrieval_splits=("T2T500+T2I0.25")
 # unlabeled_splits=("u_train_in_oracle.txt" "u_train_in.txt")
 # unlabeled_splits=("u_train_in_oracle.txt")
 unlabeled_splits=("u_train_in.txt")
-# unlabeled_splits=("u_train_in_10.txt")
 
 
 
@@ -49,9 +50,9 @@ batch_size=64
 # batch_size=1
 
 
-mu=6
+mu=5
 
-threshold=0.9
+threshold=0.95
 
 lambda_u=1.0
 

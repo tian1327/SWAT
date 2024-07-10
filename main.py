@@ -3461,8 +3461,8 @@ def run_stage1_finetuning():
     best_model_path = save_best_model(args, best_records,
                                     best_model, best_head, best_logit_scale,
                                     test_acc, best_tau, best_tau_test_acc, wsft_test_acc,
-                                    best_tau_head, wsft_backbone, wsft_head, stage=2)
-    logger.info(f'Stage 2 Best Model saved to: {best_model_path}')
+                                    best_tau_head, wsft_backbone, wsft_head, stage=1)
+    logger.info(f'Stage 1 Best Model saved to: {best_model_path}')
 
     return test_acc, best_model_path, test_loader_copy
 
@@ -3522,13 +3522,13 @@ def run_stage2_probing(stage1_best_model_path, test_loader):
                                                         )
     test_scores = calculate_scores(test_confusion_matrix)
     logger.info(f"+++++ stage 2 Test Acc: {round(test_acc, 3)}")
-    save_test_scores(test_scores, test_confusion_matrix, args.output_dir, 'test', stage=3)        
+    save_test_scores(test_scores, test_confusion_matrix, args.output_dir, 'test', stage=2)        
 
     #----------- save stage 2 best model
     best_model_path = save_best_model(args, best_records,
                                     best_model, best_head, logit_scale,
                                     test_acc, best_tau=None, best_tau_test_acc=-1, wsft_test_acc=-1,
-                                    best_tau_head=None, wsft_backbone=None, wsft_head=None, stage=3)
+                                    best_tau_head=None, wsft_backbone=None, wsft_head=None, stage=2)
     
     logger.info(f'stage 2 Best Model saved to: {best_model_path}')
 

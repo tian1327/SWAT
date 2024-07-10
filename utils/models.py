@@ -69,7 +69,7 @@ def save_model_ckpt(args, best_records, model, classifier_head, optimizer, sched
          
 def save_best_model(args, best_records, best_model, best_head, best_logit_scale,
                     test_acc, best_tau, best_tau_test_acc, wsft_test_acc,
-                    best_tau_head, wsft_backbone, wsft_head, stage=2):
+                    best_tau_head, wsft_backbone, wsft_head, stage=1):
     
     best_epoch = best_records['best_epoch']
     best_iter = best_records['best_iter']
@@ -106,7 +106,7 @@ def save_best_model(args, best_records, best_model, best_head, best_logit_scale,
     return model_path
 
 
-def save_test_scores(scores, confusion_matrix, output_dir, tag, stage=2):
+def save_test_scores(scores, confusion_matrix, output_dir, tag, stage=1):
 
     # save scores to a json file
     save_path = f'{output_dir}/stage{stage}_{tag}_scores.json'
