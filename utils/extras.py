@@ -21,6 +21,9 @@ aves_hard_classes = ['90', '87', '42', '78', '146', '95', '139', '11', '30', '51
 aves_hard_classes_set = set(aves_hard_classes)
 
 
+
+
+
 def str2bool(v):
     if isinstance(v, bool):
        return v

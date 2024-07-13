@@ -1,9 +1,7 @@
 import os
 import torch
-from PIL import Image
 import time
 import argparse
-import clip
 from utils.logger import get_logger
 from utils.extras import get_engine
 from torch.utils.data import DataLoader
@@ -13,14 +11,75 @@ from torchmetrics import ConfusionMatrix
 # from torchmetrics import Accuracy
 import numpy as np
 import pickle
-import copy
-import json
-import open_clip
 from time import time
 import random
 from utils.datasets.dataset_utils import NUM_CLASSES_DICT, load_dataset, TensorDataset
-from utils.prompt_templates import prompt_maker
+from utils.prompt import prompt_maker
 from utils.features import extract_test_feats
+
+
+def load_model(args, logger, model, test_loader=None, classifier_head=None):
+
+    logger.info(f'Loading model from: {args.model_path}')
+    ckpt = torch.load(args.model_path)
+
+    # for WSFT ensembled model
+    # model.load_state_dict(ckpt['wsft_backbone'])
+    # classifier_head.load_state_dict(ckpt['wsft_head'])
+
+    if 'clip' in ckpt: 
+        model.load_state_dict(ckpt['clip'])
+
+        classifier_head.load_state_dict(ckpt['head'])
+        # classifier_head.load_state_dict(ckpt['best_tau_head'])
+        # classifier_head.load_state_dict(ckpt['wsft_head'])
+
+        # file_path = 'output/FT-CE_fewshot15+real_t2t500-40eps_probing_semi-aves_vitb32_openclip_laion400m_c-name/best_tau_head_weights.pth'
+        # best_tau_head = torch.load(file_path)
+        # classifier_head.load_state_dict(best_tau_head)    
+
+        # print('ckpt[epoch]:', ckpt['epoch'])
+        # print('ckpt[num_iter]:', ckpt['num_iter'])
+        # print('ckpt[best_val_acc]:', round(ckpt['best_val_acc'], 3))
+        # print('ckpt[best_epoch]:', ckpt['best_epoch'])
+        # print('ckpt[best_iter]:', ckpt['best_iter'])
+        # print('ckpt[val_acc]:', round(ckpt['val_acc']), 3)
+        # print('ckpt[test_acc]:', ckpt['test_acc'])
+        logger.info(f'ckpt[test_acc]: {ckpt["test_acc"]}')
+        # print('ckpt[best_tau]:', ckpt['best_tau'])
+        # print('ckpt[best_tau_test_acc]:', ckpt['best_tau_test_acc'])
+        # print('ckpt[wsft_test_acc]:', ckpt['wsft_test_acc'])    
+
+    elif 'model' in ckpt: # for SuperContrastive ckpt
+        # model.load_state_dict(ckpt['model']) 
+        """
+        # Missing key(s) in state_dict: "positional_embedding", "text_projection", 
+        # "logit_scale", "token_embedding.weight", "ln_final.weight", "ln_final.bias". 
+        """
+
+        # load only the visual encoder weights, and keep others the same
+        model.load_state_dict(ckpt['model'], strict=False)
+        # here we initialize the classifier head with the zeroshot head weights
+        classifier_head = classifier_head
+        print('ckpt[epoch]:', ckpt['epoch'])
+    else:
+        print('ckpt.keys():', ckpt.keys())
+        classifier_head.load_state_dict(ckpt['best_tau_head'])
+        # raise ValueError('No model weights found in the checkpoint.')
+  
+    del ckpt
+
+    
+    if test_loader is not None:
+        model_test_acc, _, _ = validate(args, data_loader=test_loader, model=model, 
+                                        logger=logger,
+                                        loss=args.loss, logit_scale=args.logit_scale, 
+                                        classifier_head=classifier_head, 
+                                        dataset=args.dataset, 
+                                        device=args.device,
+                                        pre_extracted=args.pre_extracted, 
+                                        )
+        logger.info(f"Loaded Model Test Acc: {round(model_test_acc, 3)}")        
 
 
 def calculate_scores(confusion_matrix):

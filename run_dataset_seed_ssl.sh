@@ -2,25 +2,29 @@
 
 # Define arrays of values for each parameter
 
-# methods=("mixup" "saliencymix" "CMO" "cutmix-fs" "resizemix" "CMLP" "probing" "finetune" "FLYP" "cutmix")
-# methods=("finetune") # this is strandard finetune
-methods=("cutmix") # this SWAT
+# methods=("mixup" "saliencymix" "CMO" "cutmix-fs" "resizemix" "CMLP" "probing" "finetune" "FLYP" "cutmix" "fixmatch")
+methods=("finetune") # this is full model finetuning
+# methods=("cutmix") # this finetune with CutMix
+# methods=("fixmatch")
+
 
 
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
-data_sources=("fewshot")
+# data_sources=("fewshot")
 # data_sources=("fewshot+retrieved")
 # data_sources=("fewshot+unlabeled")
 # data_sources=("fewshot+retrieved+unlabeled")
+data_sources=("ltrain+val")
 # data_sources=("ltrain+val+unlabeled")
-# data_sources=("ltrain+val+unlabeled+retrieved")
 
 
-# folder="finetune_on_fewshot"
-folder="finetune_on_fewshot_CutMix"
-# folder="ft_fewshot+unlabeled_in"
-# folder="swat_fewshot+retr+unlabeled_in"
-# folder="ft_ltrain+val+unlabeled_oracle+retrieved_noCutMix"
+# folder="test_finetune_on_fewshot"
+# folder="ft_fewshot+unlabeled"
+# folder="swat_fewshot+retr+unlabeled"
+# folder="fixmatch_fewshot+unlabeled_tau0.9"
+# folder="fixmatch_ltrain+val+unlabeled_tau0.95"
+folder="inatpretrained_supervised_ltrain+val"
+
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )
@@ -28,8 +32,7 @@ cls_inits=("REAL-Prompt")
 
 
 # shot_values=(4 8 16)
-# shot_values=(16)
-shot_values=(4)
+shot_values=(16)
 
 
 # retrieval_splits=("T2T100+T2I0.25" "T2T300+T2I0.25" "T2T1000+T2I0.25" "T2T2000+T2I0.25")
@@ -40,14 +43,24 @@ retrieval_splits=("T2T500+T2I0.25")
 
 
 # unlabeled_splits=("u_train_in_oracle.txt" "u_train_in.txt")
-unlabeled_splits=("u_train_in_oracle.txt")
-
-batch_size=32
-# batch_size=256
+# unlabeled_splits=("u_train_in_oracle.txt")
+unlabeled_splits=("u_train_in.txt")
 
 
-# epochs=50
-epochs=1 # for quick testing only
+
+batch_size=64
+# batch_size=1
+
+
+mu=5
+
+threshold=0.95
+
+lambda_u=1.0
+
+# epochs=100
+epochs=50
+# epochs=1 # for quick testing only
 
 
 model_cfg="vitb32_openclip_laion400m"
@@ -106,7 +119,7 @@ for dataset in "${datasets[@]}"; do
                                 echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split $unlabeled_in_split"
 
                                 # Run the script and capture the output
-                                output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --bsz "$batch_size" --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --unlabeled_split "$unlabeled_split" --model_cfg "$model_cfg" --folder "$output_folder")
+                                output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --bsz "$batch_size" --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --unlabeled_split "$unlabeled_split" --mu "$mu" --threshold "$threshold" --lambda_u "$lambda_u" --model_cfg "$model_cfg" --folder "$output_folder" --early_stop True)
                                 
                                 # Print the output to the console
                                 echo "$output"
@@ -114,15 +127,6 @@ for dataset in "${datasets[@]}"; do
                                 # Append the results to the CSV file
                                 echo "$output" >> "$output_file"
                             done
-
-                            # ablate retrieval size
-                            # output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --log_mode file --retrieval_split "${retrieval_split}.txt" --prefix "$retrieval_split" --folder output_ablate_retrieval_size)
-                            
-                            # ablate the methods/MSDA
-                            # output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --log_mode file --retrieval_split "${retrieval_split}.txt" --folder output_ablate_MSDA)
-
-                            # run CMLP for different shots and seeds
-                            # output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --log_mode file --pre_extracted True --recal_fea --model_cfg vitb16_openclip_laion400m --folder output_CMLP_vitb16_50eps)                        
                         done
                     done
                 done

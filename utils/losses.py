@@ -6,6 +6,23 @@ import torch.nn.functional as F
 import numpy as np
 
 
+def set_loss(args):
+    if args.loss_name == 'CE':
+        loss = nn.CrossEntropyLoss()
+    elif args.loss_name == 'WeightedCE':
+        loss = WeightedCELoss(fewshot_weight=args.fewshot_weight)        
+    elif args.loss_name == 'Focal':
+        loss = FocalLoss(gamma=args.focal_gamma, alpha=args.focal_alpha)
+    elif args.loss_name == 'BalancedSoftmax':
+        loss = BalancedSoftmaxLoss(cls_num_list=args.cls_num_list)
+    else:
+        raise NotImplementedError(f'Loss {args.loss_name} not implemented.')
+
+    args.loss = loss
+
+    return loss
+
+
 class FocalLoss(nn.Module):
     def __init__(self, alpha=1, gamma=2, reduction='mean'):
         super().__init__()

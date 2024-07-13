@@ -3,6 +3,46 @@ from torch import nn
 import json
 import pickle
 from utils.features import prompt_sampler, get_text_features
+from utils.extras import get_engine#, cal_hard_avg_acc, cal_easy_avg_acc
+from utils.datasets.dataset_utils import NUM_CLASSES_DICT
+from utils import features
+
+
+def set_model(args, logger):
+
+    model, preprocess, tokenizer = get_engine(model_cfg=args.model_cfg, device=args.device)
+    logger.info(f'Loaded model: {args.model_cfg}')
+    # if torch.cuda.device_count() > 1:
+    #     model = torch.nn.DataParallel(model)
+
+    return model, preprocess, tokenizer
+
+
+
+def set_classifier(args, prompt_tensors, logger):
+
+    if args.method == "dataset-cls":
+        num_class = 2 # binary classification, retrieved 0 or fewshot 1
+        classifier_head = MyLinear(inp_dim=512, num_classes=num_class, bias=False)    
+        logger.info(f'Initialized classifier head with random weights. Num of classes: {num_class}')
+
+    elif args.cls_init == 'REAL-Prompt' or args.cls_init == 'REAL-Linear' or args.cls_init == 'text':
+        weights = features.prompt_sampler(prompt_tensors, sample_by='mean')
+        classifier_head = MyLinear(weights=weights)
+        logger.info(f'Initialized classifier head with text embedding. weights.shape: {weights.shape}')
+
+    elif args.cls_init == 'random':
+        num_class = NUM_CLASSES_DICT[args.dataset]
+        classifier_head = MyLinear(inp_dim=512, num_classes=num_class, bias=False)    
+        logger.info(f'Initialized classifier head with random weights. Num of classes: {num_class}')
+    else:
+        raise NotImplementedError(f'Classifier head {args.cls_init} not implemented.')
+
+    classifier_head.to(args.device)
+    
+    return classifier_head
+
+
 
 class MyLinear(nn.Module):
     def __init__(self, weights=None, inp_dim=512, num_classes=810, bias = False):
