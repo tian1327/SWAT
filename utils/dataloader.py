@@ -129,17 +129,17 @@ def get_dataloader(args, train_split, val_split, test_split, tokenized_text_prom
     return train_loader, val_loader, test_loader
 
 
-def get_retrieve_fewshot_dataloader(args, retrieve_split, fewshot_split, tokenized_text_prompts, preprocess, utrain_labels=None):
+def get_retrieve_fewshot_dataloader(args, retrieve_data, fewshot_data, tokenized_text_prompts, preprocess, utrain_labels=None):
 
     train_dataset_retr = load_dataset(dataset_root=args.dataset_root, 
-                                split=retrieve_split,                                                                                                       
+                                split=retrieve_data,                                                                                                       
                                 preprocess=transform(224, 'train'),
                                 tokenized_text_prompts=tokenized_text_prompts,
                                 pl_list=utrain_labels,
                                 )
 
     train_dataset_fs = load_dataset(dataset_root=args.dataset_root, 
-                                split=fewshot_split,                                                                                                       
+                                split=fewshot_data,                                                                                                       
                                 preprocess=transform(224, 'train'),
                                 tokenized_text_prompts=tokenized_text_prompts,
                                 pl_list=utrain_labels,
@@ -197,12 +197,14 @@ def set_dataloaders(args, model, tokenized_text_prompts, preprocess, logger):
 
     # for mixup-fs two dataloaders are needed, one for retreived data, one for few-shot data
     if args.method == 'mixup-fs' or args.method == 'finetune-mixed' or args.method == 'cutmix-fs':
-        _, train_dataloader_fewshot = get_retrieve_fewshot_dataloader(args, [args.retrieval_split], args.fewshot_split,
+        train_loader_retrieve, train_loader_fewshot = get_retrieve_fewshot_dataloader(args, args.retrieval_data, args.fewshot_data,
                                                                     tokenized_text_prompts, preprocess, utrain_labels)       
          
-        # logger.info(f'len(train_dataloader_retrieve): {len(train_dataloader_retrieve)}')
-        logger.info(f'len(train_dataloader_fewshot): {len(train_dataloader_fewshot)}')
-        train_loader = (train_loader, train_dataloader_fewshot) # overwrite train_loader
+        logger.info(f'len(train_loader_retrieve): {len(train_loader_retrieve)}')
+        logger.info(f'len(train_loader_fewshot): {len(train_loader_fewshot)}')
+        # train_loader = (train_loader_retrieve, train_loader_fewshot) # overwrite train_loader
+        train_loader = (train_loader, train_loader_fewshot) # overwrite train_loader
+
 
     elif args.method == 'CMO':
 

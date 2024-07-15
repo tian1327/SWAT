@@ -4,20 +4,23 @@
 
 # methods=("mixup" "saliencymix" "CMO" "cutmix-fs" "resizemix" "CMLP" "probing" "finetune" "FLYP" "cutmix")
 # methods=("finetune") # this is strandard finetune
-methods=("cutmix") # this SWAT
+# methods=("cutmix") # this SWAT
+methods=("cutmix-fs") # this SWAT
+
 
 
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
-data_sources=("fewshot")
-# data_sources=("fewshot+retrieved")
+# data_sources=("fewshot")
+data_sources=("fewshot+retrieved")
 # data_sources=("fewshot+unlabeled")
 # data_sources=("fewshot+retrieved+unlabeled")
 # data_sources=("ltrain+val+unlabeled")
 # data_sources=("ltrain+val+unlabeled+retrieved")
 
 
+folder="cutmix-fs_strict_batch_mix"
 # folder="finetune_on_fewshot"
-folder="finetune_on_fewshot_CutMix"
+# folder="finetune_on_fewshot_CutMix"
 # folder="ft_fewshot+unlabeled_in"
 # folder="swat_fewshot+retr+unlabeled_in"
 # folder="ft_ltrain+val+unlabeled_oracle+retrieved_noCutMix"
@@ -28,8 +31,8 @@ cls_inits=("REAL-Prompt")
 
 
 # shot_values=(4 8 16)
-# shot_values=(16)
-shot_values=(4)
+shot_values=(16)
+# shot_values=(4)
 
 
 # retrieval_splits=("T2T100+T2I0.25" "T2T300+T2I0.25" "T2T1000+T2I0.25" "T2T2000+T2I0.25")
@@ -46,8 +49,8 @@ batch_size=32
 # batch_size=256
 
 
-# epochs=50
-epochs=1 # for quick testing only
+epochs=50
+# epochs=1 # for quick testing only
 
 
 model_cfg="vitb32_openclip_laion400m"

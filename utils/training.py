@@ -1566,7 +1566,7 @@ def train_cutmix_fs(args, logger, loss_logger, model, classifier_head, train_loa
             images = inputs.to(args.device)
             labels = labels.to(args.device).long()
 
-            # get a batch of few-shot data, handle the case when the few-shot data is exhausted, just loop back
+            # get a batch of few-shot data, when the few-shot data is exhausted, just loop back
             try:
                 inputs_fs, labels_fs, text_fs, source_fs = next(train_loader_fs)
             except StopIteration:

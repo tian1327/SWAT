@@ -377,7 +377,7 @@ def run_stage2_probing(stage1_best_model_path, test_loader):
     new_fewshot_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_fewshot_features_new.pth'
     new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_test_features_new.pth'
     
-    train_loader = extract_train_dataloader(args, model, args.fewshot_split, new_fewshot_fea_path, 
+    train_loader = extract_train_dataloader(args, model, args.fewshot_data, new_fewshot_fea_path, 
                                             preprocess, tokenized_text_prompts, args.bsz)
     val_loader = train_loader 
     test_loader = extract_dataloader(args, model, args.test_split, new_test_fea_path,

@@ -44,7 +44,7 @@ def parse_args():
                                  'fewshot+unlabeled', 'fewshot+retrieved+unlabeled'], 
                         help='training data source.')
     parser.add_argument('--shots', type=int, default=16, help='number of shots for fewshot data')
-    parser.add_argument('--fewshot_split', type=str, default='fewshotX.txt', help='fewshot file name.')
+    # parser.add_argument('--fewshot_split', type=str, default='fewshotX.txt', help='fewshot file name.')
     parser.add_argument('--retrieval_split', type=str, default='T2T500+T2I0.25.txt', help='retrieval file name.')
     parser.add_argument('--unlabeled_split', type=str, default='u_train_in_oracle.txt', help='unlabeled in domain data file name.')
     parser.add_argument('--val_split', type=str, default='fewshotX.txt', help='val file name.')
@@ -165,7 +165,8 @@ def parse_args():
     
  
     #---------- adjust the train and val split based on shot, seed, data_source
-    args.fewshot_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+    args.fewshot_data = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+    args.retrieval_data = [[args.retrieval_split], [os.path.join(args.retrieved_path, args.dataset)]]
     args.val_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]
     args.test_split = [['test.txt'], [os.path.join(args.dataset_path, args.dataset)]]
 
@@ -232,7 +233,8 @@ def parse_args():
 
         # args.u_train_split = [[args.unlabeled_split], 
         #                     [os.path.join(args.dataset_path, args.dataset)]]
- 
+
+
     # adjust folder
     args.folder = f'{args.folder}/output_{args.dataset}'
 
