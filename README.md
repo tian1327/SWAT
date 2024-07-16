@@ -85,15 +85,20 @@ Download the checkpoints listed [here](#finetuned-models) and put them under the
 
 ### Running SWAT
 
-You can run SWAT by using either the bash script `run_dataset_seed.sh` (recommended) or the python `main.py` script.
-For example, using the bash script:
+You can run SWAT by using either the bash scripts `run_dataset_seed_xxx.sh` (recommended) or the python `main.py` script.
+For example, using the bash scripts:
 ```bash
-# 1. update the options in run_dataset_seed.sh, this can be used to run a batch of experiments
-# 2. run the bash script in command line
-bash run_dataset_seed.sh semi-aves 1
+# 1. check the options in run_dataset_seed_xxx.sh, this can be used to run a batch of experiments
+# 2. run the corresponding bash script in command line
+
+# finetune on few-shot
+bash run_dataset_seed_finetune_fewshot.sh semi-aves 1
+
+# swat
+bash run_dataset_seed_swat.sh semi-aves 1
 ```
 
-For example using the python `main.py` script with more fine-grained controls:
+For example using the python `main.py` script with more explicit fine-grained controls:
 ```bash
 # run finetune on few-shot on semi-aves dataset with 4-shot, seed 1
 python main.py --dataset semi-aves --method finetune --data_source fewshot --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/finetune_on_fewshot
@@ -103,7 +108,10 @@ python main.py --dataset semi-aves --method finetune --data_source fewshot --cls
 python main.py --dataset semi-aves --method cutmix --data_source fewshot+retrieved --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/swat
 
 ```
+The results of the experiments will be saved in the `result` directory. The detailed logs, models, and scores etc. will be saved in the `output` directory.
 
+### Running other baselines
+[to be updated]
 
 ## Acknowledgment
 This code base is developed with some references on the following projects. We sincerely thank the authors for open-sourcing their projects.

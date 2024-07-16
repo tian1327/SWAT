@@ -3,22 +3,20 @@
 # Define arrays of values for each parameter
 
 # methods=("mixup" "saliencymix" "CMO" "cutmix-fs" "resizemix" "CMLP" "probing" "finetune" "FLYP" "cutmix")
-# methods=("finetune") # this is strandard finetune
-# methods=("cutmix") # this SWAT
-methods=("cutmix-fs") # this SWAT
-
+methods=("finetune") # this is strandard finetune
 
 
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 # data_sources=("fewshot")
-data_sources=("fewshot+retrieved")
+# data_sources=("fewshot+retrieved")
 # data_sources=("fewshot+unlabeled")
 # data_sources=("fewshot+retrieved+unlabeled")
+data_sources=("ltrain")
 # data_sources=("ltrain+val+unlabeled")
 # data_sources=("ltrain+val+unlabeled+retrieved")
 
 
-folder="cutmix-fs_strict_batch_mix"
+folder="ft_ltrain"
 # folder="finetune_on_fewshot"
 # folder="finetune_on_fewshot_CutMix"
 # folder="ft_fewshot+unlabeled_in"
@@ -32,7 +30,6 @@ cls_inits=("REAL-Prompt")
 
 # shot_values=(4 8 16)
 shot_values=(16)
-# shot_values=(4)
 
 
 # retrieval_splits=("T2T100+T2I0.25" "T2T300+T2I0.25" "T2T1000+T2I0.25" "T2T2000+T2I0.25")

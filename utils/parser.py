@@ -39,8 +39,9 @@ def parse_args():
 
     # training data
     parser.add_argument('--data_source', type=str, default='fewshot', 
-                        choices=['fewshot', 'retrieved', 'fewshot+retrieved', 'dataset-cls', 'ltrain+val',
-                                 'ltrain+val+unlabeled', 'ltrain+val+unlabeled+retrieved',
+                        choices=['fewshot', 'retrieved', 'fewshot+retrieved', 'dataset-cls', 
+                                 'ltrain', 'ltrain+val', 'ltrain+val+unlabeled', 
+                                 'ltrain+val+unlabeled+retrieved',
                                  'fewshot+unlabeled', 'fewshot+retrieved+unlabeled'], 
                         help='training data source.')
     parser.add_argument('--shots', type=int, default=16, help='number of shots for fewshot data')
@@ -188,6 +189,11 @@ def parse_args():
         args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split, args.unlabeled_split], 
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset), 
                              os.path.join(args.dataset_path, args.dataset)]]
+
+    elif args.data_source == 'ltrain':
+        args.train_split = [[f'ltrain.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
+        args.early_stop = True
 
     elif args.data_source == 'ltrain+val':
         args.train_split = [[f'ltrain+val.txt'], [os.path.join(args.dataset_path, args.dataset)]]
