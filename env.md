@@ -1,3 +1,5 @@
+You can set up the environment by following the instructions below:
+
 ```bash
 git clone https://github.com/tian1327/SWAT.git 
 cd SWAT
