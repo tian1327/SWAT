@@ -73,7 +73,7 @@ bash run_dataset_seed_finetune_fewshot.sh semi-aves 1
 bash run_dataset_seed_swat.sh semi-aves 1
 ```
 
-For example using the python `main.py` script with more explicit fine-grained controls:
+For example, using the python `main.py` script with more explicit fine-grained controls:
 ```bash
 # run finetune on few-shot on semi-aves dataset with 4-shot, seed 1
 python main.py --dataset semi-aves --method finetune --data_source fewshot --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/finetune_on_fewshot
@@ -97,7 +97,7 @@ This code base is developed with some references on the following projects. We s
 
 ## Citation
 
-If you find this project useful, please consider citing:
+If you find our project useful, please consider citing:
 
 ```bibtex
 @article{liu2024few,
