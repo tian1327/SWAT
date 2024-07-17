@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Few-Shot Recognition via Stage-Wise Augmented Finetuning</h1>
+<h1>Few-Shot Recognition via Stage-Wise<br>Augmented Finetuning</h1>
 
 [**Tian Liu**](https://tian1327.github.io/)<sup>1</sup> · [**Huixin Zhang**](https://www.linkedin.com/in/huixin-zhang-a2670a229/)<sup>1</sup> · [**Shubham Parashar**](https://shubhamprshr27.github.io/)<sup>1</sup> · [**Shu Kong**](https://aimerykong.github.io/)<sup>1,2</sup>
 
@@ -62,7 +62,8 @@ Download the checkpoints listed [here](#finetuned-models) and put them under the
 You can run SWAT by using either the bash scripts `run_dataset_seed_xxx.sh` (recommended) or the python `main.py` script.
 For example, using the bash scripts:
 ```bash
-# 1. check the options in run_dataset_seed_xxx.sh, this can be used to run a batch of experiments
+# 1. check the options in run_dataset_seed_xxx.sh, 
+#    this can be used to run a batch of experiments.
 # 2. run the corresponding bash script in command line
 
 # finetune on few-shot

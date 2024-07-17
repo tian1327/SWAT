@@ -7,6 +7,7 @@ slurm_log/
 
 run_dataset_seed.sh
 run_dataset_seed_fixmatch.sh
+run_dataset_seed_ssl.sh
 
 tian_log.md
 run.slurm
