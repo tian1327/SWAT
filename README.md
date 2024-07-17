@@ -13,7 +13,7 @@
 <a href='https://huggingface.co/datasets/depth-anything/DA-2K'><img src='https://img.shields.io/badge/Benchmark-DA--2K-yellow' alt='Benchmark'></a> -->
 </div>
 
-Our work adapt a pretrained Vision-Language Model (VLM) and retrieve relevant pretraining images to boost few-shot recognition performance.
+Our work adapts a pretrained Vision-Language Model (VLM) and retrieves relevant pretraining images to boost few-shot recognition performance.
 To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved data, we propose a novel **Stage-Wise Augmented fineTuning (SWAT)** method, which outperforms previous few-shot recognition methods by >10% in accuracy.
 
 
@@ -42,33 +42,7 @@ We provide SWAT finetuned model (based on OpenCLIP ViT-B/32) for each dataset ex
 ## Usage
 
 ### Prepraration
-Create conda environment and install dependencies:
-```bash
-git clone https://github.com/tian1327/SWAT.git 
-cd SWAT
-
-conda create -n swat python=3.8 -y
-conda activate swat
-
-conda install -y pytorch torchvision torchaudio torchmetrics -c pytorch
-
-# need to install the correct torchvision version
-pip3 install torchvision==0.15.2
-
-# install openclip module
-pip install open_clip_torch
-
-# install OpenAI CLIP
-pip install git+https://github.com/openai/CLIP.git
-
-# for retrieving images from urls
-pip install img2dataset==1.2.0
-
-# for SaliencyMix
-pip3 uninstall opencv-python
-pip3 install opencv-contrib-python
-
-```
+Create conda environment and install dependencies following the instructions in [env.md](./env.md).
 
 Prepare the datasets following the instructions in [dataset.md](./dataset.md).
 

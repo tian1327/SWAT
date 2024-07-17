@@ -1,26 +1,25 @@
 results/
 output/
 backup/
-
 # pre extracted features
 pre_extracted/
+slurm_log/
+
+run_dataset_seed.sh
+run_dataset_seed_fixmatch.sh
 
 tian_log.md
 run.slurm
-slurm_log/
 
 
 tSNE/
 norm_weights/
 
 
-
 *.csv
 
 # plots
 *.png
-
-data/semi-aves/annotation_backup/
 
 
 # retrieval
@@ -46,11 +45,6 @@ slurm_log/
 *.gz
 
 # folders
-logging/
-output/
-output_zeroshot/
-output_stage2/
-output_stage3/
 !get_alternative_names/output/
 
 # model ckpts
@@ -58,16 +52,6 @@ output_stage3/
 
 *.pkl
 
-# ignore data/ folder
-data/semi-inat-2021/l_train
-data/semi-inat-2021/val
-data/semi-inat-2021/u_train
-data/semi-aves/test/
-data/semi-aves/trainval_images/
-data/semi-aves/u_train_in/
-data/semi-aves/u_train_out/
-
-data/imagenet_1k/val
 
 # Byte-compiled / optimized / DLL files
 *.pyc
