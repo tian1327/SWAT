@@ -6,7 +6,11 @@ from utils import features
 def get_prompts_tensors(args, model, tokenizer, logger):
 
     dataset_root = f'{args.retrieved_path}/{args.dataset}'
-    metric_fn = f'{dataset_root}/{args.dataset}_metrics-{args.database.upper()}.json' 
+    metric_fn = f'{dataset_root}/{args.dataset}_metrics-{args.database.upper()}.json'
+    if args.dataset == 'dtd_selected':
+        metric_fn = f'data/dtd_selected/{args.dataset}_metrics-{args.database.upper()}_new_idx.json'
+
+
     with open(metric_fn, 'r') as f:
         metrics = json.load(f)
     logger.info(f'Loaded metrics from: {metric_fn}')
@@ -370,6 +374,7 @@ TEMPLATES_DIC = {
     'oxford_pets': oxfordpets_templates,
     'imagenet_v2': imagenet_templates,
     'dtd': describabletextures_templates,
+    'dtd_selected': describabletextures_templates,
     'semi-aves': semi_aves_templates,
     'caltech101': caltech101_templates,
     'eurosat': eurosat_templates,

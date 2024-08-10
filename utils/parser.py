@@ -31,7 +31,9 @@ def parse_args():
     # dataset
     parser.add_argument('--dataset', type=str, default='semi-aves', 
                         choices=['semi-inat-2021', 'semi-aves', 'flowers102', 'cub2011', 'imagenet_1k',
-                                 'fgvc-aircraft','dtd','eurosat'], 
+                                 'fgvc-aircraft', 'dtd', 'eurosat',
+                                 'dtd_selected'
+                                 ], 
                         help='Dataset name.')
     
     # retrieval
@@ -163,7 +165,7 @@ def parse_args():
     
     if args.method == 'CMLP' or args.method == 'finetune-mixed':
         args.bsz = int(args.bsz / 2)
-    
+ 
  
     #---------- adjust the train and val split based on shot, seed, data_source
     args.fewshot_data = [[f'fewshot{args.shots}_seed{args.seed}.txt'], [os.path.join(args.dataset_path, args.dataset)]]

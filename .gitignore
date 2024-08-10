@@ -5,6 +5,8 @@ backup/
 pre_extracted/
 slurm_log/
 
+data/dtd_selected/
+
 run_dataset_seed.sh
 run_dataset_seed_fixmatch.sh
 run_dataset_seed_ssl.sh
