@@ -42,11 +42,11 @@ We provide SWAT finetuned model (based on OpenCLIP ViT-B/32) for each dataset ex
 ## Usage
 
 ### Prepraration
-Create conda environment and install dependencies following the instructions in [env.md](./env.md).
+Create conda environment and install dependencies following the instructions in [ENV.md](./ENV.md).
 
-Prepare the datasets following the instructions in [dataset.md](./dataset.md).
+Prepare the datasets following the instructions in [DATASETS.md](./DATASETS.md).
 
-Retrieve relevant pretraining data following the instructions in [retrieval.md](./retrieval/retrieval.md).
+Retrieve relevant pretraining data following the instructions in [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
 
 
 <!-- ### Test our model checkpoints

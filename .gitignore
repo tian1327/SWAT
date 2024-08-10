@@ -39,7 +39,7 @@ retrieval/dataset/semi-aves/
 # !retrieval/query_synonyms/output
 *.db
 */backup/
-*.tsv
+
 
 .DS_Store
 slurm_log/

@@ -1,0 +1,500 @@
+{
+    "0": {
+        "name": "banded",
+        "alternates": {
+            "banded": 26507,
+            "vertical striped": 4040
+        },
+        "most_common_name": "vertical striped",
+        "actual_freq": 30547,
+        "relevant_total": 17272,
+        "llama_relevance_ratio": 0.5654296875
+    },
+    "1": {
+        "name": "blotchy",
+        "alternates": {
+            "blotchy": 253,
+            "blotched": 552
+        },
+        "most_common_name": "blotched",
+        "actual_freq": 804,
+        "relevant_total": 208,
+        "llama_relevance_ratio": 0.25870646766169153
+    },
+    "2": {
+        "name": "braided",
+        "alternates": {
+            "braided": 144746
+        },
+        "most_common_name": "braided",
+        "actual_freq": 144746,
+        "relevant_total": 98947,
+        "llama_relevance_ratio": 0.68359375
+    },
+    "3": {
+        "name": "bubbly",
+        "alternates": {
+            "bubbly": 11500
+        },
+        "most_common_name": "bubbly",
+        "actual_freq": 11500,
+        "relevant_total": 2135,
+        "llama_relevance_ratio": 0.18566176470588236
+    },
+    "4": {
+        "name": "bumpy",
+        "alternates": {
+            "bumpy": 3557
+        },
+        "most_common_name": "bumpy",
+        "actual_freq": 3557,
+        "relevant_total": 2275,
+        "llama_relevance_ratio": 0.6396484375
+    },
+    "5": {
+        "name": "chequered",
+        "alternates": {
+            "chequered": 9258
+        },
+        "most_common_name": "chequered",
+        "actual_freq": 9258,
+        "relevant_total": 5614,
+        "llama_relevance_ratio": 0.6064453125
+    },
+    "6": {
+        "name": "cobwebbed",
+        "alternates": {
+            "cobwebbed": 26,
+            "spider web like": 15,
+            "spider web": 17750
+        },
+        "most_common_name": "spider web",
+        "actual_freq": 17775,
+        "relevant_total": 15032,
+        "llama_relevance_ratio": 0.845703125
+    },
+    "7": {
+        "name": "cracked",
+        "alternates": {
+            "cracked": 47099
+        },
+        "most_common_name": "cracked",
+        "actual_freq": 47099,
+        "relevant_total": 14258,
+        "llama_relevance_ratio": 0.302734375
+    },
+    "8": {
+        "name": "crosshatched",
+        "alternates": {
+            "crosshatched": 315,
+            "crosshatch": 12529
+        },
+        "most_common_name": "crosshatch",
+        "actual_freq": 12832,
+        "relevant_total": 11717,
+        "llama_relevance_ratio": 0.9130859375
+    },
+    "9": {
+        "name": "crystalline",
+        "alternates": {
+            "crystalline": 9098
+        },
+        "most_common_name": "crystalline",
+        "actual_freq": 9098,
+        "relevant_total": 3350,
+        "llama_relevance_ratio": 0.3681640625
+    },
+    "10": {
+        "name": "dotted",
+        "alternates": {
+            "dotted": 40639,
+            "dot": 458309
+        },
+        "most_common_name": "dot",
+        "actual_freq": 498232,
+        "relevant_total": 203866,
+        "llama_relevance_ratio": 0.4091796875
+    },
+    "11": {
+        "name": "fibrous",
+        "alternates": {
+            "fibrous": 965,
+            "fibre": 50634
+        },
+        "most_common_name": "fibre",
+        "actual_freq": 51587,
+        "relevant_total": 14106,
+        "llama_relevance_ratio": 0.2734375
+    },
+    "12": {
+        "name": "flecked",
+        "alternates": {
+            "flecked": 4406
+        },
+        "most_common_name": "flecked",
+        "actual_freq": 4406,
+        "relevant_total": 4260,
+        "llama_relevance_ratio": 0.966796875
+    },
+    "13": {
+        "name": "freckled",
+        "alternates": {
+            "freckled": 2225
+        },
+        "most_common_name": "freckled",
+        "actual_freq": 2225,
+        "relevant_total": 56,
+        "llama_relevance_ratio": 0.025168539325842697
+    },
+    "14": {
+        "name": "frilly",
+        "alternates": {
+            "frilly": 8089
+        },
+        "most_common_name": "frilly",
+        "actual_freq": 8089,
+        "relevant_total": 7836,
+        "llama_relevance_ratio": 0.96875
+    },
+    "15": {
+        "name": "gauzy",
+        "alternates": {
+            "gauzy": 1768
+        },
+        "most_common_name": "gauzy",
+        "actual_freq": 1768,
+        "relevant_total": 1727,
+        "llama_relevance_ratio": 0.9765625
+    },
+    "16": {
+        "name": "grid",
+        "alternates": {
+            "grid": 191248,
+            "grid texture": 426
+        },
+        "most_common_name": "grid",
+        "actual_freq": 191248,
+        "relevant_total": 43703,
+        "llama_relevance_ratio": 0.228515625
+    },
+    "17": {
+        "name": "grooved",
+        "alternates": {
+            "grooved": 10324
+        },
+        "most_common_name": "grooved",
+        "actual_freq": 10324,
+        "relevant_total": 8408,
+        "llama_relevance_ratio": 0.814453125
+    },
+    "18": {
+        "name": "honeycombed",
+        "alternates": {
+            "honeycombed": 136,
+            "honeycomb": 60721
+        },
+        "most_common_name": "honeycomb",
+        "actual_freq": 60855,
+        "relevant_total": 55982,
+        "llama_relevance_ratio": 0.919921875
+    },
+    "19": {
+        "name": "interlaced",
+        "alternates": {
+            "interlaced": 1958
+        },
+        "most_common_name": "interlaced",
+        "actual_freq": 1958,
+        "relevant_total": 1428,
+        "llama_relevance_ratio": 0.7294921875
+    },
+    "20": {
+        "name": "knitted",
+        "alternates": {
+            "knitted": 280492
+        },
+        "most_common_name": "knitted",
+        "actual_freq": 280492,
+        "relevant_total": 267070,
+        "llama_relevance_ratio": 0.9521484375
+    },
+    "21": {
+        "name": "lacelike",
+        "alternates": {
+            "lacelike texture.": 0,
+            "lace": 1590355,
+            "lacelike": 19
+        },
+        "most_common_name": "lace",
+        "actual_freq": 1590372,
+        "relevant_total": 1362067,
+        "llama_relevance_ratio": 0.8564453125
+    },
+    "22": {
+        "name": "lined",
+        "alternates": {
+            "sleek": 62666,
+            "grained": 10633,
+            "lined": 201931
+        },
+        "most_common_name": "lined",
+        "actual_freq": 275055,
+        "relevant_total": 185071,
+        "llama_relevance_ratio": 0.6728515625
+    },
+    "23": {
+        "name": "marbled",
+        "alternates": {
+            "glossy texture": 41,
+            "marbled texture": 50,
+            "marble": 363607,
+            "marbled": 20448
+        },
+        "most_common_name": "marble",
+        "actual_freq": 383647,
+        "relevant_total": 245025,
+        "llama_relevance_ratio": 0.638671875
+    },
+    "24": {
+        "name": "matted",
+        "alternates": {
+            "matted": 21609
+        },
+        "most_common_name": "matted",
+        "actual_freq": 21609,
+        "relevant_total": 4664,
+        "llama_relevance_ratio": 0.2158203125
+    },
+    "25": {
+        "name": "meshed",
+        "alternates": {
+            "mesh": 610838,
+            "meshed": 1368
+        },
+        "most_common_name": "mesh",
+        "actual_freq": 612179,
+        "relevant_total": 475276,
+        "llama_relevance_ratio": 0.7763671875
+    },
+    "26": {
+        "name": "paisley",
+        "alternates": {
+            "paisley": 145337
+        },
+        "most_common_name": "paisley",
+        "actual_freq": 145337,
+        "relevant_total": 125325,
+        "llama_relevance_ratio": 0.8623046875
+    },
+    "27": {
+        "name": "perforated",
+        "alternates": {
+            "perforated": 64256
+        },
+        "most_common_name": "perforated",
+        "actual_freq": 64256,
+        "relevant_total": 52271,
+        "llama_relevance_ratio": 0.8134765625
+    },
+    "28": {
+        "name": "pitted",
+        "alternates": {
+            "pitted": 3718
+        },
+        "most_common_name": "pitted",
+        "actual_freq": 3718,
+        "relevant_total": 1972,
+        "llama_relevance_ratio": 0.5302734375
+    },
+    "29": {
+        "name": "pleated",
+        "alternates": {
+            "pleated texture": 51,
+            "pleated": 230264
+        },
+        "most_common_name": "pleated",
+        "actual_freq": 230264,
+        "relevant_total": 198108,
+        "llama_relevance_ratio": 0.8603515625
+    },
+    "30": {
+        "name": "polka-dotted",
+        "alternates": {
+            "polka-dotted": 2892
+        },
+        "most_common_name": "polka-dotted",
+        "actual_freq": 2892,
+        "relevant_total": 2771,
+        "llama_relevance_ratio": 0.9580078125
+    },
+    "31": {
+        "name": "porous",
+        "alternates": {
+            "porous": 3866
+        },
+        "most_common_name": "porous",
+        "actual_freq": 3866,
+        "relevant_total": 1404,
+        "llama_relevance_ratio": 0.36328125
+    },
+    "32": {
+        "name": "potholed",
+        "alternates": {
+            "potholed": 55,
+            "pot-holed": 9,
+            "pot hole": 238,
+            "pothole": 2422
+        },
+        "most_common_name": "pothole",
+        "actual_freq": 2721,
+        "relevant_total": 91,
+        "llama_relevance_ratio": 0.033443586916574786
+    },
+    "33": {
+        "name": "scaly",
+        "alternates": {
+            "scaly": 1997,
+            "scaley": 138
+        },
+        "most_common_name": "scaly",
+        "actual_freq": 2132,
+        "relevant_total": 1378,
+        "llama_relevance_ratio": 0.646484375
+    },
+    "34": {
+        "name": "smeared",
+        "alternates": {
+            "smeared": 1802,
+            "gritty": 6565
+        },
+        "most_common_name": "gritty",
+        "actual_freq": 8367,
+        "relevant_total": 2272,
+        "llama_relevance_ratio": 0.271484375
+    },
+    "35": {
+        "name": "spiralled",
+        "alternates": {
+            "spiralled": 138,
+            "coiled": 10036
+        },
+        "most_common_name": "coiled",
+        "actual_freq": 10174,
+        "relevant_total": 4521,
+        "llama_relevance_ratio": 0.4443359375
+    },
+    "36": {
+        "name": "sprinkled",
+        "alternates": {
+            "sprinkled": 6869
+        },
+        "most_common_name": "sprinkled",
+        "actual_freq": 6869,
+        "relevant_total": 5279,
+        "llama_relevance_ratio": 0.7685546875
+    },
+    "37": {
+        "name": "stained",
+        "alternates": {
+            "stained": 146618,
+            "stain": 71937
+        },
+        "most_common_name": "stained",
+        "actual_freq": 217315,
+        "relevant_total": 22977,
+        "llama_relevance_ratio": 0.10572916666666667
+    },
+    "38": {
+        "name": "stratified",
+        "alternates": {
+            "stratified": 1175
+        },
+        "most_common_name": "stratified",
+        "actual_freq": 1175,
+        "relevant_total": 46,
+        "llama_relevance_ratio": 0.03914893617021276
+    },
+    "39": {
+        "name": "striped",
+        "alternates": {
+            "striped": 667824
+        },
+        "most_common_name": "striped",
+        "actual_freq": 667824,
+        "relevant_total": 569346,
+        "llama_relevance_ratio": 0.8525390625
+    },
+    "40": {
+        "name": "studded",
+        "alternates": {
+            "studded": 129617
+        },
+        "most_common_name": "studded",
+        "actual_freq": 129617,
+        "relevant_total": 112402,
+        "llama_relevance_ratio": 0.8671875
+    },
+    "41": {
+        "name": "swirly",
+        "alternates": {
+            "swirly": 12285
+        },
+        "most_common_name": "swirly",
+        "actual_freq": 12285,
+        "relevant_total": 9586,
+        "llama_relevance_ratio": 0.7802734375
+    },
+    "42": {
+        "name": "veined",
+        "alternates": {
+            "veined": 2729
+        },
+        "most_common_name": "veined",
+        "actual_freq": 2729,
+        "relevant_total": 1133,
+        "llama_relevance_ratio": 0.4150390625
+    },
+    "43": {
+        "name": "waffled",
+        "alternates": {
+            "waffled": 525
+        },
+        "most_common_name": "waffled",
+        "actual_freq": 525,
+        "relevant_total": 247,
+        "llama_relevance_ratio": 0.4704761904761905
+    },
+    "44": {
+        "name": "woven",
+        "alternates": {
+            "woven": 384313
+        },
+        "most_common_name": "woven",
+        "actual_freq": 384313,
+        "relevant_total": 331395,
+        "llama_relevance_ratio": 0.8623046875
+    },
+    "45": {
+        "name": "wrinkled",
+        "alternates": {
+            "wrinkled": 5248
+        },
+        "most_common_name": "wrinkled",
+        "actual_freq": 5248,
+        "relevant_total": 2568,
+        "llama_relevance_ratio": 0.4892578125
+    },
+    "46": {
+        "name": "zigzagged",
+        "alternates": {
+            "zigzagged": 58,
+            "zig-zagged": 35,
+            "zigzag": 34041,
+            "zig zag": 37785
+        },
+        "most_common_name": "zig zag",
+        "actual_freq": 71252,
+        "relevant_total": 38201,
+        "llama_relevance_ratio": 0.5361328125
+    }
+}

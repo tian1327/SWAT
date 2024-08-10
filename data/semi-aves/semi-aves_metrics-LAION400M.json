@@ -1,0 +1,1802 @@
+{
+    "0": {
+        "name": "Charadrius semipalmatus",
+        "alternates": {
+            "Charadrius semipalmatus": 37,
+            "Semipalmated Plover": 365
+        },
+        "most_common_name": "Semipalmated Plover",
+        "actual_freq": 365
+    },
+    "1": {
+        "name": "Tachycineta thalassina",
+        "alternates": {
+            "Tachycineta thalassina": 38,
+            "Violet-green Swallow": 225
+        },
+        "most_common_name": "Violet-green Swallow",
+        "actual_freq": 228
+    },
+    "2": {
+        "name": "Stelgidopteryx serripennis",
+        "alternates": {
+            "Stelgidopteryx serripennis": 19,
+            "Northern Rough-winged Swallow": 209
+        },
+        "most_common_name": "Northern Rough-winged Swallow",
+        "actual_freq": 209
+    },
+    "3": {
+        "name": "Cassiculus melanicterus",
+        "alternates": {
+            "Cassiculus melanicterus": 1,
+            "Black-chinned Honeyeater": 20
+        },
+        "most_common_name": "Black-chinned Honeyeater",
+        "actual_freq": 21
+    },
+    "4": {
+        "name": "Jacana spinosa",
+        "alternates": {
+            "Jacana spinosa": 46,
+            "Northern Jacana": 99
+        },
+        "most_common_name": "Northern Jacana",
+        "actual_freq": 104
+    },
+    "5": {
+        "name": "Haematopus bachmani",
+        "alternates": {
+            "Haematopus bachmani": 48,
+            "Black Oystercatcher": 602
+        },
+        "most_common_name": "Black Oystercatcher",
+        "actual_freq": 614
+    },
+    "6": {
+        "name": "Phoenicopterus ruber",
+        "alternates": {
+            "Phoenicopterus ruber": 626,
+            "American Flamingo": 879
+        },
+        "most_common_name": "American Flamingo",
+        "actual_freq": 1339
+    },
+    "7": {
+        "name": "Phoenicurus phoenicurus",
+        "alternates": {
+            "Phoenicurus phoenicurus": 79,
+            "Common Redstart": 176
+        },
+        "most_common_name": "Common Redstart",
+        "actual_freq": 204
+    },
+    "8": {
+        "name": "Pelecanus occidentalis",
+        "alternates": {
+            "Pelecanus occidentalis": 1537,
+            "Brown Pelican": 7215
+        },
+        "most_common_name": "Brown Pelican",
+        "actual_freq": 7495
+    },
+    "9": {
+        "name": "Archilochus alexandri",
+        "alternates": {
+            "Archilochus alexandri": 249,
+            "Black-chinned Hummingbird": 909
+        },
+        "most_common_name": "Black-chinned Hummingbird",
+        "actual_freq": 914
+    },
+    "10": {
+        "name": "Pelecanus conspicillatus",
+        "alternates": {
+            "Pelecanus conspicillatus": 47,
+            "Australian Pelican": 333
+        },
+        "most_common_name": "Australian Pelican",
+        "actual_freq": 343
+    },
+    "11": {
+        "name": "Falco tinnunculus",
+        "alternates": {
+            "Falco tinnunculus": 666,
+            "Common Kestrel": 1193
+        },
+        "most_common_name": "Common Kestrel",
+        "actual_freq": 1387
+    },
+    "12": {
+        "name": "Tachybaptus novaehollandiae",
+        "alternates": {
+            "Tachybaptus novaehollandiae": 9,
+            "Australasian Grebe": 21
+        },
+        "most_common_name": "Australasian Grebe",
+        "actual_freq": 23
+    },
+    "13": {
+        "name": "Petrochelidon pyrrhonota",
+        "alternates": {
+            "Petrochelidon pyrrhonota": 27,
+            "Cliff Swallow": 384
+        },
+        "most_common_name": "Cliff Swallow",
+        "actual_freq": 396
+    },
+    "14": {
+        "name": "Falco peregrinus",
+        "alternates": {
+            "Falco peregrinus": 368,
+            "Peregrine Falcon": 3707
+        },
+        "most_common_name": "Peregrine Falcon",
+        "actual_freq": 3763
+    },
+    "15": {
+        "name": "Oenanthe oenanthe",
+        "alternates": {
+            "Oenanthe oenanthe": 102,
+            "Northern Wheatear": 399
+        },
+        "most_common_name": "Northern Wheatear",
+        "actual_freq": 441
+    },
+    "16": {
+        "name": "Calidris pusilla",
+        "alternates": {
+            "Calidris pusilla": 31,
+            "Semipalmated Sandpiper": 229
+        },
+        "most_common_name": "Semipalmated Sandpiper",
+        "actual_freq": 233
+    },
+    "17": {
+        "name": "Calidris alpina",
+        "alternates": {
+            "Calidris alpina": 298,
+            "Dunlin": 1246
+        },
+        "most_common_name": "Dunlin",
+        "actual_freq": 1309
+    },
+    "18": {
+        "name": "Streptopelia chinensis",
+        "alternates": {
+            "Streptopelia chinensis": 59,
+            "Spotted Dove": 251
+        },
+        "most_common_name": "Spotted Dove",
+        "actual_freq": 255
+    },
+    "19": {
+        "name": "Limosa fedoa",
+        "alternates": {
+            "Limosa fedoa": 85,
+            "Marbled Godwit": 406
+        },
+        "most_common_name": "Marbled Godwit",
+        "actual_freq": 429
+    },
+    "20": {
+        "name": "Anthochaera carunculata",
+        "alternates": {
+            "Anthochaera carunculata": 22,
+            "Red Wattlebird": 137
+        },
+        "most_common_name": "Red Wattlebird",
+        "actual_freq": 140
+    },
+    "21": {
+        "name": "Columba livia",
+        "alternates": {
+            "Columba livia": 233,
+            "Rock Pigeon": 305
+        },
+        "most_common_name": "Rock Pigeon",
+        "actual_freq": 477
+    },
+    "22": {
+        "name": "Phalaropus lobatus",
+        "alternates": {
+            "Phalaropus lobatus": 66,
+            "Red-necked Phalarope": 241
+        },
+        "most_common_name": "Red-necked Phalarope",
+        "actual_freq": 263
+    },
+    "23": {
+        "name": "Thalasseus sandvicensis",
+        "alternates": {
+            "Thalasseus sandvicensis": 44,
+            "Sandwich Tern": 374
+        },
+        "most_common_name": "Sandwich Tern",
+        "actual_freq": 376
+    },
+    "24": {
+        "name": "Larus canus",
+        "alternates": {
+            "Larus canus": 170,
+            "Mew Gull": 214
+        },
+        "most_common_name": "Mew Gull",
+        "actual_freq": 342
+    },
+    "25": {
+        "name": "Motacilla cinerea",
+        "alternates": {
+            "Motacilla cinerea": 70,
+            "Grey Wagtail": 339
+        },
+        "most_common_name": "Grey Wagtail",
+        "actual_freq": 345
+    },
+    "26": {
+        "name": "Aechmophorus occidentalis",
+        "alternates": {
+            "Aechmophorus occidentalis": 228,
+            "Western Grebe": 490
+        },
+        "most_common_name": "Western Grebe",
+        "actual_freq": 585
+    },
+    "27": {
+        "name": "Larus glaucescens",
+        "alternates": {
+            "Larus glaucescens": 97,
+            "Glaucous-winged Gull": 377
+        },
+        "most_common_name": "Glaucous-winged Gull",
+        "actual_freq": 380
+    },
+    "28": {
+        "name": "Dendrocopos major",
+        "alternates": {
+            "Dendrocopos major": 424,
+            "Great Spotted Woodpecker": 1516
+        },
+        "most_common_name": "Great Spotted Woodpecker",
+        "actual_freq": 1549
+    },
+    "29": {
+        "name": "Rissa tridactyla",
+        "alternates": {
+            "Rissa tridactyla": 187,
+            "Black-legged Kittiwake": 653
+        },
+        "most_common_name": "Black-legged Kittiwake",
+        "actual_freq": 732
+    },
+    "30": {
+        "name": "Molothrus aeneus",
+        "alternates": {
+            "Molothrus aeneus": 23,
+            "Bronzed Cowbird": 38
+        },
+        "most_common_name": "Bronzed Cowbird",
+        "actual_freq": 39
+    },
+    "31": {
+        "name": "Entomyzon cyanotis",
+        "alternates": {
+            "Entomyzon cyanotis": 63,
+            "Blue-faced Honeyeater": 290
+        },
+        "most_common_name": "Blue-faced Honeyeater",
+        "actual_freq": 290
+    },
+    "32": {
+        "name": "Alopochen aegyptiaca",
+        "alternates": {
+            "Alopochen aegyptiaca": 38,
+            "Egyptian Goose": 739
+        },
+        "most_common_name": "Egyptian Goose",
+        "actual_freq": 743
+    },
+    "33": {
+        "name": "Lonchura punctulata",
+        "alternates": {
+            "Lonchura punctulata": 33,
+            "Scaly-breasted Munia": 225
+        },
+        "most_common_name": "Scaly-breasted Munia",
+        "actual_freq": 233
+    },
+    "34": {
+        "name": "Anas platyrhynchos",
+        "alternates": {
+            "Anas platyrhynchos": 1044,
+            "Mallard": 19060
+        },
+        "most_common_name": "Mallard",
+        "actual_freq": 19258
+    },
+    "35": {
+        "name": "Aythya australis",
+        "alternates": {
+            "Aythya australis": 3,
+            "Hardhead": 127
+        },
+        "most_common_name": "Hardhead",
+        "actual_freq": 128
+    },
+    "36": {
+        "name": "Dicrurus macrocercus",
+        "alternates": {
+            "Dicrurus macrocercus": 25,
+            "Black Drongo": 124
+        },
+        "most_common_name": "Black Drongo",
+        "actual_freq": 127
+    },
+    "37": {
+        "name": "Anser albifrons",
+        "alternates": {
+            "Anser albifrons": 194,
+            "Greater White-fronted Goose": 365
+        },
+        "most_common_name": "Greater White-fronted Goose",
+        "actual_freq": 457
+    },
+    "38": {
+        "name": "Buteo regalis",
+        "alternates": {
+            "Buteo regalis": 117,
+            "Ferruginous Hawk": 1106
+        },
+        "most_common_name": "Ferruginous Hawk",
+        "actual_freq": 1125
+    },
+    "39": {
+        "name": "Haliaeetus leucocephalus",
+        "alternates": {
+            "Haliaeetus leucocephalus": 2571,
+            "Bald Eagle": 41224
+        },
+        "most_common_name": "Bald Eagle",
+        "actual_freq": 41593
+    },
+    "40": {
+        "name": "Morus bassanus",
+        "alternates": {
+            "Morus bassanus": 424,
+            "Northern Gannet": 996
+        },
+        "most_common_name": "Northern Gannet",
+        "actual_freq": 1166
+    },
+    "41": {
+        "name": "Certhia familiaris",
+        "alternates": {
+            "Certhia familiaris": 42,
+            "Eurasian Treecreeper": 12
+        },
+        "most_common_name": "Certhia familiaris",
+        "actual_freq": 52
+    },
+    "42": {
+        "name": "Rostrhamus sociabilis",
+        "alternates": {
+            "Rostrhamus sociabilis": 33,
+            "Snail Kite": 319
+        },
+        "most_common_name": "Snail Kite",
+        "actual_freq": 319
+    },
+    "43": {
+        "name": "Cracticus torquatus",
+        "alternates": {
+            "Cracticus torquatus": 25,
+            "Grey Butcherbird": 106
+        },
+        "most_common_name": "Grey Butcherbird",
+        "actual_freq": 108
+    },
+    "44": {
+        "name": "Passerina amoena",
+        "alternates": {
+            "Passerina amoena": 33,
+            "Lazuli Bunting": 109
+        },
+        "most_common_name": "Lazuli Bunting",
+        "actual_freq": 109
+    },
+    "45": {
+        "name": "Aythya fuligula",
+        "alternates": {
+            "Aythya fuligula": 179,
+            "Tufted Duck": 741
+        },
+        "most_common_name": "Tufted Duck",
+        "actual_freq": 750
+    },
+    "46": {
+        "name": "Chondestes grammacus",
+        "alternates": {
+            "Chondestes grammacus": 8,
+            "Lark Sparrow": 220
+        },
+        "most_common_name": "Lark Sparrow",
+        "actual_freq": 220
+    },
+    "47": {
+        "name": "Fulica atra",
+        "alternates": {
+            "Fulica atra": 245,
+            "Eurasian Coot": 162
+        },
+        "most_common_name": "Fulica atra",
+        "actual_freq": 351
+    },
+    "48": {
+        "name": "Mergus merganser",
+        "alternates": {
+            "Mergus merganser": 172,
+            "Common Merganser": 748
+        },
+        "most_common_name": "Common Merganser",
+        "actual_freq": 856
+    },
+    "49": {
+        "name": "Egretta thula",
+        "alternates": {
+            "Egretta thula": 526,
+            "Snowy Egret": 4568
+        },
+        "most_common_name": "Snowy Egret",
+        "actual_freq": 4614
+    },
+    "50": {
+        "name": "Pyrrhula pyrrhula",
+        "alternates": {
+            "Pyrrhula pyrrhula": 160,
+            "Eurasian Bullfinch": 151
+        },
+        "most_common_name": "Pyrrhula pyrrhula",
+        "actual_freq": 270
+    },
+    "51": {
+        "name": "Aquila chrysaetos",
+        "alternates": {
+            "Aquila chrysaetos": 829,
+            "Golden Eagle": 10400
+        },
+        "most_common_name": "Golden Eagle",
+        "actual_freq": 10467
+    },
+    "52": {
+        "name": "Setophaga townsendi",
+        "alternates": {
+            "Setophaga townsendi": 9,
+            "Townsend's Warbler": 116
+        },
+        "most_common_name": "Townsend's Warbler",
+        "actual_freq": 117
+    },
+    "53": {
+        "name": "Cygnus atratus",
+        "alternates": {
+            "Cygnus atratus": 147,
+            "Black Swan": 9150
+        },
+        "most_common_name": "Black Swan",
+        "actual_freq": 9186
+    },
+    "54": {
+        "name": "Cygnus buccinator",
+        "alternates": {
+            "Cygnus buccinator": 199,
+            "Trumpeter Swan": 1380
+        },
+        "most_common_name": "Trumpeter Swan",
+        "actual_freq": 1448
+    },
+    "55": {
+        "name": "Branta canadensis",
+        "alternates": {
+            "Branta canadensis": 591,
+            "Canada Goose": 15752
+        },
+        "most_common_name": "Canada Goose",
+        "actual_freq": 16031
+    },
+    "56": {
+        "name": "Circus hudsonius",
+        "alternates": {
+            "Circus hudsonius": 12,
+            "Northern Harrier": 2312
+        },
+        "most_common_name": "Northern Harrier",
+        "actual_freq": 2312
+    },
+    "57": {
+        "name": "Anhinga anhinga",
+        "alternates": {
+            "Anhinga anhinga": 182,
+            "Anhinga": 2511
+        },
+        "most_common_name": "Anhinga",
+        "actual_freq": 2511
+    },
+    "58": {
+        "name": "Buteo jamaicensis",
+        "alternates": {
+            "Buteo jamaicensis": 642,
+            "Red-tailed Hawk": 9011
+        },
+        "most_common_name": "Red-tailed Hawk",
+        "actual_freq": 9106
+    },
+    "59": {
+        "name": "Pica pica",
+        "alternates": {
+            "Pica pica": 316,
+            "Eurasian Magpie": 67
+        },
+        "most_common_name": "Pica pica",
+        "actual_freq": 355
+    },
+    "60": {
+        "name": "Corvus frugilegus",
+        "alternates": {
+            "Corvus frugilegus": 180,
+            "Rook": 6362
+        },
+        "most_common_name": "Rook",
+        "actual_freq": 6429
+    },
+    "61": {
+        "name": "Bonasa umbellus",
+        "alternates": {
+            "Bonasa umbellus": 226,
+            "Ruffed Grouse": 2095
+        },
+        "most_common_name": "Ruffed Grouse",
+        "actual_freq": 2095
+    },
+    "62": {
+        "name": "Myiozetetes similis",
+        "alternates": {
+            "Myiozetetes similis": 11,
+            "Social Flycatcher": 78
+        },
+        "most_common_name": "Social Flycatcher",
+        "actual_freq": 78
+    },
+    "63": {
+        "name": "Progne subis",
+        "alternates": {
+            "Progne subis": 25,
+            "Purple Martin": 1392
+        },
+        "most_common_name": "Purple Martin",
+        "actual_freq": 1393
+    },
+    "64": {
+        "name": "Megaceryle alcyon",
+        "alternates": {
+            "Megaceryle alcyon": 73,
+            "Belted Kingfisher": 1003
+        },
+        "most_common_name": "Belted Kingfisher",
+        "actual_freq": 1003
+    },
+    "65": {
+        "name": "Molothrus ater",
+        "alternates": {
+            "Molothrus ater": 171,
+            "Brown-headed Cowbird": 704
+        },
+        "most_common_name": "Brown-headed Cowbird",
+        "actual_freq": 720
+    },
+    "66": {
+        "name": "Piranga rubra",
+        "alternates": {
+            "Piranga rubra": 112,
+            "Summer Tanager": 1123
+        },
+        "most_common_name": "Summer Tanager",
+        "actual_freq": 1124
+    },
+    "67": {
+        "name": "Vanellus chilensis",
+        "alternates": {
+            "Vanellus chilensis": 30,
+            "Southern Lapwing": 102
+        },
+        "most_common_name": "Southern Lapwing",
+        "actual_freq": 109
+    },
+    "68": {
+        "name": "Cygnus olor",
+        "alternates": {
+            "Cygnus olor": 1048,
+            "Mute Swan": 3037
+        },
+        "most_common_name": "Mute Swan",
+        "actual_freq": 3289
+    },
+    "69": {
+        "name": "Passerculus sandwichensis",
+        "alternates": {
+            "Passerculus sandwichensis": 51,
+            "Savannah Sparrow": 1311
+        },
+        "most_common_name": "Savannah Sparrow",
+        "actual_freq": 1311
+    },
+    "70": {
+        "name": "Chroicocephalus philadelphia",
+        "alternates": {
+            "Chroicocephalus philadelphia": 14,
+            "Bonaparte's Gull": 307
+        },
+        "most_common_name": "Bonaparte's Gull",
+        "actual_freq": 309
+    },
+    "71": {
+        "name": "Setophaga palmarum",
+        "alternates": {
+            "Setophaga palmarum": 30,
+            "Palm Warbler": 546
+        },
+        "most_common_name": "Palm Warbler",
+        "actual_freq": 546
+    },
+    "72": {
+        "name": "Himantopus himantopus",
+        "alternates": {
+            "Himantopus himantopus": 436,
+            "Black-winged Stilt": 1631
+        },
+        "most_common_name": "Black-winged Stilt",
+        "actual_freq": 1678
+    },
+    "73": {
+        "name": "Setophaga occidentalis",
+        "alternates": {
+            "Setophaga occidentalis": 6,
+            "Hermit Warbler": 56
+        },
+        "most_common_name": "Hermit Warbler",
+        "actual_freq": 56
+    },
+    "74": {
+        "name": "Buteo lineatus",
+        "alternates": {
+            "Buteo lineatus": 301,
+            "Red-shouldered Hawk": 3892
+        },
+        "most_common_name": "Red-shouldered Hawk",
+        "actual_freq": 3913
+    },
+    "75": {
+        "name": "Zonotrichia leucophrys",
+        "alternates": {
+            "Zonotrichia leucophrys": 150,
+            "White-crowned Sparrow": 2004
+        },
+        "most_common_name": "White-crowned Sparrow",
+        "actual_freq": 2007
+    },
+    "76": {
+        "name": "Saltator coerulescens",
+        "alternates": {
+            "Saltator coerulescens": 2,
+            "Greyish Saltator": 1
+        },
+        "most_common_name": "Saltator coerulescens",
+        "actual_freq": 3
+    },
+    "77": {
+        "name": "Tyrannus vociferans",
+        "alternates": {
+            "Tyrannus vociferans": 3,
+            "Couch's Kingbird": 67
+        },
+        "most_common_name": "Couch's Kingbird",
+        "actual_freq": 70
+    },
+    "78": {
+        "name": "Junco hyemalis",
+        "alternates": {
+            "Junco hyemalis": 289,
+            "Dark-eyed Junco": 2519
+        },
+        "most_common_name": "Dark-eyed Junco",
+        "actual_freq": 2570
+    },
+    "79": {
+        "name": "Pitangus sulphuratus",
+        "alternates": {
+            "Pitangus sulphuratus": 123,
+            "Great Kiskadee": 706
+        },
+        "most_common_name": "Great Kiskadee",
+        "actual_freq": 713
+    },
+    "80": {
+        "name": "Sylvia communis",
+        "alternates": {
+            "Sylvia communis": 165,
+            "Common Whitethroat": 179
+        },
+        "most_common_name": "Common Whitethroat",
+        "actual_freq": 265
+    },
+    "81": {
+        "name": "Melanerpes erythrocephalus",
+        "alternates": {
+            "Melanerpes erythrocephalus": 46,
+            "Red-headed Woodpecker": 813
+        },
+        "most_common_name": "Red-headed Woodpecker",
+        "actual_freq": 815
+    },
+    "82": {
+        "name": "Rhipidura leucophrys",
+        "alternates": {
+            "Rhipidura leucophrys": 41,
+            "Willie Wagtail": 327
+        },
+        "most_common_name": "Willie Wagtail",
+        "actual_freq": 329
+    },
+    "83": {
+        "name": "Quiscalus major",
+        "alternates": {
+            "Quiscalus major": 57,
+            "Boat-tailed Grackle": 324
+        },
+        "most_common_name": "Boat-tailed Grackle",
+        "actual_freq": 327
+    },
+    "84": {
+        "name": "Sphyrapicus varius",
+        "alternates": {
+            "Sphyrapicus varius": 44,
+            "Yellow-bellied Sapsucker": 492
+        },
+        "most_common_name": "Yellow-bellied Sapsucker",
+        "actual_freq": 492
+    },
+    "85": {
+        "name": "Sitta europaea",
+        "alternates": {
+            "Sitta europaea": 203,
+            "Eurasian Nuthatch": 175
+        },
+        "most_common_name": "Sitta europaea",
+        "actual_freq": 317
+    },
+    "86": {
+        "name": "Cyanocorax yncas",
+        "alternates": {
+            "Cyanocorax yncas": 147,
+            "Green Jay": 562
+        },
+        "most_common_name": "Green Jay",
+        "actual_freq": 563
+    },
+    "87": {
+        "name": "Corvus brachyrhynchos",
+        "alternates": {
+            "Corvus brachyrhynchos": 141,
+            "American Crow": 657
+        },
+        "most_common_name": "American Crow",
+        "actual_freq": 752
+    },
+    "88": {
+        "name": "Sitta canadensis",
+        "alternates": {
+            "Sitta canadensis": 81,
+            "Red-breasted Nuthatch": 1121
+        },
+        "most_common_name": "Red-breasted Nuthatch",
+        "actual_freq": 1124
+    },
+    "89": {
+        "name": "Cyanistes caeruleus",
+        "alternates": {
+            "Cyanistes caeruleus": 321,
+            "Eurasian Blue Tit": 97
+        },
+        "most_common_name": "Cyanistes caeruleus",
+        "actual_freq": 392
+    },
+    "90": {
+        "name": "Colaptes auratus",
+        "alternates": {
+            "Colaptes auratus": 277,
+            "Northern Flicker": 2413
+        },
+        "most_common_name": "Northern Flicker",
+        "actual_freq": 2448
+    },
+    "91": {
+        "name": "Baeolophus inornatus",
+        "alternates": {
+            "Baeolophus inornatus": 2,
+            "Oak Titmouse": 123
+        },
+        "most_common_name": "Oak Titmouse",
+        "actual_freq": 123
+    },
+    "92": {
+        "name": "Erithacus rubecula",
+        "alternates": {
+            "Erithacus rubecula": 607,
+            "European Robin": 819
+        },
+        "most_common_name": "European Robin",
+        "actual_freq": 1142
+    },
+    "93": {
+        "name": "Poecile carolinensis",
+        "alternates": {
+            "Poecile carolinensis": 78,
+            "Carolina Chickadee": 1013
+        },
+        "most_common_name": "Carolina Chickadee",
+        "actual_freq": 1023
+    },
+    "94": {
+        "name": "Passer domesticus",
+        "alternates": {
+            "Passer domesticus": 878,
+            "House Sparrow": 2827
+        },
+        "most_common_name": "House Sparrow",
+        "actual_freq": 3052
+    },
+    "95": {
+        "name": "Sphecotheres vieilloti",
+        "alternates": {
+            "Sphecotheres vieilloti": 1,
+            "Black-faced Cuckooshrike": 26
+        },
+        "most_common_name": "Black-faced Cuckooshrike",
+        "actual_freq": 27
+    },
+    "96": {
+        "name": "Mniotilta varia",
+        "alternates": {
+            "Mniotilta varia": 87,
+            "Black-and-white Warbler": 1159
+        },
+        "most_common_name": "Black-and-white Warbler",
+        "actual_freq": 1160
+    },
+    "97": {
+        "name": "Dryocopus pileatus",
+        "alternates": {
+            "Dryocopus pileatus": 149,
+            "Pileated Woodpecker": 2792
+        },
+        "most_common_name": "Pileated Woodpecker",
+        "actual_freq": 2798
+    },
+    "98": {
+        "name": "Prunella modularis",
+        "alternates": {
+            "Prunella modularis": 64,
+            "Dunnock": 556
+        },
+        "most_common_name": "Dunnock",
+        "actual_freq": 568
+    },
+    "99": {
+        "name": "Megarynchus pitangua",
+        "alternates": {
+            "Megarynchus pitangua": 3,
+            "Great Kiskadee": 706
+        },
+        "most_common_name": "Great Kiskadee",
+        "actual_freq": 709
+    },
+    "100": {
+        "name": "Melospiza georgiana",
+        "alternates": {
+            "Melospiza georgiana": 69,
+            "Swamp Sparrow": 279
+        },
+        "most_common_name": "Swamp Sparrow",
+        "actual_freq": 281
+    },
+    "101": {
+        "name": "Agelaius phoeniceus",
+        "alternates": {
+            "Agelaius phoeniceus": 394,
+            "Red-winged Blackbird": 4692
+        },
+        "most_common_name": "Red-winged Blackbird",
+        "actual_freq": 4716
+    },
+    "102": {
+        "name": "Lanius cristatus",
+        "alternates": {
+            "Lanius cristatus": 56,
+            "Brown Shrike": 220
+        },
+        "most_common_name": "Brown Shrike",
+        "actual_freq": 220
+    },
+    "103": {
+        "name": "Catharus ustulatus",
+        "alternates": {
+            "Catharus ustulatus": 20,
+            "Swainson's Thrush": 167
+        },
+        "most_common_name": "Swainson's Thrush",
+        "actual_freq": 169
+    },
+    "104": {
+        "name": "Ammodramus savannarum",
+        "alternates": {
+            "Ammodramus savannarum": 43,
+            "Grasshopper Sparrow": 164
+        },
+        "most_common_name": "Grasshopper Sparrow",
+        "actual_freq": 165
+    },
+    "105": {
+        "name": "Thryothorus ludovicianus",
+        "alternates": {
+            "Thryothorus ludovicianus": 82,
+            "Carolina Wren": 1382
+        },
+        "most_common_name": "Carolina Wren",
+        "actual_freq": 1382
+    },
+    "106": {
+        "name": "Troglodytes aedon",
+        "alternates": {
+            "Troglodytes aedon": 51,
+            "House Wren": 639
+        },
+        "most_common_name": "House Wren",
+        "actual_freq": 641
+    },
+    "107": {
+        "name": "Setophaga caerulescens",
+        "alternates": {
+            "Setophaga caerulescens": 21,
+            "Black-throated Blue Warbler": 665
+        },
+        "most_common_name": "Black-throated Blue Warbler",
+        "actual_freq": 665
+    },
+    "108": {
+        "name": "Neochmia temporalis",
+        "alternates": {
+            "Neochmia temporalis": 79,
+            "Red-browed Finch": 305
+        },
+        "most_common_name": "Red-browed Finch",
+        "actual_freq": 313
+    },
+    "109": {
+        "name": "Setophaga citrina",
+        "alternates": {
+            "Setophaga citrina": 14,
+            "Hooded Warbler": 361
+        },
+        "most_common_name": "Hooded Warbler",
+        "actual_freq": 361
+    },
+    "110": {
+        "name": "Myiodynastes luteiventris",
+        "alternates": {
+            "Myiodynastes luteiventris": 0,
+            "Sulphur-bellied Flycatcher": 0
+        },
+        "most_common_name": "Myiodynastes luteiventris",
+        "actual_freq": 0
+    },
+    "111": {
+        "name": "Setophaga discolor",
+        "alternates": {
+            "Setophaga discolor": 9,
+            "Prairie Warbler": 167
+        },
+        "most_common_name": "Prairie Warbler",
+        "actual_freq": 167
+    },
+    "112": {
+        "name": "Pipilo erythrophthalmus",
+        "alternates": {
+            "Pipilo erythrophthalmus": 37,
+            "Eastern Towhee": 300
+        },
+        "most_common_name": "Eastern Towhee",
+        "actual_freq": 303
+    },
+    "113": {
+        "name": "Pica nuttalli",
+        "alternates": {
+            "Pica nuttalli": 9,
+            "Yellow-billed Magpie": 165
+        },
+        "most_common_name": "Yellow-billed Magpie",
+        "actual_freq": 166
+    },
+    "114": {
+        "name": "Toxostoma longirostre",
+        "alternates": {
+            "Toxostoma longirostre": 30,
+            "Long-billed Thrasher": 127
+        },
+        "most_common_name": "Long-billed Thrasher",
+        "actual_freq": 127
+    },
+    "115": {
+        "name": "Ardea melanocephala",
+        "alternates": {
+            "Ardea melanocephala": 83,
+            "Black-headed Heron": 280
+        },
+        "most_common_name": "Black-headed Heron",
+        "actual_freq": 281
+    },
+    "116": {
+        "name": "Microcarbo africanus",
+        "alternates": {
+            "Microcarbo africanus": 5,
+            "Reed Cormorant": 26
+        },
+        "most_common_name": "Reed Cormorant",
+        "actual_freq": 26
+    },
+    "117": {
+        "name": "Charadrius wilsonia",
+        "alternates": {
+            "Charadrius wilsonia": 13,
+            "Wilson's Plover": 106
+        },
+        "most_common_name": "Wilson's Plover",
+        "actual_freq": 107
+    },
+    "118": {
+        "name": "Spizella breweri",
+        "alternates": {
+            "Spizella breweri": 21,
+            "Brewer's Sparrow": 121
+        },
+        "most_common_name": "Brewer's Sparrow",
+        "actual_freq": 121
+    },
+    "119": {
+        "name": "Patagioenas flavirostris",
+        "alternates": {
+            "Patagioenas flavirostris": 7,
+            "Red-billed Pigeon": 25
+        },
+        "most_common_name": "Red-billed Pigeon",
+        "actual_freq": 26
+    },
+    "120": {
+        "name": "Chlidonias hybrida",
+        "alternates": {
+            "Chlidonias hybrida": 41,
+            "Whiskered Tern": 350
+        },
+        "most_common_name": "Whiskered Tern",
+        "actual_freq": 350
+    },
+    "121": {
+        "name": "Sterna paradisaea",
+        "alternates": {
+            "Sterna paradisaea": 198,
+            "Arctic Tern": 1016
+        },
+        "most_common_name": "Arctic Tern",
+        "actual_freq": 1049
+    },
+    "122": {
+        "name": "Calidris virgata",
+        "alternates": {
+            "Calidris virgata": 2,
+            "Surfbird": 102
+        },
+        "most_common_name": "Surfbird",
+        "actual_freq": 102
+    },
+    "123": {
+        "name": "Acridotheres cristatellus",
+        "alternates": {
+            "Acridotheres cristatellus": 0,
+            "Crested Myna": 45
+        },
+        "most_common_name": "Crested Myna",
+        "actual_freq": 45
+    },
+    "124": {
+        "name": "Tigrisoma lineatum",
+        "alternates": {
+            "Tigrisoma lineatum": 24,
+            "Rufescent Tiger Heron": 99
+        },
+        "most_common_name": "Rufescent Tiger Heron",
+        "actual_freq": 100
+    },
+    "125": {
+        "name": "Ciconia nigra",
+        "alternates": {
+            "Ciconia nigra": 48,
+            "Black Stork": 240
+        },
+        "most_common_name": "Black Stork",
+        "actual_freq": 243
+    },
+    "126": {
+        "name": "Oriolus chinensis",
+        "alternates": {
+            "Oriolus chinensis": 58,
+            "Black-naped Oriole": 229
+        },
+        "most_common_name": "Black-naped Oriole",
+        "actual_freq": 229
+    },
+    "127": {
+        "name": "Chloroceryle amazona",
+        "alternates": {
+            "Chloroceryle amazona": 29,
+            "Amazon Kingfisher": 80
+        },
+        "most_common_name": "Amazon Kingfisher",
+        "actual_freq": 81
+    },
+    "128": {
+        "name": "Sylvia curruca",
+        "alternates": {
+            "Sylvia curruca": 62,
+            "Lesser Whitethroat": 175
+        },
+        "most_common_name": "Lesser Whitethroat",
+        "actual_freq": 175
+    },
+    "129": {
+        "name": "Pernis ptilorhynchus",
+        "alternates": {
+            "Pernis ptilorhynchus": 31,
+            "Crested Honey Buzzard": 30
+        },
+        "most_common_name": "Pernis ptilorhynchus",
+        "actual_freq": 59
+    },
+    "130": {
+        "name": "Charadrius alexandrinus",
+        "alternates": {
+            "Charadrius alexandrinus": 72,
+            "Kentish Plover": 270
+        },
+        "most_common_name": "Kentish Plover",
+        "actual_freq": 297
+    },
+    "131": {
+        "name": "Certhia brachydactyla",
+        "alternates": {
+            "Certhia brachydactyla": 4,
+            "Short-toed Treecreeper": 13
+        },
+        "most_common_name": "Short-toed Treecreeper",
+        "actual_freq": 15
+    },
+    "132": {
+        "name": "Myiodynastes maculatus",
+        "alternates": {
+            "Myiodynastes maculatus": 3,
+            "Streaked Flycatcher": 32
+        },
+        "most_common_name": "Streaked Flycatcher",
+        "actual_freq": 32
+    },
+    "133": {
+        "name": "Larus pacificus",
+        "alternates": {
+            "Larus pacificus": 22,
+            "Pacific Gull": 117
+        },
+        "most_common_name": "Pacific Gull",
+        "actual_freq": 123
+    },
+    "134": {
+        "name": "Treron vernans",
+        "alternates": {
+            "Treron vernans": 22,
+            "Pink-necked Green Pigeon": 91
+        },
+        "most_common_name": "Pink-necked Green Pigeon",
+        "actual_freq": 92
+    },
+    "135": {
+        "name": "Urocissa erythroryncha",
+        "alternates": {
+            "Urocissa erythroryncha": 2,
+            "Red-billed Blue Magpie": 55
+        },
+        "most_common_name": "Red-billed Blue Magpie",
+        "actual_freq": 55
+    },
+    "136": {
+        "name": "Microcarbo pygmeus",
+        "alternates": {
+            "Microcarbo pygmeus": 1,
+            "Pygmy Cormorant": 22
+        },
+        "most_common_name": "Pygmy Cormorant",
+        "actual_freq": 22
+    },
+    "137": {
+        "name": "Elseyornis melanops",
+        "alternates": {
+            "Elseyornis melanops": 22,
+            "Black-fronted Dotterel": 160
+        },
+        "most_common_name": "Black-fronted Dotterel",
+        "actual_freq": 160
+    },
+    "138": {
+        "name": "Mycteria leucocephala",
+        "alternates": {
+            "Mycteria leucocephala": 69,
+            "Painted Stork": 533
+        },
+        "most_common_name": "Painted Stork",
+        "actual_freq": 546
+    },
+    "139": {
+        "name": "Gerygone igata",
+        "alternates": {
+            "Gerygone igata": 1,
+            "Grey Warbler": 50
+        },
+        "most_common_name": "Grey Warbler",
+        "actual_freq": 50
+    },
+    "140": {
+        "name": "Fulica cristata",
+        "alternates": {
+            "Fulica cristata": 13,
+            "Red-knobbed Coot": 53
+        },
+        "most_common_name": "Red-knobbed Coot",
+        "actual_freq": 54
+    },
+    "141": {
+        "name": "Turdus leucomelas",
+        "alternates": {
+            "Turdus leucomelas": 6,
+            "Pale-breasted Thrush": 2
+        },
+        "most_common_name": "Turdus leucomelas",
+        "actual_freq": 6
+    },
+    "142": {
+        "name": "Brotogeris jugularis",
+        "alternates": {
+            "Brotogeris jugularis": 30,
+            "Orange-chinned Parakeet": 92
+        },
+        "most_common_name": "Orange-chinned Parakeet",
+        "actual_freq": 95
+    },
+    "143": {
+        "name": "Pycnonotus aurigaster",
+        "alternates": {
+            "Pycnonotus aurigaster": 26,
+            "Sooty-headed Bulbul": 79
+        },
+        "most_common_name": "Sooty-headed Bulbul",
+        "actual_freq": 79
+    },
+    "144": {
+        "name": "Lagonosticta senegala",
+        "alternates": {
+            "Lagonosticta senegala": 45,
+            "Red-billed Firefinch": 140
+        },
+        "most_common_name": "Red-billed Firefinch",
+        "actual_freq": 142
+    },
+    "145": {
+        "name": "Poecile hudsonicus",
+        "alternates": {
+            "Poecile hudsonicus": 10,
+            "Boreal Chickadee": 139
+        },
+        "most_common_name": "Boreal Chickadee",
+        "actual_freq": 139
+    },
+    "146": {
+        "name": "Ploceus velatus",
+        "alternates": {
+            "Ploceus velatus": 41,
+            "Southern Masked Weaver": 104
+        },
+        "most_common_name": "Southern Masked Weaver",
+        "actual_freq": 122
+    },
+    "147": {
+        "name": "Ploceus cucullatus",
+        "alternates": {
+            "Ploceus cucullatus": 48,
+            "Village Weaver": 139
+        },
+        "most_common_name": "Village Weaver",
+        "actual_freq": 142
+    },
+    "148": {
+        "name": "Plocepasser mahali",
+        "alternates": {
+            "Plocepasser mahali": 16,
+            "White-browed Sparrow-Weaver": 79
+        },
+        "most_common_name": "White-browed Sparrow-Weaver",
+        "actual_freq": 79
+    },
+    "149": {
+        "name": "Calidris ruficollis",
+        "alternates": {
+            "Calidris ruficollis": 79,
+            "Red-necked Stint": 350
+        },
+        "most_common_name": "Red-necked Stint",
+        "actual_freq": 353
+    },
+    "150": {
+        "name": "Tringa stagnatilis",
+        "alternates": {
+            "Tringa stagnatilis": 7,
+            "Marsh Sandpiper": 47
+        },
+        "most_common_name": "Marsh Sandpiper",
+        "actual_freq": 47
+    },
+    "151": {
+        "name": "Empidonax virescens",
+        "alternates": {
+            "Empidonax virescens": 6,
+            "Acadian Flycatcher": 66
+        },
+        "most_common_name": "Acadian Flycatcher",
+        "actual_freq": 66
+    },
+    "152": {
+        "name": "Polemaetus bellicosus",
+        "alternates": {
+            "Polemaetus bellicosus": 55,
+            "Martial Eagle": 490
+        },
+        "most_common_name": "Martial Eagle",
+        "actual_freq": 497
+    },
+    "153": {
+        "name": "Lamprotornis superbus",
+        "alternates": {
+            "Lamprotornis superbus": 101,
+            "Superb Starling": 582
+        },
+        "most_common_name": "Superb Starling",
+        "actual_freq": 589
+    },
+    "154": {
+        "name": "Jynx torquilla",
+        "alternates": {
+            "Jynx torquilla": 45,
+            "Eurasian Wryneck": 35
+        },
+        "most_common_name": "Jynx torquilla",
+        "actual_freq": 55
+    },
+    "155": {
+        "name": "Buteo rufinus",
+        "alternates": {
+            "Buteo rufinus": 58,
+            "Long-legged Buzzard": 206
+        },
+        "most_common_name": "Long-legged Buzzard",
+        "actual_freq": 209
+    },
+    "156": {
+        "name": "Cecropis daurica",
+        "alternates": {
+            "Cecropis daurica": 27,
+            "Red-rumped Swallow": 190
+        },
+        "most_common_name": "Red-rumped Swallow",
+        "actual_freq": 190
+    },
+    "157": {
+        "name": "Anser fabalis",
+        "alternates": {
+            "Anser fabalis": 14,
+            "Bean Goose": 70
+        },
+        "most_common_name": "Bean Goose",
+        "actual_freq": 73
+    },
+    "158": {
+        "name": "Coscoroba coscoroba",
+        "alternates": {
+            "Coscoroba coscoroba": 2,
+            "Coscoroba Swan": 19
+        },
+        "most_common_name": "Coscoroba Swan",
+        "actual_freq": 19
+    },
+    "159": {
+        "name": "Anthus petrosus",
+        "alternates": {
+            "Anthus petrosus": 104,
+            "Rock Pipit": 196
+        },
+        "most_common_name": "Rock Pipit",
+        "actual_freq": 198
+    },
+    "160": {
+        "name": "Torgos tracheliotos",
+        "alternates": {
+            "Torgos tracheliotos": 16,
+            "Lappet-faced Vulture": 234
+        },
+        "most_common_name": "Lappet-faced Vulture",
+        "actual_freq": 239
+    },
+    "161": {
+        "name": "Lamprotornis nitens",
+        "alternates": {
+            "Lamprotornis nitens": 27,
+            "Coppery Starling": 0
+        },
+        "most_common_name": "Lamprotornis nitens",
+        "actual_freq": 27
+    },
+    "162": {
+        "name": "Habia fuscicauda",
+        "alternates": {
+            "Habia fuscicauda": 6,
+            "Red-throated Ant Tanager": 24
+        },
+        "most_common_name": "Red-throated Ant Tanager",
+        "actual_freq": 24
+    },
+    "163": {
+        "name": "Calonectris diomedea",
+        "alternates": {
+            "Calonectris diomedea": 27,
+            "Cory's Shearwater": 45
+        },
+        "most_common_name": "Cory's Shearwater",
+        "actual_freq": 56
+    },
+    "164": {
+        "name": "Vanellus senegallus",
+        "alternates": {
+            "Vanellus senegallus": 9,
+            "Lapwing": 2902
+        },
+        "most_common_name": "Lapwing",
+        "actual_freq": 2902
+    },
+    "165": {
+        "name": "Polioptila californica",
+        "alternates": {
+            "Polioptila californica": 27,
+            "California Gnatcatcher": 129
+        },
+        "most_common_name": "California Gnatcatcher",
+        "actual_freq": 131
+    },
+    "166": {
+        "name": "Cinnyris asiaticus",
+        "alternates": {
+            "Cinnyris asiaticus": 10,
+            "Purple Sunbird": 119
+        },
+        "most_common_name": "Purple Sunbird",
+        "actual_freq": 119
+    },
+    "167": {
+        "name": "Saltator aurantiirostris",
+        "alternates": {
+            "Saltator aurantiirostris": 2,
+            "Golden-billed Saltator": 13
+        },
+        "most_common_name": "Golden-billed Saltator",
+        "actual_freq": 13
+    },
+    "168": {
+        "name": "Burhinus vermiculatus",
+        "alternates": {
+            "Burhinus vermiculatus": 15,
+            "Water Thick-knee": 86
+        },
+        "most_common_name": "Water Thick-knee",
+        "actual_freq": 86
+    },
+    "169": {
+        "name": "Charadrius collaris",
+        "alternates": {
+            "Charadrius collaris": 34,
+            "Collared Plover": 26
+        },
+        "most_common_name": "Charadrius collaris",
+        "actual_freq": 37
+    },
+    "170": {
+        "name": "Cyanocorax beecheii",
+        "alternates": {
+            "Cyanocorax beecheii": 1,
+            "Purplish-backed Jay": 4
+        },
+        "most_common_name": "Purplish-backed Jay",
+        "actual_freq": 4
+    },
+    "171": {
+        "name": "Myiozetetes cayanensis",
+        "alternates": {
+            "Myiozetetes cayanensis": 1,
+            "Rusty-margined Flycatcher": 19
+        },
+        "most_common_name": "Rusty-margined Flycatcher",
+        "actual_freq": 19
+    },
+    "172": {
+        "name": "Dicrurus leucophaeus",
+        "alternates": {
+            "Dicrurus leucophaeus": 19,
+            "Ashy Drongo": 32
+        },
+        "most_common_name": "Ashy Drongo",
+        "actual_freq": 32
+    },
+    "173": {
+        "name": "Phoeniculus purpureus",
+        "alternates": {
+            "Phoeniculus purpureus": 6,
+            "Green Wood Hoopoe": 40
+        },
+        "most_common_name": "Green Wood Hoopoe",
+        "actual_freq": 40
+    },
+    "174": {
+        "name": "Colaptes chrysoides",
+        "alternates": {
+            "Colaptes chrysoides": 22,
+            "Gilded Flicker": 78
+        },
+        "most_common_name": "Gilded Flicker",
+        "actual_freq": 78
+    },
+    "175": {
+        "name": "Lophaetus occipitalis",
+        "alternates": {
+            "Lophaetus occipitalis": 19,
+            "Long-crested Eagle": 115
+        },
+        "most_common_name": "Long-crested Eagle",
+        "actual_freq": 115
+    },
+    "176": {
+        "name": "Ixobrychus minutus",
+        "alternates": {
+            "Ixobrychus minutus": 32,
+            "Little Bittern": 154
+        },
+        "most_common_name": "Little Bittern",
+        "actual_freq": 154
+    },
+    "177": {
+        "name": "Ardea goliath",
+        "alternates": {
+            "Ardea goliath": 50,
+            "Goliath Heron": 238
+        },
+        "most_common_name": "Goliath Heron",
+        "actual_freq": 241
+    },
+    "178": {
+        "name": "Stercorarius longicaudus",
+        "alternates": {
+            "Stercorarius longicaudus": 17,
+            "Long-tailed Jaeger": 55
+        },
+        "most_common_name": "Long-tailed Jaeger",
+        "actual_freq": 61
+    },
+    "179": {
+        "name": "Aethopyga siparaja",
+        "alternates": {
+            "Aethopyga siparaja": 10,
+            "Crimson Sunbird": 72
+        },
+        "most_common_name": "Crimson Sunbird",
+        "actual_freq": 72
+    },
+    "180": {
+        "name": "Prinia subflava",
+        "alternates": {
+            "Prinia subflava": 2,
+            "Tawny-flanked Prinia": 9
+        },
+        "most_common_name": "Tawny-flanked Prinia",
+        "actual_freq": 9
+    },
+    "181": {
+        "name": "Fluvicola nengeta",
+        "alternates": {
+            "Fluvicola nengeta": 0,
+            "Masked Water Tyrant": 1
+        },
+        "most_common_name": "Masked Water Tyrant",
+        "actual_freq": 1
+    },
+    "182": {
+        "name": "Lophoceros alboterminatus",
+        "alternates": {
+            "Lophoceros alboterminatus": 0,
+            "Crowned Hornbill": 28
+        },
+        "most_common_name": "Crowned Hornbill",
+        "actual_freq": 28
+    },
+    "183": {
+        "name": "Vireo atricapilla",
+        "alternates": {
+            "Vireo atricapilla": 0,
+            "Black-capped Vireo": 110
+        },
+        "most_common_name": "Black-capped Vireo",
+        "actual_freq": 110
+    },
+    "184": {
+        "name": "Halcyon senegalensis",
+        "alternates": {
+            "Halcyon senegalensis": 25,
+            "Woodland Kingfisher": 129
+        },
+        "most_common_name": "Woodland Kingfisher",
+        "actual_freq": 133
+    },
+    "185": {
+        "name": "Stelgidopteryx ruficollis",
+        "alternates": {
+            "Stelgidopteryx ruficollis": 5,
+            "Northern Rough-winged Swallow": 209
+        },
+        "most_common_name": "Northern Rough-winged Swallow",
+        "actual_freq": 214
+    },
+    "186": {
+        "name": "Ortalis cinereiceps",
+        "alternates": {
+            "Ortalis cinereiceps": 4,
+            "Grey-headed Chachalaca": 8
+        },
+        "most_common_name": "Grey-headed Chachalaca",
+        "actual_freq": 9
+    },
+    "187": {
+        "name": "Forpus conspicillatus",
+        "alternates": {
+            "Forpus conspicillatus": 0,
+            "Spectacled Parrotlet": 7
+        },
+        "most_common_name": "Spectacled Parrotlet",
+        "actual_freq": 7
+    },
+    "188": {
+        "name": "Trogon rufus",
+        "alternates": {
+            "Trogon rufus": 17,
+            "Black-throated Trogon": 81
+        },
+        "most_common_name": "Black-throated Trogon",
+        "actual_freq": 81
+    },
+    "189": {
+        "name": "Anthracothorax nigricollis",
+        "alternates": {
+            "Anthracothorax nigricollis": 14,
+            "Black-throated Mango": 45
+        },
+        "most_common_name": "Black-throated Mango",
+        "actual_freq": 45
+    },
+    "190": {
+        "name": "Rhipidura javanica",
+        "alternates": {
+            "Rhipidura javanica": 14,
+            "Pied Fantail": 60
+        },
+        "most_common_name": "Pied Fantail",
+        "actual_freq": 61
+    },
+    "191": {
+        "name": "Dendrocopos syriacus",
+        "alternates": {
+            "Dendrocopos syriacus": 15,
+            "Syrian Woodpecker": 48
+        },
+        "most_common_name": "Syrian Woodpecker",
+        "actual_freq": 48
+    },
+    "192": {
+        "name": "Eucometis penicillata",
+        "alternates": {
+            "Eucometis penicillata": 7,
+            "Grey-headed Tanager": 6
+        },
+        "most_common_name": "Eucometis penicillata",
+        "actual_freq": 13
+    },
+    "193": {
+        "name": "Poecile sclateri",
+        "alternates": {
+            "Poecile sclateri": 4,
+            "Mexican Chickadee": 21
+        },
+        "most_common_name": "Mexican Chickadee",
+        "actual_freq": 21
+    },
+    "194": {
+        "name": "Emberiza rustica",
+        "alternates": {
+            "Emberiza rustica": 11,
+            "Rustic Bunting": 91
+        },
+        "most_common_name": "Rustic Bunting",
+        "actual_freq": 92
+    },
+    "195": {
+        "name": "Colaptes punctigula",
+        "alternates": {
+            "Colaptes punctigula": 0,
+            "Spot-breasted Woodpecker": 11
+        },
+        "most_common_name": "Spot-breasted Woodpecker",
+        "actual_freq": 11
+    },
+    "196": {
+        "name": "Ocreatus underwoodii",
+        "alternates": {
+            "Ocreatus underwoodii": 109,
+            "White-booted Racket-tail": 6
+        },
+        "most_common_name": "Ocreatus underwoodii",
+        "actual_freq": 114
+    },
+    "197": {
+        "name": "Prionops plumatus",
+        "alternates": {
+            "Prionops plumatus": 3,
+            "White Helmetshrike": 1
+        },
+        "most_common_name": "Prionops plumatus",
+        "actual_freq": 3
+    },
+    "198": {
+        "name": "Antrostomus vociferus",
+        "alternates": {
+            "Antrostomus vociferus": 1,
+            "Eastern Whip-poor-will": 6
+        },
+        "most_common_name": "Eastern Whip-poor-will",
+        "actual_freq": 6
+    },
+    "199": {
+        "name": "Spheniscus magellanicus",
+        "alternates": {
+            "Spheniscus magellanicus": 269,
+            "Magellanic Penguin": 760
+        },
+        "most_common_name": "Magellanic Penguin",
+        "actual_freq": 907
+    }
+}

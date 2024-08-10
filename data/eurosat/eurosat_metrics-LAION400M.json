@@ -1,0 +1,123 @@
+{
+    "0": {
+        "name": "annual crop land",
+        "alternates": {
+            "annual grain field": 0,
+            "annual crop land": 0,
+            "annual crop field": 0
+        },
+        "most_common_name": "annual crop land",
+        "actual_freq": 0
+    },
+    "1": {
+        "name": "forest",
+        "alternates": {
+            "timberland": 0,
+            "jungle": 19,
+            "woodland": 4,
+            "rainforest": 50,
+            "bush": 36,
+            "wilderness": 29,
+            "woods": 89,
+            "thicket": 1,
+            "grove": 73,
+            "forest": 250,
+            "copse": 0
+        },
+        "most_common_name": "forest",
+        "actual_freq": 542
+    },
+    "2": {
+        "name": "brushland or shrubland",
+        "alternates": {
+            "scrubland": 1,
+            "brushland or shrubland": 0,
+            "brushland": 0,
+            "chaparral": 2,
+            "bushland": 0,
+            "shrubland": 0
+        },
+        "most_common_name": "chaparral",
+        "actual_freq": 3
+    },
+    "3": {
+        "name": "highway or road",
+        "alternates": {
+            "road": 396,
+            "expressway": 2,
+            "byway": 0,
+            "motorway": 2,
+            "highway or road": 0,
+            "highway": 278,
+            "freeway": 4
+        },
+        "most_common_name": "highway or road",
+        "actual_freq": 674
+    },
+    "4": {
+        "name": "industrial buildings or commercial buildings",
+        "alternates": {
+            "industrial buildings or commercial buildings": 0,
+            "industrial buildings": 1,
+            "commercial buildings": 0,
+            "industrial area": 1,
+            "warehouse": 19,
+            "industrial park": 9
+        },
+        "most_common_name": "warehouse",
+        "actual_freq": 30
+    },
+    "5": {
+        "name": "pasture land",
+        "alternates": {
+            "pasture": 8,
+            "grassland": 4,
+            "grazing land": 0,
+            "pasture land": 0
+        },
+        "most_common_name": "pasture land",
+        "actual_freq": 12
+    },
+    "6": {
+        "name": "permanent crop land",
+        "alternates": {
+            "permanent crop land": 0
+        },
+        "most_common_name": "permanent crop land",
+        "actual_freq": 0
+    },
+    "7": {
+        "name": "residential buildings or homes or apartments",
+        "alternates": {
+            "residential buildings or homes or apartments": 0,
+            "residential buildings": 2,
+            "homes": 98,
+            "apartments": 43,
+            "dwelling": 1
+        },
+        "most_common_name": "residential buildings or homes or apartments",
+        "actual_freq": 142
+    },
+    "8": {
+        "name": "river",
+        "alternates": {
+            "waterway": 20,
+            "brook": 5,
+            "river": 673,
+            "watercourse": 0,
+            "tributary": 2
+        },
+        "most_common_name": "river",
+        "actual_freq": 699
+    },
+    "9": {
+        "name": "lake or sea",
+        "alternates": {
+            "lake or sea": 0,
+            "lake": 859,
+            "sea": 1236
+        },
+        "most_common_name": "lake or sea",
+        "actual_freq": 2087
+    }
+}
