@@ -23,11 +23,12 @@ python query_synonyms.py
 python clip_text_filtering.py
 
 # Since OpenCLIP may not understand some classnames or scientific names very well, 
-# here we add back the original classnames (and scientific names and common names for Semi-Aves) if removed, 
-# format the output to the desired format
+# here we add back the original classnames (and scientific names and common names 
+# for Semi-Aves) if removed, format the output to the desired format
 python format_synonyms.py
 
-# you might want to manually check the `output/{dataset}_synonyms_filtered_final.json` file and add some synonyms back if needed.
+# you might want to manually check the `output/{dataset}_synonyms_filtered_final.json` 
+# file and add some synonyms back if needed.
 
 ```
 
@@ -47,6 +48,8 @@ python format_metrics.py dtd/dtd_metrics-LAION400M.json
 
 [to be updated !!!!]
 
+See [Safety Review for LAION](https://laion.ai/notes/laion-maintenance/).
+
 ```bash
 cd retrieval/
 
@@ -54,11 +57,11 @@ cd retrieval/
 python laion_parser.py --dataset semi-aves # need to replace the keywords `alternates` to `synonyms_final` ---> no need 
 python laion_parser.py --dataset flowers102 
 python laion_parser.py --dataset dtd
-# python laion_parser.py --dataset dtd --prefix texture # no better
-python laion_parser.py --dataset eurosat --prefix satellite # add prefix to only match captions containing "satellite" and "classname"
+# python laion_parser.py --dataset dtd --prefix texture # adding a `texture`` prefix for retriveal gives no better performance
+python laion_parser.py --dataset eurosat --prefix satellite # add `satellite` prefix to only match captions containing "satellite" and "classname"
 python laion_parser.py --dataset fgvc-aircraft 
 
-# retrieve from laion400m
+# retrieve from laion400m 
 python laion_downloader.py --dataset semi-aves --sampling all 
 python laion_downloader.py --dataset flowers102 --sampling random
 python laion_downloader.py --dataset dtd --sampling random
