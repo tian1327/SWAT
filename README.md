@@ -65,9 +65,13 @@ For example, using the bash scripts:
 # 1. check the options in run_dataset_seed_xxx.sh, 
 #    this can be used to run a batch of experiments.
 # 2. run the corresponding bash script in command line
+# Usage: bash run_dataset_seed_xxx.sh <dataset> [seed]
 
-# finetune on few-shot
+# finetune on few-shot, seed 1
 bash run_dataset_seed_finetune_fewshot.sh semi-aves 1
+
+# finetune on few-shot with CutMix, 3 seeds
+bash run_dataset_seed_finetune_fewshot_cutmix.sh semi-aves
 
 # swat
 bash run_dataset_seed_swat.sh semi-aves 1

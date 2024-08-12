@@ -1,0 +1,1263 @@
+{
+    "0": {
+        "name": "pink primrose",
+        "alternates": {
+            "pink primrose": 134,
+            "Primula vulgaris": 192
+        },
+        "most_common_name": "Primula vulgaris",
+        "actual_freq": 326,
+        "relevant_total": 326,
+        "llama_relevance_ratio": 1.0
+    },
+    "1": {
+        "name": "hard-leaved pocket orchid",
+        "alternates": {
+            "hard leaved pocket orchid": 0,
+            "hard-leaved pocket orchid": 0,
+            "silver slipper orchid": 0,
+            "Paphiopedilum micranthum": 1
+        },
+        "most_common_name": "Paphiopedilum micranthum",
+        "actual_freq": 1,
+        "relevant_total": 1,
+        "llama_relevance_ratio": 1.0
+    },
+    "2": {
+        "name": "canterbury bells",
+        "alternates": {
+            "canterbury bells": 209,
+            "bellflowers": 403,
+            "campanula medium": 99
+        },
+        "most_common_name": "bellflowers",
+        "actual_freq": 667,
+        "relevant_total": 623,
+        "llama_relevance_ratio": 0.9340329835082459
+    },
+    "3": {
+        "name": "sweet pea",
+        "alternates": {
+            "sweet pea": 12226,
+            "Campanula medium": 99
+        },
+        "most_common_name": "sweet pea",
+        "actual_freq": 12325,
+        "relevant_total": 8835,
+        "llama_relevance_ratio": 0.716796875
+    },
+    "4": {
+        "name": "english marigold",
+        "alternates": {
+            "english marigold": 63,
+            "common marigold": 17,
+            "tagetes erecta": 216,
+            "Calendula officinalis": 1173
+        },
+        "most_common_name": "Calendula officinalis",
+        "actual_freq": 1450,
+        "relevant_total": 1449,
+        "llama_relevance_ratio": 0.9990234375
+    },
+    "5": {
+        "name": "tiger lily",
+        "alternates": {
+            "tiger lily": 4074,
+            "lilium lancifolium": 17,
+            "Calendula officinalis": 1173
+        },
+        "most_common_name": "tiger lily",
+        "actual_freq": 5254,
+        "relevant_total": 3720,
+        "llama_relevance_ratio": 0.7080078125
+    },
+    "6": {
+        "name": "moon orchid",
+        "alternates": {
+            "moon orchid": 48,
+            "Lilium tigrinum": 8
+        },
+        "most_common_name": "moon orchid",
+        "actual_freq": 56,
+        "relevant_total": 47,
+        "llama_relevance_ratio": 0.8392857142857143
+    },
+    "7": {
+        "name": "bird of paradise flower",
+        "alternates": {
+            "strelitzia": 1758,
+            "bird of paradise flower": 1781,
+            "bird of paradise flowers": 299,
+            "Strelitzia reginae": 443
+        },
+        "most_common_name": "bird of paradise flower",
+        "actual_freq": 3596,
+        "relevant_total": 3557,
+        "llama_relevance_ratio": 0.9892578125
+    },
+    "8": {
+        "name": "monkshood",
+        "alternates": {
+            "aconitum": 261,
+            "monkshood": 323,
+            "Aconitum": 261
+        },
+        "most_common_name": "monkshood",
+        "actual_freq": 470,
+        "relevant_total": 469,
+        "llama_relevance_ratio": 0.997872340425532
+    },
+    "9": {
+        "name": "globe thistle",
+        "alternates": {
+            "echinops": 360,
+            "globe thistle": 1468,
+            "Echinops": 360
+        },
+        "most_common_name": "globe thistle",
+        "actual_freq": 1705,
+        "relevant_total": 1705,
+        "llama_relevance_ratio": 1.0
+    },
+    "10": {
+        "name": "snapdragon flower",
+        "alternates": {
+            "snapdragon flower": 121,
+            "snapdragon flowers": 88,
+            "Antirrhinum majus": 199
+        },
+        "most_common_name": "Antirrhinum majus",
+        "actual_freq": 398,
+        "relevant_total": 398,
+        "llama_relevance_ratio": 1.0
+    },
+    "11": {
+        "name": "colt's foot",
+        "alternates": {
+            "colt's foot": 32,
+            "Tussilago farfara": 144
+        },
+        "most_common_name": "Tussilago farfara",
+        "actual_freq": 163,
+        "relevant_total": 163,
+        "llama_relevance_ratio": 1.0
+    },
+    "12": {
+        "name": "king protea",
+        "alternates": {
+            "giant protea": 12,
+            "king protea": 1145,
+            "protea cynaroides": 79,
+            "Protea cynaroides": 79
+        },
+        "most_common_name": "king protea",
+        "actual_freq": 1178,
+        "relevant_total": 1130,
+        "llama_relevance_ratio": 0.958984375
+    },
+    "13": {
+        "name": "spear thistle",
+        "alternates": {
+            "spear thistle": 189,
+            "Cirsium vulgare": 151
+        },
+        "most_common_name": "spear thistle",
+        "actual_freq": 254,
+        "relevant_total": 252,
+        "llama_relevance_ratio": 0.9921259842519685
+    },
+    "14": {
+        "name": "yellow iris",
+        "alternates": {
+            "yellow iris": 1346,
+            "yellow flag iris": 162,
+            "yellow water iris": 17,
+            "yellow flag water iris": 2,
+            "yellow flowering iris": 0,
+            "Iris pseudacorus": 130
+        },
+        "most_common_name": "yellow iris",
+        "actual_freq": 1563,
+        "relevant_total": 1479,
+        "llama_relevance_ratio": 0.9462890625
+    },
+    "15": {
+        "name": "globe flower",
+        "alternates": {
+            "globe flower": 93,
+            "globe flowers": 41,
+            "Trollius europaeus": 39
+        },
+        "most_common_name": "globe flower",
+        "actual_freq": 161,
+        "relevant_total": 90,
+        "llama_relevance_ratio": 0.5590062111801242
+    },
+    "16": {
+        "name": "purple coneflower",
+        "alternates": {
+            "rudbeckia purpurea": 6,
+            "eastern purple coneflower": 104,
+            "purple coneflower": 2184,
+            "purple coneflowers": 547,
+            "echinacea purpurea": 1670,
+            "Echinacea purpurea": 1670
+        },
+        "most_common_name": "purple coneflower",
+        "actual_freq": 3952,
+        "relevant_total": 3944,
+        "llama_relevance_ratio": 0.998046875
+    },
+    "17": {
+        "name": "peruvian lily",
+        "alternates": {
+            "peruvian lily": 430,
+            "inca lily": 24,
+            "lily of the incas": 109,
+            "alstroemeria": 4018,
+            "Alstroemeria": 4018
+        },
+        "most_common_name": "alstroemeria",
+        "actual_freq": 4424,
+        "relevant_total": 4420,
+        "llama_relevance_ratio": 0.9990234375
+    },
+    "18": {
+        "name": "balloon flower",
+        "alternates": {
+            "balloon flower": 794,
+            "balloon flowers": 329,
+            "Platycodon grandiflorus": 52
+        },
+        "most_common_name": "balloon flower",
+        "actual_freq": 1122,
+        "relevant_total": 679,
+        "llama_relevance_ratio": 0.60546875
+    },
+    "19": {
+        "name": "giant white arum lily",
+        "alternates": {
+            "giant arum lily": 0,
+            "giant white arum lily": 0,
+            "white arum lily": 15,
+            "Zantedeschia aethiopica": 99
+        },
+        "most_common_name": "Zantedeschia aethiopica",
+        "actual_freq": 114,
+        "relevant_total": 108,
+        "llama_relevance_ratio": 0.9473684210526315
+    },
+    "20": {
+        "name": "fire lily",
+        "alternates": {
+            "fire lily": 177,
+            "Gloriosa superba": 64,
+            "Clivia miniata": 184
+        },
+        "most_common_name": "Clivia miniata",
+        "actual_freq": 413,
+        "relevant_total": 401,
+        "llama_relevance_ratio": 0.9709443099273608
+    },
+    "21": {
+        "name": "pincushion flower",
+        "alternates": {
+            "pincushion flower": 289,
+            "pincushion flowers": 63,
+            "scabious": 727,
+            "Scabiosa": 1331
+        },
+        "most_common_name": "Scabiosa",
+        "actual_freq": 2240,
+        "relevant_total": 2198,
+        "llama_relevance_ratio": 0.9814453125
+    },
+    "22": {
+        "name": "fritillary",
+        "alternates": {
+            "fritillary": 4880,
+            "Fritillaria": 867
+        },
+        "most_common_name": "fritillary",
+        "actual_freq": 5677,
+        "relevant_total": 5039,
+        "llama_relevance_ratio": 0.8876953125
+    },
+    "23": {
+        "name": "red ginger",
+        "alternates": {
+            "flower of the ginger plant.": 5,
+            "red ginger": 998,
+            "Alpinia purpurata": 62
+        },
+        "most_common_name": "red ginger",
+        "actual_freq": 1023,
+        "relevant_total": 474,
+        "llama_relevance_ratio": 0.4633431085043988
+    },
+    "24": {
+        "name": "grape hyacinth",
+        "alternates": {
+            "grape hyacinth": 2200,
+            "Muscari armeniacum": 204
+        },
+        "most_common_name": "grape hyacinth",
+        "actual_freq": 2302,
+        "relevant_total": 2280,
+        "llama_relevance_ratio": 0.990234375
+    },
+    "25": {
+        "name": "corn poppy",
+        "alternates": {
+            "field poppy": 408,
+            "common poppy": 206,
+            "corn poppy": 1109,
+            "papaver rhoeas": 1045,
+            "Papaver rhoeas": 1045
+        },
+        "most_common_name": "corn poppy",
+        "actual_freq": 2273,
+        "relevant_total": 2222,
+        "llama_relevance_ratio": 0.9775390625
+    },
+    "26": {
+        "name": "prince of wales feathers",
+        "alternates": {
+            "prince of wales feathers": 53,
+            "Amaranthus hypochondriacus": 6
+        },
+        "most_common_name": "prince of wales feathers",
+        "actual_freq": 59,
+        "relevant_total": 0,
+        "llama_relevance_ratio": 0.0
+    },
+    "27": {
+        "name": "stemless gentian",
+        "alternates": {
+            "stemless gentian": 9,
+            "stemless blue gentian": 0,
+            "gentian without a stem": 0,
+            "Gentiana acaulis": 19
+        },
+        "most_common_name": "Gentiana acaulis",
+        "actual_freq": 23,
+        "relevant_total": 23,
+        "llama_relevance_ratio": 1.0
+    },
+    "28": {
+        "name": "artichoke",
+        "alternates": {
+            "artichoke": 20518,
+            "Cynara cardunculus": 92
+        },
+        "most_common_name": "artichoke",
+        "actual_freq": 20565,
+        "relevant_total": 2142,
+        "llama_relevance_ratio": 0.10416666666666667
+    },
+    "29": {
+        "name": "sweet william",
+        "alternates": {
+            "sweet william": 2352,
+            "Dianthus barbatus": 378
+        },
+        "most_common_name": "sweet william",
+        "actual_freq": 2570,
+        "relevant_total": 2470,
+        "llama_relevance_ratio": 0.9609375
+    },
+    "30": {
+        "name": "carnation",
+        "alternates": {
+            "dianthus": 3816,
+            "carnation": 22350,
+            "Dianthus caryophyllus": 129
+        },
+        "most_common_name": "carnation",
+        "actual_freq": 25934,
+        "relevant_total": 22844,
+        "llama_relevance_ratio": 0.880859375
+    },
+    "31": {
+        "name": "garden phlox",
+        "alternates": {
+            "phlox paniculata": 418,
+            "garden phlox": 232,
+            "summer phlox": 70,
+            "tall phlox": 65,
+            "perennial phlox": 13,
+            "Phlox paniculata": 418
+        },
+        "most_common_name": "phlox paniculata",
+        "actual_freq": 701,
+        "relevant_total": 693,
+        "llama_relevance_ratio": 0.9885877318116976
+    },
+    "32": {
+        "name": "love in the mist",
+        "alternates": {
+            "love in the mist": 89,
+            "Nigella damascena": 432
+        },
+        "most_common_name": "Nigella damascena",
+        "actual_freq": 519,
+        "relevant_total": 510,
+        "llama_relevance_ratio": 0.9826589595375722
+    },
+    "33": {
+        "name": "mexican aster",
+        "alternates": {
+            "mexican aster": 56,
+            "Dahlia pinnata": 53
+        },
+        "most_common_name": "mexican aster",
+        "actual_freq": 109,
+        "relevant_total": 60,
+        "llama_relevance_ratio": 0.5504587155963303
+    },
+    "34": {
+        "name": "alpine sea holly",
+        "alternates": {
+            "alpine eryngium": 0,
+            "eryngium alpinum": 30,
+            "alpine sea holly": 15,
+            "alpinum eryngium": 0,
+            "sea holly flower": 25,
+            "sea holly flowers": 14,
+            "alpine eryngo": 2,
+            "Eryngium alpinum": 30
+        },
+        "most_common_name": "eryngium alpinum",
+        "actual_freq": 80,
+        "relevant_total": 80,
+        "llama_relevance_ratio": 1.0
+    },
+    "35": {
+        "name": "ruby-lipped cattleya",
+        "alternates": {
+            "ruby lipped cattleya": 4,
+            "ruby lipped cattleya flower": 0,
+            "ruby lipped cattleya flowers": 0,
+            "ruby-lipped cattleya": 4,
+            "ruby lipped cattleya orchid": 3,
+            "cattleya with ruby lips": 0,
+            "Cattleya labiata": 36
+        },
+        "most_common_name": "Cattleya labiata",
+        "actual_freq": 39,
+        "relevant_total": 39,
+        "llama_relevance_ratio": 1.0
+    },
+    "36": {
+        "name": "cape flower",
+        "alternates": {
+            "cape flower": 28,
+            "cape flowers": 8,
+            "Plumbago auriculata": 83
+        },
+        "most_common_name": "Plumbago auriculata",
+        "actual_freq": 119,
+        "relevant_total": 106,
+        "llama_relevance_ratio": 0.8907563025210085
+    },
+    "37": {
+        "name": "great masterwort",
+        "alternates": {
+            "great masterwort": 53,
+            "Astrantia major": 713
+        },
+        "most_common_name": "Astrantia major",
+        "actual_freq": 728,
+        "relevant_total": 727,
+        "llama_relevance_ratio": 0.9986263736263736
+    },
+    "38": {
+        "name": "siam tulip",
+        "alternates": {
+            "siam tulip": 103,
+            "summer tulip": 34,
+            "thai tulip": 6,
+            "Curcuma alismatifolia": 22
+        },
+        "most_common_name": "siam tulip",
+        "actual_freq": 145,
+        "relevant_total": 117,
+        "llama_relevance_ratio": 0.8068965517241379
+    },
+    "39": {
+        "name": "lenten rose",
+        "alternates": {
+            "hellebore": 2129,
+            "christmas rose": 1165,
+            "lenten rose": 397,
+            "Helleborus orientalis": 126
+        },
+        "most_common_name": "hellebore",
+        "actual_freq": 3645,
+        "relevant_total": 3478,
+        "llama_relevance_ratio": 0.9541015625
+    },
+    "40": {
+        "name": "barbeton daisy",
+        "alternates": {
+            "barbeton woolly daisy": 0,
+            "barbeton daisy": 5,
+            "Gerbera jamesonii": 169
+        },
+        "most_common_name": "Gerbera jamesonii",
+        "actual_freq": 174,
+        "relevant_total": 157,
+        "llama_relevance_ratio": 0.9022988505747126
+    },
+    "41": {
+        "name": "daffodil",
+        "alternates": {
+            "daffodil": 21411,
+            "jonquil": 1879,
+            "narcissus": 11213,
+            "Narcissus": 11213
+        },
+        "most_common_name": "daffodil",
+        "actual_freq": 33205,
+        "relevant_total": 32783,
+        "llama_relevance_ratio": 0.9873046875
+    },
+    "42": {
+        "name": "sword lily",
+        "alternates": {
+            "sword lily": 52,
+            "Gladiolus": 3835
+        },
+        "most_common_name": "Gladiolus",
+        "actual_freq": 3847,
+        "relevant_total": 3757,
+        "llama_relevance_ratio": 0.9765625
+    },
+    "43": {
+        "name": "poinsettia",
+        "alternates": {
+            "christmas flower": 3005,
+            "poinsettia": 30339,
+            "Euphorbia pulcherrima": 164
+        },
+        "most_common_name": "poinsettia",
+        "actual_freq": 32775,
+        "relevant_total": 31271,
+        "llama_relevance_ratio": 0.9541015625
+    },
+    "44": {
+        "name": "bolero deep blue",
+        "alternates": {
+            "deep blue bolero": 0,
+            "blue bolero": 56,
+            "bolero deep blue": 1,
+            "Texas bluebell": 14,
+            "Delphinium elatum": 57
+        },
+        "most_common_name": "Delphinium elatum",
+        "actual_freq": 128,
+        "relevant_total": 100,
+        "llama_relevance_ratio": 0.78125
+    },
+    "45": {
+        "name": "wallflower",
+        "alternates": {
+            "wallflower": 9652,
+            "wallflowers": 2193,
+            "Erysimum cheiri": 25
+        },
+        "most_common_name": "wallflower",
+        "actual_freq": 11807,
+        "relevant_total": 1775,
+        "llama_relevance_ratio": 0.15029761904761904
+    },
+    "46": {
+        "name": "marigold",
+        "alternates": {
+            "marigold": 25716,
+            "pot marigold": 450,
+            "Tagetes": 1183
+        },
+        "most_common_name": "marigold",
+        "actual_freq": 26514,
+        "relevant_total": 22734,
+        "llama_relevance_ratio": 0.857421875
+    },
+    "47": {
+        "name": "buttercup",
+        "alternates": {
+            "buttercup": 12688,
+            "Bulbous buttercup": 16,
+            "St. Anthony's turnip": 0,
+            "Ranunculus": 10787
+        },
+        "most_common_name": "buttercup",
+        "actual_freq": 23003,
+        "relevant_total": 21700,
+        "llama_relevance_ratio": 0.943359375
+    },
+    "48": {
+        "name": "oxeye daisy",
+        "alternates": {
+            "oxeye daisy": 500,
+            "marguerite daisy": 224,
+            "dog daisy": 183,
+            "marguerite": 10002,
+            "Leucanthemum vulgare": 351
+        },
+        "most_common_name": "marguerite",
+        "actual_freq": 10902,
+        "relevant_total": 8943,
+        "llama_relevance_ratio": 0.8203125
+    },
+    "49": {
+        "name": "common dandelion",
+        "alternates": {
+            "taraxacum officinale": 812,
+            "dandelion": 54259,
+            "common dandelion": 306,
+            "Taraxacum officinale": 812
+        },
+        "most_common_name": "common dandelion",
+        "actual_freq": 54478,
+        "relevant_total": 54159,
+        "llama_relevance_ratio": 0.994140625
+    },
+    "50": {
+        "name": "petunia",
+        "alternates": {
+            "petunia": 10201,
+            "Petunia": 10201
+        },
+        "most_common_name": "petunia",
+        "actual_freq": 10201,
+        "relevant_total": 9972,
+        "llama_relevance_ratio": 0.9775390625
+    },
+    "51": {
+        "name": "wild pansy",
+        "alternates": {
+            "heartsease": 510,
+            "johnny jump up": 240,
+            "viola tricolor": 544,
+            "wild pansy": 166,
+            "Viola tricolor": 544
+        },
+        "most_common_name": "viola tricolor",
+        "actual_freq": 1237,
+        "relevant_total": 1235,
+        "llama_relevance_ratio": 0.998046875
+    },
+    "52": {
+        "name": "primula",
+        "alternates": {
+            "primula vulgaris": 192,
+            "primula veris": 223,
+            "primula": 3603,
+            "Primula": 3603
+        },
+        "most_common_name": "primula",
+        "actual_freq": 3603,
+        "relevant_total": 3550,
+        "llama_relevance_ratio": 0.9853515625
+    },
+    "53": {
+        "name": "sunflower",
+        "alternates": {
+            "sunflower": 200277,
+            "sunflowers": 77808,
+            "Helianthus annuus": 1158
+        },
+        "most_common_name": "sunflower",
+        "actual_freq": 275228,
+        "relevant_total": 253995,
+        "llama_relevance_ratio": 0.9228515625
+    },
+    "54": {
+        "name": "pelargonium",
+        "alternates": {
+            "pelargonium": 1750,
+            "Pelargonium": 1750
+        },
+        "most_common_name": "pelargonium",
+        "actual_freq": 1750,
+        "relevant_total": 1658,
+        "llama_relevance_ratio": 0.947265625
+    },
+    "55": {
+        "name": "bishop of llandaff",
+        "alternates": {
+            "bishop of llandaff": 115,
+            "Dahlia 'bishop of llandaff'": 81
+        },
+        "most_common_name": "bishop of llandaff",
+        "actual_freq": 115,
+        "relevant_total": 47,
+        "llama_relevance_ratio": 0.40869565217391307
+    },
+    "56": {
+        "name": "gaura",
+        "alternates": {
+            "white gaura": 23,
+            "butterfly gaura": 4,
+            "gaura": 858,
+            "pink gaura": 11,
+            "Gaura lindheimeri": 77
+        },
+        "most_common_name": "gaura",
+        "actual_freq": 858,
+        "relevant_total": 803,
+        "llama_relevance_ratio": 0.9358974358974359
+    },
+    "57": {
+        "name": "geranium",
+        "alternates": {
+            "geranium": 17260,
+            "Geranium": 17260
+        },
+        "most_common_name": "geranium",
+        "actual_freq": 17260,
+        "relevant_total": 17209,
+        "llama_relevance_ratio": 0.9970703125
+    },
+    "58": {
+        "name": "orange dahlia",
+        "alternates": {
+            "dahlia in orange": 8,
+            "orange hued dahlia": 0,
+            "dahlia with an orange hue": 0,
+            "orange dahlia": 584,
+            "orange colored dahlia": 1,
+            "Dahlia 'orange'": 102
+        },
+        "most_common_name": "orange dahlia",
+        "actual_freq": 685,
+        "relevant_total": 682,
+        "llama_relevance_ratio": 0.9956204379562044
+    },
+    "59": {
+        "name": "pink and yellow dahlia",
+        "alternates": {
+            "pink and yellow dahlia": 70,
+            "dahlia with pink and yellow petals": 0,
+            "dahlia in pink and yellow shades": 0,
+            "pink and yellow flowered dahlia": 0,
+            "pink and yellow colored dahlia": 1,
+            "Dahlia hybrida": 2
+        },
+        "most_common_name": "pink and yellow dahlia",
+        "actual_freq": 73,
+        "relevant_total": 73,
+        "llama_relevance_ratio": 1.0
+    },
+    "60": {
+        "name": "cautleya spicata",
+        "alternates": {
+            "cautleya spicata": 1,
+            "Cautleya spicata": 1
+        },
+        "most_common_name": "cautleya spicata",
+        "actual_freq": 1,
+        "relevant_total": 1,
+        "llama_relevance_ratio": 1.0
+    },
+    "61": {
+        "name": "japanese anemone",
+        "alternates": {
+            "anemone hupehensis": 57,
+            "japanese anemone": 331,
+            "Anemone hupehensis": 57
+        },
+        "most_common_name": "japanese anemone",
+        "actual_freq": 378,
+        "relevant_total": 345,
+        "llama_relevance_ratio": 0.9126984126984127
+    },
+    "62": {
+        "name": "black-eyed susan",
+        "alternates": {
+            "black-eyed susan": 5594,
+            "black eyed susan": 5594,
+            "susans flower": 12,
+            "rudbeckia hirta": 491,
+            "Rudbeckia hirta": 491
+        },
+        "most_common_name": "black-eyed susan",
+        "actual_freq": 5875,
+        "relevant_total": 5852,
+        "llama_relevance_ratio": 0.99609375
+    },
+    "63": {
+        "name": "silverbush",
+        "alternates": {
+            "silverbush": 36,
+            "Dorycnium hirsutum": 0
+        },
+        "most_common_name": "silverbush",
+        "actual_freq": 36,
+        "relevant_total": 20,
+        "llama_relevance_ratio": 0.5555555555555556
+    },
+    "64": {
+        "name": "californian poppy",
+        "alternates": {
+            "eschscholzia californica": 973,
+            "california poppy": 3911,
+            "golden poppy": 660,
+            "californian poppy": 272,
+            "Eschscholzia californica": 973
+        },
+        "most_common_name": "california poppy",
+        "actual_freq": 5371,
+        "relevant_total": 5355,
+        "llama_relevance_ratio": 0.9970703125
+    },
+    "65": {
+        "name": "osteospermum",
+        "alternates": {
+            "osteospermum": 1489,
+            "Osteospermum": 1489
+        },
+        "most_common_name": "osteospermum",
+        "actual_freq": 1489,
+        "relevant_total": 1461,
+        "llama_relevance_ratio": 0.9814453125
+    },
+    "66": {
+        "name": "spring crocus",
+        "alternates": {
+            "spring crocus": 959,
+            "seasonal crocus": 0,
+            "Crocus": 15962
+        },
+        "most_common_name": "spring crocus",
+        "actual_freq": 15962,
+        "relevant_total": 15479,
+        "llama_relevance_ratio": 0.9697265625
+    },
+    "67": {
+        "name": "bearded iris",
+        "alternates": {
+            "iris germanica": 696,
+            "bearded iris": 2247,
+            "blue flag iris": 219,
+            "german iris": 70,
+            "flag iris": 454,
+            "rhizomatous iris": 0,
+            "table iris": 10,
+            "Iris germanica": 696
+        },
+        "most_common_name": "bearded iris",
+        "actual_freq": 3310,
+        "relevant_total": 3239,
+        "llama_relevance_ratio": 0.978515625
+    },
+    "68": {
+        "name": "windflower",
+        "alternates": {
+            "windflower": 1149,
+            "windflowers": 837,
+            "Anemone": 18095
+        },
+        "most_common_name": "Anemone",
+        "actual_freq": 19779,
+        "relevant_total": 13192,
+        "llama_relevance_ratio": 0.6669921875
+    },
+    "69": {
+        "name": "tree poppy",
+        "alternates": {
+            "tree poppy": 44,
+            "Dendromecon rigida": 8
+        },
+        "most_common_name": "tree poppy",
+        "actual_freq": 50,
+        "relevant_total": 40,
+        "llama_relevance_ratio": 0.8
+    },
+    "70": {
+        "name": "gazania",
+        "alternates": {
+            "gazania": 1821,
+            "Gazania": 1821
+        },
+        "most_common_name": "gazania",
+        "actual_freq": 1821,
+        "relevant_total": 1814,
+        "llama_relevance_ratio": 0.99609375
+    },
+    "71": {
+        "name": "azalea",
+        "alternates": {
+            "azalea": 21304,
+            "Rhododendron": 8168
+        },
+        "most_common_name": "azalea",
+        "actual_freq": 28704,
+        "relevant_total": 27387,
+        "llama_relevance_ratio": 0.9541015625
+    },
+    "72": {
+        "name": "water lily",
+        "alternates": {
+            "water lily": 22099,
+            "Nymphaea": 2169
+        },
+        "most_common_name": "water lily",
+        "actual_freq": 23581,
+        "relevant_total": 15867,
+        "llama_relevance_ratio": 0.6728515625
+    },
+    "73": {
+        "name": "rose",
+        "alternates": {
+            "rose": 1878066,
+            "Rosa": 112827
+        },
+        "most_common_name": "rose",
+        "actual_freq": 1985282,
+        "relevant_total": 1450186,
+        "llama_relevance_ratio": 0.73046875
+    },
+    "74": {
+        "name": "thorn apple",
+        "alternates": {
+            "thorn apple": 130,
+            "Datura": 1381
+        },
+        "most_common_name": "Datura",
+        "actual_freq": 1452,
+        "relevant_total": 1445,
+        "llama_relevance_ratio": 0.9951171875
+    },
+    "75": {
+        "name": "morning glory",
+        "alternates": {
+            "morning glory": 13195,
+            "Ipomoea purpurea": 145
+        },
+        "most_common_name": "morning glory",
+        "actual_freq": 13235,
+        "relevant_total": 12925,
+        "llama_relevance_ratio": 0.9765625
+    },
+    "76": {
+        "name": "passion flower",
+        "alternates": {
+            "passion flower": 4875,
+            "passion flowers": 413,
+            "passiflora": 2334,
+            "Passiflora": 2334
+        },
+        "most_common_name": "passion flower",
+        "actual_freq": 6966,
+        "relevant_total": 6864,
+        "llama_relevance_ratio": 0.9853515625
+    },
+    "77": {
+        "name": "lotus",
+        "alternates": {
+            "lotus": 201171,
+            "Nelumbo": 943
+        },
+        "most_common_name": "lotus",
+        "actual_freq": 201458,
+        "relevant_total": 168997,
+        "llama_relevance_ratio": 0.8388671875
+    },
+    "78": {
+        "name": "toad lily",
+        "alternates": {
+            "toad lily": 67,
+            "Tricyrtis hirta": 8
+        },
+        "most_common_name": "toad lily",
+        "actual_freq": 71,
+        "relevant_total": 70,
+        "llama_relevance_ratio": 0.9859154929577465
+    },
+    "79": {
+        "name": "anthurium",
+        "alternates": {
+            "anthurium": 5025,
+            "Anthurium": 5025
+        },
+        "most_common_name": "anthurium",
+        "actual_freq": 5025,
+        "relevant_total": 4809,
+        "llama_relevance_ratio": 0.95703125
+    },
+    "80": {
+        "name": "frangipani",
+        "alternates": {
+            "plumeria": 19477,
+            "hawaiian lei flower": 53,
+            "hawaiian lei flowers": 22,
+            "frangipani": 11615,
+            "Plumeria": 19477
+        },
+        "most_common_name": "plumeria",
+        "actual_freq": 28713,
+        "relevant_total": 28629,
+        "llama_relevance_ratio": 0.9970703125
+    },
+    "81": {
+        "name": "clematis",
+        "alternates": {
+            "clematis": 10960,
+            "Clematis": 10960
+        },
+        "most_common_name": "clematis",
+        "actual_freq": 10960,
+        "relevant_total": 10939,
+        "llama_relevance_ratio": 0.998046875
+    },
+    "82": {
+        "name": "hibiscus",
+        "alternates": {
+            "hibiscus": 62772,
+            "hibiscus flower": 8021,
+            "Hibiscus": 62772
+        },
+        "most_common_name": "hibiscus",
+        "actual_freq": 62772,
+        "relevant_total": 61975,
+        "llama_relevance_ratio": 0.9873046875
+    },
+    "83": {
+        "name": "columbine",
+        "alternates": {
+            "yellow columbine": 201,
+            "white columbine": 141,
+            "eastern red columbine": 26,
+            "rocky mountain columbine": 68,
+            "columbine": 8585,
+            "american columbine": 4,
+            "blue columbine": 536,
+            "Aquilegia": 1777
+        },
+        "most_common_name": "columbine",
+        "actual_freq": 9732,
+        "relevant_total": 7860,
+        "llama_relevance_ratio": 0.8076171875
+    },
+    "84": {
+        "name": "desert-rose",
+        "alternates": {
+            "desert-rose": 4795,
+            "desert rose": 4795,
+            "Adenium": 1302
+        },
+        "most_common_name": "desert-rose",
+        "actual_freq": 5621,
+        "relevant_total": 4562,
+        "llama_relevance_ratio": 0.8115234375
+    },
+    "85": {
+        "name": "tree mallow",
+        "alternates": {
+            "malva arborea": 3,
+            "tree mallow": 66,
+            "Lavatera": 274
+        },
+        "most_common_name": "Lavatera",
+        "actual_freq": 316,
+        "relevant_total": 312,
+        "llama_relevance_ratio": 0.9873417721518988
+    },
+    "86": {
+        "name": "magnolia",
+        "alternates": {
+            "magnolia": 68468,
+            "Magnolia": 68468
+        },
+        "most_common_name": "magnolia",
+        "actual_freq": 68468,
+        "relevant_total": 57436,
+        "llama_relevance_ratio": 0.8388671875
+    },
+    "87": {
+        "name": "cyclamen",
+        "alternates": {
+            "cyclamen": 4679,
+            "Cyclamen": 4679
+        },
+        "most_common_name": "cyclamen",
+        "actual_freq": 4679,
+        "relevant_total": 4546,
+        "llama_relevance_ratio": 0.9716796875
+    },
+    "88": {
+        "name": "watercress",
+        "alternates": {
+            "watercress": 7238,
+            "Nasturtium officinale": 62
+        },
+        "most_common_name": "watercress",
+        "actual_freq": 7252,
+        "relevant_total": 1366,
+        "llama_relevance_ratio": 0.18841911764705882
+    },
+    "89": {
+        "name": "canna lily",
+        "alternates": {
+            "canna lily flower": 35,
+            "canna lily flowers": 10,
+            "canna flower": 141,
+            "canna flowers": 37,
+            "canna lily": 703,
+            "Canna": 5531
+        },
+        "most_common_name": "canna lily",
+        "actual_freq": 5531,
+        "relevant_total": 4607,
+        "llama_relevance_ratio": 0.8330078125
+    },
+    "90": {
+        "name": "hippeastrum",
+        "alternates": {
+            "hippeastrum": 664,
+            "Hippeastrum": 664
+        },
+        "most_common_name": "hippeastrum",
+        "actual_freq": 664,
+        "relevant_total": 664,
+        "llama_relevance_ratio": 1.0
+    },
+    "91": {
+        "name": "bee balm",
+        "alternates": {
+            "monarda": 797,
+            "bee balm": 1382,
+            "horsemint": 138,
+            "Monarda": 797
+        },
+        "most_common_name": "bee balm",
+        "actual_freq": 2117,
+        "relevant_total": 2105,
+        "llama_relevance_ratio": 0.994140625
+    },
+    "92": {
+        "name": "air plant",
+        "alternates": {
+            "air plant": 7604,
+            "tillandsia": 3986,
+            "Tillandsia": 3986
+        },
+        "most_common_name": "air plant",
+        "actual_freq": 10182,
+        "relevant_total": 7786,
+        "llama_relevance_ratio": 0.7646484375
+    },
+    "93": {
+        "name": "foxglove",
+        "alternates": {
+            "digitalis": 2295,
+            "foxglove": 3998,
+            "Digitalis purpurea": 493
+        },
+        "most_common_name": "foxglove",
+        "actual_freq": 5847,
+        "relevant_total": 5790,
+        "llama_relevance_ratio": 0.990234375
+    },
+    "94": {
+        "name": "bougainvillea",
+        "alternates": {
+            "bougainvillea glabra": 68,
+            "bougainvillea": 10074,
+            "Bougainvillea": 10074
+        },
+        "most_common_name": "bougainvillea",
+        "actual_freq": 10074,
+        "relevant_total": 9946,
+        "llama_relevance_ratio": 0.9873046875
+    },
+    "95": {
+        "name": "camellia",
+        "alternates": {
+            "camellia": 15177,
+            "Camellia": 15177
+        },
+        "most_common_name": "camellia",
+        "actual_freq": 15177,
+        "relevant_total": 14599,
+        "llama_relevance_ratio": 0.9619140625
+    },
+    "96": {
+        "name": "mallow",
+        "alternates": {
+            "common mallow": 142,
+            "rosa mallow": 8,
+            "round leaved mallow": 0,
+            "garden mallow": 2,
+            "high mallow": 17,
+            "wild mallow": 24,
+            "mallow": 5467,
+            "country mallow": 8,
+            "Malva": 1745
+        },
+        "most_common_name": "mallow",
+        "actual_freq": 6984,
+        "relevant_total": 6466,
+        "llama_relevance_ratio": 0.92578125
+    },
+    "97": {
+        "name": "mexican petunia",
+        "alternates": {
+            "mexican petunia": 76,
+            "desert petunia": 2,
+            "Ruellia": 138
+        },
+        "most_common_name": "Ruellia",
+        "actual_freq": 212,
+        "relevant_total": 202,
+        "llama_relevance_ratio": 0.9528301886792453
+    },
+    "98": {
+        "name": "bromelia",
+        "alternates": {
+            "bromelia": 197,
+            "Bromelia": 197
+        },
+        "most_common_name": "bromelia",
+        "actual_freq": 197,
+        "relevant_total": 131,
+        "llama_relevance_ratio": 0.6649746192893401
+    },
+    "99": {
+        "name": "blanket flower",
+        "alternates": {
+            "blanket flower": 1034,
+            "blanket flowers": 331,
+            "Gaillardia": 1440
+        },
+        "most_common_name": "Gaillardia",
+        "actual_freq": 2496,
+        "relevant_total": 2489,
+        "llama_relevance_ratio": 0.9970703125
+    },
+    "100": {
+        "name": "trumpet creeper",
+        "alternates": {
+            "trumpet creeper": 110,
+            "trumpet vine": 595,
+            "Campsis radicans": 52
+        },
+        "most_common_name": "trumpet vine",
+        "actual_freq": 700,
+        "relevant_total": 611,
+        "llama_relevance_ratio": 0.8728571428571429
+    },
+    "101": {
+        "name": "blackberry lily",
+        "alternates": {
+            "blackberry lily": 112,
+            "Belamcanda chinensis": 34
+        },
+        "most_common_name": "blackberry lily",
+        "actual_freq": 134,
+        "relevant_total": 133,
+        "llama_relevance_ratio": 0.9925373134328358
+    }
+}

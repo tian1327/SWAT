@@ -20,7 +20,7 @@ def set_logger(args):
 
     if not os.path.exists(f'{args.dataset_root}/pre_extracted/'):
         os.makedirs(f'{args.dataset_root}/pre_extracted/')
-        print(f'Created directory: {args.dataset_root}/pre_extracted/')
+        # print(f'Created directory: {args.dataset_root}/pre_extracted/')
 
     ## setup logger
     logger = get_logger(f'{output_dir}', 'main', args.log_mode)

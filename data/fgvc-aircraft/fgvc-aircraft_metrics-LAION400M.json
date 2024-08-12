@@ -1,0 +1,1173 @@
+{
+    "0": {
+        "name": "707-320",
+        "alternates": {
+            "707-320": 33,
+            "707 320": 33,
+            "boeing 707": 1091,
+            "b707": 96
+        },
+        "most_common_name": "boeing 707",
+        "actual_freq": 1189,
+        "relevant_total": 1090,
+        "llama_relevance_ratio": 0.9169921875
+    },
+    "1": {
+        "name": "727-200",
+        "alternates": {
+            "727-200": 290,
+            "b727": 152,
+            "b727 200": 37,
+            "boeing 727": 1653
+        },
+        "most_common_name": "boeing 727",
+        "actual_freq": 1872,
+        "relevant_total": 1768,
+        "llama_relevance_ratio": 0.9443359375
+    },
+    "2": {
+        "name": "737-200",
+        "alternates": {
+            "b737 classic": 0,
+            "boeing 737 classic": 28,
+            "737-200": 437
+        },
+        "most_common_name": "737-200",
+        "actual_freq": 465,
+        "relevant_total": 463,
+        "llama_relevance_ratio": 0.9956989247311828
+    },
+    "3": {
+        "name": "737-300",
+        "alternates": {
+            "737 series 300": 0,
+            "737-300": 590
+        },
+        "most_common_name": "737-300",
+        "actual_freq": 590,
+        "relevant_total": 587,
+        "llama_relevance_ratio": 0.9949152542372881
+    },
+    "4": {
+        "name": "737-400",
+        "alternates": {
+            "737-400": 372,
+            "737 series 400": 0
+        },
+        "most_common_name": "737-400",
+        "actual_freq": 372,
+        "relevant_total": 370,
+        "llama_relevance_ratio": 0.9946236559139785
+    },
+    "5": {
+        "name": "737-500",
+        "alternates": {
+            "737-500": 271,
+            "737 series 500": 0
+        },
+        "most_common_name": "737-500",
+        "actual_freq": 271,
+        "relevant_total": 267,
+        "llama_relevance_ratio": 0.985239852398524
+    },
+    "6": {
+        "name": "737-600",
+        "alternates": {
+            "737-600": 69,
+            "737 series 600": 0
+        },
+        "most_common_name": "737-600",
+        "actual_freq": 69,
+        "relevant_total": 69,
+        "llama_relevance_ratio": 1.0
+    },
+    "7": {
+        "name": "737-700",
+        "alternates": {
+            "737-700": 1072,
+            "737 series 700": 0
+        },
+        "most_common_name": "737-700",
+        "actual_freq": 1072,
+        "relevant_total": 1070,
+        "llama_relevance_ratio": 0.998046875
+    },
+    "8": {
+        "name": "737-800",
+        "alternates": {
+            "737-800": 3732,
+            "737 series 800": 0
+        },
+        "most_common_name": "737-800",
+        "actual_freq": 3732,
+        "relevant_total": 3721,
+        "llama_relevance_ratio": 0.9970703125
+    },
+    "9": {
+        "name": "737-900",
+        "alternates": {
+            "737 series 900": 0,
+            "737-900": 291
+        },
+        "most_common_name": "737-900",
+        "actual_freq": 291,
+        "relevant_total": 291,
+        "llama_relevance_ratio": 1.0
+    },
+    "10": {
+        "name": "747-100",
+        "alternates": {
+            "747-100": 209,
+            "747 series 100": 0
+        },
+        "most_common_name": "747-100",
+        "actual_freq": 209,
+        "relevant_total": 206,
+        "llama_relevance_ratio": 0.9856459330143541
+    },
+    "11": {
+        "name": "747-200",
+        "alternates": {
+            "747-200": 329,
+            "747 series 200": 0
+        },
+        "most_common_name": "747-200",
+        "actual_freq": 329,
+        "relevant_total": 311,
+        "llama_relevance_ratio": 0.9452887537993921
+    },
+    "12": {
+        "name": "747-300",
+        "alternates": {
+            "747-300": 96,
+            "747 series 300": 0
+        },
+        "most_common_name": "747-300",
+        "actual_freq": 96,
+        "relevant_total": 83,
+        "llama_relevance_ratio": 0.8645833333333334
+    },
+    "13": {
+        "name": "747-400",
+        "alternates": {
+            "747 series 400": 0,
+            "747-400": 2901
+        },
+        "most_common_name": "747-400",
+        "actual_freq": 2901,
+        "relevant_total": 2898,
+        "llama_relevance_ratio": 0.9990234375
+    },
+    "14": {
+        "name": "757-200",
+        "alternates": {
+            "757-200": 872,
+            "757 series 200": 0
+        },
+        "most_common_name": "757-200",
+        "actual_freq": 872,
+        "relevant_total": 870,
+        "llama_relevance_ratio": 0.9977064220183486
+    },
+    "15": {
+        "name": "757-300",
+        "alternates": {
+            "757-300": 131,
+            "757 series 300": 0
+        },
+        "most_common_name": "757-300",
+        "actual_freq": 131,
+        "relevant_total": 127,
+        "llama_relevance_ratio": 0.9694656488549618
+    },
+    "16": {
+        "name": "767-200",
+        "alternates": {
+            "767-200": 140,
+            "767 series 200": 0
+        },
+        "most_common_name": "767-200",
+        "actual_freq": 140,
+        "relevant_total": 139,
+        "llama_relevance_ratio": 0.9928571428571429
+    },
+    "17": {
+        "name": "767-300",
+        "alternates": {
+            "767 series 300": 0,
+            "767-300": 667
+        },
+        "most_common_name": "767-300",
+        "actual_freq": 667,
+        "relevant_total": 666,
+        "llama_relevance_ratio": 0.9985007496251874
+    },
+    "18": {
+        "name": "767-400",
+        "alternates": {
+            "767 series 400": 0,
+            "767-400": 51
+        },
+        "most_common_name": "767-400",
+        "actual_freq": 51,
+        "relevant_total": 51,
+        "llama_relevance_ratio": 1.0
+    },
+    "19": {
+        "name": "777-200",
+        "alternates": {
+            "777-200": 1141,
+            "777 series 200": 0
+        },
+        "most_common_name": "777-200",
+        "actual_freq": 1141,
+        "relevant_total": 1130,
+        "llama_relevance_ratio": 0.990234375
+    },
+    "20": {
+        "name": "777-300",
+        "alternates": {
+            "777-300": 823,
+            "777 series 300": 0
+        },
+        "most_common_name": "777-300",
+        "actual_freq": 823,
+        "relevant_total": 822,
+        "llama_relevance_ratio": 0.9987849331713244
+    },
+    "21": {
+        "name": "A300B4",
+        "alternates": {
+            "a300b4": 325,
+            "A300B4": 325,
+            "airbus a300b4": 307,
+            "airbus a300": 364
+        },
+        "most_common_name": "airbus a300",
+        "actual_freq": 687,
+        "relevant_total": 661,
+        "llama_relevance_ratio": 0.9621542940320232
+    },
+    "22": {
+        "name": "A310",
+        "alternates": {
+            "a310": 1826,
+            "A310": 1826,
+            "airbus a310": 419
+        },
+        "most_common_name": "A310",
+        "actual_freq": 1826,
+        "relevant_total": 490,
+        "llama_relevance_ratio": 0.2685546875
+    },
+    "23": {
+        "name": "A318",
+        "alternates": {
+            "a318": 353,
+            "A318": 353,
+            "airbus a318": 200
+        },
+        "most_common_name": "A318",
+        "actual_freq": 353,
+        "relevant_total": 256,
+        "llama_relevance_ratio": 0.7252124645892352
+    },
+    "24": {
+        "name": "A319",
+        "alternates": {
+            "A319": 4679,
+            "a319": 4679,
+            "airbus a319": 3493
+        },
+        "most_common_name": "A319",
+        "actual_freq": 4679,
+        "relevant_total": 4204,
+        "llama_relevance_ratio": 0.8984375
+    },
+    "25": {
+        "name": "A320",
+        "alternates": {
+            "A320": 14396,
+            "airbus a320": 10230
+        },
+        "most_common_name": "A320",
+        "actual_freq": 14396,
+        "relevant_total": 13074,
+        "llama_relevance_ratio": 0.908203125
+    },
+    "26": {
+        "name": "A321",
+        "alternates": {
+            "A321": 4973,
+            "airbus a321": 3921
+        },
+        "most_common_name": "A321",
+        "actual_freq": 4973,
+        "relevant_total": 4716,
+        "llama_relevance_ratio": 0.9482421875
+    },
+    "27": {
+        "name": "A330-200",
+        "alternates": {
+            "a330 200": 1630,
+            "A330-200": 1630,
+            "a330 series 200": 0
+        },
+        "most_common_name": "A330-200",
+        "actual_freq": 1630,
+        "relevant_total": 1620,
+        "llama_relevance_ratio": 0.994140625
+    },
+    "28": {
+        "name": "A330-300",
+        "alternates": {
+            "A330-300": 1891,
+            "a330 series 300": 0
+        },
+        "most_common_name": "A330-300",
+        "actual_freq": 1891,
+        "relevant_total": 1882,
+        "llama_relevance_ratio": 0.9951171875
+    },
+    "29": {
+        "name": "A340-200",
+        "alternates": {
+            "A340-200": 55,
+            "a340 series 200": 0
+        },
+        "most_common_name": "A340-200",
+        "actual_freq": 55,
+        "relevant_total": 55,
+        "llama_relevance_ratio": 1.0
+    },
+    "30": {
+        "name": "A340-300",
+        "alternates": {
+            "A340-300": 486,
+            "a340 series 300": 0
+        },
+        "most_common_name": "A340-300",
+        "actual_freq": 486,
+        "relevant_total": 484,
+        "llama_relevance_ratio": 0.9958847736625515
+    },
+    "31": {
+        "name": "A340-500",
+        "alternates": {
+            "A340-500": 143,
+            "a340 series 500": 0
+        },
+        "most_common_name": "A340-500",
+        "actual_freq": 143,
+        "relevant_total": 137,
+        "llama_relevance_ratio": 0.958041958041958
+    },
+    "32": {
+        "name": "A340-600",
+        "alternates": {
+            "A340-600": 493,
+            "a340 series 600": 0
+        },
+        "most_common_name": "A340-600",
+        "actual_freq": 493,
+        "relevant_total": 489,
+        "llama_relevance_ratio": 0.9918864097363083
+    },
+    "33": {
+        "name": "A380",
+        "alternates": {
+            "airbus a380": 6752,
+            "a380": 13851,
+            "A380": 13851
+        },
+        "most_common_name": "A380",
+        "actual_freq": 13851,
+        "relevant_total": 11159,
+        "llama_relevance_ratio": 0.8056640625
+    },
+    "34": {
+        "name": "ATR-42",
+        "alternates": {
+            "atr 42": 671,
+            "ATR-42": 671
+        },
+        "most_common_name": "ATR-42",
+        "actual_freq": 671,
+        "relevant_total": 652,
+        "llama_relevance_ratio": 0.9716840536512668
+    },
+    "35": {
+        "name": "ATR-72",
+        "alternates": {
+            "ATR-72": 1567,
+            "atr 72": 1567
+        },
+        "most_common_name": "ATR-72",
+        "actual_freq": 1567,
+        "relevant_total": 1134,
+        "llama_relevance_ratio": 0.7236328125
+    },
+    "36": {
+        "name": "An-12",
+        "alternates": {
+            "Antonov An-12": 166,
+            "An-12": 390
+        },
+        "most_common_name": "An-12",
+        "actual_freq": 390,
+        "relevant_total": 232,
+        "llama_relevance_ratio": 0.5948717948717949
+    },
+    "37": {
+        "name": "BAE 146-200",
+        "alternates": {
+            "avro rj85": 174,
+            "BAE 146-200": 141
+        },
+        "most_common_name": "avro rj85",
+        "actual_freq": 299,
+        "relevant_total": 296,
+        "llama_relevance_ratio": 0.9899665551839465
+    },
+    "38": {
+        "name": "BAE 146-300",
+        "alternates": {
+            "bae 146 300": 130,
+            "Avro RJ100": 214,
+            "BAE 146-300": 130
+        },
+        "most_common_name": "Avro RJ100",
+        "actual_freq": 300,
+        "relevant_total": 298,
+        "llama_relevance_ratio": 0.9933333333333333
+    },
+    "39": {
+        "name": "BAE-125",
+        "alternates": {
+            "BAE-125": 47,
+            "british aerospace 125": 3
+        },
+        "most_common_name": "BAE-125",
+        "actual_freq": 50,
+        "relevant_total": 39,
+        "llama_relevance_ratio": 0.78
+    },
+    "40": {
+        "name": "Beechcraft 1900",
+        "alternates": {
+            "Beechcraft 1900": 38,
+            "beechcraft 1900": 38,
+            "beech 1900": 31
+        },
+        "most_common_name": "Beechcraft 1900",
+        "actual_freq": 69,
+        "relevant_total": 55,
+        "llama_relevance_ratio": 0.7971014492753623
+    },
+    "41": {
+        "name": "Boeing 717",
+        "alternates": {
+            "b717": 85,
+            "boeing 717": 372,
+            "boeing 717 200": 110,
+            "Boeing 717": 372
+        },
+        "most_common_name": "Boeing 717",
+        "actual_freq": 455,
+        "relevant_total": 402,
+        "llama_relevance_ratio": 0.8835164835164835
+    },
+    "42": {
+        "name": "C-130",
+        "alternates": {
+            "c 130": 3556,
+            "Lockheed C-130 Hercules": 261,
+            "C-130 Hercules": 1621,
+            "C-130": 3556
+        },
+        "most_common_name": "C-130",
+        "actual_freq": 3556,
+        "relevant_total": 3143,
+        "llama_relevance_ratio": 0.8837890625
+    },
+    "43": {
+        "name": "C-47",
+        "alternates": {
+            "c 47": 1169,
+            "douglas c-47": 276,
+            "douglas c-47 skytrain": 97,
+            "c-47 skytrain": 274,
+            "C-47": 1169
+        },
+        "most_common_name": "C-47",
+        "actual_freq": 1169,
+        "relevant_total": 1039,
+        "llama_relevance_ratio": 0.888671875
+    },
+    "44": {
+        "name": "CRJ-200",
+        "alternates": {
+            "CRJ-200": 208,
+            "bombardier crj 200": 62,
+            "crj 200 aircraft": 7,
+            "crj 200 jet": 2,
+            "the crj 200": 3,
+            "aircraft model crj 200": 0,
+            "regional jet crj 200": 4,
+            "crj 200 plane": 0,
+            "crj 200 airliner": 0
+        },
+        "most_common_name": "CRJ-200",
+        "actual_freq": 208,
+        "relevant_total": 203,
+        "llama_relevance_ratio": 0.9759615384615384
+    },
+    "45": {
+        "name": "CRJ-700",
+        "alternates": {
+            "CRJ-700": 174,
+            "bombardier crj 700": 63
+        },
+        "most_common_name": "CRJ-700",
+        "actual_freq": 174,
+        "relevant_total": 157,
+        "llama_relevance_ratio": 0.9022988505747126
+    },
+    "46": {
+        "name": "CRJ-900",
+        "alternates": {
+            "crj900": 148,
+            "CRJ-900": 206,
+            "bombardier crj 900": 65
+        },
+        "most_common_name": "CRJ-900",
+        "actual_freq": 351,
+        "relevant_total": 348,
+        "llama_relevance_ratio": 0.9914529914529915
+    },
+    "47": {
+        "name": "Cessna 172",
+        "alternates": {
+            "cessna 172": 1202,
+            "cessna skyhawk": 120,
+            "Cessna 172": 1202
+        },
+        "most_common_name": "Cessna 172",
+        "actual_freq": 1322,
+        "relevant_total": 1299,
+        "llama_relevance_ratio": 0.982421875
+    },
+    "48": {
+        "name": "Cessna 208",
+        "alternates": {
+            "cessna caravan": 150,
+            "cessna 208": 273,
+            "Cessna 208": 273
+        },
+        "most_common_name": "Cessna 208",
+        "actual_freq": 417,
+        "relevant_total": 404,
+        "llama_relevance_ratio": 0.9688249400479616
+    },
+    "49": {
+        "name": "Cessna 525",
+        "alternates": {
+            "Cessna 525": 431,
+            "cessna 525": 431,
+            "the cessna 525 airplane": 0
+        },
+        "most_common_name": "Cessna 525",
+        "actual_freq": 431,
+        "relevant_total": 202,
+        "llama_relevance_ratio": 0.46867749419953597
+    },
+    "50": {
+        "name": "Cessna 560",
+        "alternates": {
+            "Cessna 560": 241,
+            "cessna citation 560": 16,
+            "cessna 560": 241,
+            "cessna citation v": 49,
+            "citation 560": 22
+        },
+        "most_common_name": "Cessna 560",
+        "actual_freq": 312,
+        "relevant_total": 206,
+        "llama_relevance_ratio": 0.6602564102564102
+    },
+    "51": {
+        "name": "Challenger 600",
+        "alternates": {
+            "challenger executive aircraft": 0,
+            "challenger 600": 55,
+            "challenger business jet": 4,
+            "challenger corporate jet": 1,
+            "challenger jet": 14,
+            "bombardier challenger 600": 8,
+            "challenger luxury jet": 0,
+            "challenger private jet": 0,
+            "Challenger 600": 55
+        },
+        "most_common_name": "Challenger 600",
+        "actual_freq": 74,
+        "relevant_total": 58,
+        "llama_relevance_ratio": 0.7837837837837838
+    },
+    "52": {
+        "name": "DC-10",
+        "alternates": {
+            "DC-10": 1869,
+            "McDonnell Douglas DC-10": 233
+        },
+        "most_common_name": "DC-10",
+        "actual_freq": 1869,
+        "relevant_total": 732,
+        "llama_relevance_ratio": 0.3916015625
+    },
+    "53": {
+        "name": "DC-3",
+        "alternates": {
+            "McDonnell Douglas dc 3": 6,
+            "DC-3": 4015
+        },
+        "most_common_name": "DC-3",
+        "actual_freq": 4015,
+        "relevant_total": 2160,
+        "llama_relevance_ratio": 0.5380859375
+    },
+    "54": {
+        "name": "DC-6",
+        "alternates": {
+            "McDonnell Douglas dc 6": 0,
+            "DC-6": 1018
+        },
+        "most_common_name": "DC-6",
+        "actual_freq": 1018,
+        "relevant_total": 391,
+        "llama_relevance_ratio": 0.3840864440078585
+    },
+    "55": {
+        "name": "DC-8",
+        "alternates": {
+            "McDonnell Douglas DC-8": 76,
+            "DC-8": 1271,
+            "dc 8": 1271
+        },
+        "most_common_name": "DC-8",
+        "actual_freq": 1271,
+        "relevant_total": 575,
+        "llama_relevance_ratio": 0.4521484375
+    },
+    "56": {
+        "name": "DC-9-30",
+        "alternates": {
+            "McDonnell Douglas DC-9-30": 3,
+            "DC-9-30": 49,
+            "dc 9 30": 49
+        },
+        "most_common_name": "DC-9-30",
+        "actual_freq": 49,
+        "relevant_total": 16,
+        "llama_relevance_ratio": 0.32653061224489793
+    },
+    "57": {
+        "name": "DH-82",
+        "alternates": {
+            "dh 82": 155,
+            "de Havilland Tiger Moth": 192,
+            "DH-82": 155
+        },
+        "most_common_name": "de Havilland Tiger Moth",
+        "actual_freq": 340,
+        "relevant_total": 316,
+        "llama_relevance_ratio": 0.9294117647058824
+    },
+    "58": {
+        "name": "DHC-1",
+        "alternates": {
+            "de Havilland Canada DHC-1 Chipmunk": 65,
+            "DHC-1": 177
+        },
+        "most_common_name": "DHC-1",
+        "actual_freq": 177,
+        "relevant_total": 138,
+        "llama_relevance_ratio": 0.7796610169491526
+    },
+    "59": {
+        "name": "DHC-6",
+        "alternates": {
+            "de Havilland Canada DHC-6 Twin Otter": 148,
+            "DHC-6": 613
+        },
+        "most_common_name": "DHC-6",
+        "actual_freq": 613,
+        "relevant_total": 587,
+        "llama_relevance_ratio": 0.9575856443719413
+    },
+    "60": {
+        "name": "DHC-8-100",
+        "alternates": {
+            "dhc 8 100": 24,
+            "dhc 8 series 100": 0,
+            "DHC-8-100": 24
+        },
+        "most_common_name": "DHC-8-100",
+        "actual_freq": 24,
+        "relevant_total": 24,
+        "llama_relevance_ratio": 1.0
+    },
+    "61": {
+        "name": "DHC-8-300",
+        "alternates": {
+            "dhc 8 series 300": 0,
+            "dhc 8 300": 22,
+            "DHC-8-300": 22
+        },
+        "most_common_name": "DHC-8-300",
+        "actual_freq": 22,
+        "relevant_total": 22,
+        "llama_relevance_ratio": 1.0
+    },
+    "62": {
+        "name": "DR-400",
+        "alternates": {
+            "DR-400": 125,
+            "Robin DR400": 65
+        },
+        "most_common_name": "DR-400",
+        "actual_freq": 190,
+        "relevant_total": 75,
+        "llama_relevance_ratio": 0.39473684210526316
+    },
+    "63": {
+        "name": "Dornier 328",
+        "alternates": {
+            "Dornier 328": 83,
+            "D328 Turboprop": 0,
+            "D328": 78,
+            "dornier 328": 83
+        },
+        "most_common_name": "Dornier 328",
+        "actual_freq": 161,
+        "relevant_total": 93,
+        "llama_relevance_ratio": 0.577639751552795
+    },
+    "64": {
+        "name": "E-170",
+        "alternates": {
+            "Embraer 170": 915,
+            "E-170": 78
+        },
+        "most_common_name": "Embraer 170",
+        "actual_freq": 993,
+        "relevant_total": 929,
+        "llama_relevance_ratio": 0.9355488418932527
+    },
+    "65": {
+        "name": "E-190",
+        "alternates": {
+            "e 190": 99,
+            "Embraer 190": 1226,
+            "E-190": 99
+        },
+        "most_common_name": "Embraer 190",
+        "actual_freq": 1325,
+        "relevant_total": 1247,
+        "llama_relevance_ratio": 0.94140625
+    },
+    "66": {
+        "name": "E-195",
+        "alternates": {
+            "E-195": 30,
+            "Embraer 195": 125,
+            "e 195": 30,
+            "e195": 144
+        },
+        "most_common_name": "e195",
+        "actual_freq": 299,
+        "relevant_total": 181,
+        "llama_relevance_ratio": 0.6053511705685619
+    },
+    "67": {
+        "name": "EMB-120",
+        "alternates": {
+            "emb120": 8,
+            "emb 120": 67,
+            "Embraer EMB 120 Brasilia": 30,
+            "EMB-120": 67
+        },
+        "most_common_name": "EMB-120",
+        "actual_freq": 75,
+        "relevant_total": 65,
+        "llama_relevance_ratio": 0.8666666666666667
+    },
+    "68": {
+        "name": "ERJ 135",
+        "alternates": {
+            "erj 135": 42,
+            "ERJ 135": 42,
+            "Embraer erj 135": 31
+        },
+        "most_common_name": "ERJ 135",
+        "actual_freq": 42,
+        "relevant_total": 41,
+        "llama_relevance_ratio": 0.9761904761904762
+    },
+    "69": {
+        "name": "ERJ 145",
+        "alternates": {
+            "ERJ 145": 176,
+            "Embraer erj 145": 110
+        },
+        "most_common_name": "ERJ 145",
+        "actual_freq": 176,
+        "relevant_total": 175,
+        "llama_relevance_ratio": 0.9943181818181818
+    },
+    "70": {
+        "name": "Embraer Legacy 600",
+        "alternates": {
+            "embraer legacy 600.": 61,
+            "Embraer Legacy 600": 61
+        },
+        "most_common_name": "Embraer Legacy 600",
+        "actual_freq": 61,
+        "relevant_total": 60,
+        "llama_relevance_ratio": 0.9836065573770492
+    },
+    "71": {
+        "name": "Eurofighter Typhoon",
+        "alternates": {
+            "eurofighter typhoon": 2842,
+            "Eurofighter Typhoon": 2842
+        },
+        "most_common_name": "Eurofighter Typhoon",
+        "actual_freq": 2842,
+        "relevant_total": 2806,
+        "llama_relevance_ratio": 0.9873046875
+    },
+    "72": {
+        "name": "F-16A/B",
+        "alternates": {
+            "f 16b": 127,
+            "f 16a": 658,
+            "F-16A-B": 56,
+            "F-16A/B": 56
+        },
+        "most_common_name": "f 16a",
+        "actual_freq": 781,
+        "relevant_total": 602,
+        "llama_relevance_ratio": 0.7708066581306018
+    },
+    "73": {
+        "name": "F/A-18",
+        "alternates": {
+            "F-A-18": 2148,
+            "F/A-18": 2148,
+            "f a 18": 2148,
+            "McDonnell Douglas F/A-18 Hornet": 67
+        },
+        "most_common_name": "F/A-18",
+        "actual_freq": 2148,
+        "relevant_total": 1695,
+        "llama_relevance_ratio": 0.7890625
+    },
+    "74": {
+        "name": "Falcon 2000",
+        "alternates": {
+            "falcon 2000": 223,
+            "Dassault Falcon 2000": 90,
+            "Falcon 2000": 223
+        },
+        "most_common_name": "Falcon 2000",
+        "actual_freq": 223,
+        "relevant_total": 194,
+        "llama_relevance_ratio": 0.8699551569506726
+    },
+    "75": {
+        "name": "Falcon 900",
+        "alternates": {
+            "Dassault falcon 900": 86,
+            "Falcon 900": 221
+        },
+        "most_common_name": "Falcon 900",
+        "actual_freq": 221,
+        "relevant_total": 155,
+        "llama_relevance_ratio": 0.7013574660633484
+    },
+    "76": {
+        "name": "Fokker 100",
+        "alternates": {
+            "Fokker 100": 351
+        },
+        "most_common_name": "Fokker 100",
+        "actual_freq": 351,
+        "relevant_total": 330,
+        "llama_relevance_ratio": 0.9401709401709402
+    },
+    "77": {
+        "name": "Fokker 50",
+        "alternates": {
+            "Fokker 50": 160
+        },
+        "most_common_name": "Fokker 50",
+        "actual_freq": 160,
+        "relevant_total": 158,
+        "llama_relevance_ratio": 0.9875
+    },
+    "78": {
+        "name": "Fokker 70",
+        "alternates": {
+            "Fokker 70": 154
+        },
+        "most_common_name": "Fokker 70",
+        "actual_freq": 154,
+        "relevant_total": 152,
+        "llama_relevance_ratio": 0.987012987012987
+    },
+    "79": {
+        "name": "Global Express",
+        "alternates": {
+            "Global Express": 769,
+            "bombardier global express": 267
+        },
+        "most_common_name": "Global Express",
+        "actual_freq": 769,
+        "relevant_total": 660,
+        "llama_relevance_ratio": 0.8582574772431729
+    },
+    "80": {
+        "name": "Gulfstream IV",
+        "alternates": {
+            "gulfstream 4": 11,
+            "gulfstream iv": 156,
+            "Gulfstream IV": 156
+        },
+        "most_common_name": "Gulfstream IV",
+        "actual_freq": 166,
+        "relevant_total": 158,
+        "llama_relevance_ratio": 0.9518072289156626
+    },
+    "81": {
+        "name": "Gulfstream V",
+        "alternates": {
+            "gulfstream 5": 13,
+            "gulfstream v": 104,
+            "Gulfstream V": 104
+        },
+        "most_common_name": "Gulfstream V",
+        "actual_freq": 117,
+        "relevant_total": 103,
+        "llama_relevance_ratio": 0.8803418803418803
+    },
+    "82": {
+        "name": "Hawk T1",
+        "alternates": {
+            "t1 hawk": 7,
+            "hawk t1": 315,
+            "Hawk T1": 315
+        },
+        "most_common_name": "Hawk T1",
+        "actual_freq": 322,
+        "relevant_total": 317,
+        "llama_relevance_ratio": 0.984472049689441
+    },
+    "83": {
+        "name": "Il-76",
+        "alternates": {
+            "il 76": 704,
+            "Ilyushin Il-76": 448,
+            "Il-76": 704
+        },
+        "most_common_name": "Il-76",
+        "actual_freq": 704,
+        "relevant_total": 698,
+        "llama_relevance_ratio": 0.9914772727272727
+    },
+    "84": {
+        "name": "L-1011",
+        "alternates": {
+            "L-1011": 512,
+            "L-1011 TriStar": 124,
+            "Lockheed L-1011 TriStar": 77
+        },
+        "most_common_name": "L-1011",
+        "actual_freq": 512,
+        "relevant_total": 277,
+        "llama_relevance_ratio": 0.541015625
+    },
+    "85": {
+        "name": "MD-11",
+        "alternates": {
+            "McDonnell Douglas MD-11": 308,
+            "MD-11": 750
+        },
+        "most_common_name": "MD-11",
+        "actual_freq": 750,
+        "relevant_total": 662,
+        "llama_relevance_ratio": 0.8826666666666667
+    },
+    "86": {
+        "name": "MD-80",
+        "alternates": {
+            "mcdonnell douglas md 80": 55,
+            "MD-80": 412,
+            "md 80": 412
+        },
+        "most_common_name": "MD-80",
+        "actual_freq": 412,
+        "relevant_total": 248,
+        "llama_relevance_ratio": 0.6019417475728155
+    },
+    "87": {
+        "name": "MD-87",
+        "alternates": {
+            "MD-87": 72,
+            "mcdonnell douglas md 87": 28
+        },
+        "most_common_name": "MD-87",
+        "actual_freq": 72,
+        "relevant_total": 53,
+        "llama_relevance_ratio": 0.7361111111111112
+    },
+    "88": {
+        "name": "MD-90",
+        "alternates": {
+            "mcdonnell douglas md 90": 41,
+            "MD-90": 158
+        },
+        "most_common_name": "MD-90",
+        "actual_freq": 158,
+        "relevant_total": 123,
+        "llama_relevance_ratio": 0.7784810126582279
+    },
+    "89": {
+        "name": "Metroliner",
+        "alternates": {
+            "Fairchild Swearingen Metroliner": 5,
+            "Metroliner": 173
+        },
+        "most_common_name": "Metroliner",
+        "actual_freq": 173,
+        "relevant_total": 65,
+        "llama_relevance_ratio": 0.37572254335260113
+    },
+    "90": {
+        "name": "Model B200",
+        "alternates": {
+            "Model B200": 4,
+            "model b200": 4,
+            "b200": 2312,
+            "Beechcraft b200": 133,
+            "Beechcraft Super King Air": 163
+        },
+        "most_common_name": "Model B200",
+        "actual_freq": 2454,
+        "relevant_total": 363,
+        "llama_relevance_ratio": 0.14772727272727273
+    },
+    "91": {
+        "name": "PA-28",
+        "alternates": {
+            "Piper PA-28 Cherokee": 105,
+            "Piper PA-28": 745,
+            "PA-28": 1045,
+            "pa 28 cherokee": 107
+        },
+        "most_common_name": "PA-28",
+        "actual_freq": 1045,
+        "relevant_total": 917,
+        "llama_relevance_ratio": 0.8779296875
+    },
+    "92": {
+        "name": "SR-20",
+        "alternates": {
+            "SR-20": 165,
+            "cirrus sr20": 88,
+            "cirrus sr 20": 16,
+            "sr20": 823
+        },
+        "most_common_name": "sr20",
+        "actual_freq": 988,
+        "relevant_total": 129,
+        "llama_relevance_ratio": 0.1305668016194332
+    },
+    "93": {
+        "name": "Saab 2000",
+        "alternates": {
+            "saab 2000": 114,
+            "saab 2000 airplane": 2,
+            "Saab 2000": 114
+        },
+        "most_common_name": "Saab 2000",
+        "actual_freq": 114,
+        "relevant_total": 109,
+        "llama_relevance_ratio": 0.956140350877193
+    },
+    "94": {
+        "name": "Saab 340",
+        "alternates": {
+            "saab 340": 141,
+            "Saab 340": 141
+        },
+        "most_common_name": "Saab 340",
+        "actual_freq": 141,
+        "relevant_total": 133,
+        "llama_relevance_ratio": 0.9432624113475178
+    },
+    "95": {
+        "name": "Spitfire",
+        "alternates": {
+            "Spitfire": 21440,
+            "Supermarine Spitfire": 2274
+        },
+        "most_common_name": "Spitfire",
+        "actual_freq": 21440,
+        "relevant_total": 13756,
+        "llama_relevance_ratio": 0.6416015625
+    },
+    "96": {
+        "name": "Panavia Tornado",
+        "alternates": {
+            "Panavia tornado": 722,
+            "Panavia Tornado": 722
+        },
+        "most_common_name": "Panavia Tornado",
+        "actual_freq": 722,
+        "relevant_total": 718,
+        "llama_relevance_ratio": 0.9944598337950139
+    },
+    "97": {
+        "name": "Tu-134",
+        "alternates": {
+            "Tupolev Tu-134": 56,
+            "Tu-134": 89
+        },
+        "most_common_name": "Tu-134",
+        "actual_freq": 89,
+        "relevant_total": 89,
+        "llama_relevance_ratio": 1.0
+    },
+    "98": {
+        "name": "Tu-154",
+        "alternates": {
+            "Tu-154": 292,
+            "Tupolev Tu-154": 113
+        },
+        "most_common_name": "Tu-154",
+        "actual_freq": 292,
+        "relevant_total": 288,
+        "llama_relevance_ratio": 0.9863013698630136
+    },
+    "99": {
+        "name": "Yak-42",
+        "alternates": {
+            "Yak-42": 72,
+            "Yakovlev Yak-42": 18
+        },
+        "most_common_name": "Yak-42",
+        "actual_freq": 72,
+        "relevant_total": 69,
+        "llama_relevance_ratio": 0.9583333333333334
+    }
+}
