@@ -222,7 +222,7 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     if args.method == 'probing':         
         best_model, best_head, best_records, \
             best_logit_scale, val_loader, test_loader = train_probing(args, logger, loss_logger, model, classifier_head, \
-                                                                      train_loader, val_loader, test_loader, reload_model, text_dataloader)
+                                                                      train_loader, val_loader, test_loader, reload_model)
     
     elif args.method == 'dataset-cls':
         best_model, best_head, best_records, best_logit_scale = train_dataset_cls(args, logger, loss_logger, model, classifier_head, \
