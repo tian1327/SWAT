@@ -6,7 +6,9 @@ methods=("cutmix")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot")
 
-folder="finetune_on_fewshot_cutmix_vitb16"
+folder="finetune_on_fewshot_cutmix_vitb32"
+# folder="finetune_on_fewshot_cutmix_vitb16"
+
 
 # cls_inits=("random" "text" "REAL-Prompt" )
 cls_inits=("REAL-Prompt")
@@ -21,8 +23,8 @@ batch_size=32
 epochs=50
 # epochs=1 # for quick testing only
 
-# model_cfg="vitb32_openclip_laion400m"
-model_cfg="vitb16_openclip_laion400m"
+model_cfg="vitb32_openclip_laion400m"
+# model_cfg="vitb16_openclip_laion400m"
 
 # log_mode="file"
 log_mode="both"
