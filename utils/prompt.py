@@ -16,7 +16,9 @@ def get_prompts_tensors(args, model, tokenizer, logger):
     logger.info(f'Loaded metrics from: {metric_fn}')
     logger.info(f'len(metrics): {len(metrics)}')
 
-    prompts_dir = os.path.join(args.retrieved_path, args.dataset, 'pre_extracted/')
+    # prompts_dir = os.path.join(args.retrieved_path, args.dataset, 'pre_extracted/')
+    prompts_dir = os.path.join('data', args.dataset, 'pre_extracted/')
+
     if not os.path.exists(prompts_dir):
         os.makedirs(prompts_dir)
         logger.info(f'Created directory: {prompts_dir}')

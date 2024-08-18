@@ -105,8 +105,9 @@ OPENCLIP_MODEL_DIC = {
 }
 
 CLIP_MODEL_DIC ={
-    'vitb32_CLIP': 'ViT-B/32',
-    'vitb16_CLIP': 'ViT-B/16',
+    'vitb32': 'ViT-B/32',
+    'vitb16': 'ViT-B/16',
+    'rn50': 'RN50',
 }
 
 # def get_engine(arch, use_openclip = False, device = 'cuda'):
@@ -125,15 +126,12 @@ CLIP_MODEL_DIC ={
 
 
 
-def get_engine(model_cfg, device = 'cuda', mode='val'):
+def get_engine(model_cfg, device='cuda', mode='val'):
 
-    arch = model_cfg.split('_')[0]
-    model_name = model_cfg.split('_')[1]
-    pretraining_dataset = model_cfg.split('_')[2]
-
-    # print(f'arch: {arch}')
-    # print(f'model_name: {model_name}')
-    # print(f'pretraining_dataset: {pretraining_dataset}')
+    cfgs = model_cfg.split('_')
+    arch = cfgs[0]
+    model_name = cfgs[1]
+    pretraining_dataset = cfgs[2] if len(cfgs) == 3 else None
     
     if model_name == 'clip':
         arch = CLIP_MODEL_DIC[arch]

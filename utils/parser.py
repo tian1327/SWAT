@@ -17,7 +17,8 @@ def parse_args():
     parser.add_argument('--model_cfg', type=str, default='vitb32_openclip_laion400m', 
                         choices=['vitb32_openclip_laion400m', 'vitb16_openclip_laion400m',
                                  'vitb32_openclip_laion2b', 
-                                 'vitb32_clip', 'vitb16_clip'],
+                                 'vitb32_clip', 'vitb16_clip', 'rn50_clip'
+                                 ],
                         help='ViT Transformer arch.')
     # parser.add_argument('--resume_path', type=str, help='Model path to resume training for.')
     parser.add_argument('--model_path', default=None, type=str, help='Model path to start training from.')    
@@ -248,8 +249,8 @@ def parse_args():
 
     # build cls_num_list
     args.dataset_root = f'data/{args.dataset}'
-    test_file = os.path.join(args.dataset_root, args.test_split[0][0])
-    cls_num_list = get_class_num_list(test_file)
-    args.cls_num_list = cls_num_list
+    # test_file = os.path.join(args.dataset_root, args.test_split[0][0])
+    # cls_num_list = get_class_num_list(test_file)
+    # args.cls_num_list = cls_num_list
 
     return args
