@@ -1,13 +1,17 @@
 You can set up the environment by following the instructions below:
 
+Easy way:
 ```bash
 git clone https://github.com/tian1327/SWAT.git 
 cd SWAT
 
-# Lazy way to install dependencies
 conda create --name swat --file requirements.txt
 
-# Or funnier way ;)
+conda activate swat
+```
+
+Or funnier way ;)
+```bash
 conda create -n swat python=3.8 -y
 conda activate swat
 
