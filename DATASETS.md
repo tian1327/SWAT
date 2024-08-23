@@ -1,6 +1,6 @@
-# How to install datasets
+# How to install downstream datasets
 
-*The dataset download instruction is modified from official [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md).*
+*The dataset installation instruction is modified from official [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md).*
 
 We suggest putting all datasets under the same folder (say `$DATA`) to ease management and following the instructions below to organize datasets to avoid modifying the source code. The file structure looks like:
 
@@ -75,6 +75,9 @@ semi-aves/
 
 - Create a folder named `flowers102/` under `$DATA`.
 - Download the images and labels from https://www.robots.ox.ac.uk/~vgg/data/flowers/102/102flowers.tgz and https://www.robots.ox.ac.uk/~vgg/data/flowers/102/imagelabels.mat respectively.
+```bash
+wget https://www.robots.ox.ac.uk/~vgg/data/flowers/102/102flowers.tgz
+```
 - We have reformatted labels and provided to you as `train.txt`, `val.txt` and `test.txt` in the `SWAT/data/flowers102/` folder.
 
 The directory structure should look like:
@@ -89,6 +92,9 @@ flowers102/
 ### FGVC-Aircraft
 - Create a folder named `fgvc-aircraft/` under `$DATA`.
 - Download the data from https://www.robots.ox.ac.uk/~vgg/data/fgvc-aircraft/archives/fgvc-aircraft-2013b.tar.gz.
+```bash
+wget https://www.robots.ox.ac.uk/~vgg/data/fgvc-aircraft/archives/fgvc-aircraft-2013b.tar.gz
+```
 - Extract `fgvc-aircraft-2013b.tar.gz` and keep only `data/`.
 - Move `fgvc-aircraft-2013b/data/` to `$DATA/fgvc-aircraft`.
 - We have reformatted labels and provided to you as `train.txt`, `val.txt` and `test.txt` in the `SWAT/data/fgvc-aircraft/` folder.
@@ -103,6 +109,9 @@ fgvc_aircraft/
 ### EuroSAT
 - Create a folder named `eurosat/` under `$DATA`.
 - Download the dataset from http://madm.dfki.de/files/sentinel/EuroSAT.zip and extract it to `$DATA/eurosat/`.
+```bash
+wget https://zenodo.org/records/7711810/files/EuroSAT_RGB.zip?download=1
+```
 - Renmae the extracted folder `2750` to `EuroSAT_RGB`.
 - We have reformatted labels and provided to you as `train.txt`, `val.txt` and `test.txt` in the `SWAT/data/eurosat/` folder.
 
@@ -113,7 +122,11 @@ eurosat/
 ```
 
 ### DTD
+- Create a folder named `dtd/` under `$DATA`.
 - Download the dataset from https://www.robots.ox.ac.uk/~vgg/data/dtd/download/dtd-r1.0.1.tar.gz and extract it to `$DATA`. This should lead to `$DATA/dtd/`.
+```bash
+wget https://www.robots.ox.ac.uk/~vgg/data/dtd/download/dtd-r1.0.1.tar.gz
+```
 - We have reformatted labels and provided to you as `train.txt`, `val.txt` and `test.txt` in the `SWAT/data/dtd/` folder.
 
 The directory structure should look like:
@@ -125,3 +138,17 @@ dtd/
     |–– labels/
 ```
 
+## Prepare the dataset labels
+- We have already prepared the `train.txt`, `val.txt` and `test.txt` files for each dataset, using the same splits as in [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md).
+- In case you are interesting, we use the following script to prepare the dataset labels.
+```bash
+cd SWAT/
+python prepare_datasets_labels.py
+```
+
+## Prepare the few-shot labels
+- Prepare the few-shot annotation files for each dataset, using 3 random seeds.
+- We have already prepared the `fewshot{4/8/16}_seed{1/2/3}.txt` files for each dataset in `SWAT/data/{dataset}/` folder.
+```bash
+python prepare_fewshot_txt.py
+```

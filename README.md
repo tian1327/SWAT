@@ -20,7 +20,7 @@ To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved
 ![teaser](assets/teaser_v7.png)
 
 ## News
-
+- **2024-08-22:** Retrieval code released, see [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
 - **2024-07-05:** SWAT finetuning code released.
 - **2024-06-28:** [project page](https://tian1327.github.io/SWAT/) launched.
 - **2024-06-17:** [arXiv paper](https://arxiv.org/abs/2406.11148) released.

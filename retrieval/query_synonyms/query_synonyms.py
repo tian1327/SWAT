@@ -267,7 +267,7 @@ def get_alternative_names(class_lst, dataset_name):
 
 def get_aves_class_lst():
     class_lst = []
-    with open('../../data/semi-aves/prompts/s-names_prompts.json', 'r') as f:
+    with open('../../data/semi-aves/s-names_prompts.json', 'r') as f:
         data = json.load(f)
 
     for key, info in data.items():

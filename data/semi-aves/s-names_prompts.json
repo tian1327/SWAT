@@ -1,0 +1,1802 @@
+{
+    "Charadrius_semipalmatus": {
+        "class_id": 0,
+        "species": "Charadrius semipalmatus",
+        "common_name": "Semipalmated Plover",
+        "corpus": [
+            "Here is a photo of the Charadrius semipalmatus."
+        ],
+        "most_freq_synonym": "Semipalmated Plover"
+    },
+    "Tachycineta_thalassina": {
+        "class_id": 1,
+        "species": "Tachycineta thalassina",
+        "common_name": "Violet-green Swallow",
+        "corpus": [
+            "Here is a photo of the Tachycineta thalassina."
+        ],
+        "most_freq_synonym": "Violet-green Swallow"
+    },
+    "Stelgidopteryx_serripennis": {
+        "class_id": 2,
+        "species": "Stelgidopteryx serripennis",
+        "common_name": "Northern Rough-winged Swallow",
+        "corpus": [
+            "Here is a photo of the Stelgidopteryx serripennis."
+        ],
+        "most_freq_synonym": "Northern Rough-winged Swallow"
+    },
+    "Cassiculus_melanicterus": {
+        "class_id": 3,
+        "species": "Cassiculus melanicterus",
+        "common_name": "Black-chinned Honeyeater",
+        "corpus": [
+            "Here is a photo of the Cassiculus melanicterus."
+        ],
+        "most_freq_synonym": "Black-chinned Honeyeater"
+    },
+    "Jacana_spinosa": {
+        "class_id": 4,
+        "species": "Jacana spinosa",
+        "common_name": "Northern Jacana",
+        "corpus": [
+            "Here is a photo of the Jacana spinosa."
+        ],
+        "most_freq_synonym": "Northern Jacana"
+    },
+    "Haematopus_bachmani": {
+        "class_id": 5,
+        "species": "Haematopus bachmani",
+        "common_name": "Black Oystercatcher",
+        "corpus": [
+            "Here is a photo of the Haematopus bachmani."
+        ],
+        "most_freq_synonym": "Black Oystercatcher"
+    },
+    "Phoenicopterus_ruber": {
+        "class_id": 6,
+        "species": "Phoenicopterus ruber",
+        "common_name": "American Flamingo",
+        "corpus": [
+            "Here is a photo of the Phoenicopterus ruber."
+        ],
+        "most_freq_synonym": "American Flamingo"
+    },
+    "Phoenicurus_phoenicurus": {
+        "class_id": 7,
+        "species": "Phoenicurus phoenicurus",
+        "common_name": "Common Redstart",
+        "corpus": [
+            "Here is a photo of the Phoenicurus phoenicurus."
+        ],
+        "most_freq_synonym": "Common Redstart"
+    },
+    "Pelecanus_occidentalis": {
+        "class_id": 8,
+        "species": "Pelecanus occidentalis",
+        "common_name": "Brown Pelican",
+        "corpus": [
+            "Here is a photo of the Pelecanus occidentalis."
+        ],
+        "most_freq_synonym": "Brown Pelican"
+    },
+    "Archilochus_alexandri": {
+        "class_id": 9,
+        "species": "Archilochus alexandri",
+        "common_name": "Black-chinned Hummingbird",
+        "corpus": [
+            "Here is a photo of the Archilochus alexandri."
+        ],
+        "most_freq_synonym": "Black-chinned Hummingbird"
+    },
+    "Pelecanus_conspicillatus": {
+        "class_id": 10,
+        "species": "Pelecanus conspicillatus",
+        "common_name": "Australian Pelican",
+        "corpus": [
+            "Here is a photo of the Pelecanus conspicillatus."
+        ],
+        "most_freq_synonym": "Australian Pelican"
+    },
+    "Falco_tinnunculus": {
+        "class_id": 11,
+        "species": "Falco tinnunculus",
+        "common_name": "Common Kestrel",
+        "corpus": [
+            "Here is a photo of the Falco tinnunculus."
+        ],
+        "most_freq_synonym": "Common Kestrel"
+    },
+    "Tachybaptus_novaehollandiae": {
+        "class_id": 12,
+        "species": "Tachybaptus novaehollandiae",
+        "common_name": "Australasian Grebe",
+        "corpus": [
+            "Here is a photo of the Tachybaptus novaehollandiae."
+        ],
+        "most_freq_synonym": "Australasian Grebe"
+    },
+    "Petrochelidon_pyrrhonota": {
+        "class_id": 13,
+        "species": "Petrochelidon pyrrhonota",
+        "common_name": "Cliff Swallow",
+        "corpus": [
+            "Here is a photo of the Petrochelidon pyrrhonota."
+        ],
+        "most_freq_synonym": "Cliff Swallow"
+    },
+    "Falco_peregrinus": {
+        "class_id": 14,
+        "species": "Falco peregrinus",
+        "common_name": "Peregrine Falcon",
+        "corpus": [
+            "Here is a photo of the Falco peregrinus."
+        ],
+        "most_freq_synonym": "Peregrine Falcon"
+    },
+    "Oenanthe_oenanthe": {
+        "class_id": 15,
+        "species": "Oenanthe oenanthe",
+        "common_name": "Northern Wheatear",
+        "corpus": [
+            "Here is a photo of the Oenanthe oenanthe."
+        ],
+        "most_freq_synonym": "Northern Wheatear"
+    },
+    "Calidris_pusilla": {
+        "class_id": 16,
+        "species": "Calidris pusilla",
+        "common_name": "Semipalmated Sandpiper",
+        "corpus": [
+            "Here is a photo of the Calidris pusilla."
+        ],
+        "most_freq_synonym": "Semipalmated Sandpiper"
+    },
+    "Calidris_alpina": {
+        "class_id": 17,
+        "species": "Calidris alpina",
+        "common_name": "Dunlin",
+        "corpus": [
+            "Here is a photo of the Calidris alpina."
+        ],
+        "most_freq_synonym": "Dunlin"
+    },
+    "Streptopelia_chinensis": {
+        "class_id": 18,
+        "species": "Streptopelia chinensis",
+        "common_name": "Spotted Dove",
+        "corpus": [
+            "Here is a photo of the Streptopelia chinensis."
+        ],
+        "most_freq_synonym": "Spotted Dove"
+    },
+    "Limosa_fedoa": {
+        "class_id": 19,
+        "species": "Limosa fedoa",
+        "common_name": "Marbled Godwit",
+        "corpus": [
+            "Here is a photo of the Limosa fedoa."
+        ],
+        "most_freq_synonym": "Marbled Godwit"
+    },
+    "Anthochaera_carunculata": {
+        "class_id": 20,
+        "species": "Anthochaera carunculata",
+        "common_name": "Red Wattlebird",
+        "corpus": [
+            "Here is a photo of the Anthochaera carunculata."
+        ],
+        "most_freq_synonym": "Red Wattlebird"
+    },
+    "Columba_livia": {
+        "class_id": 21,
+        "species": "Columba livia",
+        "common_name": "Rock Pigeon",
+        "corpus": [
+            "Here is a photo of the Columba livia."
+        ],
+        "most_freq_synonym": "Rock Pigeon"
+    },
+    "Phalaropus_lobatus": {
+        "class_id": 22,
+        "species": "Phalaropus lobatus",
+        "common_name": "Red-necked Phalarope",
+        "corpus": [
+            "Here is a photo of the Phalaropus lobatus."
+        ],
+        "most_freq_synonym": "Red-necked Phalarope"
+    },
+    "Thalasseus_sandvicensis": {
+        "class_id": 23,
+        "species": "Thalasseus sandvicensis",
+        "common_name": "Sandwich Tern",
+        "corpus": [
+            "Here is a photo of the Thalasseus sandvicensis."
+        ],
+        "most_freq_synonym": "Sandwich Tern"
+    },
+    "Larus_canus": {
+        "class_id": 24,
+        "species": "Larus canus",
+        "common_name": "Mew Gull",
+        "corpus": [
+            "Here is a photo of the Larus canus."
+        ],
+        "most_freq_synonym": "Mew Gull"
+    },
+    "Motacilla_cinerea": {
+        "class_id": 25,
+        "species": "Motacilla cinerea",
+        "common_name": "Grey Wagtail",
+        "corpus": [
+            "Here is a photo of the Motacilla cinerea."
+        ],
+        "most_freq_synonym": "Grey Wagtail"
+    },
+    "Aechmophorus_occidentalis": {
+        "class_id": 26,
+        "species": "Aechmophorus occidentalis",
+        "common_name": "Western Grebe",
+        "corpus": [
+            "Here is a photo of the Aechmophorus occidentalis."
+        ],
+        "most_freq_synonym": "Western Grebe"
+    },
+    "Larus_glaucescens": {
+        "class_id": 27,
+        "species": "Larus glaucescens",
+        "common_name": "Glaucous-winged Gull",
+        "corpus": [
+            "Here is a photo of the Larus glaucescens."
+        ],
+        "most_freq_synonym": "Glaucous-winged Gull"
+    },
+    "Dendrocopos_major": {
+        "class_id": 28,
+        "species": "Dendrocopos major",
+        "common_name": "Great Spotted Woodpecker",
+        "corpus": [
+            "Here is a photo of the Dendrocopos major."
+        ],
+        "most_freq_synonym": "Great Spotted Woodpecker"
+    },
+    "Rissa_tridactyla": {
+        "class_id": 29,
+        "species": "Rissa tridactyla",
+        "common_name": "Black-legged Kittiwake",
+        "corpus": [
+            "Here is a photo of the Rissa tridactyla."
+        ],
+        "most_freq_synonym": "Black-legged Kittiwake"
+    },
+    "Molothrus_aeneus": {
+        "class_id": 30,
+        "species": "Molothrus aeneus",
+        "common_name": "Bronzed Cowbird",
+        "corpus": [
+            "Here is a photo of the Molothrus aeneus."
+        ],
+        "most_freq_synonym": "Bronzed Cowbird"
+    },
+    "Entomyzon_cyanotis": {
+        "class_id": 31,
+        "species": "Entomyzon cyanotis",
+        "common_name": "Blue-faced Honeyeater",
+        "corpus": [
+            "Here is a photo of the Entomyzon cyanotis."
+        ],
+        "most_freq_synonym": "Blue-faced Honeyeater"
+    },
+    "Alopochen_aegyptiaca": {
+        "class_id": 32,
+        "species": "Alopochen aegyptiaca",
+        "common_name": "Egyptian Goose",
+        "corpus": [
+            "Here is a photo of the Alopochen aegyptiaca."
+        ],
+        "most_freq_synonym": "Egyptian Goose"
+    },
+    "Lonchura_punctulata": {
+        "class_id": 33,
+        "species": "Lonchura punctulata",
+        "common_name": "Scaly-breasted Munia",
+        "corpus": [
+            "Here is a photo of the Lonchura punctulata."
+        ],
+        "most_freq_synonym": "Scaly-breasted Munia"
+    },
+    "Anas_platyrhynchos": {
+        "class_id": 34,
+        "species": "Anas platyrhynchos",
+        "common_name": "Mallard",
+        "corpus": [
+            "Here is a photo of the Anas platyrhynchos."
+        ],
+        "most_freq_synonym": "Mallard"
+    },
+    "Aythya_australis": {
+        "class_id": 35,
+        "species": "Aythya australis",
+        "common_name": "Hardhead",
+        "corpus": [
+            "Here is a photo of the Aythya australis."
+        ],
+        "most_freq_synonym": "Hardhead"
+    },
+    "Dicrurus_macrocercus": {
+        "class_id": 36,
+        "species": "Dicrurus macrocercus",
+        "common_name": "Black Drongo",
+        "corpus": [
+            "Here is a photo of the Dicrurus macrocercus."
+        ],
+        "most_freq_synonym": "Black Drongo"
+    },
+    "Anser_albifrons": {
+        "class_id": 37,
+        "species": "Anser albifrons",
+        "common_name": "Greater White-fronted Goose",
+        "corpus": [
+            "Here is a photo of the Anser albifrons."
+        ],
+        "most_freq_synonym": "Greater White-fronted Goose"
+    },
+    "Buteo_regalis": {
+        "class_id": 38,
+        "species": "Buteo regalis",
+        "common_name": "Ferruginous Hawk",
+        "corpus": [
+            "Here is a photo of the Buteo regalis."
+        ],
+        "most_freq_synonym": "Ferruginous Hawk"
+    },
+    "Haliaeetus_leucocephalus": {
+        "class_id": 39,
+        "species": "Haliaeetus leucocephalus",
+        "common_name": "Bald Eagle",
+        "corpus": [
+            "Here is a photo of the Haliaeetus leucocephalus."
+        ],
+        "most_freq_synonym": "Bald Eagle"
+    },
+    "Morus_bassanus": {
+        "class_id": 40,
+        "species": "Morus bassanus",
+        "common_name": "Northern Gannet",
+        "corpus": [
+            "Here is a photo of the Morus bassanus."
+        ],
+        "most_freq_synonym": "Northern Gannet"
+    },
+    "Certhia_familiaris": {
+        "class_id": 41,
+        "species": "Certhia familiaris",
+        "common_name": "Eurasian Treecreeper",
+        "corpus": [
+            "Here is a photo of the Certhia familiaris."
+        ],
+        "most_freq_synonym": "Certhia familiaris"
+    },
+    "Rostrhamus_sociabilis": {
+        "class_id": 42,
+        "species": "Rostrhamus sociabilis",
+        "common_name": "Snail Kite",
+        "corpus": [
+            "Here is a photo of the Rostrhamus sociabilis."
+        ],
+        "most_freq_synonym": "Snail Kite"
+    },
+    "Cracticus_torquatus": {
+        "class_id": 43,
+        "species": "Cracticus torquatus",
+        "common_name": "Grey Butcherbird",
+        "corpus": [
+            "Here is a photo of the Cracticus torquatus."
+        ],
+        "most_freq_synonym": "Grey Butcherbird"
+    },
+    "Passerina_amoena": {
+        "class_id": 44,
+        "species": "Passerina amoena",
+        "common_name": "Lazuli Bunting",
+        "corpus": [
+            "Here is a photo of the Passerina amoena."
+        ],
+        "most_freq_synonym": "Lazuli Bunting"
+    },
+    "Aythya_fuligula": {
+        "class_id": 45,
+        "species": "Aythya fuligula",
+        "common_name": "Tufted Duck",
+        "corpus": [
+            "Here is a photo of the Aythya fuligula."
+        ],
+        "most_freq_synonym": "Tufted Duck"
+    },
+    "Chondestes_grammacus": {
+        "class_id": 46,
+        "species": "Chondestes grammacus",
+        "common_name": "Lark Sparrow",
+        "corpus": [
+            "Here is a photo of the Chondestes grammacus."
+        ],
+        "most_freq_synonym": "Lark Sparrow"
+    },
+    "Fulica_atra": {
+        "class_id": 47,
+        "species": "Fulica atra",
+        "common_name": "Eurasian Coot",
+        "corpus": [
+            "Here is a photo of the Fulica atra."
+        ],
+        "most_freq_synonym": "Fulica atra"
+    },
+    "Mergus_merganser": {
+        "class_id": 48,
+        "species": "Mergus merganser",
+        "common_name": "Common Merganser",
+        "corpus": [
+            "Here is a photo of the Mergus merganser."
+        ],
+        "most_freq_synonym": "Common Merganser"
+    },
+    "Egretta_thula": {
+        "class_id": 49,
+        "species": "Egretta thula",
+        "common_name": "Snowy Egret",
+        "corpus": [
+            "Here is a photo of the Egretta thula."
+        ],
+        "most_freq_synonym": "Snowy Egret"
+    },
+    "Pyrrhula_pyrrhula": {
+        "class_id": 50,
+        "species": "Pyrrhula pyrrhula",
+        "common_name": "Eurasian Bullfinch",
+        "corpus": [
+            "Here is a photo of the Pyrrhula pyrrhula."
+        ],
+        "most_freq_synonym": "Pyrrhula pyrrhula"
+    },
+    "Aquila_chrysaetos": {
+        "class_id": 51,
+        "species": "Aquila chrysaetos",
+        "common_name": "Golden Eagle",
+        "corpus": [
+            "Here is a photo of the Aquila chrysaetos."
+        ],
+        "most_freq_synonym": "Golden Eagle"
+    },
+    "Setophaga_townsendi": {
+        "class_id": 52,
+        "species": "Setophaga townsendi",
+        "common_name": "Townsend's Warbler",
+        "corpus": [
+            "Here is a photo of the Setophaga townsendi."
+        ],
+        "most_freq_synonym": "Townsend's Warbler"
+    },
+    "Cygnus_atratus": {
+        "class_id": 53,
+        "species": "Cygnus atratus",
+        "common_name": "Black Swan",
+        "corpus": [
+            "Here is a photo of the Cygnus atratus."
+        ],
+        "most_freq_synonym": "Black Swan"
+    },
+    "Cygnus_buccinator": {
+        "class_id": 54,
+        "species": "Cygnus buccinator",
+        "common_name": "Trumpeter Swan",
+        "corpus": [
+            "Here is a photo of the Cygnus buccinator."
+        ],
+        "most_freq_synonym": "Trumpeter Swan"
+    },
+    "Branta_canadensis": {
+        "class_id": 55,
+        "species": "Branta canadensis",
+        "common_name": "Canada Goose",
+        "corpus": [
+            "Here is a photo of the Branta canadensis."
+        ],
+        "most_freq_synonym": "Canada Goose"
+    },
+    "Circus_hudsonius": {
+        "class_id": 56,
+        "species": "Circus hudsonius",
+        "common_name": "Northern Harrier",
+        "corpus": [
+            "Here is a photo of the Circus hudsonius."
+        ],
+        "most_freq_synonym": "Northern Harrier"
+    },
+    "Anhinga_anhinga": {
+        "class_id": 57,
+        "species": "Anhinga anhinga",
+        "common_name": "Anhinga",
+        "corpus": [
+            "Here is a photo of the Anhinga anhinga."
+        ],
+        "most_freq_synonym": "Anhinga"
+    },
+    "Buteo_jamaicensis": {
+        "class_id": 58,
+        "species": "Buteo jamaicensis",
+        "common_name": "Red-tailed Hawk",
+        "corpus": [
+            "Here is a photo of the Buteo jamaicensis."
+        ],
+        "most_freq_synonym": "Red-tailed Hawk"
+    },
+    "Pica_pica": {
+        "class_id": 59,
+        "species": "Pica pica",
+        "common_name": "Eurasian Magpie",
+        "corpus": [
+            "Here is a photo of the Pica pica."
+        ],
+        "most_freq_synonym": "Pica pica"
+    },
+    "Corvus_frugilegus": {
+        "class_id": 60,
+        "species": "Corvus frugilegus",
+        "common_name": "Rook",
+        "corpus": [
+            "Here is a photo of the Corvus frugilegus."
+        ],
+        "most_freq_synonym": "Rook"
+    },
+    "Bonasa_umbellus": {
+        "class_id": 61,
+        "species": "Bonasa umbellus",
+        "common_name": "Ruffed Grouse",
+        "corpus": [
+            "Here is a photo of the Bonasa umbellus."
+        ],
+        "most_freq_synonym": "Ruffed Grouse"
+    },
+    "Myiozetetes_similis": {
+        "class_id": 62,
+        "species": "Myiozetetes similis",
+        "common_name": "Social Flycatcher",
+        "corpus": [
+            "Here is a photo of the Myiozetetes similis."
+        ],
+        "most_freq_synonym": "Social Flycatcher"
+    },
+    "Progne_subis": {
+        "class_id": 63,
+        "species": "Progne subis",
+        "common_name": "Purple Martin",
+        "corpus": [
+            "Here is a photo of the Progne subis."
+        ],
+        "most_freq_synonym": "Purple Martin"
+    },
+    "Megaceryle_alcyon": {
+        "class_id": 64,
+        "species": "Megaceryle alcyon",
+        "common_name": "Belted Kingfisher",
+        "corpus": [
+            "Here is a photo of the Megaceryle alcyon."
+        ],
+        "most_freq_synonym": "Belted Kingfisher"
+    },
+    "Molothrus_ater": {
+        "class_id": 65,
+        "species": "Molothrus ater",
+        "common_name": "Brown-headed Cowbird",
+        "corpus": [
+            "Here is a photo of the Molothrus ater."
+        ],
+        "most_freq_synonym": "Brown-headed Cowbird"
+    },
+    "Piranga_rubra": {
+        "class_id": 66,
+        "species": "Piranga rubra",
+        "common_name": "Summer Tanager",
+        "corpus": [
+            "Here is a photo of the Piranga rubra."
+        ],
+        "most_freq_synonym": "Summer Tanager"
+    },
+    "Vanellus_chilensis": {
+        "class_id": 67,
+        "species": "Vanellus chilensis",
+        "common_name": "Southern Lapwing",
+        "corpus": [
+            "Here is a photo of the Vanellus chilensis."
+        ],
+        "most_freq_synonym": "Southern Lapwing"
+    },
+    "Cygnus_olor": {
+        "class_id": 68,
+        "species": "Cygnus olor",
+        "common_name": "Mute Swan",
+        "corpus": [
+            "Here is a photo of the Cygnus olor."
+        ],
+        "most_freq_synonym": "Mute Swan"
+    },
+    "Passerculus_sandwichensis": {
+        "class_id": 69,
+        "species": "Passerculus sandwichensis",
+        "common_name": "Savannah Sparrow",
+        "corpus": [
+            "Here is a photo of the Passerculus sandwichensis."
+        ],
+        "most_freq_synonym": "Savannah Sparrow"
+    },
+    "Chroicocephalus_philadelphia": {
+        "class_id": 70,
+        "species": "Chroicocephalus philadelphia",
+        "common_name": "Bonaparte's Gull",
+        "corpus": [
+            "Here is a photo of the Chroicocephalus philadelphia."
+        ],
+        "most_freq_synonym": "Bonaparte's Gull"
+    },
+    "Setophaga_palmarum": {
+        "class_id": 71,
+        "species": "Setophaga palmarum",
+        "common_name": "Palm Warbler",
+        "corpus": [
+            "Here is a photo of the Setophaga palmarum."
+        ],
+        "most_freq_synonym": "Palm Warbler"
+    },
+    "Himantopus_himantopus": {
+        "class_id": 72,
+        "species": "Himantopus himantopus",
+        "common_name": "Black-winged Stilt",
+        "corpus": [
+            "Here is a photo of the Himantopus himantopus."
+        ],
+        "most_freq_synonym": "Black-winged Stilt"
+    },
+    "Setophaga_occidentalis": {
+        "class_id": 73,
+        "species": "Setophaga occidentalis",
+        "common_name": "Hermit Warbler",
+        "corpus": [
+            "Here is a photo of the Setophaga occidentalis."
+        ],
+        "most_freq_synonym": "Hermit Warbler"
+    },
+    "Buteo_lineatus": {
+        "class_id": 74,
+        "species": "Buteo lineatus",
+        "common_name": "Red-shouldered Hawk",
+        "corpus": [
+            "Here is a photo of the Buteo lineatus."
+        ],
+        "most_freq_synonym": "Red-shouldered Hawk"
+    },
+    "Zonotrichia_leucophrys": {
+        "class_id": 75,
+        "species": "Zonotrichia leucophrys",
+        "common_name": "White-crowned Sparrow",
+        "corpus": [
+            "Here is a photo of the Zonotrichia leucophrys."
+        ],
+        "most_freq_synonym": "White-crowned Sparrow"
+    },
+    "Saltator_coerulescens": {
+        "class_id": 76,
+        "species": "Saltator coerulescens",
+        "common_name": "Greyish Saltator",
+        "corpus": [
+            "Here is a photo of the Saltator coerulescens."
+        ],
+        "most_freq_synonym": "Saltator coerulescens"
+    },
+    "Tyrannus_vociferans": {
+        "class_id": 77,
+        "species": "Tyrannus vociferans",
+        "common_name": "Couch's Kingbird",
+        "corpus": [
+            "Here is a photo of the Tyrannus vociferans."
+        ],
+        "most_freq_synonym": "Couch's Kingbird"
+    },
+    "Junco_hyemalis": {
+        "class_id": 78,
+        "species": "Junco hyemalis",
+        "common_name": "Dark-eyed Junco",
+        "corpus": [
+            "Here is a photo of the Junco hyemalis."
+        ],
+        "most_freq_synonym": "Dark-eyed Junco"
+    },
+    "Pitangus_sulphuratus": {
+        "class_id": 79,
+        "species": "Pitangus sulphuratus",
+        "common_name": "Great Kiskadee",
+        "corpus": [
+            "Here is a photo of the Pitangus sulphuratus."
+        ],
+        "most_freq_synonym": "Great Kiskadee"
+    },
+    "Sylvia_communis": {
+        "class_id": 80,
+        "species": "Sylvia communis",
+        "common_name": "Common Whitethroat",
+        "corpus": [
+            "Here is a photo of the Sylvia communis."
+        ],
+        "most_freq_synonym": "Common Whitethroat"
+    },
+    "Melanerpes_erythrocephalus": {
+        "class_id": 81,
+        "species": "Melanerpes erythrocephalus",
+        "common_name": "Red-headed Woodpecker",
+        "corpus": [
+            "Here is a photo of the Melanerpes erythrocephalus."
+        ],
+        "most_freq_synonym": "Red-headed Woodpecker"
+    },
+    "Rhipidura_leucophrys": {
+        "class_id": 82,
+        "species": "Rhipidura leucophrys",
+        "common_name": "Willie Wagtail",
+        "corpus": [
+            "Here is a photo of the Rhipidura leucophrys."
+        ],
+        "most_freq_synonym": "Willie Wagtail"
+    },
+    "Quiscalus_major": {
+        "class_id": 83,
+        "species": "Quiscalus major",
+        "common_name": "Boat-tailed Grackle",
+        "corpus": [
+            "Here is a photo of the Quiscalus major."
+        ],
+        "most_freq_synonym": "Boat-tailed Grackle"
+    },
+    "Sphyrapicus_varius": {
+        "class_id": 84,
+        "species": "Sphyrapicus varius",
+        "common_name": "Yellow-bellied Sapsucker",
+        "corpus": [
+            "Here is a photo of the Sphyrapicus varius."
+        ],
+        "most_freq_synonym": "Yellow-bellied Sapsucker"
+    },
+    "Sitta_europaea": {
+        "class_id": 85,
+        "species": "Sitta europaea",
+        "common_name": "Eurasian Nuthatch",
+        "corpus": [
+            "Here is a photo of the Sitta europaea."
+        ],
+        "most_freq_synonym": "Sitta europaea"
+    },
+    "Cyanocorax_yncas": {
+        "class_id": 86,
+        "species": "Cyanocorax yncas",
+        "common_name": "Green Jay",
+        "corpus": [
+            "Here is a photo of the Cyanocorax yncas."
+        ],
+        "most_freq_synonym": "Green Jay"
+    },
+    "Corvus_brachyrhynchos": {
+        "class_id": 87,
+        "species": "Corvus brachyrhynchos",
+        "common_name": "American Crow",
+        "corpus": [
+            "Here is a photo of the Corvus brachyrhynchos."
+        ],
+        "most_freq_synonym": "American Crow"
+    },
+    "Sitta_canadensis": {
+        "class_id": 88,
+        "species": "Sitta canadensis",
+        "common_name": "Red-breasted Nuthatch",
+        "corpus": [
+            "Here is a photo of the Sitta canadensis."
+        ],
+        "most_freq_synonym": "Red-breasted Nuthatch"
+    },
+    "Cyanistes_caeruleus": {
+        "class_id": 89,
+        "species": "Cyanistes caeruleus",
+        "common_name": "Eurasian Blue Tit",
+        "corpus": [
+            "Here is a photo of the Cyanistes caeruleus."
+        ],
+        "most_freq_synonym": "Cyanistes caeruleus"
+    },
+    "Colaptes_auratus": {
+        "class_id": 90,
+        "species": "Colaptes auratus",
+        "common_name": "Northern Flicker",
+        "corpus": [
+            "Here is a photo of the Colaptes auratus."
+        ],
+        "most_freq_synonym": "Northern Flicker"
+    },
+    "Baeolophus_inornatus": {
+        "class_id": 91,
+        "species": "Baeolophus inornatus",
+        "common_name": "Oak Titmouse",
+        "corpus": [
+            "Here is a photo of the Baeolophus inornatus."
+        ],
+        "most_freq_synonym": "Oak Titmouse"
+    },
+    "Erithacus_rubecula": {
+        "class_id": 92,
+        "species": "Erithacus rubecula",
+        "common_name": "European Robin",
+        "corpus": [
+            "Here is a photo of the Erithacus rubecula."
+        ],
+        "most_freq_synonym": "European Robin"
+    },
+    "Poecile_carolinensis": {
+        "class_id": 93,
+        "species": "Poecile carolinensis",
+        "common_name": "Carolina Chickadee",
+        "corpus": [
+            "Here is a photo of the Poecile carolinensis."
+        ],
+        "most_freq_synonym": "Carolina Chickadee"
+    },
+    "Passer_domesticus": {
+        "class_id": 94,
+        "species": "Passer domesticus",
+        "common_name": "House Sparrow",
+        "corpus": [
+            "Here is a photo of the Passer domesticus."
+        ],
+        "most_freq_synonym": "House Sparrow"
+    },
+    "Sphecotheres_vieilloti": {
+        "class_id": 95,
+        "species": "Sphecotheres vieilloti",
+        "common_name": "green figbird",
+        "corpus": [
+            "Here is a photo of the Sphecotheres vieilloti."
+        ],
+        "most_freq_synonym": "green figbird"
+    },
+    "Mniotilta_varia": {
+        "class_id": 96,
+        "species": "Mniotilta varia",
+        "common_name": "Black-and-white Warbler",
+        "corpus": [
+            "Here is a photo of the Mniotilta varia."
+        ],
+        "most_freq_synonym": "Black-and-white Warbler"
+    },
+    "Dryocopus_pileatus": {
+        "class_id": 97,
+        "species": "Dryocopus pileatus",
+        "common_name": "Pileated Woodpecker",
+        "corpus": [
+            "Here is a photo of the Dryocopus pileatus."
+        ],
+        "most_freq_synonym": "Pileated Woodpecker"
+    },
+    "Prunella_modularis": {
+        "class_id": 98,
+        "species": "Prunella modularis",
+        "common_name": "Dunnock",
+        "corpus": [
+            "Here is a photo of the Prunella modularis."
+        ],
+        "most_freq_synonym": "Dunnock"
+    },
+    "Megarynchus_pitangua": {
+        "class_id": 99,
+        "species": "Megarynchus pitangua",
+        "common_name": "Great Kiskadee",
+        "corpus": [
+            "Here is a photo of the Megarynchus pitangua."
+        ],
+        "most_freq_synonym": "Great Kiskadee"
+    },
+    "Melospiza_georgiana": {
+        "class_id": 100,
+        "species": "Melospiza georgiana",
+        "common_name": "Swamp Sparrow",
+        "corpus": [
+            "Here is a photo of the Melospiza georgiana."
+        ],
+        "most_freq_synonym": "Swamp Sparrow"
+    },
+    "Agelaius_phoeniceus": {
+        "class_id": 101,
+        "species": "Agelaius phoeniceus",
+        "common_name": "Red-winged Blackbird",
+        "corpus": [
+            "Here is a photo of the Agelaius phoeniceus."
+        ],
+        "most_freq_synonym": "Red-winged Blackbird"
+    },
+    "Lanius_cristatus": {
+        "class_id": 102,
+        "species": "Lanius cristatus",
+        "common_name": "Brown Shrike",
+        "corpus": [
+            "Here is a photo of the Lanius cristatus."
+        ],
+        "most_freq_synonym": "Brown Shrike"
+    },
+    "Catharus_ustulatus": {
+        "class_id": 103,
+        "species": "Catharus ustulatus",
+        "common_name": "Swainson's Thrush",
+        "corpus": [
+            "Here is a photo of the Catharus ustulatus."
+        ],
+        "most_freq_synonym": "Swainson's Thrush"
+    },
+    "Ammodramus_savannarum": {
+        "class_id": 104,
+        "species": "Ammodramus savannarum",
+        "common_name": "Grasshopper Sparrow",
+        "corpus": [
+            "Here is a photo of the Ammodramus savannarum."
+        ],
+        "most_freq_synonym": "Grasshopper Sparrow"
+    },
+    "Thryothorus_ludovicianus": {
+        "class_id": 105,
+        "species": "Thryothorus ludovicianus",
+        "common_name": "Carolina Wren",
+        "corpus": [
+            "Here is a photo of the Thryothorus ludovicianus."
+        ],
+        "most_freq_synonym": "Carolina Wren"
+    },
+    "Troglodytes_aedon": {
+        "class_id": 106,
+        "species": "Troglodytes aedon",
+        "common_name": "House Wren",
+        "corpus": [
+            "Here is a photo of the Troglodytes aedon."
+        ],
+        "most_freq_synonym": "House Wren"
+    },
+    "Setophaga_caerulescens": {
+        "class_id": 107,
+        "species": "Setophaga caerulescens",
+        "common_name": "Black-throated Blue Warbler",
+        "corpus": [
+            "Here is a photo of the Setophaga caerulescens."
+        ],
+        "most_freq_synonym": "Black-throated Blue Warbler"
+    },
+    "Neochmia_temporalis": {
+        "class_id": 108,
+        "species": "Neochmia temporalis",
+        "common_name": "Red-browed Finch",
+        "corpus": [
+            "Here is a photo of the Neochmia temporalis."
+        ],
+        "most_freq_synonym": "Red-browed Finch"
+    },
+    "Setophaga_citrina": {
+        "class_id": 109,
+        "species": "Setophaga citrina",
+        "common_name": "Hooded Warbler",
+        "corpus": [
+            "Here is a photo of the Setophaga citrina."
+        ],
+        "most_freq_synonym": "Hooded Warbler"
+    },
+    "Myiodynastes_luteiventris": {
+        "class_id": 110,
+        "species": "Myiodynastes luteiventris",
+        "common_name": "Sulphur-bellied Flycatcher",
+        "corpus": [
+            "Here is a photo of the Myiodynastes luteiventris."
+        ],
+        "most_freq_synonym": "Myiodynastes luteiventris"
+    },
+    "Setophaga_discolor": {
+        "class_id": 111,
+        "species": "Setophaga discolor",
+        "common_name": "Prairie Warbler",
+        "corpus": [
+            "Here is a photo of the Setophaga discolor."
+        ],
+        "most_freq_synonym": "Prairie Warbler"
+    },
+    "Pipilo_erythrophthalmus": {
+        "class_id": 112,
+        "species": "Pipilo erythrophthalmus",
+        "common_name": "Eastern Towhee",
+        "corpus": [
+            "Here is a photo of the Pipilo erythrophthalmus."
+        ],
+        "most_freq_synonym": "Eastern Towhee"
+    },
+    "Pica_nuttalli": {
+        "class_id": 113,
+        "species": "Pica nuttalli",
+        "common_name": "Yellow-billed Magpie",
+        "corpus": [
+            "Here is a photo of the Pica nuttalli."
+        ],
+        "most_freq_synonym": "Yellow-billed Magpie"
+    },
+    "Toxostoma_longirostre": {
+        "class_id": 114,
+        "species": "Toxostoma longirostre",
+        "common_name": "Long-billed Thrasher",
+        "corpus": [
+            "Here is a photo of the Toxostoma longirostre."
+        ],
+        "most_freq_synonym": "Long-billed Thrasher"
+    },
+    "Ardea_melanocephala": {
+        "class_id": 115,
+        "species": "Ardea melanocephala",
+        "common_name": "Black-headed Heron",
+        "corpus": [
+            "Here is a photo of the Ardea melanocephala."
+        ],
+        "most_freq_synonym": "Black-headed Heron"
+    },
+    "Microcarbo_africanus": {
+        "class_id": 116,
+        "species": "Microcarbo africanus",
+        "common_name": "Reed Cormorant",
+        "corpus": [
+            "Here is a photo of the Microcarbo africanus."
+        ],
+        "most_freq_synonym": "Reed Cormorant"
+    },
+    "Charadrius_wilsonia": {
+        "class_id": 117,
+        "species": "Charadrius wilsonia",
+        "common_name": "Wilson's Plover",
+        "corpus": [
+            "Here is a photo of the Charadrius wilsonia."
+        ],
+        "most_freq_synonym": "Wilson's Plover"
+    },
+    "Spizella_breweri": {
+        "class_id": 118,
+        "species": "Spizella breweri",
+        "common_name": "Brewer's Sparrow",
+        "corpus": [
+            "Here is a photo of the Spizella breweri."
+        ],
+        "most_freq_synonym": "Brewer's Sparrow"
+    },
+    "Patagioenas_flavirostris": {
+        "class_id": 119,
+        "species": "Patagioenas flavirostris",
+        "common_name": "Red-billed Pigeon",
+        "corpus": [
+            "Here is a photo of the Patagioenas flavirostris."
+        ],
+        "most_freq_synonym": "Red-billed Pigeon"
+    },
+    "Chlidonias_hybrida": {
+        "class_id": 120,
+        "species": "Chlidonias hybrida",
+        "common_name": "Whiskered Tern",
+        "corpus": [
+            "Here is a photo of the Chlidonias hybrida."
+        ],
+        "most_freq_synonym": "Whiskered Tern"
+    },
+    "Sterna_paradisaea": {
+        "class_id": 121,
+        "species": "Sterna paradisaea",
+        "common_name": "Arctic Tern",
+        "corpus": [
+            "Here is a photo of the Sterna paradisaea."
+        ],
+        "most_freq_synonym": "Arctic Tern"
+    },
+    "Calidris_virgata": {
+        "class_id": 122,
+        "species": "Calidris virgata",
+        "common_name": "Surfbird",
+        "corpus": [
+            "Here is a photo of the Calidris virgata."
+        ],
+        "most_freq_synonym": "Surfbird"
+    },
+    "Acridotheres_cristatellus": {
+        "class_id": 123,
+        "species": "Acridotheres cristatellus",
+        "common_name": "Crested Myna",
+        "corpus": [
+            "Here is a photo of the Acridotheres cristatellus."
+        ],
+        "most_freq_synonym": "Crested Myna"
+    },
+    "Tigrisoma_lineatum": {
+        "class_id": 124,
+        "species": "Tigrisoma lineatum",
+        "common_name": "Rufescent Tiger Heron",
+        "corpus": [
+            "Here is a photo of the Tigrisoma lineatum."
+        ],
+        "most_freq_synonym": "Rufescent Tiger Heron"
+    },
+    "Ciconia_nigra": {
+        "class_id": 125,
+        "species": "Ciconia nigra",
+        "common_name": "Black Stork",
+        "corpus": [
+            "Here is a photo of the Ciconia nigra."
+        ],
+        "most_freq_synonym": "Black Stork"
+    },
+    "Oriolus_chinensis": {
+        "class_id": 126,
+        "species": "Oriolus chinensis",
+        "common_name": "Black-naped Oriole",
+        "corpus": [
+            "Here is a photo of the Oriolus chinensis."
+        ],
+        "most_freq_synonym": "Black-naped Oriole"
+    },
+    "Chloroceryle_amazona": {
+        "class_id": 127,
+        "species": "Chloroceryle amazona",
+        "common_name": "Amazon Kingfisher",
+        "corpus": [
+            "Here is a photo of the Chloroceryle amazona."
+        ],
+        "most_freq_synonym": "Amazon Kingfisher"
+    },
+    "Sylvia_curruca": {
+        "class_id": 128,
+        "species": "Sylvia curruca",
+        "common_name": "Lesser Whitethroat",
+        "corpus": [
+            "Here is a photo of the Sylvia curruca."
+        ],
+        "most_freq_synonym": "Lesser Whitethroat"
+    },
+    "Pernis_ptilorhynchus": {
+        "class_id": 129,
+        "species": "Pernis ptilorhynchus",
+        "common_name": "Crested Honey Buzzard",
+        "corpus": [
+            "Here is a photo of the Pernis ptilorhynchus."
+        ],
+        "most_freq_synonym": "Pernis ptilorhynchus"
+    },
+    "Charadrius_alexandrinus": {
+        "class_id": 130,
+        "species": "Charadrius alexandrinus",
+        "common_name": "Kentish Plover",
+        "corpus": [
+            "Here is a photo of the Charadrius alexandrinus."
+        ],
+        "most_freq_synonym": "Kentish Plover"
+    },
+    "Certhia_brachydactyla": {
+        "class_id": 131,
+        "species": "Certhia brachydactyla",
+        "common_name": "Short-toed Treecreeper",
+        "corpus": [
+            "Here is a photo of the Certhia brachydactyla."
+        ],
+        "most_freq_synonym": "Short-toed Treecreeper"
+    },
+    "Myiodynastes_maculatus": {
+        "class_id": 132,
+        "species": "Myiodynastes maculatus",
+        "common_name": "Streaked Flycatcher",
+        "corpus": [
+            "Here is a photo of the Myiodynastes maculatus."
+        ],
+        "most_freq_synonym": "Streaked Flycatcher"
+    },
+    "Larus_pacificus": {
+        "class_id": 133,
+        "species": "Larus pacificus",
+        "common_name": "Pacific Gull",
+        "corpus": [
+            "Here is a photo of the Larus pacificus."
+        ],
+        "most_freq_synonym": "Pacific Gull"
+    },
+    "Treron_vernans": {
+        "class_id": 134,
+        "species": "Treron vernans",
+        "common_name": "Pink-necked Green Pigeon",
+        "corpus": [
+            "Here is a photo of the Treron vernans."
+        ],
+        "most_freq_synonym": "Pink-necked Green Pigeon"
+    },
+    "Urocissa_erythroryncha": {
+        "class_id": 135,
+        "species": "Urocissa erythroryncha",
+        "common_name": "Red-billed Blue Magpie",
+        "corpus": [
+            "Here is a photo of the Urocissa erythroryncha."
+        ],
+        "most_freq_synonym": "Red-billed Blue Magpie"
+    },
+    "Microcarbo_pygmeus": {
+        "class_id": 136,
+        "species": "Microcarbo pygmeus",
+        "common_name": "Pygmy Cormorant",
+        "corpus": [
+            "Here is a photo of the Microcarbo pygmeus."
+        ],
+        "most_freq_synonym": "Pygmy Cormorant"
+    },
+    "Elseyornis_melanops": {
+        "class_id": 137,
+        "species": "Elseyornis melanops",
+        "common_name": "Black-fronted Dotterel",
+        "corpus": [
+            "Here is a photo of the Elseyornis melanops."
+        ],
+        "most_freq_synonym": "Black-fronted Dotterel"
+    },
+    "Mycteria_leucocephala": {
+        "class_id": 138,
+        "species": "Mycteria leucocephala",
+        "common_name": "Painted Stork",
+        "corpus": [
+            "Here is a photo of the Mycteria leucocephala."
+        ],
+        "most_freq_synonym": "Painted Stork"
+    },
+    "Gerygone_igata": {
+        "class_id": 139,
+        "species": "Gerygone igata",
+        "common_name": "Grey Warbler",
+        "corpus": [
+            "Here is a photo of the Gerygone igata."
+        ],
+        "most_freq_synonym": "Grey Warbler"
+    },
+    "Fulica_cristata": {
+        "class_id": 140,
+        "species": "Fulica cristata",
+        "common_name": "Red-knobbed Coot",
+        "corpus": [
+            "Here is a photo of the Fulica cristata."
+        ],
+        "most_freq_synonym": "Red-knobbed Coot"
+    },
+    "Turdus_leucomelas": {
+        "class_id": 141,
+        "species": "Turdus leucomelas",
+        "common_name": "Pale-breasted Thrush",
+        "corpus": [
+            "Here is a photo of the Turdus leucomelas."
+        ],
+        "most_freq_synonym": "Turdus leucomelas"
+    },
+    "Brotogeris_jugularis": {
+        "class_id": 142,
+        "species": "Brotogeris jugularis",
+        "common_name": "Orange-chinned Parakeet",
+        "corpus": [
+            "Here is a photo of the Brotogeris jugularis."
+        ],
+        "most_freq_synonym": "Orange-chinned Parakeet"
+    },
+    "Pycnonotus_aurigaster": {
+        "class_id": 143,
+        "species": "Pycnonotus aurigaster",
+        "common_name": "Sooty-headed Bulbul",
+        "corpus": [
+            "Here is a photo of the Pycnonotus aurigaster."
+        ],
+        "most_freq_synonym": "Sooty-headed Bulbul"
+    },
+    "Lagonosticta_senegala": {
+        "class_id": 144,
+        "species": "Lagonosticta senegala",
+        "common_name": "Red-billed Firefinch",
+        "corpus": [
+            "Here is a photo of the Lagonosticta senegala."
+        ],
+        "most_freq_synonym": "Red-billed Firefinch"
+    },
+    "Poecile_hudsonicus": {
+        "class_id": 145,
+        "species": "Poecile hudsonicus",
+        "common_name": "Boreal Chickadee",
+        "corpus": [
+            "Here is a photo of the Poecile hudsonicus."
+        ],
+        "most_freq_synonym": "Boreal Chickadee"
+    },
+    "Ploceus_velatus": {
+        "class_id": 146,
+        "species": "Ploceus velatus",
+        "common_name": "Southern Masked Weaver",
+        "corpus": [
+            "Here is a photo of the Ploceus velatus."
+        ],
+        "most_freq_synonym": "Southern Masked Weaver"
+    },
+    "Ploceus_cucullatus": {
+        "class_id": 147,
+        "species": "Ploceus cucullatus",
+        "common_name": "Village Weaver",
+        "corpus": [
+            "Here is a photo of the Ploceus cucullatus."
+        ],
+        "most_freq_synonym": "Village Weaver"
+    },
+    "Plocepasser_mahali": {
+        "class_id": 148,
+        "species": "Plocepasser mahali",
+        "common_name": "White-browed Sparrow-Weaver",
+        "corpus": [
+            "Here is a photo of the Plocepasser mahali."
+        ],
+        "most_freq_synonym": "White-browed Sparrow-Weaver"
+    },
+    "Calidris_ruficollis": {
+        "class_id": 149,
+        "species": "Calidris ruficollis",
+        "common_name": "Red-necked Stint",
+        "corpus": [
+            "Here is a photo of the Calidris ruficollis."
+        ],
+        "most_freq_synonym": "Red-necked Stint"
+    },
+    "Tringa_stagnatilis": {
+        "class_id": 150,
+        "species": "Tringa stagnatilis",
+        "common_name": "Marsh Sandpiper",
+        "corpus": [
+            "Here is a photo of the Tringa stagnatilis."
+        ],
+        "most_freq_synonym": "Marsh Sandpiper"
+    },
+    "Empidonax_virescens": {
+        "class_id": 151,
+        "species": "Empidonax virescens",
+        "common_name": "Acadian Flycatcher",
+        "corpus": [
+            "Here is a photo of the Empidonax virescens."
+        ],
+        "most_freq_synonym": "Acadian Flycatcher"
+    },
+    "Polemaetus_bellicosus": {
+        "class_id": 152,
+        "species": "Polemaetus bellicosus",
+        "common_name": "Martial Eagle",
+        "corpus": [
+            "Here is a photo of the Polemaetus bellicosus."
+        ],
+        "most_freq_synonym": "Martial Eagle"
+    },
+    "Lamprotornis_superbus": {
+        "class_id": 153,
+        "species": "Lamprotornis superbus",
+        "common_name": "Superb Starling",
+        "corpus": [
+            "Here is a photo of the Lamprotornis superbus."
+        ],
+        "most_freq_synonym": "Superb Starling"
+    },
+    "Jynx_torquilla": {
+        "class_id": 154,
+        "species": "Jynx torquilla",
+        "common_name": "Eurasian Wryneck",
+        "corpus": [
+            "Here is a photo of the Jynx torquilla."
+        ],
+        "most_freq_synonym": "Jynx torquilla"
+    },
+    "Buteo_rufinus": {
+        "class_id": 155,
+        "species": "Buteo rufinus",
+        "common_name": "Long-legged Buzzard",
+        "corpus": [
+            "Here is a photo of the Buteo rufinus."
+        ],
+        "most_freq_synonym": "Long-legged Buzzard"
+    },
+    "Cecropis_daurica": {
+        "class_id": 156,
+        "species": "Cecropis daurica",
+        "common_name": "Red-rumped Swallow",
+        "corpus": [
+            "Here is a photo of the Cecropis daurica."
+        ],
+        "most_freq_synonym": "Red-rumped Swallow"
+    },
+    "Anser_fabalis": {
+        "class_id": 157,
+        "species": "Anser fabalis",
+        "common_name": "Bean Goose",
+        "corpus": [
+            "Here is a photo of the Anser fabalis."
+        ],
+        "most_freq_synonym": "Bean Goose"
+    },
+    "Coscoroba_coscoroba": {
+        "class_id": 158,
+        "species": "Coscoroba coscoroba",
+        "common_name": "Coscoroba Swan",
+        "corpus": [
+            "Here is a photo of the Coscoroba coscoroba."
+        ],
+        "most_freq_synonym": "Coscoroba Swan"
+    },
+    "Anthus_petrosus": {
+        "class_id": 159,
+        "species": "Anthus petrosus",
+        "common_name": "Rock Pipit",
+        "corpus": [
+            "Here is a photo of the Anthus petrosus."
+        ],
+        "most_freq_synonym": "Rock Pipit"
+    },
+    "Torgos_tracheliotos": {
+        "class_id": 160,
+        "species": "Torgos tracheliotos",
+        "common_name": "Lappet-faced Vulture",
+        "corpus": [
+            "Here is a photo of the Torgos tracheliotos."
+        ],
+        "most_freq_synonym": "Lappet-faced Vulture"
+    },
+    "Lamprotornis_nitens": {
+        "class_id": 161,
+        "species": "Lamprotornis nitens",
+        "common_name": "Coppery Starling",
+        "corpus": [
+            "Here is a photo of the Lamprotornis nitens."
+        ],
+        "most_freq_synonym": "Lamprotornis nitens"
+    },
+    "Habia_fuscicauda": {
+        "class_id": 162,
+        "species": "Habia fuscicauda",
+        "common_name": "Red-throated Ant Tanager",
+        "corpus": [
+            "Here is a photo of the Habia fuscicauda."
+        ],
+        "most_freq_synonym": "Red-throated Ant Tanager"
+    },
+    "Calonectris_diomedea": {
+        "class_id": 163,
+        "species": "Calonectris diomedea",
+        "common_name": "Cory's Shearwater",
+        "corpus": [
+            "Here is a photo of the Calonectris diomedea."
+        ],
+        "most_freq_synonym": "Cory's Shearwater"
+    },
+    "Vanellus_senegallus": {
+        "class_id": 164,
+        "species": "Vanellus senegallus",
+        "common_name": "Lapwing",
+        "corpus": [
+            "Here is a photo of the Vanellus senegallus."
+        ],
+        "most_freq_synonym": "Lapwing"
+    },
+    "Polioptila_californica": {
+        "class_id": 165,
+        "species": "Polioptila californica",
+        "common_name": "California Gnatcatcher",
+        "corpus": [
+            "Here is a photo of the Polioptila californica."
+        ],
+        "most_freq_synonym": "California Gnatcatcher"
+    },
+    "Cinnyris_asiaticus": {
+        "class_id": 166,
+        "species": "Cinnyris asiaticus",
+        "common_name": "Purple Sunbird",
+        "corpus": [
+            "Here is a photo of the Cinnyris asiaticus."
+        ],
+        "most_freq_synonym": "Purple Sunbird"
+    },
+    "Saltator_aurantiirostris": {
+        "class_id": 167,
+        "species": "Saltator aurantiirostris",
+        "common_name": "Golden-billed Saltator",
+        "corpus": [
+            "Here is a photo of the Saltator aurantiirostris."
+        ],
+        "most_freq_synonym": "Golden-billed Saltator"
+    },
+    "Burhinus_vermiculatus": {
+        "class_id": 168,
+        "species": "Burhinus vermiculatus",
+        "common_name": "Water Thick-knee",
+        "corpus": [
+            "Here is a photo of the Burhinus vermiculatus."
+        ],
+        "most_freq_synonym": "Water Thick-knee"
+    },
+    "Charadrius_collaris": {
+        "class_id": 169,
+        "species": "Charadrius collaris",
+        "common_name": "Collared Plover",
+        "corpus": [
+            "Here is a photo of the Charadrius collaris."
+        ],
+        "most_freq_synonym": "Charadrius collaris"
+    },
+    "Cyanocorax_beecheii": {
+        "class_id": 170,
+        "species": "Cyanocorax beecheii",
+        "common_name": "Purplish-backed Jay",
+        "corpus": [
+            "Here is a photo of the Cyanocorax beecheii."
+        ],
+        "most_freq_synonym": "Purplish-backed Jay"
+    },
+    "Myiozetetes_cayanensis": {
+        "class_id": 171,
+        "species": "Myiozetetes cayanensis",
+        "common_name": "Rusty-margined Flycatcher",
+        "corpus": [
+            "Here is a photo of the Myiozetetes cayanensis."
+        ],
+        "most_freq_synonym": "Rusty-margined Flycatcher"
+    },
+    "Dicrurus_leucophaeus": {
+        "class_id": 172,
+        "species": "Dicrurus leucophaeus",
+        "common_name": "Ashy Drongo",
+        "corpus": [
+            "Here is a photo of the Dicrurus leucophaeus."
+        ],
+        "most_freq_synonym": "Ashy Drongo"
+    },
+    "Phoeniculus_purpureus": {
+        "class_id": 173,
+        "species": "Phoeniculus purpureus",
+        "common_name": "Green Wood Hoopoe",
+        "corpus": [
+            "Here is a photo of the Phoeniculus purpureus."
+        ],
+        "most_freq_synonym": "Green Wood Hoopoe"
+    },
+    "Colaptes_chrysoides": {
+        "class_id": 174,
+        "species": "Colaptes chrysoides",
+        "common_name": "Gilded Flicker",
+        "corpus": [
+            "Here is a photo of the Colaptes chrysoides."
+        ],
+        "most_freq_synonym": "Gilded Flicker"
+    },
+    "Lophaetus_occipitalis": {
+        "class_id": 175,
+        "species": "Lophaetus occipitalis",
+        "common_name": "Long-crested Eagle",
+        "corpus": [
+            "Here is a photo of the Lophaetus occipitalis."
+        ],
+        "most_freq_synonym": "Long-crested Eagle"
+    },
+    "Ixobrychus_minutus": {
+        "class_id": 176,
+        "species": "Ixobrychus minutus",
+        "common_name": "Little Bittern",
+        "corpus": [
+            "Here is a photo of the Ixobrychus minutus."
+        ],
+        "most_freq_synonym": "Little Bittern"
+    },
+    "Ardea_goliath": {
+        "class_id": 177,
+        "species": "Ardea goliath",
+        "common_name": "Goliath Heron",
+        "corpus": [
+            "Here is a photo of the Ardea goliath."
+        ],
+        "most_freq_synonym": "Goliath Heron"
+    },
+    "Stercorarius_longicaudus": {
+        "class_id": 178,
+        "species": "Stercorarius longicaudus",
+        "common_name": "Long-tailed Jaeger",
+        "corpus": [
+            "Here is a photo of the Stercorarius longicaudus."
+        ],
+        "most_freq_synonym": "Long-tailed Jaeger"
+    },
+    "Aethopyga_siparaja": {
+        "class_id": 179,
+        "species": "Aethopyga siparaja",
+        "common_name": "Crimson Sunbird",
+        "corpus": [
+            "Here is a photo of the Aethopyga siparaja."
+        ],
+        "most_freq_synonym": "Crimson Sunbird"
+    },
+    "Prinia_subflava": {
+        "class_id": 180,
+        "species": "Prinia subflava",
+        "common_name": "Tawny-flanked Prinia",
+        "corpus": [
+            "Here is a photo of the Prinia subflava."
+        ],
+        "most_freq_synonym": "Tawny-flanked Prinia"
+    },
+    "Fluvicola_nengeta": {
+        "class_id": 181,
+        "species": "Fluvicola nengeta",
+        "common_name": "Masked Water Tyrant",
+        "corpus": [
+            "Here is a photo of the Fluvicola nengeta."
+        ],
+        "most_freq_synonym": "Masked Water Tyrant"
+    },
+    "Lophoceros_alboterminatus": {
+        "class_id": 182,
+        "species": "Lophoceros alboterminatus",
+        "common_name": "Crowned Hornbill",
+        "corpus": [
+            "Here is a photo of the Lophoceros alboterminatus."
+        ],
+        "most_freq_synonym": "Crowned Hornbill"
+    },
+    "Vireo_atricapilla": {
+        "class_id": 183,
+        "species": "Vireo atricapilla",
+        "common_name": "Black-capped Vireo",
+        "corpus": [
+            "Here is a photo of the Vireo atricapilla."
+        ],
+        "most_freq_synonym": "Black-capped Vireo"
+    },
+    "Halcyon_senegalensis": {
+        "class_id": 184,
+        "species": "Halcyon senegalensis",
+        "common_name": "Woodland Kingfisher",
+        "corpus": [
+            "Here is a photo of the Halcyon senegalensis."
+        ],
+        "most_freq_synonym": "Woodland Kingfisher"
+    },
+    "Stelgidopteryx_ruficollis": {
+        "class_id": 185,
+        "species": "Stelgidopteryx ruficollis",
+        "common_name": "Southern Rough-winged Swallow",
+        "corpus": [
+            "Here is a photo of the Stelgidopteryx ruficollis."
+        ],
+        "most_freq_synonym": "Southern Rough-winged Swallow"
+    },
+    "Ortalis_cinereiceps": {
+        "class_id": 186,
+        "species": "Ortalis cinereiceps",
+        "common_name": "Grey-headed Chachalaca",
+        "corpus": [
+            "Here is a photo of the Ortalis cinereiceps."
+        ],
+        "most_freq_synonym": "Grey-headed Chachalaca"
+    },
+    "Forpus_conspicillatus": {
+        "class_id": 187,
+        "species": "Forpus conspicillatus",
+        "common_name": "Spectacled Parrotlet",
+        "corpus": [
+            "Here is a photo of the Forpus conspicillatus."
+        ],
+        "most_freq_synonym": "Spectacled Parrotlet"
+    },
+    "Trogon_rufus": {
+        "class_id": 188,
+        "species": "Trogon rufus",
+        "common_name": "Black-throated Trogon",
+        "corpus": [
+            "Here is a photo of the Trogon rufus."
+        ],
+        "most_freq_synonym": "Black-throated Trogon"
+    },
+    "Anthracothorax_nigricollis": {
+        "class_id": 189,
+        "species": "Anthracothorax nigricollis",
+        "common_name": "Black-throated Mango",
+        "corpus": [
+            "Here is a photo of the Anthracothorax nigricollis."
+        ],
+        "most_freq_synonym": "Black-throated Mango"
+    },
+    "Rhipidura_javanica": {
+        "class_id": 190,
+        "species": "Rhipidura javanica",
+        "common_name": "Pied Fantail",
+        "corpus": [
+            "Here is a photo of the Rhipidura javanica."
+        ],
+        "most_freq_synonym": "Pied Fantail"
+    },
+    "Dendrocopos_syriacus": {
+        "class_id": 191,
+        "species": "Dendrocopos syriacus",
+        "common_name": "Syrian Woodpecker",
+        "corpus": [
+            "Here is a photo of the Dendrocopos syriacus."
+        ],
+        "most_freq_synonym": "Syrian Woodpecker"
+    },
+    "Eucometis_penicillata": {
+        "class_id": 192,
+        "species": "Eucometis penicillata",
+        "common_name": "Grey-headed Tanager",
+        "corpus": [
+            "Here is a photo of the Eucometis penicillata."
+        ],
+        "most_freq_synonym": "Eucometis penicillata"
+    },
+    "Poecile_sclateri": {
+        "class_id": 193,
+        "species": "Poecile sclateri",
+        "common_name": "Mexican Chickadee",
+        "corpus": [
+            "Here is a photo of the Poecile sclateri."
+        ],
+        "most_freq_synonym": "Mexican Chickadee"
+    },
+    "Emberiza_rustica": {
+        "class_id": 194,
+        "species": "Emberiza rustica",
+        "common_name": "Rustic Bunting",
+        "corpus": [
+            "Here is a photo of the Emberiza rustica."
+        ],
+        "most_freq_synonym": "Rustic Bunting"
+    },
+    "Colaptes_punctigula": {
+        "class_id": 195,
+        "species": "Colaptes punctigula",
+        "common_name": "Spot-breasted Woodpecker",
+        "corpus": [
+            "Here is a photo of the Colaptes punctigula."
+        ],
+        "most_freq_synonym": "Spot-breasted Woodpecker"
+    },
+    "Ocreatus_underwoodii": {
+        "class_id": 196,
+        "species": "Ocreatus underwoodii",
+        "common_name": "White-booted Racket-tail",
+        "corpus": [
+            "Here is a photo of the Ocreatus underwoodii."
+        ],
+        "most_freq_synonym": "Ocreatus underwoodii"
+    },
+    "Prionops_plumatus": {
+        "class_id": 197,
+        "species": "Prionops plumatus",
+        "common_name": "White Helmetshrike",
+        "corpus": [
+            "Here is a photo of the Prionops plumatus."
+        ],
+        "most_freq_synonym": "Prionops plumatus"
+    },
+    "Antrostomus_vociferus": {
+        "class_id": 198,
+        "species": "Antrostomus vociferus",
+        "common_name": "Eastern Whip-poor-will",
+        "corpus": [
+            "Here is a photo of the Antrostomus vociferus."
+        ],
+        "most_freq_synonym": "Eastern Whip-poor-will"
+    },
+    "Spheniscus_magellanicus": {
+        "class_id": 199,
+        "species": "Spheniscus magellanicus",
+        "common_name": "Magellanic Penguin",
+        "corpus": [
+            "Here is a photo of the Spheniscus magellanicus."
+        ],
+        "most_freq_synonym": "Magellanic Penguin"
+    }
+}

@@ -1,5 +1,30 @@
 # Retrieve data from pretraining dataset
 
+> Recent studies show that the LAION dataset contains CSAM content, leading to its temporary removal from public access. See [Safety Review for LAION](https://laion.ai/notes/laion-maintenance/). We also observed that retrieved images may contain NSFW content. Please exercise caution when using this data.
+
+We provide step-by-step instructions on how to retrieve relevant data from the OpenCLIP's pretraining dataset LAION-400M. In summary, we first use string matching to retrieve pretraining images whose captions contain any of the concept synonyms. We then sample from the retrievd images using T2T ranking and T2I filtering to obtain 500 images for each class. The final result is a `T2T500+T2I0.25.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder, which stores the retrieved image paths and labels.
+
+### Easy access to our retrieved data
+Sicne LAION is currently unaccessible to the public, and for easy reproduction of our SWAT results, we provide our [matched caption files]() for each dataset, with which users can skip to step 2 and use `laion_downloader.py` to directly download the images and continue from there. Note that some images may no longer be available on the Internet so the retrieved images maybe slightly less than the ones we had. But we expect to see the similar results as we reported in the paper.
+
+
+
+### Example retrieved structure
+The example directory structure should look like:
+```
+$RETRIEVED/
+|–– semi-aves/
+|   |–– semi-aves_retrieved_LAION400M-all_synonyms-all/
+|   |–– pre_extracted/
+|   |–– semi-aves_class_frequency-LAION400M.json
+|   |–– semi-aves_downloaded_ct-LAION400M-all_synonyms-all.json
+|   |–– semi-aves_metadata-all-0.0-LAION400M.map
+|   |–– semi-aves_metadata-all-0.0-LAION400M.meta
+|   |-- semi-aves_mined_captions-LAION400M.pkl
+|   |–– semi-aves-urls-all-0.0-LAION400M.parquet
+```
+
+---
 ### Step 1: query GPT-3.5/4 for concept synonyms
 From my experiences, GPT-4 usually gives more diverse synonyms than GPT-3.5, 
 including names that are in other languages e.g. Chinese, Japaneses, etc. 
@@ -32,74 +57,90 @@ python format_synonyms.py
 
 ```
 
-As an alternative, I used the synonyms in the metric files of REAL [repo](https://github.com/shubhamprshr27/NeglectedTailsVLM/tree/main/analysis/laion).
+**As an alternative**, I used the synonyms in the metric files from [REAL](https://github.com/shubhamprshr27/NeglectedTailsVLM/tree/main/analysis/laion), and renamed for each dataset, e.g. `dtd_metrics-LAION400M.json`. Note, I have done this step for you, and you can find the formatted metric files in the `SWAT/data/{dataset}/` folder.
 
 ```bash
 # download the metric files into data/xxx folder for each dataset xxx
-cd data/
 
 # format the indentation
-python format_metrics.py dtd/dtd_metrics-LAION400M.json 
+cd SWAT/retrieval/
+python format_metrics.py ../data/dtd/dtd_metrics-LAION400M.json 
 ```
 
 
+### Step 2: retrieve from LAION-400M using string matching
 
-### Step 2: retrieve from laion400m
+Once obtained the metric files which contains the concept synonyms, we retrieve relevant pretraining images whose captions contain any of the concept synonyms. This is referred to as *string matching retrieval*. For our experiments, we retrieve from LAION-400M dataset.
 
-[to be updated !!!!]
-
-See [Safety Review for LAION](https://laion.ai/notes/laion-maintenance/).
+- Create the `laion400.db` file from LAION's parquet files using the `create_table()` and `create_fts_table()` functions in `laion_parser.py`. Only execute this step once.
+- Place the `laion400m.db` file in the `SWAT/retrieval/database` folder.
+- Run string matching to obtain the matched captions.
 
 ```bash
-cd retrieval/
+cd SWAT/retrieval/
 
 # string matching, ran twice for inital synonyms and manually-checked synonym list
-python laion_parser.py --dataset semi-aves # need to replace the keywords `alternates` to `synonyms_final` ---> no need 
+python laion_parser.py --dataset semi-aves 
 python laion_parser.py --dataset flowers102 
 python laion_parser.py --dataset dtd
 # python laion_parser.py --dataset dtd --prefix texture # adding a `texture`` prefix for retriveal gives no better performance
-python laion_parser.py --dataset eurosat --prefix satellite # add `satellite` prefix to only match captions containing "satellite" and "classname"
+python laion_parser.py --dataset eurosat --prefix satellite # add `satellite` prefix to only match captions containing "satellite" and "classname", this is essential to retrieve the satellite images
 python laion_parser.py --dataset fgvc-aircraft 
+```
 
+- Obtain the meta data, urls, and then download the images. For small string-matched pools e.g. Semi-Aves, EuroSAT, and Aircraft, we use `--sampling all` to download all string-matched images if available. For datasets like DTD and Flowers, since their string-matched pool contains large amount of images, we set `--sampling random` to download a random subset to ease storage requirements.
+
+```bash
 # retrieve from laion400m 
 python laion_downloader.py --dataset semi-aves --sampling all 
-python laion_downloader.py --dataset flowers102 --sampling random
-python laion_downloader.py --dataset dtd --sampling random
-# python laion_downloader.py --dataset dtd --sampling all
 python laion_downloader.py --dataset eurosat --sampling all
 python laion_downloader.py --dataset fgvc-aircraft --sampling all
+python laion_downloader.py --dataset flowers102 --sampling random
+python laion_downloader.py --dataset dtd --sampling random
 
 # or use the slurm script to run the retrieval
 sbatch run_retrieval.slurm
+```
 
-# need to manually delete the retrieved folder 00000 which contains the json files
+- Optional to delete the retrieved folder `00000/` which contains the nonessential json files.
+```bash
+cd $RETRIEVED/
 rm -rf semi-aves/semi-aves_retrieved_LAION400M-all_synonyms-all/00000
 rm -rf fgvc-aircraft/fgvc-aircraft_retrieved_LAION400M-all_synonyms-all/00000
 rm -rf eurosat/eurosat_retrieved_LAION400M-all_synonyms-all/00000
 rm -rf flowers102/flowers102_retrieved_LAION400M-all_synonyms-random/00000
-rm -rf dtd/dtd_retrieved_LAION400M-all_synonyms-all/00000
+rm -rf dtd/dtd_retrieved_LAION400M-all_synonyms-random/00000
 ```
 
-### Step 3: post-process the downloaded data
+### Step 3: process the downloaded data
+- After obtaining the downloaded images, we format the captions for each downloaded image.
 
 ```bash
 # process the meta data to the map file to get the captions for each image, 
-# be careful on the fn and fn_out, do not use the same name! 
-# here I accidentally used the same name and delete the old meta file by mistake for semi-aves dataset
-python process_meta_map.py 
-
+python process_meta_map.py semi-aves
+python process_meta_map.py fgvc-aircraft
+python process_meta_map.py flowers102
+python process_meta_map.py eurosat
+python process_meta_map.py dtd
+```
+- Extract the imgae and text features for different sampling methods in the next step.
+```bash
 # extract mined images features, comment out the dataset selection in the script
-python extract_mined_feature.py --dataset fgvc-aircraft 
-python extract_mined_feature.py --dataset eurosat
-python extract_mined_feature.py --dataset dtd
-python extract_mined_feature.py --dataset flowers102
-python extract_mined_feature.py --dataset semi-aves
-
+python extract_mined_feature.py --dataset fgvc-aircraft --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset eurosat --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset dtd --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset flowers102 --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset semi-aves --model_cfg vitb32_openclip_laion400m
 ```
 
-### Step 4: run the T2T sampling with T2I filtering
-The following command will generate the label file for the retrieved data, e.g. `T2T500+T2I0.25.txt`
+### Step 4: sample from the downloaded data 
+- We use prompt-to-caption (T2T) ranking + prompt-to-image (T2I) filtering to sample 500 images for each class. 
+- For classes with less than 500 downloaded images, we use all available images after T2I filtering.
+- We set the T2I filtering threshold to 0.25, similar to what is used in the curation of LAION dataset.
+- The result will be a `T2T500+T2I0.25.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder.
+
 ```bash
+# The following command will generate the label file for the retrieved data, e.g. `T2T500+T2I0.25.txt`
 python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset semi-aves 
 python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset fgvc-aircraft 
 python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset eurosat 
@@ -107,23 +148,21 @@ python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_
 python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset flowers102 
 ```
 
-Run T2Tranking
+- You can play with different sampling methods, e.g. random, T2T ranking, T2I ranking, I2I ranking, etc.
 ```bash
-# t2t500
-python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method t2t-rank --dataset semi-aves
-
 # random500
 python sample_retrieval.py --prefix Random500 --num_samples 500 --sampling_method random --dataset semi-aves
+
+# t2t500
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method t2t-rank --dataset semi-aves
 
 # T2I ranking
 python sample_retrieval.py --prefix T2I500 --num_samples 500 --sampling_method t2i-rank --dataset semi-aves
 
 # I2I ranking
-# need to run probing first to get the preextracted features
+# need to run probing first to get the preextracted downstream images features
 python main.py --dataset eurosat --method probing --data_source fewshot --cls_init REAL-Prompt --shots 16 --seed 1 --epochs 10 --pre_extracted True --recal_fea  --cls_init REAL-Prompt --skip_stage3 --folder output_probing
-
 python sample_retrieval.py --prefix I2I500 --num_samples 500 --sampling_method i2i-rank --dataset fgvc-aircraft
-
 
 # I2T-ranking
 python sample_retrieval.py --prefix I2T-rank500 --num_samples 500 --sampling_method I2T-rank --dataset semi-aves
@@ -138,39 +177,5 @@ python sample_retrieval.py --prefix T2T500+I2I0.65 --num_samples 500 --sampling_
 
 # I2T-filtering
 # python sample_retrieval.py --prefix I2T-tshd500 --num_samples 500 --sampling_method I2T-tshd --dataset semi-aves
-
 ```
-
-### Step 5: prepare downstream datasets
-
-1. Mostly follow the instruction [here](https://github.com/linzhiqiu/cross_modal_adaptation/blob/main/DATASETS.md)
-
-```bash
-# aircraft
-wget https://www.robots.ox.ac.uk/~vgg/data/fgvc-aircraft/archives/fgvc-aircraft-2013b.tar.gz
-
-# eurosat
-wget https://zenodo.org/records/7711810/files/EuroSAT_RGB.zip?download=1
-
-# dtd
-wget https://www.robots.ox.ac.uk/~vgg/data/dtd/download/dtd-r1.0.1.tar.gz
-
-# flowers102
-wget https://www.robots.ox.ac.uk/~vgg/data/flowers/102/102flowers.tgz
-
-```
-
-2. Prepare the fewshotX-seedX.text, and test.txt files for each dataset.
-```bash
-python prepare_datasets_labels.py
-```
-
-
-### Step 7: run standard finetuning
-1. Prepare the few-shot annotation files for each dataset
-```bash
-python prepare_fewshot_txt.py
-```
-
-2. run standard finetuning on mixed data
 
