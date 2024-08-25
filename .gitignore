@@ -11,7 +11,7 @@ data/dtd_selected/
 run_dataset_seed.sh
 run_dataset_seed_fixmatch.sh
 run_dataset_seed_ssl.sh
-run_dataset_seed_finetune_fewshot_cutmix_rn50.sh
+run_dataset_seed_finetune_fewshot_rn50.sh
 
 tian_log.md
 run.slurm
