@@ -16,7 +16,7 @@ def parse_args():
     # model
     parser.add_argument('--model_cfg', type=str, default='vitb32_openclip_laion400m', 
                         choices=['vitb32_openclip_laion400m', 'vitb16_openclip_laion400m',
-                                 'vitb32_openclip_laion2b', 
+                                 'vitb32_openclip_laion2b', 'rn50_openclip_openai',
                                  'vitb32_clip', 'vitb16_clip', 'rn50_clip'
                                  ],
                         help='ViT Transformer arch.')

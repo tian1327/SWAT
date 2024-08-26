@@ -95,7 +95,8 @@ OPENCLIP_MODEL_DIC = {
     'openai': {
         'vitb32': ('openai','ViT-B-32-quickgelu'),
         'vitb16': ('openai','ViT-B-16'),
-        'vitl14': ('openai','ViT-L-14')
+        'vitl14': ('openai','ViT-L-14'),
+        'rn50': ('openai','RN50')
     },
     'laion2b': {
         'vitb32': ('laion2b_s34b_b79k','ViT-B-32'),
