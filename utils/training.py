@@ -15,6 +15,10 @@ def set_training_seed(args):
     np.random.seed(args.training_seed)
     torch.cuda.manual_seed_all(args.training_seed)  
 
+    # this is critical for reproducibility for ResNet50 models
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
 
 def run_zeroshot(args, test_loader, model, logger, loss, logit_scale, classifier_head):
     if args.method == 'dataset-cls':
