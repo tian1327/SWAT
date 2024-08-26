@@ -27,8 +27,9 @@ def set_logger(args):
     logger.info('logging started')
     logger.info(f'case_name: {case_name}')
 
-    # print args
-    for arg in vars(args):
+    # print args in sorted order
+    vars_list = sorted(vars(args))
+    for arg in vars_list:
         logger.info(f'{arg} = {getattr(args, arg)}')    
 
     loss_logger = open(f'{output_dir}/loss.csv', 'w')  
