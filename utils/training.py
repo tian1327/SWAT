@@ -376,7 +376,8 @@ def train_ce(args, logger, loss_logger, model, classifier_head, train_loader, va
         train_loss_avg = train_loss_sum / len(train_loader)
         loss_logger.write(f'{epoch},{num_iter},{round(train_loss_avg, 6)},{round(val_loss, 6)},{round(val_acc, 6)},{round(test_acc, 6)}\n')
         loss_logger.flush()
-        logger.info(f"Epoch {int(epoch)}, Iter {num_iter}, Trn Loss: {round(train_loss_avg, 6)}, Val Loss: {round(val_loss, 6)}, Val Acc: {round(val_acc, 3)}, Test Acc: {round(test_acc, 3)}")          
+        logger.info(f"Epoch {int(epoch)}, Iter {num_iter}, Trn Loss: {round(train_loss_avg, 6)}, Val Loss: {round(val_loss, 6)}, "
+                    f"logit_scale: {round(logit_scale.item(), 4)} Val Acc: {round(val_acc, 3)}, Test Acc: {round(test_acc, 3)}")          
 
         ## save model checkpoints every X epochs
         if args.save_ckpt and (num_iter % args.save_freq == 0 or epoch == args.epochs):            
