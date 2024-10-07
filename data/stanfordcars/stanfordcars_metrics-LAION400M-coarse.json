@@ -1,0 +1,2354 @@
+{
+    "0": {
+        "name": "AM General Hummer SUV 2000",
+        "coarse_name": "AM General Hummer",
+        "alternates": {
+            "AM General Hummer": 306,
+            "AM General Hummer SUV 2000": 1
+        },
+        "most_common_name": "AM General Hummer SUV 2000",
+        "actual_freq": 306,
+        "relevant_total": 236,
+        "llama_relevance_ratio": 0.7708333333333334
+    },
+    "1": {
+        "name": "Acura RL Sedan 2012",
+        "coarse_name": "Acura RL",
+        "alternates": {
+            "Acura RL": 2293,
+            "Acura RL Sedan 2012": 0
+        },
+        "most_common_name": "Acura RL Sedan 2012",
+        "actual_freq": 2293,
+        "relevant_total": 2152,
+        "llama_relevance_ratio": 0.9384615384615385
+    },
+    "2": {
+        "name": "Acura TL Sedan 2012",
+        "coarse_name": "Acura TL",
+        "alternates": {
+            "Acura TL": 9936,
+            "Acura TL Sedan 2012": 0
+        },
+        "most_common_name": "Acura TL Sedan 2012",
+        "actual_freq": 9936,
+        "relevant_total": 9866,
+        "llama_relevance_ratio": 0.9929292929292929
+    },
+    "3": {
+        "name": "Acura TL Type-S 2008",
+        "coarse_name": "Acura TL Type-S",
+        "alternates": {
+            "Acura TL Type-S": 408,
+            "Acura TL Type-S 2008": 0
+        },
+        "most_common_name": "Acura TL Type-S 2008",
+        "actual_freq": 408,
+        "relevant_total": 380,
+        "llama_relevance_ratio": 0.9322033898305084
+    },
+    "4": {
+        "name": "Acura TSX Sedan 2012",
+        "coarse_name": "Acura TSX",
+        "alternates": {
+            "Acura TSX": 4716,
+            "Acura TSX Sedan 2012": 0
+        },
+        "most_common_name": "Acura TSX Sedan 2012",
+        "actual_freq": 4716,
+        "relevant_total": 4601,
+        "llama_relevance_ratio": 0.9756756756756757
+    },
+    "5": {
+        "name": "Acura Integra Type R 2001",
+        "coarse_name": "Acura Integra Type R",
+        "alternates": {
+            "Acura Integra Type R": 332,
+            "Acura Integra Type R 2001": 9
+        },
+        "most_common_name": "Acura Integra Type R 2001",
+        "actual_freq": 332,
+        "relevant_total": 309,
+        "llama_relevance_ratio": 0.9302325581395349
+    },
+    "6": {
+        "name": "Acura ZDX Hatchback 2012",
+        "coarse_name": "Acura ZDX",
+        "alternates": {
+            "Acura ZDX": 492,
+            "Acura ZDX Hatchback 2012": 0
+        },
+        "most_common_name": "Acura ZDX Hatchback 2012",
+        "actual_freq": 492,
+        "relevant_total": 456,
+        "llama_relevance_ratio": 0.927536231884058
+    },
+    "7": {
+        "name": "Aston Martin V8 Vantage Convertible 2012",
+        "coarse_name": "Aston Martin Vantage Convertible",
+        "alternates": {
+            "Aston Martin Vantage Convertible": 16,
+            "Aston Martin V8 Vantage Convertible 2012": 0
+        },
+        "most_common_name": "Aston Martin V8 Vantage Convertible 2012",
+        "actual_freq": 16,
+        "relevant_total": 0,
+        "llama_relevance_ratio": 0
+    },
+    "8": {
+        "name": "Aston Martin V8 Vantage Coupe 2012",
+        "coarse_name": "Aston Martin Vantage Coupe",
+        "alternates": {
+            "Aston Martin Vantage Coupe": 380,
+            "Aston Martin V8 Vantage Coupe 2012": 0
+        },
+        "most_common_name": "Aston Martin V8 Vantage Coupe 2012",
+        "actual_freq": 380,
+        "relevant_total": 380,
+        "llama_relevance_ratio": 1.0
+    },
+    "9": {
+        "name": "Aston Martin Virage Convertible 2012",
+        "coarse_name": "Aston Martin Virage Convertible",
+        "alternates": {
+            "Aston Martin Virage Convertible": 8,
+            "Aston Martin Virage Convertible 2012": 0
+        },
+        "most_common_name": "Aston Martin Virage Convertible 2012",
+        "actual_freq": 8,
+        "relevant_total": 8,
+        "llama_relevance_ratio": 1.0
+    },
+    "10": {
+        "name": "Aston Martin Virage Coupe 2012",
+        "coarse_name": "Aston Martin Virage Coupe",
+        "alternates": {
+            "Aston Martin Virage Coupe": 108,
+            "Aston Martin Virage Coupe 2012": 23
+        },
+        "most_common_name": "Aston Martin Virage Coupe 2012",
+        "actual_freq": 108,
+        "relevant_total": 108,
+        "llama_relevance_ratio": 1.0
+    },
+    "11": {
+        "name": "Audi RS 4 Convertible 2008",
+        "coarse_name": "Audi RS4",
+        "alternates": {
+            "Audi RS4": 2338,
+            "Audi RS 4 Convertible 2008": 0
+        },
+        "most_common_name": "Audi RS4",
+        "actual_freq": 2338,
+        "relevant_total": 2338,
+        "llama_relevance_ratio": 1.0
+    },
+    "12": {
+        "name": "Audi A5 Coupe 2012",
+        "coarse_name": "Audi A5",
+        "alternates": {
+            "Audi A5": 8404,
+            "Audi A5 Coupe 2012": 11
+        },
+        "most_common_name": "Audi A5 Coupe 2012",
+        "actual_freq": 8404,
+        "relevant_total": 7924,
+        "llama_relevance_ratio": 0.9428571428571428
+    },
+    "13": {
+        "name": "Audi TTS Coupe 2012",
+        "coarse_name": "Audi TTS",
+        "alternates": {
+            "Audi TTS": 1099,
+            "Audi TTS Coupe 2012": 0
+        },
+        "most_common_name": "Audi TTS Coupe 2012",
+        "actual_freq": 1099,
+        "relevant_total": 1099,
+        "llama_relevance_ratio": 1.0
+    },
+    "14": {
+        "name": "Audi R8 Coupe 2012",
+        "coarse_name": "Audi R8",
+        "alternates": {
+            "Audi R8": 20424,
+            "Audi R8 Coupe 2012": 11
+        },
+        "most_common_name": "Audi R8 Coupe 2012",
+        "actual_freq": 20424,
+        "relevant_total": 20235,
+        "llama_relevance_ratio": 0.9907407407407407
+    },
+    "15": {
+        "name": "Audi V8 Sedan 1994",
+        "coarse_name": "Audi V8",
+        "alternates": {
+            "Audi V8": 206,
+            "Audi V8 Sedan 1994": 0
+        },
+        "most_common_name": "Audi V8 Sedan 1994",
+        "actual_freq": 206,
+        "relevant_total": 25,
+        "llama_relevance_ratio": 0.12121212121212122
+    },
+    "16": {
+        "name": "Audi 100 Sedan 1994",
+        "coarse_name": "Audi 100",
+        "alternates": {
+            "Audi 100": 1022,
+            "Audi 100 Sedan 1994": 0
+        },
+        "most_common_name": "Audi 100 Sedan 1994",
+        "actual_freq": 1022,
+        "relevant_total": 511,
+        "llama_relevance_ratio": 0.5
+    },
+    "17": {
+        "name": "Audi 100 Wagon 1994",
+        "coarse_name": "Audi 100",
+        "alternates": {
+            "Audi 100": 1022,
+            "Audi 100 Wagon 1994": 0
+        },
+        "most_common_name": "Audi 100 Wagon 1994",
+        "actual_freq": 1022,
+        "relevant_total": 1022,
+        "llama_relevance_ratio": 1.0
+    },
+    "18": {
+        "name": "Audi TT Hatchback 2011",
+        "coarse_name": "Audi TT",
+        "alternates": {
+            "Audi TT": 12420,
+            "Audi TT Hatchback 2011": 0
+        },
+        "most_common_name": "Audi TT Hatchback 2011",
+        "actual_freq": 12420,
+        "relevant_total": 11778,
+        "llama_relevance_ratio": 0.9482758620689655
+    },
+    "19": {
+        "name": "Audi S6 Sedan 2011",
+        "coarse_name": "Audi S6",
+        "alternates": {
+            "Audi S6": 1239,
+            "Audi S6 Sedan 2011": 0
+        },
+        "most_common_name": "Audi S6 Sedan 2011",
+        "actual_freq": 1239,
+        "relevant_total": 1239,
+        "llama_relevance_ratio": 1.0
+    },
+    "20": {
+        "name": "Audi S5 Convertible 2012",
+        "coarse_name": "Audi S5",
+        "alternates": {
+            "Audi S5": 3159,
+            "Audi S5 Convertible 2012": 1
+        },
+        "most_common_name": "Audi S5 Convertible 2012",
+        "actual_freq": 3159,
+        "relevant_total": 3159,
+        "llama_relevance_ratio": 1.0
+    },
+    "21": {
+        "name": "Audi S5 Coupe 2012",
+        "coarse_name": "Audi S5",
+        "alternates": {
+            "Audi S5": 3159,
+            "Audi S5 Coupe 2012": 11
+        },
+        "most_common_name": "Audi S5 Coupe 2012",
+        "actual_freq": 3159,
+        "relevant_total": 3159,
+        "llama_relevance_ratio": 1.0
+    },
+    "22": {
+        "name": "Audi S4 Sedan 2012",
+        "coarse_name": "Audi S4",
+        "alternates": {
+            "Audi S4": 3851,
+            "Audi S4 Sedan 2012": 0
+        },
+        "most_common_name": "Audi S4 Sedan 2012",
+        "actual_freq": 3851,
+        "relevant_total": 3783,
+        "llama_relevance_ratio": 0.9823529411764705
+    },
+    "23": {
+        "name": "Audi S4 Sedan 2007",
+        "coarse_name": "Audi S4",
+        "alternates": {
+            "Audi S4": 3851,
+            "Audi S4 Sedan 2007": 0
+        },
+        "most_common_name": "Audi S4 Sedan 2007",
+        "actual_freq": 3851,
+        "relevant_total": 3684,
+        "llama_relevance_ratio": 0.9565217391304348
+    },
+    "24": {
+        "name": "Audi TT RS Coupe 2012",
+        "coarse_name": "Audi TT RS",
+        "alternates": {
+            "Audi TT RS": 3154,
+            "Audi TT RS Coupe 2012": 3
+        },
+        "most_common_name": "Audi TT RS Coupe 2012",
+        "actual_freq": 3154,
+        "relevant_total": 2875,
+        "llama_relevance_ratio": 0.9115646258503401
+    },
+    "25": {
+        "name": "BMW ActiveHybrid 5 Sedan 2012",
+        "coarse_name": "BMW ActiveHybrid 5",
+        "alternates": {
+            "BMW ActiveHybrid 5": 642,
+            "BMW ActiveHybrid 5 Sedan 2012": 0
+        },
+        "most_common_name": "BMW ActiveHybrid 5 Sedan 2012",
+        "actual_freq": 642,
+        "relevant_total": 583,
+        "llama_relevance_ratio": 0.908256880733945
+    },
+    "26": {
+        "name": "BMW 1 Series Convertible 2012",
+        "coarse_name": "BMW 1 Series Convertible",
+        "alternates": {
+            "BMW 1 Series Convertible": 498,
+            "BMW 1 Series Convertible 2012": 3
+        },
+        "most_common_name": "BMW 1 Series Convertible 2012",
+        "actual_freq": 498,
+        "relevant_total": 489,
+        "llama_relevance_ratio": 0.9818181818181818
+    },
+    "27": {
+        "name": "BMW 1 Series Coupe 2012",
+        "coarse_name": "BMW 1 Series Coupe",
+        "alternates": {
+            "BMW 1 Series Coupe": 709,
+            "BMW 1 Series Coupe 2012": 2
+        },
+        "most_common_name": "BMW 1 Series Coupe 2012",
+        "actual_freq": 709,
+        "relevant_total": 700,
+        "llama_relevance_ratio": 0.9875
+    },
+    "28": {
+        "name": "BMW 3 Series Sedan 2012",
+        "coarse_name": "BMW 3 Series Sedan",
+        "alternates": {
+            "BMW 3 Series Sedan": 931,
+            "BMW 3 Series Sedan 2012": 10
+        },
+        "most_common_name": "BMW 3 Series Sedan 2012",
+        "actual_freq": 931,
+        "relevant_total": 832,
+        "llama_relevance_ratio": 0.8936170212765957
+    },
+    "29": {
+        "name": "BMW 3 Series Wagon 2012",
+        "coarse_name": "BMW 3 Series Wagon",
+        "alternates": {
+            "BMW 3 Series Wagon": 177,
+            "BMW 3 Series Wagon 2012": 0
+        },
+        "most_common_name": "BMW 3 Series Wagon 2012",
+        "actual_freq": 177,
+        "relevant_total": 177,
+        "llama_relevance_ratio": 1.0
+    },
+    "30": {
+        "name": "BMW 6 Series Convertible 2007",
+        "coarse_name": "BMW 6 Series Convertible",
+        "alternates": {
+            "BMW 6 Series Convertible": 1316,
+            "BMW 6 Series Convertible 2007": 0
+        },
+        "most_common_name": "BMW 6 Series Convertible 2007",
+        "actual_freq": 1316,
+        "relevant_total": 1316,
+        "llama_relevance_ratio": 1.0
+    },
+    "31": {
+        "name": "BMW X5 SUV 2007",
+        "coarse_name": "BMW X5",
+        "alternates": {
+            "BMW X5": 31113,
+            "BMW X5 SUV 2007": 3
+        },
+        "most_common_name": "BMW X5 SUV 2007",
+        "actual_freq": 31113,
+        "relevant_total": 30727,
+        "llama_relevance_ratio": 0.987603305785124
+    },
+    "32": {
+        "name": "BMW X6 SUV 2012",
+        "coarse_name": "BMW X6",
+        "alternates": {
+            "BMW X6": 11581,
+            "BMW X6 SUV 2012": 0
+        },
+        "most_common_name": "BMW X6 SUV 2012",
+        "actual_freq": 11581,
+        "relevant_total": 11098,
+        "llama_relevance_ratio": 0.9583333333333334
+    },
+    "33": {
+        "name": "BMW M3 Coupe 2012",
+        "coarse_name": "BMW M3 Coupe",
+        "alternates": {
+            "BMW M3 Coupe": 2266,
+            "BMW M3 Coupe 2012": 4
+        },
+        "most_common_name": "BMW M3 Coupe 2012",
+        "actual_freq": 2266,
+        "relevant_total": 2248,
+        "llama_relevance_ratio": 0.9922480620155039
+    },
+    "34": {
+        "name": "BMW M5 Sedan 2010",
+        "coarse_name": "BMW M5 Sedan",
+        "alternates": {
+            "BMW M5 Sedan": 154,
+            "BMW M5 Sedan 2010": 0
+        },
+        "most_common_name": "BMW M5 Sedan 2010",
+        "actual_freq": 154,
+        "relevant_total": 143,
+        "llama_relevance_ratio": 0.9315068493150684
+    },
+    "35": {
+        "name": "BMW M6 Convertible 2010",
+        "coarse_name": "BMW M6 Convertible",
+        "alternates": {
+            "BMW M6 Convertible": 963,
+            "BMW M6 Convertible 2010": 0
+        },
+        "most_common_name": "BMW M6 Convertible 2010",
+        "actual_freq": 963,
+        "relevant_total": 963,
+        "llama_relevance_ratio": 1.0
+    },
+    "36": {
+        "name": "BMW X3 SUV 2012",
+        "coarse_name": "BMW X3",
+        "alternates": {
+            "BMW X3": 18490,
+            "BMW X3 SUV 2012": 0
+        },
+        "most_common_name": "BMW X3 SUV 2012",
+        "actual_freq": 18490,
+        "relevant_total": 18292,
+        "llama_relevance_ratio": 0.9892761394101877
+    },
+    "37": {
+        "name": "BMW Z4 Convertible 2012",
+        "coarse_name": "BMW Z4",
+        "alternates": {
+            "BMW Z4": 17433,
+            "BMW Z4 Convertible 2012": 0
+        },
+        "most_common_name": "BMW Z4 Convertible 2012",
+        "actual_freq": 17433,
+        "relevant_total": 16630,
+        "llama_relevance_ratio": 0.9539568345323741
+    },
+    "38": {
+        "name": "Bentley Continental Supersports Conv. Convertible 2012",
+        "coarse_name": "Bentley Continental Supersports",
+        "alternates": {
+            "Bentley Continental Supersports": 1985,
+            "Bentley Continental Supersports Conv. Convertible 2012": 0
+        },
+        "most_common_name": "Bentley Continental Supersports Conv. Convertible 2012",
+        "actual_freq": 1985,
+        "relevant_total": 1985,
+        "llama_relevance_ratio": 1.0
+    },
+    "39": {
+        "name": "Bentley Arnage Sedan 2009",
+        "coarse_name": "Bentley Arnage",
+        "alternates": {
+            "Bentley Arnage": 3417,
+            "Bentley Arnage Sedan 2009": 0
+        },
+        "most_common_name": "Bentley Arnage Sedan 2009",
+        "actual_freq": 3417,
+        "relevant_total": 3148,
+        "llama_relevance_ratio": 0.9212121212121213
+    },
+    "40": {
+        "name": "Bentley Mulsanne Sedan 2011",
+        "coarse_name": "Bentley Mulsanne",
+        "alternates": {
+            "Bentley Mulsanne": 7615,
+            "Bentley Mulsanne Sedan 2011": 0
+        },
+        "most_common_name": "Bentley Mulsanne Sedan 2011",
+        "actual_freq": 7615,
+        "relevant_total": 7549,
+        "llama_relevance_ratio": 0.9913544668587896
+    },
+    "41": {
+        "name": "Bentley Continental GT Coupe 2012",
+        "coarse_name": "Bentley Continental GT",
+        "alternates": {
+            "Bentley Continental GT": 22923,
+            "Bentley Continental GT Coupe 2012": 0
+        },
+        "most_common_name": "Bentley Continental GT Coupe 2012",
+        "actual_freq": 22923,
+        "relevant_total": 22923,
+        "llama_relevance_ratio": 1.0
+    },
+    "42": {
+        "name": "Bentley Continental GT Coupe 2007",
+        "coarse_name": "Bentley Continental GT",
+        "alternates": {
+            "Bentley Continental GT": 22923,
+            "Bentley Continental GT Coupe 2007": 1
+        },
+        "most_common_name": "Bentley Continental GT Coupe 2007",
+        "actual_freq": 22923,
+        "relevant_total": 22923,
+        "llama_relevance_ratio": 1.0
+    },
+    "43": {
+        "name": "Bentley Continental Flying Spur Sedan 2007",
+        "coarse_name": "Bentley Continental Flying Spur",
+        "alternates": {
+            "Bentley Continental Flying Spur": 2885,
+            "Bentley Continental Flying Spur Sedan 2007": 0
+        },
+        "most_common_name": "Bentley Continental Flying Spur Sedan 2007",
+        "actual_freq": 2885,
+        "relevant_total": 2885,
+        "llama_relevance_ratio": 1.0
+    },
+    "44": {
+        "name": "Bugatti Veyron 16.4 Convertible 2009",
+        "coarse_name": "Bugatti Veyron",
+        "alternates": {
+            "Bugatti Veyron": 8746,
+            "Bugatti Veyron 16.4 Convertible 2009": 0
+        },
+        "most_common_name": "Bugatti Veyron 16.4 Convertible 2009",
+        "actual_freq": 8746,
+        "relevant_total": 8746,
+        "llama_relevance_ratio": 1.0
+    },
+    "45": {
+        "name": "Bugatti Veyron 16.4 Coupe 2009",
+        "coarse_name": "Bugatti Veyron",
+        "alternates": {
+            "Bugatti Veyron": 8746,
+            "Bugatti Veyron 16.4 Coupe 2009": 0
+        },
+        "most_common_name": "Bugatti Veyron 16.4 Coupe 2009",
+        "actual_freq": 8746,
+        "relevant_total": 4373,
+        "llama_relevance_ratio": 0.5
+    },
+    "46": {
+        "name": "Buick Regal GS 2012",
+        "coarse_name": "Buick Regal GS",
+        "alternates": {
+            "Buick Regal GS": 1444,
+            "Buick Regal GS 2012": 19
+        },
+        "most_common_name": "Buick Regal GS 2012",
+        "actual_freq": 1444,
+        "relevant_total": 1440,
+        "llama_relevance_ratio": 0.9970414201183432
+    },
+    "47": {
+        "name": "Buick Rainier SUV 2007",
+        "coarse_name": "Buick rainier",
+        "alternates": {
+            "Buick rainer": 20,
+            "Buick Rainier SUV 2007": 0
+        },
+        "most_common_name": "Buick rainier",
+        "actual_freq": 20,
+        "relevant_total": 17,
+        "llama_relevance_ratio": 0.8450704225352113
+    },
+    "48": {
+        "name": "Buick Verano Sedan 2012",
+        "coarse_name": "Buick Verano",
+        "alternates": {
+            "Buick Verano": 3110,
+            "Buick Verano Sedan 2012": 0
+        },
+        "most_common_name": "Buick Verano Sedan 2012",
+        "actual_freq": 3110,
+        "relevant_total": 3035,
+        "llama_relevance_ratio": 0.9759519038076152
+    },
+    "49": {
+        "name": "Buick Enclave SUV 2012",
+        "coarse_name": "Buick Enclave",
+        "alternates": {
+            "Buick Enclave": 7774,
+            "Buick Enclave SUV 2012": 0
+        },
+        "most_common_name": "Buick Enclave SUV 2012",
+        "actual_freq": 7774,
+        "relevant_total": 7635,
+        "llama_relevance_ratio": 0.9821640903686087
+    },
+    "50": {
+        "name": "Cadillac CTS-V Sedan 2012",
+        "coarse_name": "Cadillac CTS-V",
+        "alternates": {
+            "Cadillac CTS-V": 4015,
+            "Cadillac CTS-V Sedan 2012": 0
+        },
+        "most_common_name": "Cadillac CTS-V Sedan 2012",
+        "actual_freq": 4015,
+        "relevant_total": 4002,
+        "llama_relevance_ratio": 0.9967320261437909
+    },
+    "51": {
+        "name": "Cadillac SRX SUV 2012",
+        "coarse_name": "Cadillac SRX",
+        "alternates": {
+            "Cadillac SRX": 7122,
+            "Cadillac SRX SUV 2012": 0
+        },
+        "most_common_name": "Cadillac SRX SUV 2012",
+        "actual_freq": 7122,
+        "relevant_total": 7097,
+        "llama_relevance_ratio": 0.9965034965034965
+    },
+    "52": {
+        "name": "Cadillac Escalade EXT Crew Cab 2007",
+        "coarse_name": "Cadillac Escalade EXT",
+        "alternates": {
+            "Cadillac Escalade EXT": 1387,
+            "Cadillac Escalade EXT Crew Cab 2007": 0
+        },
+        "most_common_name": "Cadillac Escalade EXT Crew Cab 2007",
+        "actual_freq": 1387,
+        "relevant_total": 1362,
+        "llama_relevance_ratio": 0.9819277108433735
+    },
+    "53": {
+        "name": "Chevrolet Silverado 1500 Hybrid Crew Cab 2012",
+        "coarse_name": "Chevrolet Silverado 1500",
+        "alternates": {
+            "Chevrolet Silverado 1500": 27309,
+            "Chevrolet Silverado 1500 Hybrid Crew Cab 2012": 0
+        },
+        "most_common_name": "Chevrolet Silverado 1500 Hybrid Crew Cab 2012",
+        "actual_freq": 27309,
+        "relevant_total": 27309,
+        "llama_relevance_ratio": 1.0
+    },
+    "54": {
+        "name": "Chevrolet Corvette Convertible 2012",
+        "coarse_name": "Chevrolet Corvette Convertible",
+        "alternates": {
+            "Chevrolet Corvette Convertible": 8706,
+            "Chevrolet Corvette Convertible 2012": 0
+        },
+        "most_common_name": "Chevrolet Corvette Convertible 2012",
+        "actual_freq": 8706,
+        "relevant_total": 8706,
+        "llama_relevance_ratio": 1.0
+    },
+    "55": {
+        "name": "Chevrolet Corvette ZR1 2012",
+        "coarse_name": "Chevrolet Corvette ZR1",
+        "alternates": {
+            "Chevrolet Corvette ZR1": 2852,
+            "Chevrolet Corvette ZR1 2012": 10
+        },
+        "most_common_name": "Chevrolet Corvette ZR1 2012",
+        "actual_freq": 2852,
+        "relevant_total": 2791,
+        "llama_relevance_ratio": 0.978494623655914
+    },
+    "56": {
+        "name": "Chevrolet Corvette Ron Fellows Edition Z06 2007",
+        "coarse_name": "Chevrolet Corvette Z06",
+        "alternates": {
+            "Chevrolet Corvette Z06": 3643,
+            "Chevrolet Corvette Ron Fellows Edition Z06 2007": 0
+        },
+        "most_common_name": "Chevrolet Corvette Ron Fellows Edition Z06 2007",
+        "actual_freq": 3643,
+        "relevant_total": 3643,
+        "llama_relevance_ratio": 1.0
+    },
+    "57": {
+        "name": "Chevrolet Traverse SUV 2012",
+        "coarse_name": "Chevrolet Traverse",
+        "alternates": {
+            "Chevrolet Traverse": 12220,
+            "Chevrolet Traverse SUV 2012": 0
+        },
+        "most_common_name": "Chevrolet Traverse SUV 2012",
+        "actual_freq": 12220,
+        "relevant_total": 10423,
+        "llama_relevance_ratio": 0.8529729729729729
+    },
+    "58": {
+        "name": "Chevrolet Camaro Convertible 2012",
+        "coarse_name": "Chevrolet Camaro Convertible",
+        "alternates": {
+            "Chevrolet Camaro Convertible": 521,
+            "Chevrolet Camaro Convertible 2012": 0
+        },
+        "most_common_name": "Chevrolet Camaro Convertible 2012",
+        "actual_freq": 521,
+        "relevant_total": 521,
+        "llama_relevance_ratio": 1.0
+    },
+    "59": {
+        "name": "Chevrolet HHR SS 2010",
+        "coarse_name": "Chevrolet HHR SS",
+        "alternates": {
+            "Chevrolet HHR SS": 35,
+            "Chevrolet HHR SS 2010": 0
+        },
+        "most_common_name": "Chevrolet HHR SS 2010",
+        "actual_freq": 35,
+        "relevant_total": 31,
+        "llama_relevance_ratio": 0.8888888888888888
+    },
+    "60": {
+        "name": "Chevrolet Impala Sedan 2007",
+        "coarse_name": "Chevrolet Impala",
+        "alternates": {
+            "Chevrolet Impala": 17592,
+            "Chevrolet Impala Sedan 2007": 0
+        },
+        "most_common_name": "Chevrolet Impala Sedan 2007",
+        "actual_freq": 17592,
+        "relevant_total": 15724,
+        "llama_relevance_ratio": 0.8938428874734607
+    },
+    "61": {
+        "name": "Chevrolet Tahoe Hybrid SUV 2012",
+        "coarse_name": "Chevrolet Tahoe",
+        "alternates": {
+            "Chevrolet Tahoe": 12481,
+            "Chevrolet Tahoe Hybrid SUV 2012": 0
+        },
+        "most_common_name": "Chevrolet Tahoe Hybrid SUV 2012",
+        "actual_freq": 12481,
+        "relevant_total": 12121,
+        "llama_relevance_ratio": 0.9711538461538461
+    },
+    "62": {
+        "name": "Chevrolet Sonic Sedan 2012",
+        "coarse_name": "Chevrolet Sonic",
+        "alternates": {
+            "Chevrolet Sonic": 4811,
+            "Chevrolet Sonic Sedan 2012": 1
+        },
+        "most_common_name": "Chevrolet Sonic Sedan 2012",
+        "actual_freq": 4811,
+        "relevant_total": 4811,
+        "llama_relevance_ratio": 1.0
+    },
+    "63": {
+        "name": "Chevrolet Express Cargo Van 2007",
+        "coarse_name": "Chevrolet Express Cargo",
+        "alternates": {
+            "Chevrolet Express Cargo": 2122,
+            "Chevrolet Express Cargo Van 2007": 0
+        },
+        "most_common_name": "Chevrolet Express Cargo Van 2007",
+        "actual_freq": 2122,
+        "relevant_total": 1038,
+        "llama_relevance_ratio": 0.48936170212765956
+    },
+    "64": {
+        "name": "Chevrolet Avalanche Crew Cab 2012",
+        "coarse_name": "Chevrolet Avalanche",
+        "alternates": {
+            "Chevrolet Avalanche": 4656,
+            "Chevrolet Avalanche Crew Cab 2012": 0
+        },
+        "most_common_name": "Chevrolet Avalanche Crew Cab 2012",
+        "actual_freq": 4656,
+        "relevant_total": 4557,
+        "llama_relevance_ratio": 0.9787234042553191
+    },
+    "65": {
+        "name": "Chevrolet Cobalt SS 2010",
+        "coarse_name": "Chevrolet Cobalt SS",
+        "alternates": {
+            "Chevrolet Cobalt SS": 270,
+            "Chevrolet Cobalt SS 2010": 0
+        },
+        "most_common_name": "Chevrolet Cobalt SS 2010",
+        "actual_freq": 270,
+        "relevant_total": 260,
+        "llama_relevance_ratio": 0.9629629629629629
+    },
+    "66": {
+        "name": "Chevrolet Malibu Hybrid Sedan 2010",
+        "coarse_name": "Chevrolet Malibu",
+        "alternates": {
+            "Chevrolet Malibu": 14506,
+            "Chevrolet Malibu Hybrid Sedan 2010": 0
+        },
+        "most_common_name": "Chevrolet Malibu Hybrid Sedan 2010",
+        "actual_freq": 14506,
+        "relevant_total": 14137,
+        "llama_relevance_ratio": 0.9745331069609507
+    },
+    "67": {
+        "name": "Chevrolet TrailBlazer SS 2009",
+        "coarse_name": "Chevrolet TrailBlazer",
+        "alternates": {
+            "Chevrolet TrailBlazer": 9837,
+            "Chevrolet TrailBlazer SS 2009": 0
+        },
+        "most_common_name": "Chevrolet TrailBlazer SS 2009",
+        "actual_freq": 9837,
+        "relevant_total": 8783,
+        "llama_relevance_ratio": 0.8928571428571429
+    },
+    "68": {
+        "name": "Chevrolet Silverado 2500HD Regular Cab 2012",
+        "coarse_name": "Chevrolet Silverado 2500HD",
+        "alternates": {
+            "Chevrolet Silverado 2500HD": 7850,
+            "Chevrolet Silverado 2500HD Regular Cab 2012": 0
+        },
+        "most_common_name": "Chevrolet Silverado 2500HD Regular Cab 2012",
+        "actual_freq": 7850,
+        "relevant_total": 7850,
+        "llama_relevance_ratio": 1.0
+    },
+    "69": {
+        "name": "Chevrolet Silverado 1500 Classic Extended Cab 2007",
+        "coarse_name": "Chevrolet Silverado 1500",
+        "alternates": {
+            "Chevrolet Silverado 1500": 27309,
+            "Chevrolet Silverado 1500 Classic Extended Cab 2007": 0
+        },
+        "most_common_name": "Chevrolet Silverado 1500 Classic Extended Cab 2007",
+        "actual_freq": 27309,
+        "relevant_total": 27309,
+        "llama_relevance_ratio": 1.0
+    },
+    "70": {
+        "name": "Chevrolet Express Van 2007",
+        "coarse_name": "Chevrolet Express Van",
+        "alternates": {
+            "Chevrolet Express Van": 342,
+            "Chevrolet Express Van 2007": 6
+        },
+        "most_common_name": "Chevrolet Express Van 2007",
+        "actual_freq": 342,
+        "relevant_total": 181,
+        "llama_relevance_ratio": 0.5294117647058824
+    },
+    "71": {
+        "name": "Chevrolet Monte Carlo Coupe 2007",
+        "coarse_name": "Chevrolet Monte Carlo",
+        "alternates": {
+            "Chevrolet Monte Carlo": 3138,
+            "Chevrolet Monte Carlo Coupe 2007": 0
+        },
+        "most_common_name": "Chevrolet Monte Carlo Coupe 2007",
+        "actual_freq": 3138,
+        "relevant_total": 2441,
+        "llama_relevance_ratio": 0.7777777777777778
+    },
+    "72": {
+        "name": "Chevrolet Malibu Sedan 2007",
+        "coarse_name": "Chevrolet Malibu",
+        "alternates": {
+            "Chevrolet Malibu": 14506,
+            "Chevrolet Malibu Sedan 2007": 0
+        },
+        "most_common_name": "Chevrolet Malibu Sedan 2007",
+        "actual_freq": 14506,
+        "relevant_total": 12627,
+        "llama_relevance_ratio": 0.8704453441295547
+    },
+    "73": {
+        "name": "Chevrolet Silverado 1500 Extended Cab 2012",
+        "coarse_name": "Chevrolet Silverado 1500",
+        "alternates": {
+            "Chevrolet Silverado 1500": 27309,
+            "Chevrolet Silverado 1500 Extended Cab 2012": 0
+        },
+        "most_common_name": "Chevrolet Silverado 1500 Extended Cab 2012",
+        "actual_freq": 27309,
+        "relevant_total": 27309,
+        "llama_relevance_ratio": 1.0
+    },
+    "74": {
+        "name": "Chevrolet Silverado 1500 Regular Cab 2012",
+        "coarse_name": "Chevrolet Silverado 1500",
+        "alternates": {
+            "Chevrolet Silverado 1500": 27309,
+            "Chevrolet Silverado 1500 Regular Cab 2012": 0
+        },
+        "most_common_name": "Chevrolet Silverado 1500 Regular Cab 2012",
+        "actual_freq": 27309,
+        "relevant_total": 16689,
+        "llama_relevance_ratio": 0.6111111111111112
+    },
+    "75": {
+        "name": "Chrysler Aspen SUV 2009",
+        "coarse_name": "Chrysler Aspen",
+        "alternates": {
+            "Chrysler Aspen": 800,
+            "Chrysler Aspen SUV 2009": 0
+        },
+        "most_common_name": "Chrysler Aspen SUV 2009",
+        "actual_freq": 800,
+        "relevant_total": 603,
+        "llama_relevance_ratio": 0.7534246575342466
+    },
+    "76": {
+        "name": "Chrysler Sebring Convertible 2010",
+        "coarse_name": "Chrysler Sebring Convertible",
+        "alternates": {
+            "Chrysler Sebring Convertible": 800,
+            "Chrysler Sebring Convertible 2010": 2
+        },
+        "most_common_name": "Chrysler Sebring Convertible 2010",
+        "actual_freq": 800,
+        "relevant_total": 770,
+        "llama_relevance_ratio": 0.9629629629629629
+    },
+    "77": {
+        "name": "Chrysler Town and Country Minivan 2012",
+        "coarse_name": "Chrysler Town and Country",
+        "alternates": {
+            "Chrysler Town and Country": 5551,
+            "Chrysler Town and Country Minivan 2012": 0
+        },
+        "most_common_name": "Chrysler Town and Country Minivan 2012",
+        "actual_freq": 5551,
+        "relevant_total": 5494,
+        "llama_relevance_ratio": 0.9897260273972602
+    },
+    "78": {
+        "name": "Chrysler 300 SRT-8 2010",
+        "coarse_name": "Chrysler 300 SRT-8",
+        "alternates": {
+            "Chrysler 300 SRT-8": 154,
+            "Chrysler 300 SRT-8 2010": 1
+        },
+        "most_common_name": "Chrysler 300 SRT-8 2010",
+        "actual_freq": 154,
+        "relevant_total": 127,
+        "llama_relevance_ratio": 0.8267394270122783
+    },
+    "79": {
+        "name": "Chrysler Crossfire Convertible 2008",
+        "coarse_name": "Chrysler Crossfire",
+        "alternates": {
+            "Chrysler Crossfire": 3461,
+            "Chrysler Crossfire Convertible 2008": 0
+        },
+        "most_common_name": "Chrysler Crossfire Convertible 2008",
+        "actual_freq": 3461,
+        "relevant_total": 3461,
+        "llama_relevance_ratio": 1.0
+    },
+    "80": {
+        "name": "Chrysler PT Cruiser Convertible 2008",
+        "coarse_name": "Chrysler PT Cruiser Convertible",
+        "alternates": {
+            "Chrysler PT Cruiser Convertible": 229,
+            "Chrysler PT Cruiser Convertible 2008": 0
+        },
+        "most_common_name": "Chrysler PT Cruiser Convertible 2008",
+        "actual_freq": 229,
+        "relevant_total": 200,
+        "llama_relevance_ratio": 0.875
+    },
+    "81": {
+        "name": "Daewoo Nubira Wagon 2002",
+        "coarse_name": "Daewoo Nubira",
+        "alternates": {
+            "Daewoo Nubira": 319,
+            "Daewoo Nubira Wagon 2002": 0
+        },
+        "most_common_name": "Daewoo Nubira Wagon 2002",
+        "actual_freq": 319,
+        "relevant_total": 294,
+        "llama_relevance_ratio": 0.9230769230769231
+    },
+    "82": {
+        "name": "Dodge Caliber Wagon 2012",
+        "coarse_name": "Dodge Caliber",
+        "alternates": {
+            "Dodge Caliber Wagon": 3,
+            "Dodge Caliber Wagon 2012": 0
+        },
+        "most_common_name": "Dodge Caliber Wagon 2012",
+        "actual_freq": 3,
+        "relevant_total": 2,
+        "llama_relevance_ratio": 0.7046413502109705
+    },
+    "83": {
+        "name": "Dodge Caliber Wagon 2007",
+        "coarse_name": "Dodge Caliber",
+        "alternates": {
+            "Dodge Caliber 2007": 143,
+            "Dodge Caliber Wagon 2007": 0
+        },
+        "most_common_name": "Dodge Caliber Wagon 2007",
+        "actual_freq": 143,
+        "relevant_total": 133,
+        "llama_relevance_ratio": 0.9332627118644068
+    },
+    "84": {
+        "name": "Dodge Caravan Minivan 1997",
+        "coarse_name": "Dodge Caravan",
+        "alternates": {
+            "Dodge Caravan": 4068,
+            "Dodge Caravan Minivan 1997": 0
+        },
+        "most_common_name": "Dodge Caravan Minivan 1997",
+        "actual_freq": 4068,
+        "relevant_total": 3606,
+        "llama_relevance_ratio": 0.8863636363636364
+    },
+    "85": {
+        "name": "Dodge Ram Pickup 3500 Crew Cab 2010",
+        "coarse_name": "Dodge Ram 3500",
+        "alternates": {
+            "Dodge Ram 3500": 3589,
+            "Dodge Ram Pickup 3500 Crew Cab 2010": 0
+        },
+        "most_common_name": "Dodge Ram Pickup 3500 Crew Cab 2010",
+        "actual_freq": 3589,
+        "relevant_total": 3589,
+        "llama_relevance_ratio": 1.0
+    },
+    "86": {
+        "name": "Dodge Ram Pickup 3500 Quad Cab 2009",
+        "coarse_name": "Dodge Ram 3500",
+        "alternates": {
+            "Dodge Ram 3500": 3589,
+            "Dodge Ram Pickup 3500 Quad Cab 2009": 0
+        },
+        "most_common_name": "Dodge Ram Pickup 3500 Quad Cab 2009",
+        "actual_freq": 3589,
+        "relevant_total": 3589,
+        "llama_relevance_ratio": 1.0
+    },
+    "87": {
+        "name": "Dodge Sprinter Cargo Van 2009",
+        "coarse_name": "Dodge Sprinter",
+        "alternates": {
+            "Dodge Sprinter": 1415,
+            "Dodge Sprinter Cargo Van 2009": 0
+        },
+        "most_common_name": "Dodge Sprinter Cargo Van 2009",
+        "actual_freq": 1415,
+        "relevant_total": 1183,
+        "llama_relevance_ratio": 0.8362068965517241
+    },
+    "88": {
+        "name": "Dodge Journey SUV 2012",
+        "coarse_name": "dodge journey",
+        "alternates": {
+            "dodge journey": 18153,
+            "Dodge Journey SUV 2012": 0
+        },
+        "most_common_name": "Dodge Journey SUV 2012",
+        "actual_freq": 18153,
+        "relevant_total": 17763,
+        "llama_relevance_ratio": 0.978515625
+    },
+    "89": {
+        "name": "Dodge Dakota Crew Cab 2010",
+        "coarse_name": "Dodge Dakota Crew Cab",
+        "alternates": {
+            "Dodge Dakota Crew Cab": 113,
+            "Dodge Dakota Crew Cab 2010": 0
+        },
+        "most_common_name": "Dodge Dakota Crew Cab 2010",
+        "actual_freq": 113,
+        "relevant_total": 106,
+        "llama_relevance_ratio": 0.9387755102040817
+    },
+    "90": {
+        "name": "Dodge Dakota Club Cab 2007",
+        "coarse_name": "Dodge Dakota Club Cab",
+        "alternates": {
+            "Dodge Dakota Club Cab": 174,
+            "Dodge Dakota Club Cab 2007": 0
+        },
+        "most_common_name": "Dodge Dakota Club Cab 2007",
+        "actual_freq": 174,
+        "relevant_total": 161,
+        "llama_relevance_ratio": 0.9280205655526992
+    },
+    "91": {
+        "name": "Dodge Magnum Wagon 2008",
+        "coarse_name": "dodge magnum",
+        "alternates": {
+            "dodge magnum": 2338,
+            "Dodge Magnum Wagon 2008": 0
+        },
+        "most_common_name": "Dodge Magnum Wagon 2008",
+        "actual_freq": 2338,
+        "relevant_total": 2037,
+        "llama_relevance_ratio": 0.871244635193133
+    },
+    "92": {
+        "name": "Dodge Challenger SRT8 2011",
+        "coarse_name": "Dodge Challenger",
+        "alternates": {
+            "Dodge Challenger": 23579,
+            "Dodge Challenger SRT8 2011": 13
+        },
+        "most_common_name": "Dodge Challenger SRT8 2011",
+        "actual_freq": 23579,
+        "relevant_total": 22934,
+        "llama_relevance_ratio": 0.9726402188782489
+    },
+    "93": {
+        "name": "Dodge Durango SUV 2012",
+        "coarse_name": "dodge durango",
+        "alternates": {
+            "dodge durango": 13849,
+            "Dodge Durango SUV 2012": 0
+        },
+        "most_common_name": "Dodge Durango SUV 2012",
+        "actual_freq": 13849,
+        "relevant_total": 13563,
+        "llama_relevance_ratio": 0.979381443298969
+    },
+    "94": {
+        "name": "Dodge Durango SUV 2007",
+        "coarse_name": "dodge durango",
+        "alternates": {
+            "dodge durango": 13849,
+            "Dodge Durango SUV 2007": 0
+        },
+        "most_common_name": "Dodge Durango SUV 2007",
+        "actual_freq": 13849,
+        "relevant_total": 13282,
+        "llama_relevance_ratio": 0.9590643274853801
+    },
+    "95": {
+        "name": "Dodge Charger Sedan 2012",
+        "coarse_name": "Dodge Charger",
+        "alternates": {
+            "Dodge Charger": 36060,
+            "Dodge Charger Sedan 2012": 0
+        },
+        "most_common_name": "Dodge Charger Sedan 2012",
+        "actual_freq": 36060,
+        "relevant_total": 30919,
+        "llama_relevance_ratio": 0.857421875
+    },
+    "96": {
+        "name": "Dodge Charger SRT-8 2009",
+        "coarse_name": "Dodge Charger SRT-8",
+        "alternates": {
+            "Dodge Charger SRT-8": 251,
+            "Dodge Charger SRT-8 2009": 0
+        },
+        "most_common_name": "Dodge Charger SRT-8 2009",
+        "actual_freq": 251,
+        "relevant_total": 244,
+        "llama_relevance_ratio": 0.9732739420935412
+    },
+    "97": {
+        "name": "Eagle Talon Hatchback 1998",
+        "coarse_name": "Eagle Talon",
+        "alternates": {
+            "Eagle Talon": 1103,
+            "Eagle Talon Hatchback 1998": 0
+        },
+        "most_common_name": "Eagle Talon Hatchback 1998",
+        "actual_freq": 1103,
+        "relevant_total": 833,
+        "llama_relevance_ratio": 0.7555555555555555
+    },
+    "98": {
+        "name": "FIAT 500 Abarth 2012",
+        "coarse_name": "FIAT 500 Abarth",
+        "alternates": {
+            "FIAT 500 Abarth": 2195,
+            "FIAT 500 Abarth 2012": 25
+        },
+        "most_common_name": "FIAT 500 Abarth 2012",
+        "actual_freq": 2195,
+        "relevant_total": 2186,
+        "llama_relevance_ratio": 0.9957081545064378
+    },
+    "99": {
+        "name": "FIAT 500 Convertible 2012",
+        "coarse_name": "FIAT 500 Convertible",
+        "alternates": {
+            "FIAT 500 Convertible": 72,
+            "FIAT 500 Convertible 2012": 0
+        },
+        "most_common_name": "FIAT 500 Convertible 2012",
+        "actual_freq": 72,
+        "relevant_total": 72,
+        "llama_relevance_ratio": 1.0
+    },
+    "100": {
+        "name": "Ferrari FF Coupe 2012",
+        "coarse_name": "Ferrari FF",
+        "alternates": {
+            "Ferrari FF": 1730,
+            "Ferrari FF Coupe 2012": 0
+        },
+        "most_common_name": "Ferrari FF Coupe 2012",
+        "actual_freq": 1730,
+        "relevant_total": 1689,
+        "llama_relevance_ratio": 0.9761904761904762
+    },
+    "101": {
+        "name": "Ferrari California Convertible 2012",
+        "coarse_name": "Ferrari California Convertible",
+        "alternates": {
+            "Ferrari California Convertible": 152,
+            "Ferrari California Convertible 2012": 0
+        },
+        "most_common_name": "Ferrari California Convertible 2012",
+        "actual_freq": 152,
+        "relevant_total": 152,
+        "llama_relevance_ratio": 1.0
+    },
+    "102": {
+        "name": "Ferrari 458 Italia Convertible 2012",
+        "coarse_name": "Ferrari 458 Italia Convertible",
+        "alternates": {
+            "Ferrari 458 Italia Convertible": 12,
+            "Ferrari 458 Italia Convertible 2012": 0
+        },
+        "most_common_name": "Ferrari 458 Italia Convertible 2012",
+        "actual_freq": 12,
+        "relevant_total": 12,
+        "llama_relevance_ratio": 1.0
+    },
+    "103": {
+        "name": "Ferrari 458 Italia Coupe 2012",
+        "coarse_name": "Ferrari 458 Italia Coupe",
+        "alternates": {
+            "Ferrari 458 Italia Coupe": 93,
+            "Ferrari 458 Italia Coupe 2012": 0
+        },
+        "most_common_name": "Ferrari 458 Italia Coupe 2012",
+        "actual_freq": 93,
+        "relevant_total": 93,
+        "llama_relevance_ratio": 1.0
+    },
+    "104": {
+        "name": "Fisker Karma Sedan 2012",
+        "coarse_name": "Fisker Karma",
+        "alternates": {
+            "Fisker Karma": 1493,
+            "Fisker Karma Sedan 2012": 0
+        },
+        "most_common_name": "Fisker Karma Sedan 2012",
+        "actual_freq": 1493,
+        "relevant_total": 1482,
+        "llama_relevance_ratio": 0.9924050632911392
+    },
+    "105": {
+        "name": "Ford F-450 Super Duty Crew Cab 2012",
+        "coarse_name": "Ford F-450",
+        "alternates": {
+            "Ford F-450": 2359,
+            "Ford F-450 Super Duty Crew Cab 2012": 0
+        },
+        "most_common_name": "Ford F-450 Super Duty Crew Cab 2012",
+        "actual_freq": 2359,
+        "relevant_total": 415,
+        "llama_relevance_ratio": 0.176056338028169
+    },
+    "106": {
+        "name": "Ford Mustang Convertible 2007",
+        "coarse_name": "Ford Mustang Convertible",
+        "alternates": {
+            "Ford Mustang Convertible": 3058,
+            "Ford Mustang Convertible 2007": 0
+        },
+        "most_common_name": "Ford Mustang Convertible 2007",
+        "actual_freq": 3058,
+        "relevant_total": 2912,
+        "llama_relevance_ratio": 0.9523809523809523
+    },
+    "107": {
+        "name": "Ford Freestar Minivan 2007",
+        "coarse_name": "Ford Freestar",
+        "alternates": {
+            "Ford Freestar": 1534,
+            "Ford Freestar Minivan 2007": 0
+        },
+        "most_common_name": "Ford Freestar Minivan 2007",
+        "actual_freq": 1534,
+        "relevant_total": 990,
+        "llama_relevance_ratio": 0.6454183266932271
+    },
+    "108": {
+        "name": "Ford Expedition EL SUV 2009",
+        "coarse_name": "ford expedition",
+        "alternates": {
+            "ford expedition": 25859,
+            "Ford Expedition EL SUV 2009": 0
+        },
+        "most_common_name": "Ford Expedition EL SUV 2009",
+        "actual_freq": 25859,
+        "relevant_total": 23156,
+        "llama_relevance_ratio": 0.8954802259887006
+    },
+    "109": {
+        "name": "Ford Edge SUV 2012",
+        "coarse_name": "Ford Edge",
+        "alternates": {
+            "Ford Edge": 26854,
+            "Ford Edge SUV 2012": 0
+        },
+        "most_common_name": "Ford Edge SUV 2012",
+        "actual_freq": 26854,
+        "relevant_total": 26268,
+        "llama_relevance_ratio": 0.9781931464174455
+    },
+    "110": {
+        "name": "Ford Ranger SuperCab 2011",
+        "coarse_name": "Ford Ranger",
+        "alternates": {
+            "Ford Ranger": 37345,
+            "Ford Ranger SuperCab 2011": 1
+        },
+        "most_common_name": "Ford Ranger SuperCab 2011",
+        "actual_freq": 37345,
+        "relevant_total": 27972,
+        "llama_relevance_ratio": 0.7490234375
+    },
+    "111": {
+        "name": "Ford GT Coupe 2006",
+        "coarse_name": "Ford GT",
+        "alternates": {
+            "Ford GT": 9206,
+            "Ford GT Coupe 2006": 1
+        },
+        "most_common_name": "Ford GT Coupe 2006",
+        "actual_freq": 9206,
+        "relevant_total": 8949,
+        "llama_relevance_ratio": 0.9720812182741116
+    },
+    "112": {
+        "name": "Ford F-150 Regular Cab 2012",
+        "coarse_name": "Ford F-150",
+        "alternates": {
+            "Ford F-150": 69506,
+            "Ford F-150 Regular Cab 2012": 0
+        },
+        "most_common_name": "Ford F-150 Regular Cab 2012",
+        "actual_freq": 69506,
+        "relevant_total": 59189,
+        "llama_relevance_ratio": 0.8515625
+    },
+    "113": {
+        "name": "Ford F-150 Regular Cab 2007",
+        "coarse_name": "Ford F-150",
+        "alternates": {
+            "Ford F-150": 69506,
+            "Ford F-150 Regular Cab 2007": 0
+        },
+        "most_common_name": "Ford F-150 Regular Cab 2007",
+        "actual_freq": 69506,
+        "relevant_total": 58171,
+        "llama_relevance_ratio": 0.8369140625
+    },
+    "114": {
+        "name": "Ford Focus Sedan 2007",
+        "coarse_name": "Ford Focus Sedan",
+        "alternates": {
+            "Ford Focus Sedan": 1380,
+            "Ford Focus Sedan 2007": 4
+        },
+        "most_common_name": "Ford Focus Sedan 2007",
+        "actual_freq": 1380,
+        "relevant_total": 1314,
+        "llama_relevance_ratio": 0.9523809523809523
+    },
+    "115": {
+        "name": "Ford E-Series Wagon Van 2012",
+        "coarse_name": "Ford E-Series",
+        "alternates": {
+            "Ford E-Series": 2727,
+            "Ford E-Series Wagon Van 2012": 0
+        },
+        "most_common_name": "Ford E-Series Wagon Van 2012",
+        "actual_freq": 2727,
+        "relevant_total": 1208,
+        "llama_relevance_ratio": 0.4430379746835443
+    },
+    "116": {
+        "name": "Ford Fiesta Sedan 2012",
+        "coarse_name": "Ford Fiesta Sedan",
+        "alternates": {
+            "Ford Fiesta Sedan": 423,
+            "Ford Fiesta Sedan 2012": 1
+        },
+        "most_common_name": "Ford Fiesta Sedan 2012",
+        "actual_freq": 423,
+        "relevant_total": 423,
+        "llama_relevance_ratio": 1.0
+    },
+    "117": {
+        "name": "GMC Terrain SUV 2012",
+        "coarse_name": "GMC Terrain",
+        "alternates": {
+            "GMC Terrain": 8409,
+            "GMC Terrain SUV 2012": 0
+        },
+        "most_common_name": "GMC Terrain SUV 2012",
+        "actual_freq": 8409,
+        "relevant_total": 8210,
+        "llama_relevance_ratio": 0.9763912310286678
+    },
+    "118": {
+        "name": "GMC Savana Van 2012",
+        "coarse_name": "GMC Savana",
+        "alternates": {
+            "GMC Savana": 4013,
+            "GMC Savana Van 2012": 0
+        },
+        "most_common_name": "GMC Savana Van 2012",
+        "actual_freq": 4013,
+        "relevant_total": 2175,
+        "llama_relevance_ratio": 0.5419921875
+    },
+    "119": {
+        "name": "GMC Yukon Hybrid SUV 2012",
+        "coarse_name": "GMC Yukon",
+        "alternates": {
+            "GMC Yukon": 16290,
+            "GMC Yukon Hybrid SUV 2012": 0
+        },
+        "most_common_name": "GMC Yukon Hybrid SUV 2012",
+        "actual_freq": 16290,
+        "relevant_total": 15360,
+        "llama_relevance_ratio": 0.9429223744292238
+    },
+    "120": {
+        "name": "GMC Acadia SUV 2012",
+        "coarse_name": "GMC Acadia",
+        "alternates": {
+            "GMC Acadia": 8808,
+            "GMC Acadia SUV 2012": 0
+        },
+        "most_common_name": "GMC Acadia SUV 2012",
+        "actual_freq": 8808,
+        "relevant_total": 8522,
+        "llama_relevance_ratio": 0.9675425038639877
+    },
+    "121": {
+        "name": "GMC Canyon Extended Cab 2012",
+        "coarse_name": "GMC Canyon",
+        "alternates": {
+            "GMC Canyon": 9112,
+            "GMC Canyon Extended Cab 2012": 0
+        },
+        "most_common_name": "GMC Canyon Extended Cab 2012",
+        "actual_freq": 9112,
+        "relevant_total": 6453,
+        "llama_relevance_ratio": 0.7081339712918661
+    },
+    "122": {
+        "name": "Geo Metro Convertible 1993",
+        "coarse_name": "Geo Metro Convertible",
+        "alternates": {
+            "Geo Metro Convertible": 21,
+            "Geo Metro Convertible 1993": 0
+        },
+        "most_common_name": "Geo Metro Convertible 1993",
+        "actual_freq": 21,
+        "relevant_total": 15,
+        "llama_relevance_ratio": 0.7142857142857143
+    },
+    "123": {
+        "name": "HUMMER H3T Crew Cab 2010",
+        "coarse_name": "HUMMER H3T",
+        "alternates": {
+            "HUMMER H3T": 243,
+            "HUMMER H3T Crew Cab 2010": 0
+        },
+        "most_common_name": "HUMMER H3T Crew Cab 2010",
+        "actual_freq": 243,
+        "relevant_total": 235,
+        "llama_relevance_ratio": 0.9666666666666667
+    },
+    "124": {
+        "name": "HUMMER H2 SUT Crew Cab 2009",
+        "coarse_name": "HUMMER H2 SUT",
+        "alternates": {
+            "HUMMER H2 SUT": 276,
+            "HUMMER H2 SUT Crew Cab 2009": 0
+        },
+        "most_common_name": "HUMMER H2 SUT Crew Cab 2009",
+        "actual_freq": 276,
+        "relevant_total": 208,
+        "llama_relevance_ratio": 0.7532467532467533
+    },
+    "125": {
+        "name": "Honda Odyssey Minivan 2012",
+        "coarse_name": "Honda Odyssey",
+        "alternates": {
+            "Honda Odyssey": 11641,
+            "Honda Odyssey Minivan 2012": 0
+        },
+        "most_common_name": "Honda Odyssey Minivan 2012",
+        "actual_freq": 11641,
+        "relevant_total": 11167,
+        "llama_relevance_ratio": 0.95929203539823
+    },
+    "126": {
+        "name": "Honda Odyssey Minivan 2007",
+        "coarse_name": "Honda Odyssey",
+        "alternates": {
+            "Honda Odyssey": 11641,
+            "Honda Odyssey Minivan 2007": 0
+        },
+        "most_common_name": "Honda Odyssey Minivan 2007",
+        "actual_freq": 11641,
+        "relevant_total": 11233,
+        "llama_relevance_ratio": 0.9649805447470817
+    },
+    "127": {
+        "name": "Honda Accord Coupe 2012",
+        "coarse_name": "Honda Accord Coupe",
+        "alternates": {
+            "Honda Accord Coupe": 3521,
+            "Honda Accord Coupe 2012": 15
+        },
+        "most_common_name": "Honda Accord Coupe 2012",
+        "actual_freq": 3521,
+        "relevant_total": 3086,
+        "llama_relevance_ratio": 0.8764705882352941
+    },
+    "128": {
+        "name": "Honda Accord Sedan 2012",
+        "coarse_name": "Honda Accord Sedan",
+        "alternates": {
+            "Honda Accord Sedan": 11027,
+            "Honda Accord Sedan 2012": 24
+        },
+        "most_common_name": "Honda Accord Sedan 2012",
+        "actual_freq": 11027,
+        "relevant_total": 10214,
+        "llama_relevance_ratio": 0.9262672811059908
+    },
+    "129": {
+        "name": "Hyundai Veloster Hatchback 2012",
+        "coarse_name": "Hyundai Veloster",
+        "alternates": {
+            "Hyundai Veloster": 5814,
+            "Hyundai Veloster Hatchback 2012": 0
+        },
+        "most_common_name": "Hyundai Veloster Hatchback 2012",
+        "actual_freq": 5814,
+        "relevant_total": 5729,
+        "llama_relevance_ratio": 0.9853723404255319
+    },
+    "130": {
+        "name": "Hyundai Santa Fe SUV 2012",
+        "coarse_name": "Hyundai Santa Fe",
+        "alternates": {
+            "Hyundai Santa Fe": 16606,
+            "Hyundai Santa Fe SUV 2012": 0
+        },
+        "most_common_name": "Hyundai Santa Fe SUV 2012",
+        "actual_freq": 16606,
+        "relevant_total": 16083,
+        "llama_relevance_ratio": 0.968503937007874
+    },
+    "131": {
+        "name": "Hyundai Tucson SUV 2012",
+        "coarse_name": "Hyundai Tucson",
+        "alternates": {
+            "Hyundai Tucson": 12683,
+            "Hyundai Tucson SUV 2012": 0
+        },
+        "most_common_name": "Hyundai Tucson SUV 2012",
+        "actual_freq": 12683,
+        "relevant_total": 12361,
+        "llama_relevance_ratio": 0.9746478873239437
+    },
+    "132": {
+        "name": "Hyundai Veracruz SUV 2012",
+        "coarse_name": "Hyundai Veracruz",
+        "alternates": {
+            "Hyundai Veracruz": 628,
+            "Hyundai Veracruz SUV 2012": 0
+        },
+        "most_common_name": "Hyundai Veracruz SUV 2012",
+        "actual_freq": 628,
+        "relevant_total": 593,
+        "llama_relevance_ratio": 0.9444444444444444
+    },
+    "133": {
+        "name": "Hyundai Sonata Hybrid Sedan 2012",
+        "coarse_name": "Hyundai Sonata Hybrid",
+        "alternates": {
+            "Hyundai Sonata Hybrid": 1337,
+            "Hyundai Sonata Hybrid Sedan 2012": 0
+        },
+        "most_common_name": "Hyundai Sonata Hybrid Sedan 2012",
+        "actual_freq": 1337,
+        "relevant_total": 1309,
+        "llama_relevance_ratio": 0.9791666666666666
+    },
+    "134": {
+        "name": "Hyundai Elantra Sedan 2007",
+        "coarse_name": "Hyundai Elantra Sedan",
+        "alternates": {
+            "Hyundai Elantra Sedan": 382,
+            "Hyundai Elantra Sedan 2007": 1
+        },
+        "most_common_name": "Hyundai Elantra Sedan 2007",
+        "actual_freq": 382,
+        "relevant_total": 373,
+        "llama_relevance_ratio": 0.9763779527559056
+    },
+    "135": {
+        "name": "Hyundai Accent Sedan 2012",
+        "coarse_name": "Hyundai Accent",
+        "alternates": {
+            "Hyundai Accent": 15054,
+            "Hyundai Accent Sedan 2012": 29
+        },
+        "most_common_name": "Hyundai Accent Sedan 2012",
+        "actual_freq": 15054,
+        "relevant_total": 14491,
+        "llama_relevance_ratio": 0.9626168224299065
+    },
+    "136": {
+        "name": "Hyundai Genesis Sedan 2012",
+        "coarse_name": "Hyundai Genesis sedan",
+        "alternates": {
+            "Hyundai Genesis sedan": 392,
+            "Hyundai Genesis Sedan 2012": 3
+        },
+        "most_common_name": "Hyundai Genesis Sedan 2012",
+        "actual_freq": 392,
+        "relevant_total": 385,
+        "llama_relevance_ratio": 0.9814814814814815
+    },
+    "137": {
+        "name": "Hyundai Sonata Sedan 2012",
+        "coarse_name": "Hyundai Sonata",
+        "alternates": {
+            "Hyundai Sonata": 17031,
+            "Hyundai Sonata Sedan 2012": 0
+        },
+        "most_common_name": "Hyundai Sonata Sedan 2012",
+        "actual_freq": 17031,
+        "relevant_total": 17031,
+        "llama_relevance_ratio": 1.0
+    },
+    "138": {
+        "name": "Hyundai Elantra Touring Hatchback 2012",
+        "coarse_name": "Hyundai Elantra Touring",
+        "alternates": {
+            "Hyundai Elantra Touring": 308,
+            "Hyundai Elantra Touring Hatchback 2012": 0
+        },
+        "most_common_name": "Hyundai Elantra Touring Hatchback 2012",
+        "actual_freq": 308,
+        "relevant_total": 295,
+        "llama_relevance_ratio": 0.9577464788732394
+    },
+    "139": {
+        "name": "Hyundai Azera Sedan 2012",
+        "coarse_name": "Hyundai Azera",
+        "alternates": {
+            "Hyundai Azera": 1487,
+            "Hyundai Azera Sedan 2012": 1
+        },
+        "most_common_name": "Hyundai Azera Sedan 2012",
+        "actual_freq": 1487,
+        "relevant_total": 1431,
+        "llama_relevance_ratio": 0.9621621621621622
+    },
+    "140": {
+        "name": "Infiniti G Coupe IPL 2012",
+        "coarse_name": "Infiniti G Coupe",
+        "alternates": {
+            "Infiniti G Coupe": 103,
+            "Infiniti G Coupe IPL 2012": 0
+        },
+        "most_common_name": "Infiniti G Coupe IPL 2012",
+        "actual_freq": 103,
+        "relevant_total": 103,
+        "llama_relevance_ratio": 1.0
+    },
+    "141": {
+        "name": "Infiniti QX56 SUV 2011",
+        "coarse_name": "Infiniti QX56",
+        "alternates": {
+            "Infiniti QX56": 1179,
+            "Infiniti QX56 SUV 2011": 1
+        },
+        "most_common_name": "Infiniti QX56 SUV 2011",
+        "actual_freq": 1179,
+        "relevant_total": 1167,
+        "llama_relevance_ratio": 0.9901960784313726
+    },
+    "142": {
+        "name": "Isuzu Ascender SUV 2008",
+        "coarse_name": "Isuzu Ascender",
+        "alternates": {
+            "Isuzu Ascender": 299,
+            "Isuzu Ascender SUV 2008": 0
+        },
+        "most_common_name": "Isuzu Ascender SUV 2008",
+        "actual_freq": 299,
+        "relevant_total": 249,
+        "llama_relevance_ratio": 0.8333333333333334
+    },
+    "143": {
+        "name": "Jaguar XK XKR 2012",
+        "coarse_name": "Jaguar XKR",
+        "alternates": {
+            "Jaguar XKR": 2279,
+            "Jaguar XK XKR 2012": 0
+        },
+        "most_common_name": "Jaguar XK XKR 2012",
+        "actual_freq": 2279,
+        "relevant_total": 2047,
+        "llama_relevance_ratio": 0.8980582524271845
+    },
+    "144": {
+        "name": "Jeep Patriot SUV 2012",
+        "coarse_name": "Jeep Patriot",
+        "alternates": {
+            "Jeep Patriot": 15713,
+            "Jeep Patriot SUV 2012": 0
+        },
+        "most_common_name": "Jeep Patriot SUV 2012",
+        "actual_freq": 15713,
+        "relevant_total": 15480,
+        "llama_relevance_ratio": 0.9851485148514851
+    },
+    "145": {
+        "name": "Jeep Wrangler SUV 2012",
+        "coarse_name": "Jeep Wrangler",
+        "alternates": {
+            "Jeep Wrangler": 82938,
+            "Jeep Wrangler SUV 2012": 0
+        },
+        "most_common_name": "Jeep Wrangler SUV 2012",
+        "actual_freq": 82938,
+        "relevant_total": 77349,
+        "llama_relevance_ratio": 0.9326171875
+    },
+    "146": {
+        "name": "Jeep Liberty SUV 2012",
+        "coarse_name": "Jeep Liberty",
+        "alternates": {
+            "Jeep Liberty": 12536,
+            "Jeep Liberty SUV 2012": 0
+        },
+        "most_common_name": "Jeep Liberty SUV 2012",
+        "actual_freq": 12536,
+        "relevant_total": 11789,
+        "llama_relevance_ratio": 0.9404296875
+    },
+    "147": {
+        "name": "Jeep Grand Cherokee SUV 2012",
+        "coarse_name": "Jeep Grand Cherokee",
+        "alternates": {
+            "Jeep Grand Cherokee": 63328,
+            "Jeep Grand Cherokee SUV 2012": 0
+        },
+        "most_common_name": "Jeep Grand Cherokee SUV 2012",
+        "actual_freq": 63328,
+        "relevant_total": 61782,
+        "llama_relevance_ratio": 0.9755859375
+    },
+    "148": {
+        "name": "Jeep Compass SUV 2012",
+        "coarse_name": "Jeep Compass",
+        "alternates": {
+            "Jeep Compass": 23533,
+            "Jeep Compass SUV 2012": 0
+        },
+        "most_common_name": "Jeep Compass SUV 2012",
+        "actual_freq": 23533,
+        "relevant_total": 15283,
+        "llama_relevance_ratio": 0.6494140625
+    },
+    "149": {
+        "name": "Lamborghini Reventon Coupe 2008",
+        "coarse_name": "Lamborghini Reventon",
+        "alternates": {
+            "Lamborghini Reventon": 725,
+            "Lamborghini Reventon Coupe 2008": 0
+        },
+        "most_common_name": "Lamborghini Reventon Coupe 2008",
+        "actual_freq": 725,
+        "relevant_total": 685,
+        "llama_relevance_ratio": 0.9448275862068966
+    },
+    "150": {
+        "name": "Lamborghini Aventador Coupe 2012",
+        "coarse_name": "Lamborghini Aventador",
+        "alternates": {
+            "Lamborghini Aventador": 9201,
+            "Lamborghini Aventador Coupe 2012": 0
+        },
+        "most_common_name": "Lamborghini Aventador Coupe 2012",
+        "actual_freq": 9201,
+        "relevant_total": 9096,
+        "llama_relevance_ratio": 0.9885496183206107
+    },
+    "151": {
+        "name": "Lamborghini Gallardo LP 570-4 Superleggera 2012",
+        "coarse_name": "Lamborghini Gallardo",
+        "alternates": {
+            "Lamborghini Gallardo": 7394,
+            "Lamborghini Gallardo LP 570-4 Superleggera 2012": 8
+        },
+        "most_common_name": "Lamborghini Gallardo LP 570-4 Superleggera 2012",
+        "actual_freq": 7394,
+        "relevant_total": 7307,
+        "llama_relevance_ratio": 0.98828125
+    },
+    "152": {
+        "name": "Lamborghini Diablo Coupe 2001",
+        "coarse_name": "Lamborghini Diablo",
+        "alternates": {
+            "Lamborghini Diablo": 1300,
+            "Lamborghini Diablo Coupe 2001": 0
+        },
+        "most_common_name": "Lamborghini Diablo Coupe 2001",
+        "actual_freq": 1300,
+        "relevant_total": 1256,
+        "llama_relevance_ratio": 0.9658203125
+    },
+    "153": {
+        "name": "Land Rover Range Rover SUV 2012",
+        "coarse_name": "Land Rover Range Rover",
+        "alternates": {
+            "Land Rover Range Rover": 24971,
+            "Land Rover Range Rover SUV 2012": 0
+        },
+        "most_common_name": "Land Rover Range Rover SUV 2012",
+        "actual_freq": 24971,
+        "relevant_total": 17509,
+        "llama_relevance_ratio": 0.701171875
+    },
+    "154": {
+        "name": "Land Rover LR2 SUV 2012",
+        "coarse_name": "Land Rover LR2",
+        "alternates": {
+            "Land Rover LR2": 969,
+            "Land Rover LR2 SUV 2012": 0
+        },
+        "most_common_name": "Land Rover LR2 SUV 2012",
+        "actual_freq": 969,
+        "relevant_total": 927,
+        "llama_relevance_ratio": 0.9566563467492261
+    },
+    "155": {
+        "name": "Lincoln Town Car Sedan 2011",
+        "coarse_name": "Lincoln Town Car",
+        "alternates": {
+            "Lincoln Town Car": 8758,
+            "Lincoln Town Car Sedan 2011": 0
+        },
+        "most_common_name": "Lincoln Town Car Sedan 2011",
+        "actual_freq": 8758,
+        "relevant_total": 7143,
+        "llama_relevance_ratio": 0.8155619596541787
+    },
+    "156": {
+        "name": "MINI Cooper Roadster Convertible 2012",
+        "coarse_name": "MINI Cooper Roadster",
+        "alternates": {
+            "MINI Cooper Roadster": 148,
+            "MINI Cooper Roadster Convertible 2012": 0
+        },
+        "most_common_name": "MINI Cooper Roadster Convertible 2012",
+        "actual_freq": 148,
+        "relevant_total": 148,
+        "llama_relevance_ratio": 1.0
+    },
+    "157": {
+        "name": "Maybach Landaulet Convertible 2012",
+        "coarse_name": "Maybach Landaulet",
+        "alternates": {
+            "Maybach Landaulet": 117,
+            "Maybach Landaulet Convertible 2012": 0
+        },
+        "most_common_name": "Maybach Landaulet Convertible 2012",
+        "actual_freq": 117,
+        "relevant_total": 107,
+        "llama_relevance_ratio": 0.9145299145299145
+    },
+    "158": {
+        "name": "Mazda Tribute SUV 2011",
+        "coarse_name": "Mazda Tribute",
+        "alternates": {
+            "Mazda Tribute": 3092,
+            "Mazda Tribute SUV 2011": 0
+        },
+        "most_common_name": "Mazda Tribute SUV 2011",
+        "actual_freq": 3092,
+        "relevant_total": 1546,
+        "llama_relevance_ratio": 0.5
+    },
+    "159": {
+        "name": "McLaren MP4-12C Coupe 2012",
+        "coarse_name": "McLaren MP4-12C",
+        "alternates": {
+            "McLaren MP4-12C": 4484,
+            "McLaren MP4-12C Coupe 2012": 0
+        },
+        "most_common_name": "McLaren MP4-12C Coupe 2012",
+        "actual_freq": 4484,
+        "relevant_total": 4024,
+        "llama_relevance_ratio": 0.8974609375
+    },
+    "160": {
+        "name": "Mercedes-Benz 300-Class Convertible 1993",
+        "coarse_name": "Mercedes-Benz 300-Class",
+        "alternates": {
+            "Mercedes-Benz 300-Class": 150,
+            "Mercedes-Benz 300-Class Convertible 1993": 0
+        },
+        "most_common_name": "Mercedes-Benz 300-Class Convertible 1993",
+        "actual_freq": 150,
+        "relevant_total": 150,
+        "llama_relevance_ratio": 1.0
+    },
+    "161": {
+        "name": "Mercedes-Benz C-Class Sedan 2012",
+        "coarse_name": "Mercedes-Benz C-Class",
+        "alternates": {
+            "Mercedes-Benz C-Class": 21850,
+            "Mercedes-Benz C-Class Sedan 2012": 12
+        },
+        "most_common_name": "Mercedes-Benz C-Class Sedan 2012",
+        "actual_freq": 21850,
+        "relevant_total": 21743,
+        "llama_relevance_ratio": 0.9951171875
+    },
+    "162": {
+        "name": "Mercedes-Benz SL-Class Coupe 2009",
+        "coarse_name": "Mercedes-Benz SL-Class",
+        "alternates": {
+            "Mercedes-Benz SL-Class": 2933,
+            "Mercedes-Benz SL-Class Coupe 2009": 0
+        },
+        "most_common_name": "Mercedes-Benz SL-Class Coupe 2009",
+        "actual_freq": 2933,
+        "relevant_total": 2724,
+        "llama_relevance_ratio": 0.9285714285714286
+    },
+    "163": {
+        "name": "Mercedes-Benz E-Class Sedan 2012",
+        "coarse_name": "Mercedes-Benz E-Class",
+        "alternates": {
+            "Mercedes-Benz E-Class": 17299,
+            "Mercedes-Benz E-Class Sedan 2012": 0
+        },
+        "most_common_name": "Mercedes-Benz E-Class Sedan 2012",
+        "actual_freq": 17299,
+        "relevant_total": 17220,
+        "llama_relevance_ratio": 0.9954337899543378
+    },
+    "164": {
+        "name": "Mercedes-Benz S-Class Sedan 2012",
+        "coarse_name": "Mercedes-Benz S-Class",
+        "alternates": {
+            "Mercedes-Benz S-Class": 9850,
+            "Mercedes-Benz S-Class Sedan 2012": 0
+        },
+        "most_common_name": "Mercedes-Benz S-Class Sedan 2012",
+        "actual_freq": 9850,
+        "relevant_total": 9627,
+        "llama_relevance_ratio": 0.9773755656108597
+    },
+    "165": {
+        "name": "Mercedes-Benz Sprinter Van 2012",
+        "coarse_name": "Mercedes-Benz Sprinter",
+        "alternates": {
+            "Mercedes-Benz Sprinter": 18145,
+            "Mercedes-Benz Sprinter Van 2012": 0
+        },
+        "most_common_name": "Mercedes-Benz Sprinter Van 2012",
+        "actual_freq": 18145,
+        "relevant_total": 12896,
+        "llama_relevance_ratio": 0.710691823899371
+    },
+    "166": {
+        "name": "Mitsubishi Lancer Sedan 2012",
+        "coarse_name": "Mitsubishi Lancer",
+        "alternates": {
+            "Mitsubishi Lancer": 15812,
+            "Mitsubishi Lancer Sedan 2012": 3
+        },
+        "most_common_name": "Mitsubishi Lancer Sedan 2012",
+        "actual_freq": 15812,
+        "relevant_total": 11299,
+        "llama_relevance_ratio": 0.7145557655954632
+    },
+    "167": {
+        "name": "Nissan Leaf Hatchback 2012",
+        "coarse_name": "Nissan Leaf",
+        "alternates": {
+            "Nissan Leaf": 9971,
+            "Nissan Leaf Hatchback 2012": 0
+        },
+        "most_common_name": "Nissan Leaf Hatchback 2012",
+        "actual_freq": 9971,
+        "relevant_total": 9477,
+        "llama_relevance_ratio": 0.9504132231404959
+    },
+    "168": {
+        "name": "Nissan NV Passenger Van 2012",
+        "coarse_name": "Nissan NV",
+        "alternates": {
+            "Nissan NV": 1636,
+            "Nissan NV Passenger Van 2012": 0
+        },
+        "most_common_name": "Nissan NV Passenger Van 2012",
+        "actual_freq": 1636,
+        "relevant_total": 1529,
+        "llama_relevance_ratio": 0.934640522875817
+    },
+    "169": {
+        "name": "Nissan Juke Hatchback 2012",
+        "coarse_name": "Nissan Juke",
+        "alternates": {
+            "Nissan Juke": 7687,
+            "Nissan Juke Hatchback 2012": 1
+        },
+        "most_common_name": "Nissan Juke Hatchback 2012",
+        "actual_freq": 7687,
+        "relevant_total": 7434,
+        "llama_relevance_ratio": 0.9670658682634731
+    },
+    "170": {
+        "name": "Nissan 240SX Coupe 1998",
+        "coarse_name": "Nissan 240SX",
+        "alternates": {
+            "Nissan 240SX": 2303,
+            "Nissan 240SX Coupe 1998": 0
+        },
+        "most_common_name": "Nissan 240SX Coupe 1998",
+        "actual_freq": 2303,
+        "relevant_total": 1116,
+        "llama_relevance_ratio": 0.4845360824742268
+    },
+    "171": {
+        "name": "Plymouth Neon Coupe 1999",
+        "coarse_name": "Plymouth Neon",
+        "alternates": {
+            "Plymouth Neon": 398,
+            "Plymouth Neon Coupe 1999": 0
+        },
+        "most_common_name": "Plymouth Neon Coupe 1999",
+        "actual_freq": 398,
+        "relevant_total": 398,
+        "llama_relevance_ratio": 1.0
+    },
+    "172": {
+        "name": "Porsche Panamera Sedan 2012",
+        "coarse_name": "Porsche Panamera",
+        "alternates": {
+            "Porsche Panamera": 8601,
+            "Porsche Panamera Sedan 2012": 0
+        },
+        "most_common_name": "Porsche Panamera Sedan 2012",
+        "actual_freq": 8601,
+        "relevant_total": 8076,
+        "llama_relevance_ratio": 0.9389067524115756
+    },
+    "173": {
+        "name": "Ram C/V Cargo Van Minivan 2012",
+        "coarse_name": "Ram C/V",
+        "alternates": {
+            "Ram C/V": 46,
+            "Ram C/V Cargo Van Minivan 2012": 0
+        },
+        "most_common_name": "Ram C/V Cargo Van Minivan 2012",
+        "actual_freq": 46,
+        "relevant_total": 7,
+        "llama_relevance_ratio": 0.15217391304347827
+    },
+    "174": {
+        "name": "Rolls-Royce Phantom Drophead Coupe Convertible 2012",
+        "coarse_name": "Rolls-Royce Phantom Drophead",
+        "alternates": {
+            "Rolls-Royce Phantom Drophead": 1927,
+            "Rolls-Royce Phantom Drophead Coupe Convertible 2012": 0
+        },
+        "most_common_name": "Rolls-Royce Phantom Drophead Coupe Convertible 2012",
+        "actual_freq": 1927,
+        "relevant_total": 1927,
+        "llama_relevance_ratio": 1.0
+    },
+    "175": {
+        "name": "Rolls-Royce Ghost Sedan 2012",
+        "coarse_name": "Rolls-Royce Ghost",
+        "alternates": {
+            "Rolls-Royce Ghost": 8199,
+            "Rolls-Royce Ghost Sedan 2012": 0
+        },
+        "most_common_name": "Rolls-Royce Ghost Sedan 2012",
+        "actual_freq": 8199,
+        "relevant_total": 8183,
+        "llama_relevance_ratio": 0.998046875
+    },
+    "176": {
+        "name": "Rolls-Royce Phantom Sedan 2012",
+        "coarse_name": "Rolls-Royce Phantom",
+        "alternates": {
+            "Rolls-Royce Phantom": 15085,
+            "Rolls-Royce Phantom Sedan 2012": 1
+        },
+        "most_common_name": "Rolls-Royce Phantom Sedan 2012",
+        "actual_freq": 15085,
+        "relevant_total": 14820,
+        "llama_relevance_ratio": 0.9824561403508771
+    },
+    "177": {
+        "name": "Scion xD Hatchback 2012",
+        "coarse_name": "scion xd",
+        "alternates": {
+            "scion xd": 1615,
+            "Scion xD Hatchback 2012": 0
+        },
+        "most_common_name": "Scion xD Hatchback 2012",
+        "actual_freq": 1615,
+        "relevant_total": 1602,
+        "llama_relevance_ratio": 0.9921875
+    },
+    "178": {
+        "name": "Spyker C8 Convertible 2009",
+        "coarse_name": "Spyker C8",
+        "alternates": {
+            "Spyker C8": 323,
+            "Spyker C8 Convertible 2009": 0
+        },
+        "most_common_name": "Spyker C8 Convertible 2009",
+        "actual_freq": 323,
+        "relevant_total": 278,
+        "llama_relevance_ratio": 0.8620689655172413
+    },
+    "179": {
+        "name": "Spyker C8 Coupe 2009",
+        "coarse_name": "Spyker C8",
+        "alternates": {
+            "Spyker C8": 323,
+            "Spyker C8 Coupe 2009": 0
+        },
+        "most_common_name": "Spyker C8 Coupe 2009",
+        "actual_freq": 323,
+        "relevant_total": 322,
+        "llama_relevance_ratio": 0.9969040247678018
+    },
+    "180": {
+        "name": "Suzuki Aerio Sedan 2007",
+        "coarse_name": "Suzuki Aerio",
+        "alternates": {
+            "Suzuki Aerio": 355,
+            "Suzuki Aerio Sedan 2007": 1
+        },
+        "most_common_name": "Suzuki Aerio Sedan 2007",
+        "actual_freq": 355,
+        "relevant_total": 237,
+        "llama_relevance_ratio": 0.6666666666666666
+    },
+    "181": {
+        "name": "Suzuki Kizashi Sedan 2012",
+        "coarse_name": "Suzuki Kizashi",
+        "alternates": {
+            "Suzuki Kizashi": 626,
+            "Suzuki Kizashi Sedan 2012": 0
+        },
+        "most_common_name": "Suzuki Kizashi Sedan 2012",
+        "actual_freq": 626,
+        "relevant_total": 626,
+        "llama_relevance_ratio": 1.0
+    },
+    "182": {
+        "name": "Suzuki SX4 Hatchback 2012",
+        "coarse_name": "Suzuki SX4 Hatchback",
+        "alternates": {
+            "Suzuki SX4 Hatchback": 60,
+            "Suzuki SX4 Hatchback 2012": 0
+        },
+        "most_common_name": "Suzuki SX4 Hatchback 2012",
+        "actual_freq": 60,
+        "relevant_total": 60,
+        "llama_relevance_ratio": 1.0
+    },
+    "183": {
+        "name": "Suzuki SX4 Sedan 2012",
+        "coarse_name": "Suzuki SX4 Sedan",
+        "alternates": {
+            "Suzuki SX4 Sedan": 60,
+            "Suzuki SX4 Sedan 2012": 0
+        },
+        "most_common_name": "Suzuki SX4 Sedan 2012",
+        "actual_freq": 60,
+        "relevant_total": 60,
+        "llama_relevance_ratio": 1.0
+    },
+    "184": {
+        "name": "Tesla Model S Sedan 2012",
+        "coarse_name": "Tesla Model S",
+        "alternates": {
+            "Tesla Model S": 12686,
+            "Tesla Model S Sedan 2012": 4
+        },
+        "most_common_name": "Tesla Model S Sedan 2012",
+        "actual_freq": 12686,
+        "relevant_total": 12602,
+        "llama_relevance_ratio": 0.9933920704845814
+    },
+    "185": {
+        "name": "Toyota Sequoia SUV 2012",
+        "coarse_name": "Toyota Sequoia",
+        "alternates": {
+            "Toyota Sequoia": 5860,
+            "Toyota Sequoia SUV 2012": 0
+        },
+        "most_common_name": "Toyota Sequoia SUV 2012",
+        "actual_freq": 5860,
+        "relevant_total": 5779,
+        "llama_relevance_ratio": 0.9861111111111112
+    },
+    "186": {
+        "name": "Toyota Camry Sedan 2012",
+        "coarse_name": "Toyota Camry",
+        "alternates": {
+            "Toyota Camry": 30671,
+            "Toyota Camry Sedan 2012": 1
+        },
+        "most_common_name": "Toyota Camry Sedan 2012",
+        "actual_freq": 30671,
+        "relevant_total": 29473,
+        "llama_relevance_ratio": 0.9609375
+    },
+    "187": {
+        "name": "Toyota Corolla Sedan 2012",
+        "coarse_name": "Toyota Corolla",
+        "alternates": {
+            "Toyota Corolla": 35536,
+            "Toyota Corolla Sedan 2012": 0
+        },
+        "most_common_name": "Toyota Corolla Sedan 2012",
+        "actual_freq": 35536,
+        "relevant_total": 33418,
+        "llama_relevance_ratio": 0.940389294403893
+    },
+    "188": {
+        "name": "Toyota 4Runner SUV 2012",
+        "coarse_name": "Toyota 4Runner",
+        "alternates": {
+            "Toyota 4Runner": 17027,
+            "Toyota 4Runner SUV 2012": 0
+        },
+        "most_common_name": "Toyota 4Runner SUV 2012",
+        "actual_freq": 17027,
+        "relevant_total": 16660,
+        "llama_relevance_ratio": 0.9784172661870504
+    },
+    "189": {
+        "name": "Volkswagen Golf Hatchback 2012",
+        "coarse_name": "Volkswagen Golf",
+        "alternates": {
+            "Volkswagen Golf": 48299,
+            "Volkswagen Golf Hatchback 2012": 1
+        },
+        "most_common_name": "Volkswagen Golf Hatchback 2012",
+        "actual_freq": 48299,
+        "relevant_total": 45044,
+        "llama_relevance_ratio": 0.9326171875
+    },
+    "190": {
+        "name": "Volkswagen Golf Hatchback 1991",
+        "coarse_name": "Volkswagen Golf",
+        "alternates": {
+            "Volkswagen Golf": 48299,
+            "Volkswagen Golf Hatchback 1991": 0
+        },
+        "most_common_name": "Volkswagen Golf Hatchback 1991",
+        "actual_freq": 48299,
+        "relevant_total": 43791,
+        "llama_relevance_ratio": 0.9066666666666666
+    },
+    "191": {
+        "name": "Volkswagen Beetle Hatchback 2012",
+        "coarse_name": "Volkswagen Beetle",
+        "alternates": {
+            "Volkswagen Beetle": 17369,
+            "Volkswagen Beetle Hatchback 2012": 2
+        },
+        "most_common_name": "Volkswagen Beetle Hatchback 2012",
+        "actual_freq": 17369,
+        "relevant_total": 16790,
+        "llama_relevance_ratio": 0.9666666666666667
+    },
+    "192": {
+        "name": "Volvo C30 Hatchback 2012",
+        "coarse_name": "Volvo C30",
+        "alternates": {
+            "Volvo C30": 2187,
+            "Volvo C30 Hatchback 2012": 0
+        },
+        "most_common_name": "Volvo C30 Hatchback 2012",
+        "actual_freq": 2187,
+        "relevant_total": 2166,
+        "llama_relevance_ratio": 0.9903846153846154
+    },
+    "193": {
+        "name": "Volvo 240 Sedan 1993",
+        "coarse_name": "Volvo 240",
+        "alternates": {
+            "Volvo 240": 1616,
+            "Volvo 240 Sedan 1993": 0
+        },
+        "most_common_name": "Volvo 240 Sedan 1993",
+        "actual_freq": 1616,
+        "relevant_total": 1087,
+        "llama_relevance_ratio": 0.672566371681416
+    },
+    "194": {
+        "name": "Volvo XC90 SUV 2007",
+        "coarse_name": "Volvo XC90",
+        "alternates": {
+            "Volvo XC90": 10390,
+            "Volvo XC90 SUV 2007": 0
+        },
+        "most_common_name": "Volvo XC90 SUV 2007",
+        "actual_freq": 10390,
+        "relevant_total": 9750,
+        "llama_relevance_ratio": 0.9383886255924171
+    },
+    "195": {
+        "name": "smart fortwo Convertible 2012",
+        "coarse_name": "smart fortwo",
+        "alternates": {
+            "smart fortwo": 10284,
+            "smart fortwo Convertible 2012": 0
+        },
+        "most_common_name": "smart fortwo Convertible 2012",
+        "actual_freq": 10284,
+        "relevant_total": 10284,
+        "llama_relevance_ratio": 1.0
+    }
+}

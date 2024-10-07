@@ -1,6 +1,7 @@
 # How to install downstream datasets
 
-*The dataset installation instruction is modified from official [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md).*
+*The dataset installation instruction is modified from official [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md), with some references from [CMLP](https://github.com/linzhiqiu/cross_modal_adaptation/blob/main/DATASETS.md).*
+
 
 We suggest putting all datasets under the same folder (say `$DATA`) to ease management and following the instructions below to organize datasets to avoid modifying the source code. The file structure looks like:
 
@@ -11,6 +12,10 @@ $DATA/
 |–– fgvc-aircraft/
 |–– eurosat/
 |–– dtd/
+|–– oxford_pets/
+|–– stanford_cars/
+|–– food101/
+|–– imagenet/
 
 $RETRIEVED/
 |–– semi-aves/
@@ -18,6 +23,10 @@ $RETRIEVED/
 |–– fgvc-aircraft/
 |–– eurosat/
 |–– dtd/
+|–– oxford_pets/
+|–– stanford_cars/
+|–– food101/
+|–– imagenet/
 ```
 
 Update the `config.yml` with the path to the datasets and retrieved data.
@@ -33,13 +42,28 @@ Below we provide instructions to prepare the downstream datasets used in our exp
 Datasets list:
 
 - [Semi-Aves](#semi-aves)
+
 - [Flowers102](#flowers102)
 - [FGVC-Aircraft](#fgvcaircraft)
 - [EuroSAT](#eurosat)
 - [DTD](#dtd)
 
+- [OxfordPets](#oxfordpets)
+- [StanfordCars](#stanfordcars)
+- [Food101](#food101)
+
+- [ImageNet](#imagenet)
+
+
+<!-- - [Caltech101](#caltech101)
+- [SUN397](#sun397)
+- [UCF101](#ucf101) -->
+
+
+
 The instructions to prepare each dataset are detailed below. 
-<!-- To ensure reproducibility and fair comparison for future work, we provide fixed train/val/test splits for all datasets except ImageNet where the validation set is used as test set. The fixed splits are either from the original datasets (if available) or created by us. -->
+To ensure reproducibility and fair comparison for future work, we provide fixed train/val/test splits for all datasets except ImageNet where the validation set is used as test set. The fixed splits are either from the original datasets (if available) or created by us. For few-shot training data, we sample from given training data with 3 random seeds. The splits are available in the `SWAT/data/{dataset}/` folder.
+
 
 ### Semi-Aves
 
@@ -138,9 +162,134 @@ dtd/
     |–– labels/
 ```
 
+
+### OxfordPets
+- Create a folder named `oxford_pets/` under `$DATA`.
+- Download the images from https://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz.
+- Download the annotations from https://www.robots.ox.ac.uk/~vgg/data/pets/data/annotations.tar.gz.
+- Download `split_zhou_OxfordPets.json` from this [link](https://drive.google.com/file/d/1501r8Ber4nNKvmlFVQZ8SeUHTcdTTEqs/view?usp=sharing). 
+- We have reformatted labels and provided to you as `train.txt`, `val.txt` and `test.txt` in the `SWAT/data/oxfordpets/` folder.
+
+The directory structure should look like:
+```
+oxford_pets/
+|–– images/
+|–– annotations/
+|–– split_zhou_OxfordPets.json
+```
+
+### StanfordCars
+- Create a folder named `stanford_cars/` under `$DATA`.
+- In case the following link breaks, download dataset from [Kaggle](https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset).
+- Download the train images http://ai.stanford.edu/~jkrause/car196/cars_train.tgz.
+- Download the test images http://ai.stanford.edu/~jkrause/car196/cars_test.tgz.
+- Download the train labels https://ai.stanford.edu/~jkrause/cars/car_devkit.tgz.
+- Download the test labels http://ai.stanford.edu/~jkrause/car196/cars_test_annos_withlabels.mat.
+- Download `split_zhou_StanfordCars.json` from this [link](https://drive.google.com/file/d/1ObCFbaAgVu0I-k_Au-gIUcefirdAuizT/view?usp=sharing).
+
+The directory structure should look like
+```
+stanford_cars/
+|–– cars_test\
+|–– cars_annos.mat
+|–– cars_train\
+|–– split_zhou_StanfordCars.json
+```
+
+### Food101
+- Download the dataset from https://data.vision.ee.ethz.ch/cvl/datasets_extra/food-101/ and extract the file `food-101.tar.gz` under `$DATA`, resulting in a folder named `$DATA/food-101/`.
+```bash
+wget http://data.vision.ee.ethz.ch/cvl/food-101.tar.gz
+```
+- Download `split_zhou_Food101.json` from [here](https://drive.google.com/file/d/1QK0tGi096I0Ba6kggatX1ee6dJFIcEJl/view?usp=sharing).
+
+The directory structure should look like
+```
+food-101/
+|–– images/
+|–– license_agreement.txt
+|–– meta/
+|–– README.txt
+|–– split_zhou_Food101.json
+```
+
+### Caltech101
+- Create a folder named `caltech-101/` under `$DATA`.
+- Download `101_ObjectCategories.tar.gz` from https://data.caltech.edu/records/mzrjq-6wc02 and extract the file under `$DATA/caltech-101`.
+- Download `split_zhou_Caltech101.json` from this [link](https://drive.google.com/file/d/1hyarUivQE36mY6jSomru6Fjd-JzwcCzN/view?usp=sharing) and put it under `$DATA/caltech-101`. 
+
+The directory structure should look like
+```
+caltech-101/
+|–– 101_ObjectCategories/
+|–– Annotations/
+|–– split_zhou_Caltech101.json
+```
+
+### SUN397
+- Create a folder named `sun397/` under `$DATA`.
+- Download the images http://vision.princeton.edu/projects/2010/SUN/SUN397.tar.gz.
+- Download the partitions https://vision.princeton.edu/projects/2010/SUN/download/Partitions.zip.
+- Extract these files under `$DATA/sun397/`.
+- Download `split_zhou_SUN397.json` from this [link](https://drive.google.com/file/d/1y2RD81BYuiyvebdN-JymPfyWYcd8_MUq/view?usp=sharing).
+
+The directory structure should look like
+```
+sun397/
+|–– SUN397/
+|–– split_zhou_SUN397.json
+|–– ... # a bunch of .txt files
+```
+
+### UCF101
+- Create a folder named `ucf101/` under `$DATA`.
+- Download the zip file `UCF-101-midframes.zip` from [here](https://drive.google.com/file/d/10Jqome3vtUA2keJkNanAiFpgbyC9Hc2O/view?usp=sharing) and extract it to `$DATA/ucf101/`. This zip file contains the extracted middle video frames.
+- Download `split_zhou_UCF101.json` from this [link](https://drive.google.com/file/d/1I0S0q91hJfsV9Gf4xDIjgDq4AqBNJb1y/view?usp=sharing).
+
+The directory structure should look like
+```
+ucf101/
+|–– UCF-101-midframes/
+|–– split_zhou_UCF101.json
+```
+
+### ImageNet
+- Create a folder named `imagenet/` under `$DATA`.
+- Download `split_ImageNet.json` [(google drive link)](https://drive.google.com/file/d/1SvPIN6iV6NP2Oulj19a869rBXrB5SNFo/view) to this folder. (Note that the original CoOp does not make a train/val split.)
+- Create `images/` under `imagenet/`.
+-Option 1: download dataset from [Huggingface repo](https://huggingface.co/datasets/ILSVRC/imagenet-1k)
+
+```bash
+# create a HF account and get the API token, then run the following command
+wget --header="Authorization: Bearer YOUR_HUGGINGFACE_TOKEN" https://huggingface.co/datasets/ILSVRC/imagenet-1k/resolve/main/data/train_images_0.tar.gz
+
+mkdir train
+tar -xzf train_images_0.tar.gz -C train/
+
+```
+
+- Option 2: Download the dataset from the [official website](https://image-net.org/index.php) and extract the training and validation sets to `$DATA/imagenet/images`. 
+- Download the `classnames.txt` to `$DATA/imagenet/` from this [link](https://drive.google.com/file/d/1-61f_ol79pViBFDG_IDlUQSwoLcn2XXF/view?usp=sharing). The class names are copied from [CLIP](https://github.com/openai/CLIP/blob/main/notebooks/Prompt_Engineering_for_ImageNet.ipynb).
+
+The directory structure should look like
+```
+imagenet/
+|–– classnames.txt
+|–– images/
+|   |–– train/ # contains 1,000 folders like n01440764, n01443537, etc.
+|   |–– val/
+```
+- If you had downloaded the ImageNet dataset before, you can create symbolic links to map the training and validation sets to `$DATA/imagenet/images`.
+- Download the `classnames.txt` to `$DATA/imagenet/` from this [link](https://drive.google.com/file/d/1-61f_ol79pViBFDG_IDlUQSwoLcn2XXF/view?usp=sharing). The class names are copied from [CLIP](https://github.com/openai/CLIP/blob/main/notebooks/Prompt_Engineering_for_ImageNet.ipynb).
+
+
+
+
+---
+
 ## Prepare the dataset labels
 - We have already prepared the `train.txt`, `val.txt` and `test.txt` files for each dataset, using the same splits as in [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md).
-- In case you are interesting, we use the following script to prepare the dataset labels.
+- In case you are interested, we use the following script to prepare the dataset labels.
 ```bash
 cd SWAT/
 python prepare_datasets_labels.py
@@ -152,3 +301,5 @@ python prepare_datasets_labels.py
 ```bash
 python prepare_fewshot_txt.py
 ```
+
+

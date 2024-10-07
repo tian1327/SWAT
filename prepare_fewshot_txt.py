@@ -87,11 +87,14 @@ def random_sample_fewshot(dataset, ct, seed):
 if __name__ == '__main__':
 
     datasets = [
-        'semi-aves', 
-        'dtd', 
-        'fgvc-aircraft', 
-        'eurosat', 
-        'flowers102'
+        # 'semi-aves', 
+        # 'dtd', 
+        # 'fgvc-aircraft', 
+        # 'eurosat', 
+        # 'flowers102'
+        'oxfordpets',
+        'food101',
+        'stanfordcars'
         ]
     # fewshot_ct = [1, 2, 4, 8, 16]
     fewshot_ct = [4, 8, 16]

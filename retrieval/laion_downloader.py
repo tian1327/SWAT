@@ -114,6 +114,7 @@ def img2dataset_download(parquet_path: str, download_dir):
         print('Already Downloaded images')
     else:
         os.makedirs(download_dir, exist_ok=True)
+        print(f'making download_dir: {download_dir}')
         download(
             processes_count=16,
             thread_count=16,

@@ -272,7 +272,11 @@ def find_most_common_name(metrics:dict, matching_strategy:str = 'RELAXED'):
     most_common_name = "".join(official_name)
 
     if official_name not in alternates_ordered:
-        most_common_name_freq = alternates_ordered[clean_text(official_name)]
+        clean_official_name = clean_text(official_name)
+        if clean_official_name in alternates_ordered:
+            most_common_name_freq = alternates_ordered[clean_official_name]
+        else:
+            most_common_name_freq = 0
     else:
         most_common_name_freq = alternates_ordered[official_name]
 
@@ -338,6 +342,9 @@ if __name__ == '__main__':
         fn = f'../data/{args.dataset}/{args.dataset}_metrics-LAION400M_query.json' # this file contains more names queried from the ChatGPT.
         # fn = f'dataset/semi-aves/semi-aves_metrics-LAION400M.json'
         # fn = f'dataset/{args.dataset}/{args.dataset}_synonyms_filtered_final_manualcheck.json'
+
+    elif args.dataset == 'stanfordcars': # for cars use corase for retrieval
+        fn = f'../data/{args.dataset}/{args.dataset}_metrics-LAION400M-coarse.json'    
     else:
         fn = f'../data/{args.dataset}/{args.dataset}_metrics-LAION400M.json'
     # fn = f'../data/{args.dataset}/{args.dataset}_metrics-LAION400M.json'

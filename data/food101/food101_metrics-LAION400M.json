@@ -1,0 +1,1324 @@
+{
+    "0": {
+        "name": "apple pie",
+        "alternates": {
+            "apple filled pastry": 0,
+            "baked apple dessert": 19,
+            "apple pie": 30007,
+            "pie with apples": 91,
+            "fruity pastry with apples": 0
+        },
+        "most_common_name": "apple pie",
+        "actual_freq": 30087,
+        "relevant_total": 24064,
+        "llama_relevance_ratio": 0.7998046875
+    },
+    "1": {
+        "name": "baby back ribs",
+        "alternates": {
+            "kansas city style ribs": 17,
+            "pork ribs": 3320,
+            "baby back ribs": 1362,
+            "smoked ribs": 173,
+            "texas style ribs": 0,
+            "barbecue ribs": 652,
+            "grilled ribs": 334
+        },
+        "most_common_name": "pork ribs",
+        "actual_freq": 5807,
+        "relevant_total": 5444,
+        "llama_relevance_ratio": 0.9375
+    },
+    "2": {
+        "name": "baklava",
+        "alternates": {
+            "baklava": 5163
+        },
+        "most_common_name": "baklava",
+        "actual_freq": 5163,
+        "relevant_total": 5077,
+        "llama_relevance_ratio": 0.9833984375
+    },
+    "3": {
+        "name": "beef carpaccio",
+        "alternates": {
+            "beef carpaccio": 514
+        },
+        "most_common_name": "beef carpaccio",
+        "actual_freq": 514,
+        "relevant_total": 512,
+        "llama_relevance_ratio": 0.9961089494163424
+    },
+    "4": {
+        "name": "beef tartare",
+        "alternates": {
+            "beef tartare": 324
+        },
+        "most_common_name": "beef tartare",
+        "actual_freq": 324,
+        "relevant_total": 324,
+        "llama_relevance_ratio": 1.0
+    },
+    "5": {
+        "name": "beet salad",
+        "alternates": {
+            "salad made with beets": 0,
+            "beet based salad": 0,
+            "beet salad": 3467,
+            "beetroot salad": 1168,
+            "salad with beets": 383
+        },
+        "most_common_name": "beet salad",
+        "actual_freq": 5012,
+        "relevant_total": 4973,
+        "llama_relevance_ratio": 0.9921875
+    },
+    "6": {
+        "name": "beignets",
+        "alternates": {
+            "powdered sugar pastries": 0,
+            "beignets": 1427
+        },
+        "most_common_name": "beignets",
+        "actual_freq": 1427,
+        "relevant_total": 1423,
+        "llama_relevance_ratio": 0.9970703125
+    },
+    "7": {
+        "name": "bibimbap",
+        "alternates": {
+            "bibimbap bowl": 50,
+            "korean rice dish with various toppings": 0,
+            "bibimbap": 2202
+        },
+        "most_common_name": "bibimbap",
+        "actual_freq": 2202,
+        "relevant_total": 2163,
+        "llama_relevance_ratio": 0.982421875
+    },
+    "8": {
+        "name": "bread pudding",
+        "alternates": {
+            "sweet pudding with bread and milk": 0,
+            "pudding made from stale bread": 0,
+            "bread pudding": 9389,
+            "baked bread dessert with sauce": 0
+        },
+        "most_common_name": "bread pudding",
+        "actual_freq": 9389,
+        "relevant_total": 8766,
+        "llama_relevance_ratio": 0.93359375
+    },
+    "9": {
+        "name": "breakfast burrito",
+        "alternates": {
+            "morning wrap": 64,
+            "breakfast wrap": 304,
+            "morning burrito": 1,
+            "breakfast tortilla": 56,
+            "burrito": 12150,
+            "am burrito": 0,
+            "breakfast burrito": 1256
+        },
+        "most_common_name": "breakfast burrito",
+        "actual_freq": 12573,
+        "relevant_total": 10879,
+        "llama_relevance_ratio": 0.865234375
+    },
+    "10": {
+        "name": "bruschetta",
+        "alternates": {
+            "toasted baguette with tomato topping": 0,
+            "tomato and basil crostini": 13,
+            "bruschetta": 12574
+        },
+        "most_common_name": "bruschetta",
+        "actual_freq": 12587,
+        "relevant_total": 12144,
+        "llama_relevance_ratio": 0.96484375
+    },
+    "11": {
+        "name": "caesar salad",
+        "alternates": {
+            "caesar salad": 7290,
+            "romaine lettuce salad with croutons and dressing": 0,
+            "caesar style salad": 8
+        },
+        "most_common_name": "caesar salad",
+        "actual_freq": 7298,
+        "relevant_total": 6920,
+        "llama_relevance_ratio": 0.9482421875
+    },
+    "12": {
+        "name": "cannoli",
+        "alternates": {
+            "cannoli": 3180
+        },
+        "most_common_name": "cannoli",
+        "actual_freq": 3180,
+        "relevant_total": 2947,
+        "llama_relevance_ratio": 0.9267578125
+    },
+    "13": {
+        "name": "caprese salad",
+        "alternates": {
+            "fresh tomato and mozzarella salad": 5,
+            "caprese salad": 4285,
+            "tomato and mozzarella salad": 284,
+            "tomato and basil salad with mozzarella": 0,
+            "italian tomato and cheese salad": 0,
+            "classic italian mozzarella and tomato salad": 0
+        },
+        "most_common_name": "caprese salad",
+        "actual_freq": 4567,
+        "relevant_total": 4518,
+        "llama_relevance_ratio": 0.9892578125
+    },
+    "14": {
+        "name": "carrot cake",
+        "alternates": {
+            "carrot flavored cake": 0,
+            "carrot cake": 14778,
+            "cake made with carrots": 2,
+            "carrot dessert": 21
+        },
+        "most_common_name": "carrot cake",
+        "actual_freq": 14798,
+        "relevant_total": 14090,
+        "llama_relevance_ratio": 0.9521484375
+    },
+    "15": {
+        "name": "ceviche",
+        "alternates": {
+            "cebiche": 82,
+            "latin american ceviche": 1,
+            "peruvian ceviche": 85,
+            "mexican ceviche": 45,
+            "ceviche": 3972
+        },
+        "most_common_name": "ceviche",
+        "actual_freq": 4034,
+        "relevant_total": 3975,
+        "llama_relevance_ratio": 0.9853515625
+    },
+    "16": {
+        "name": "cheese plate",
+        "alternates": {
+            "cheese platter": 2451,
+            "cheese assortment": 347,
+            "cheese board with various cheeses.": 0,
+            "cheese plate": 2873,
+            "cheese sampler": 172,
+            "cheese selection": 506,
+            "cheese tray": 1207
+        },
+        "most_common_name": "cheese plate",
+        "actual_freq": 7456,
+        "relevant_total": 4354,
+        "llama_relevance_ratio": 0.583984375
+    },
+    "17": {
+        "name": "cheesecake",
+        "alternates": {
+            "rich and creamy delicacy": 0,
+            "cheesecake": 83398
+        },
+        "most_common_name": "cheesecake",
+        "actual_freq": 83398,
+        "relevant_total": 25980,
+        "llama_relevance_ratio": 0.3115234375
+    },
+    "18": {
+        "name": "chicken curry",
+        "alternates": {
+            "fragrant chicken curry": 18,
+            "spicy chicken curry": 182,
+            "homemade chicken curry": 18,
+            "thai style chicken curry": 7,
+            "mild chicken curry": 47,
+            "chicken curry": 9012,
+            "creamy chicken curry": 90,
+            "curry chicken": 3395,
+            "authentic indian chicken curry": 5,
+            "coconut chicken curry": 355
+        },
+        "most_common_name": "chicken curry",
+        "actual_freq": 12213,
+        "relevant_total": 11378,
+        "llama_relevance_ratio": 0.931640625
+    },
+    "19": {
+        "name": "chicken quesadilla",
+        "alternates": {
+            "grilled chicken quesadilla": 33,
+            "chicken and cheese quesadilla": 17,
+            "quesadilla with chicken": 46,
+            "chicken quesadilla": 745,
+            "chicken filled quesadilla": 0
+        },
+        "most_common_name": "chicken quesadilla",
+        "actual_freq": 808,
+        "relevant_total": 797,
+        "llama_relevance_ratio": 0.9863861386138614
+    },
+    "20": {
+        "name": "chicken wings",
+        "alternates": {
+            "hot wings": 1582,
+            "garlic parmesan wings": 37,
+            "teriyaki wings": 70,
+            "lemon pepper wings": 56,
+            "honey mustard wings": 8,
+            "chicken wings": 14067,
+            "buffalo wings": 2751,
+            "bbq wings": 257,
+            "spicy wings": 700
+        },
+        "most_common_name": "chicken wings",
+        "actual_freq": 19319,
+        "relevant_total": 17678,
+        "llama_relevance_ratio": 0.9150390625
+    },
+    "21": {
+        "name": "chocolate cake",
+        "alternates": {
+            "chocolate cake": 65377,
+            "cake made with chocolate": 15,
+            "cake with chocolate flavoring": 0
+        },
+        "most_common_name": "chocolate cake",
+        "actual_freq": 65389,
+        "relevant_total": 60855,
+        "llama_relevance_ratio": 0.9306640625
+    },
+    "22": {
+        "name": "chocolate mousse",
+        "alternates": {
+            "heavenly chocolate mousse": 5,
+            "rich chocolate dessert": 6,
+            "chocolate mousse": 7128,
+            "silky chocolate pudding": 5
+        },
+        "most_common_name": "chocolate mousse",
+        "actual_freq": 7138,
+        "relevant_total": 4552,
+        "llama_relevance_ratio": 0.6376953125
+    },
+    "23": {
+        "name": "churros",
+        "alternates": {
+            "churros": 4054
+        },
+        "most_common_name": "churros",
+        "actual_freq": 4054,
+        "relevant_total": 3868,
+        "llama_relevance_ratio": 0.9541015625
+    },
+    "24": {
+        "name": "clam chowder",
+        "alternates": {
+            "clam chowder": 2517,
+            "chowder": 11930,
+            "creamy clam soup": 1
+        },
+        "most_common_name": "clam chowder",
+        "actual_freq": 11931,
+        "relevant_total": 9286,
+        "llama_relevance_ratio": 0.7783203125
+    },
+    "25": {
+        "name": "club sandwich",
+        "alternates": {
+            "club sandwich": 3349,
+            "blt sandwich": 599
+        },
+        "most_common_name": "club sandwich",
+        "actual_freq": 3946,
+        "relevant_total": 3048,
+        "llama_relevance_ratio": 0.7724609375
+    },
+    "26": {
+        "name": "crab cakes",
+        "alternates": {
+            "seafood patties": 1,
+            "crabcakes": 264,
+            "crab cakes": 3890,
+            "seafood cakes": 14,
+            "fried crab cakes": 25,
+            "grilled crab cakes": 14,
+            "maryland style crab cakes": 36,
+            "breaded crab cakes": 1,
+            "crab patties": 10,
+            "cajun crab cakes": 19
+        },
+        "most_common_name": "crab cakes",
+        "actual_freq": 4158,
+        "relevant_total": 4044,
+        "llama_relevance_ratio": 0.97265625
+    },
+    "27": {
+        "name": "creme brulee",
+        "alternates": {
+            "brulee": 5374,
+            "creme brulee": 3755
+        },
+        "most_common_name": "creme brulee",
+        "actual_freq": 5374,
+        "relevant_total": 4928,
+        "llama_relevance_ratio": 0.9169921875
+    },
+    "28": {
+        "name": "croque madame",
+        "alternates": {
+            "croque madame": 609
+        },
+        "most_common_name": "croque madame",
+        "actual_freq": 609,
+        "relevant_total": 592,
+        "llama_relevance_ratio": 0.9720853858784894
+    },
+    "29": {
+        "name": "cup cakes",
+        "alternates": {
+            "cupcakes": 134390,
+            "cupcake": 187267,
+            "cupcake or cupcakes": 1,
+            "cup cake": 5785,
+            "cup cakes": 2195,
+            "fairy cakes": 750
+        },
+        "most_common_name": "cupcake",
+        "actual_freq": 319355,
+        "relevant_total": 188993,
+        "llama_relevance_ratio": 0.591796875
+    },
+    "30": {
+        "name": "deviled eggs",
+        "alternates": {
+            "deviled eggs": 6618
+        },
+        "most_common_name": "deviled eggs",
+        "actual_freq": 6618,
+        "relevant_total": 6612,
+        "llama_relevance_ratio": 0.9990234375
+    },
+    "31": {
+        "name": "donuts",
+        "alternates": {
+            "doughnuts": 8339,
+            "donuts": 37238,
+            "baked goods": 3676,
+            "glazed pastries": 1,
+            "pastries": 12362
+        },
+        "most_common_name": "donuts",
+        "actual_freq": 60833,
+        "relevant_total": 41526,
+        "llama_relevance_ratio": 0.6826171875
+    },
+    "32": {
+        "name": "dumplings",
+        "alternates": {
+            "jiaozi": 275,
+            "pierogi": 1418,
+            "dumplings": 17836
+        },
+        "most_common_name": "dumplings",
+        "actual_freq": 19300,
+        "relevant_total": 16134,
+        "llama_relevance_ratio": 0.8359375
+    },
+    "33": {
+        "name": "edamame",
+        "alternates": {
+            "young soybean": 42,
+            "edamame": 4286,
+            "vegetable soybean": 15,
+            "green soybean": 127
+        },
+        "most_common_name": "edamame",
+        "actual_freq": 4456,
+        "relevant_total": 3847,
+        "llama_relevance_ratio": 0.86328125
+    },
+    "34": {
+        "name": "eggs benedict",
+        "alternates": {
+            "signature egg dish with creamy sauce": 0,
+            "poached eggs with hollandaise sauce": 6,
+            "classic brunch dish": 6,
+            "eggs benedict": 4688
+        },
+        "most_common_name": "eggs benedict",
+        "actual_freq": 4699,
+        "relevant_total": 4135,
+        "llama_relevance_ratio": 0.8798828125
+    },
+    "35": {
+        "name": "escargots",
+        "alternates": {
+            "escargots": 433,
+            "snails dish": 1
+        },
+        "most_common_name": "escargots",
+        "actual_freq": 434,
+        "relevant_total": 374,
+        "llama_relevance_ratio": 0.8617511520737328
+    },
+    "36": {
+        "name": "falafel",
+        "alternates": {
+            "falafel": 6897,
+            "middle eastern fritters": 1
+        },
+        "most_common_name": "falafel",
+        "actual_freq": 6898,
+        "relevant_total": 6844,
+        "llama_relevance_ratio": 0.9921875
+    },
+    "37": {
+        "name": "filet mignon",
+        "alternates": {
+            "filet steak": 118,
+            "beef tenderloin": 2567,
+            "filet mignon": 3548
+        },
+        "most_common_name": "filet mignon",
+        "actual_freq": 6187,
+        "relevant_total": 5553,
+        "llama_relevance_ratio": 0.8974609375
+    },
+    "38": {
+        "name": "fish and chips",
+        "alternates": {
+            "fish and chips": 7522,
+            "combination of fish and fries": 0,
+            "fried fish with potato fries": 3
+        },
+        "most_common_name": "fish and chips",
+        "actual_freq": 7525,
+        "relevant_total": 7385,
+        "llama_relevance_ratio": 0.9814453125
+    },
+    "39": {
+        "name": "foie gras",
+        "alternates": {
+            "duck liver p\u00e2t\u00e9": 67,
+            "foie gras": 3127
+        },
+        "most_common_name": "foie gras",
+        "actual_freq": 3165,
+        "relevant_total": 3116,
+        "llama_relevance_ratio": 0.984375
+    },
+    "40": {
+        "name": "french fries",
+        "alternates": {
+            "french fries": 24322,
+            "pommes frites": 374,
+            "french fried potatoes": 124,
+            "finger fries": 19
+        },
+        "most_common_name": "french fries",
+        "actual_freq": 24695,
+        "relevant_total": 15266,
+        "llama_relevance_ratio": 0.6181640625
+    },
+    "41": {
+        "name": "french onion soup",
+        "alternates": {
+            "onion soup": 5488,
+            "soup with caramelized onions": 14,
+            "traditional onion soup": 3,
+            "classic french soup": 6,
+            "french onion soup": 3875
+        },
+        "most_common_name": "french onion soup",
+        "actual_freq": 5507,
+        "relevant_total": 4996,
+        "llama_relevance_ratio": 0.9072265625
+    },
+    "42": {
+        "name": "french toast",
+        "alternates": {
+            "spanish toast": 5,
+            "gypsy toast": 6,
+            "bombay toast": 13,
+            "eggy bread": 115,
+            "french toast": 24871,
+            "pain perdu": 266
+        },
+        "most_common_name": "french toast",
+        "actual_freq": 25183,
+        "relevant_total": 22158,
+        "llama_relevance_ratio": 0.8798828125
+    },
+    "43": {
+        "name": "fried calamari",
+        "alternates": {
+            "deep fried calamari": 78,
+            "crispy calamari": 60,
+            "fried calamari": 805,
+            "sauteed calamari": 22,
+            "fried squid rings": 207,
+            "pan fried calamari": 19,
+            "battered calamari": 18,
+            "tempura calamari": 4,
+            "grilled calamari": 138,
+            "breaded calamari": 22,
+            "calamari fries": 1
+        },
+        "most_common_name": "fried calamari",
+        "actual_freq": 1276,
+        "relevant_total": 1269,
+        "llama_relevance_ratio": 0.994140625
+    },
+    "44": {
+        "name": "fried rice",
+        "alternates": {
+            "savory rice": 130,
+            "shrimp fried rice": 1194,
+            "asian fried rice": 46,
+            "chinese fried rice": 610,
+            "chicken fried rice": 2031,
+            "fried rice": 24810,
+            "vegetable fried rice": 1081,
+            "classic fried rice": 23,
+            "stir fried rice": 782,
+            "spicy fried rice": 113
+        },
+        "most_common_name": "fried rice",
+        "actual_freq": 24940,
+        "relevant_total": 23990,
+        "llama_relevance_ratio": 0.9619140625
+    },
+    "45": {
+        "name": "frozen yogurt",
+        "alternates": {
+            "soft serve yogurt": 65,
+            "frozen yogurt": 7108,
+            "fro yo": 215,
+            "frozen yoghurt": 481
+        },
+        "most_common_name": "frozen yogurt",
+        "actual_freq": 7820,
+        "relevant_total": 6148,
+        "llama_relevance_ratio": 0.7861328125
+    },
+    "46": {
+        "name": "garlic bread",
+        "alternates": {
+            "garlic flavored bread": 1,
+            "bread with garlic": 125,
+            "garlic bread": 4617,
+            "savory garlic bread": 1,
+            "toasted bread with garlic": 5,
+            "bread seasoned with garlic": 0,
+            "crusty bread with garlic": 0,
+            "bread infused with garlic flavor": 0
+        },
+        "most_common_name": "garlic bread",
+        "actual_freq": 4742,
+        "relevant_total": 4214,
+        "llama_relevance_ratio": 0.888671875
+    },
+    "47": {
+        "name": "gnocchi",
+        "alternates": {
+            "gnocchi": 6976,
+            "soft italian dough balls": 0
+        },
+        "most_common_name": "gnocchi",
+        "actual_freq": 6976,
+        "relevant_total": 6942,
+        "llama_relevance_ratio": 0.9951171875
+    },
+    "48": {
+        "name": "greek salad",
+        "alternates": {
+            "mediterranean salad": 791,
+            "greek salad": 10204,
+            "salad with greek ingredients": 0,
+            "classic greek salad": 118,
+            "greek inspired salad": 13,
+            "traditional greek salad": 162
+        },
+        "most_common_name": "greek salad",
+        "actual_freq": 10949,
+        "relevant_total": 10778,
+        "llama_relevance_ratio": 0.984375
+    },
+    "49": {
+        "name": "grilled cheese sandwich",
+        "alternates": {
+            "grilled cheese sandwich": 4596
+        },
+        "most_common_name": "grilled cheese sandwich",
+        "actual_freq": 4596,
+        "relevant_total": 4416,
+        "llama_relevance_ratio": 0.9609375
+    },
+    "50": {
+        "name": "grilled salmon",
+        "alternates": {
+            "charcoal grilled salmon": 4,
+            "seared salmon": 2240,
+            "oven roasted salmon": 133,
+            "griddled salmon": 4,
+            "grilled salmon": 8427,
+            "cooked salmon": 372,
+            "pan seared salmon": 1060,
+            "grilled fish": 2941,
+            "barbecued salmon": 156,
+            "flame grilled salmon": 8
+        },
+        "most_common_name": "grilled salmon",
+        "actual_freq": 14243,
+        "relevant_total": 11712,
+        "llama_relevance_ratio": 0.822265625
+    },
+    "51": {
+        "name": "guacamole",
+        "alternates": {
+            "guacamole": 17300,
+            "avocado spread": 271,
+            "avocado dip": 718,
+            "guac": 1307
+        },
+        "most_common_name": "guacamole",
+        "actual_freq": 19362,
+        "relevant_total": 19022,
+        "llama_relevance_ratio": 0.982421875
+    },
+    "52": {
+        "name": "gyoza",
+        "alternates": {
+            "potstickers": 1013,
+            "gyoza": 1531
+        },
+        "most_common_name": "gyoza",
+        "actual_freq": 2493,
+        "relevant_total": 2437,
+        "llama_relevance_ratio": 0.9775390625
+    },
+    "53": {
+        "name": "hamburger",
+        "alternates": {
+            "hamburger": 43004,
+            "cheeseburger": 14547,
+            "grillburger": 4
+        },
+        "most_common_name": "hamburger",
+        "actual_freq": 56193,
+        "relevant_total": 44011,
+        "llama_relevance_ratio": 0.783203125
+    },
+    "54": {
+        "name": "hot and sour soup",
+        "alternates": {
+            "hot and sour soup": 1008
+        },
+        "most_common_name": "hot and sour soup",
+        "actual_freq": 1008,
+        "relevant_total": 849,
+        "llama_relevance_ratio": 0.8422619047619048
+    },
+    "55": {
+        "name": "hot dog",
+        "alternates": {
+            "frankfurter": 987,
+            "hot dog": 28178
+        },
+        "most_common_name": "hot dog",
+        "actual_freq": 29113,
+        "relevant_total": 19589,
+        "llama_relevance_ratio": 0.6728515625
+    },
+    "56": {
+        "name": "huevos rancheros",
+        "alternates": {
+            "huevos rancheros": 1157
+        },
+        "most_common_name": "huevos rancheros",
+        "actual_freq": 1157,
+        "relevant_total": 1154,
+        "llama_relevance_ratio": 0.9970703125
+    },
+    "57": {
+        "name": "hummus",
+        "alternates": {
+            "tahini based sauce": 0,
+            "hummus": 17264,
+            "chickpea paste": 9,
+            "middle eastern dip": 12
+        },
+        "most_common_name": "hummus",
+        "actual_freq": 17279,
+        "relevant_total": 17178,
+        "llama_relevance_ratio": 0.994140625
+    },
+    "58": {
+        "name": "ice cream",
+        "alternates": {
+            "frozen dessert": 1011,
+            "popsicle": 17475,
+            "sundae": 8405,
+            "sorbet": 13399,
+            "gelato": 7636,
+            "ice cream": 200154,
+            "soft serve": 3072
+        },
+        "most_common_name": "ice cream",
+        "actual_freq": 242060,
+        "relevant_total": 71862,
+        "llama_relevance_ratio": 0.296875
+    },
+    "59": {
+        "name": "lasagna",
+        "alternates": {
+            "italian casserole": 33,
+            "lasagna": 21261,
+            "layered pasta dish": 1,
+            "pasta al forno": 73
+        },
+        "most_common_name": "lasagna",
+        "actual_freq": 21363,
+        "relevant_total": 20257,
+        "llama_relevance_ratio": 0.9482421875
+    },
+    "60": {
+        "name": "lobster bisque",
+        "alternates": {
+            "thick lobster soup": 0,
+            "rich seafood bisque": 0,
+            "lobster stew": 84,
+            "lobster bisque": 919,
+            "lobster chowder": 92,
+            "chefs specialty bisque": 0,
+            "bisque with lobster": 7,
+            "seafood soup": 663,
+            "creamy lobster dish": 0
+        },
+        "most_common_name": "lobster bisque",
+        "actual_freq": 1756,
+        "relevant_total": 1463,
+        "llama_relevance_ratio": 0.8330078125
+    },
+    "61": {
+        "name": "lobster roll sandwich",
+        "alternates": {
+            "lobster roll": 1943,
+            "lobster sandwich": 65,
+            "lobster roll sandwich": 35
+        },
+        "most_common_name": "lobster roll sandwich",
+        "actual_freq": 2001,
+        "relevant_total": 1981,
+        "llama_relevance_ratio": 0.990234375
+    },
+    "62": {
+        "name": "macaroni and cheese",
+        "alternates": {
+            "cheesy pasta": 353,
+            "mac n cheese": 2842,
+            "macaroni and cheese": 7235,
+            "macaroni with cheese": 72
+        },
+        "most_common_name": "macaroni and cheese",
+        "actual_freq": 10437,
+        "relevant_total": 10254,
+        "llama_relevance_ratio": 0.982421875
+    },
+    "63": {
+        "name": "macarons",
+        "alternates": {
+            "french macaroons": 1004,
+            "meringue sandwich cookies": 9,
+            "macarons": 18464
+        },
+        "most_common_name": "macarons",
+        "actual_freq": 19391,
+        "relevant_total": 17573,
+        "llama_relevance_ratio": 0.90625
+    },
+    "64": {
+        "name": "miso soup",
+        "alternates": {
+            "japanese soup": 166,
+            "traditional japanese soup": 7,
+            "soybean paste soup": 36,
+            "miso soup": 2925,
+            "fermented soybean soup": 1
+        },
+        "most_common_name": "miso soup",
+        "actual_freq": 3105,
+        "relevant_total": 2847,
+        "llama_relevance_ratio": 0.9169921875
+    },
+    "65": {
+        "name": "mussels",
+        "alternates": {
+            "mussels": 16525,
+            "clams": 12043,
+            "shellfish": 5378
+        },
+        "most_common_name": "mussels",
+        "actual_freq": 32563,
+        "relevant_total": 24009,
+        "llama_relevance_ratio": 0.7373046875
+    },
+    "66": {
+        "name": "nachos",
+        "alternates": {
+            "tortilla chips with melted cheese": 0,
+            "mexican chips": 23,
+            "nachos": 12165
+        },
+        "most_common_name": "nachos",
+        "actual_freq": 12183,
+        "relevant_total": 11112,
+        "llama_relevance_ratio": 0.912109375
+    },
+    "67": {
+        "name": "omelette",
+        "alternates": {
+            "omelette": 6997
+        },
+        "most_common_name": "omelette",
+        "actual_freq": 6997,
+        "relevant_total": 5890,
+        "llama_relevance_ratio": 0.841796875
+    },
+    "68": {
+        "name": "onion rings",
+        "alternates": {
+            "crispy onions": 255,
+            "onion rings": 4314,
+            "onion loops": 0,
+            "fried onions": 1043,
+            "battered onions": 2,
+            "breaded onions": 0,
+            "deep fried onions": 18,
+            "onion straws": 95
+        },
+        "most_common_name": "onion rings",
+        "actual_freq": 5683,
+        "relevant_total": 4418,
+        "llama_relevance_ratio": 0.77734375
+    },
+    "69": {
+        "name": "oysters",
+        "alternates": {
+            "oysters": 14619,
+            "bivalves": 287
+        },
+        "most_common_name": "oysters",
+        "actual_freq": 14894,
+        "relevant_total": 10240,
+        "llama_relevance_ratio": 0.6875
+    },
+    "70": {
+        "name": "pad thai",
+        "alternates": {
+            "spicy thai noodles": 140,
+            "thai stir fried noodles": 51,
+            "traditional thai rice noodles": 0,
+            "authentic thai noodle dish": 0,
+            "pad thai": 7703,
+            "flavorful thai rice noodles": 0,
+            "classic thai noodle dish": 0,
+            "famous thai noodle dish": 0,
+            "popular thai street food": 3,
+            "thai rice noodles with tofu and vegetables": 0
+        },
+        "most_common_name": "pad thai",
+        "actual_freq": 7879,
+        "relevant_total": 7633,
+        "llama_relevance_ratio": 0.96875
+    },
+    "71": {
+        "name": "paella",
+        "alternates": {
+            "paella": 11005,
+            "authentic spanish paella": 16,
+            "traditional spanish cuisine": 12,
+            "mixed paella": 73
+        },
+        "most_common_name": "paella",
+        "actual_freq": 11017,
+        "relevant_total": 10995,
+        "llama_relevance_ratio": 0.998046875
+    },
+    "72": {
+        "name": "pancakes",
+        "alternates": {
+            "blinis": 1078,
+            "pancakes": 64988,
+            "hotcakes": 597,
+            "griddlecakes": 38
+        },
+        "most_common_name": "pancakes",
+        "actual_freq": 66615,
+        "relevant_total": 58613,
+        "llama_relevance_ratio": 0.8798828125
+    },
+    "73": {
+        "name": "panna cotta",
+        "alternates": {
+            "panna cotta": 3823
+        },
+        "most_common_name": "panna cotta",
+        "actual_freq": 3823,
+        "relevant_total": 3797,
+        "llama_relevance_ratio": 0.9931640625
+    },
+    "74": {
+        "name": "peking duck",
+        "alternates": {
+            "chinese roast duck": 55,
+            "traditional beijing duck": 1,
+            "roasted peking duck": 40,
+            "classic chinese duck specialty": 0,
+            "peking duck": 1329,
+            "duck dish": 38
+        },
+        "most_common_name": "peking duck",
+        "actual_freq": 1415,
+        "relevant_total": 1253,
+        "llama_relevance_ratio": 0.8857421875
+    },
+    "75": {
+        "name": "pho",
+        "alternates": {
+            "vietnamese dish": 57,
+            "pho": 14372
+        },
+        "most_common_name": "pho",
+        "actual_freq": 14415,
+        "relevant_total": 9178,
+        "llama_relevance_ratio": 0.63671875
+    },
+    "76": {
+        "name": "pizza",
+        "alternates": {
+            "pizza": 301854
+        },
+        "most_common_name": "pizza",
+        "actual_freq": 301854,
+        "relevant_total": 181879,
+        "llama_relevance_ratio": 0.6025390625
+    },
+    "77": {
+        "name": "pork chop",
+        "alternates": {
+            "pork chop": 3610,
+            "cut of pork": 31
+        },
+        "most_common_name": "pork chop",
+        "actual_freq": 3641,
+        "relevant_total": 2190,
+        "llama_relevance_ratio": 0.6015625
+    },
+    "78": {
+        "name": "poutine",
+        "alternates": {
+            "poutine": 2258
+        },
+        "most_common_name": "poutine",
+        "actual_freq": 2258,
+        "relevant_total": 2082,
+        "llama_relevance_ratio": 0.921875
+    },
+    "79": {
+        "name": "prime rib",
+        "alternates": {
+            "prime rib": 2344,
+            "standing rib roast": 124,
+            "ribeye roast": 66
+        },
+        "most_common_name": "prime rib",
+        "actual_freq": 2520,
+        "relevant_total": 2355,
+        "llama_relevance_ratio": 0.9345703125
+    },
+    "80": {
+        "name": "pulled pork sandwich",
+        "alternates": {
+            "pulled pork sandwich": 844,
+            "barbecue sandwich": 60,
+            "slow cooked pork sandwich": 0,
+            "bbq sandwich": 120,
+            "pork sandwich": 1160
+        },
+        "most_common_name": "pulled pork sandwich",
+        "actual_freq": 1337,
+        "relevant_total": 1321,
+        "llama_relevance_ratio": 0.98828125
+    },
+    "81": {
+        "name": "ramen",
+        "alternates": {
+            "ramen": 18088,
+            "ramen noodles": 1771
+        },
+        "most_common_name": "ramen",
+        "actual_freq": 18088,
+        "relevant_total": 13796,
+        "llama_relevance_ratio": 0.7626953125
+    },
+    "82": {
+        "name": "ravioli",
+        "alternates": {
+            "ravioli pasta parcels": 0,
+            "ravioli squares": 0,
+            "pasta pockets": 4,
+            "stuffed pasta": 409,
+            "ravioli": 8282,
+            "ravioli pasta pillows": 0
+        },
+        "most_common_name": "ravioli",
+        "actual_freq": 8686,
+        "relevant_total": 7990,
+        "llama_relevance_ratio": 0.919921875
+    },
+    "83": {
+        "name": "red velvet cake",
+        "alternates": {
+            "red velvet cake": 4558
+        },
+        "most_common_name": "red velvet cake",
+        "actual_freq": 4558,
+        "relevant_total": 4509,
+        "llama_relevance_ratio": 0.9892578125
+    },
+    "84": {
+        "name": "risotto",
+        "alternates": {
+            "risotto": 20217,
+            "risotto style dish": 0
+        },
+        "most_common_name": "risotto",
+        "actual_freq": 20217,
+        "relevant_total": 18993,
+        "llama_relevance_ratio": 0.939453125
+    },
+    "85": {
+        "name": "samosa",
+        "alternates": {
+            "samosa": 2908
+        },
+        "most_common_name": "samosa",
+        "actual_freq": 2908,
+        "relevant_total": 2854,
+        "llama_relevance_ratio": 0.9814453125
+    },
+    "86": {
+        "name": "sashimi",
+        "alternates": {
+            "sashimi": 6855,
+            "thinly sliced raw fish": 2,
+            "slices of fresh raw fish": 1,
+            "traditional japanese raw fish": 1,
+            "japanese dish of raw fish": 0,
+            "raw fish slices": 3
+        },
+        "most_common_name": "sashimi",
+        "actual_freq": 6861,
+        "relevant_total": 6821,
+        "llama_relevance_ratio": 0.994140625
+    },
+    "87": {
+        "name": "scallops",
+        "alternates": {
+            "pan seared scallops": 605,
+            "scallops wrapped in bacon": 27,
+            "scallops over pasta": 13,
+            "grilled scallops": 438,
+            "seared scallops with risotto": 3,
+            "scallops with lemon sauce": 5,
+            "scallops in garlic butter": 4,
+            "scallops": 15790
+        },
+        "most_common_name": "scallops",
+        "actual_freq": 15790,
+        "relevant_total": 10301,
+        "llama_relevance_ratio": 0.65234375
+    },
+    "88": {
+        "name": "seaweed salad",
+        "alternates": {
+            "sea vegetable salad": 14,
+            "seaweed slaw": 1,
+            "marine vegetable salad": 0,
+            "seaweed salad": 692
+        },
+        "most_common_name": "wakame salad",
+        "actual_freq": 707,
+        "relevant_total": 690,
+        "llama_relevance_ratio": 0.9759547383309759
+    },
+    "89": {
+        "name": "shrimp and grits",
+        "alternates": {
+            "shrimp with corn porridge": 0,
+            "seafood and cornmeal": 0,
+            "shrimp and grits": 1428,
+            "prawns and polenta": 2,
+            "seafood and southern style corn grits": 0,
+            "shrimp and cornmeal": 0,
+            "grits and shrimp": 18
+        },
+        "most_common_name": "shrimp and grits",
+        "actual_freq": 1443,
+        "relevant_total": 1425,
+        "llama_relevance_ratio": 0.9873046875
+    },
+    "90": {
+        "name": "spaghetti bolognese",
+        "alternates": {
+            "pasta with meat sauce": 121,
+            "spaghetti bolognese": 1412,
+            "bolognese spaghetti": 65,
+            "meat sauce noodles": 2
+        },
+        "most_common_name": "spaghetti bolognese",
+        "actual_freq": 1571,
+        "relevant_total": 1510,
+        "llama_relevance_ratio": 0.9609375
+    },
+    "91": {
+        "name": "spaghetti carbonara",
+        "alternates": {
+            "spaghetti with carbonara sauce": 4,
+            "carbonara style spaghetti": 0,
+            "spaghetti carbonara": 755,
+            "carbonara pasta": 180,
+            "carbonara spaghetti": 47,
+            "carbonara noodles": 1,
+            "pasta carbonara": 644
+        },
+        "most_common_name": "spaghetti carbonara",
+        "actual_freq": 1539,
+        "relevant_total": 1468,
+        "llama_relevance_ratio": 0.9541015625
+    },
+    "92": {
+        "name": "spring rolls",
+        "alternates": {
+            "rice paper rolls": 675,
+            "summer rolls": 1348,
+            "vietnamese rolls": 26,
+            "spring rolls": 5092
+        },
+        "most_common_name": "spring rolls",
+        "actual_freq": 7088,
+        "relevant_total": 6424,
+        "llama_relevance_ratio": 0.90625
+    },
+    "93": {
+        "name": "steak",
+        "alternates": {
+            "sirloin": 5972,
+            "steak": 109486,
+            "ribeye": 3327
+        },
+        "most_common_name": "steak",
+        "actual_freq": 113541,
+        "relevant_total": 87152,
+        "llama_relevance_ratio": 0.767578125
+    },
+    "94": {
+        "name": "strawberry shortcake",
+        "alternates": {
+            "cake with strawberries": 1228,
+            "strawberry shortcake": 15538,
+            "shortcake with strawberries": 3,
+            "strawberry pastry": 63
+        },
+        "most_common_name": "strawberry shortcake",
+        "actual_freq": 16824,
+        "relevant_total": 6670,
+        "llama_relevance_ratio": 0.396484375
+    },
+    "95": {
+        "name": "sushi",
+        "alternates": {
+            "nigiri": 2289,
+            "sushi": 80051,
+            "maki rolls": 288
+        },
+        "most_common_name": "sushi",
+        "actual_freq": 80797,
+        "relevant_total": 68883,
+        "llama_relevance_ratio": 0.8525390625
+    },
+    "96": {
+        "name": "tacos",
+        "alternates": {
+            "taco shells with meat and vegetables": 0,
+            "tacos": 43683,
+            "tortillas with fillings": 0,
+            "tacos al pastor": 232,
+            "soft shell tacos": 50,
+            "tacos de carne asada": 9,
+            "tacos de pollo": 84,
+            "tacos de camarones": 1,
+            "tacos de pescado": 26
+        },
+        "most_common_name": "tacos",
+        "actual_freq": 43683,
+        "relevant_total": 34085,
+        "llama_relevance_ratio": 0.7802734375
+    },
+    "97": {
+        "name": "takoyaki",
+        "alternates": {
+            "takoyaki": 1019
+        },
+        "most_common_name": "takoyaki",
+        "actual_freq": 1019,
+        "relevant_total": 1000,
+        "llama_relevance_ratio": 0.9813542688910697
+    },
+    "98": {
+        "name": "tiramisu",
+        "alternates": {
+            "tiramisu": 7389
+        },
+        "most_common_name": "tiramisu",
+        "actual_freq": 7389,
+        "relevant_total": 6992,
+        "llama_relevance_ratio": 0.9462890625
+    },
+    "99": {
+        "name": "tuna tartare",
+        "alternates": {
+            "tuna tartare": 563,
+            "tuna poke": 410,
+            "tuna tartar": 179
+        },
+        "most_common_name": "tuna tartare",
+        "actual_freq": 1151,
+        "relevant_total": 1141,
+        "llama_relevance_ratio": 0.9912109375
+    },
+    "100": {
+        "name": "waffles",
+        "alternates": {
+            "belgian waffles": 1626,
+            "savory waffles": 152,
+            "breakfast waffles": 296,
+            "brunch waffles": 34,
+            "homemade waffles": 396,
+            "frozen waffles": 109,
+            "waffles": 30012,
+            "dessert waffles": 37,
+            "waffle cones": 405,
+            "sweet waffles": 116
+        },
+        "most_common_name": "waffles",
+        "actual_freq": 30416,
+        "relevant_total": 29763,
+        "llama_relevance_ratio": 0.978515625
+    }
+}

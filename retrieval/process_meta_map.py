@@ -2,13 +2,11 @@ import pickle
 import yaml
 import sys
 
-def build_map(fn, fn_out, caption_idx=-4):
+def build_map(fn, fn_out, caption_idx):
     result_dict = {}
     with open(fn, 'rb') as f:
         meta = pickle.load(f)
     
-    # print(meta['0'])
-    # stop
     print('len(meta):', len(meta))
 
     no_image_ct = 0
@@ -16,6 +14,7 @@ def build_map(fn, fn_out, caption_idx=-4):
     valid_img_ct = 0
     for cls_idx, tuple_lst in meta.items():
         # print(cls_idx, len(tuple_lst), tuple_lst[:3])
+        # exit()
         
         for idx, tuple in enumerate(tuple_lst):
             img_idx = tuple[-1]
@@ -23,7 +22,8 @@ def build_map(fn, fn_out, caption_idx=-4):
             
             if type(img_idx) != int:
                 # print(f'img_idx is not int, {cls_idx}, {img_idx}, {idx}, | {meta[cls_idx][idx]}') # no image index, no image
-                no_image_ct += 1
+                no_image_ct += 1          
+                # exit()      
                 continue
 
             if type(img_caption) != str:
@@ -89,6 +89,22 @@ if __name__ == '__main__':
     elif dataset == 'dtd':
         fn = f'{root}/dtd/dtd_metadata-random-0.0-LAION400M.meta'
         # fn = f'{root}/dtd/dtd_metadata-all-0.0-LAION400M.meta'
+    
+    # oxfordpets
+    elif dataset == 'oxfordpets':
+        fn = f'{root}/oxfordpets/oxfordpets_metadata-random-0.0-LAION400M.meta'
+    
+    # food101
+    elif dataset == 'food101':
+        fn = f'{root}/food101/food101_metadata-random-0.0-LAION400M.meta'
+    
+    # stanfordcars
+    elif dataset == 'stanfordcars':
+        fn = f'{root}/stanfordcars/stanfordcars_metadata-random-0.0-LAION400M.meta'
+    
+    # imagenet
+    elif dataset == 'imagenet':
+        fn = f'{root}/imagenet/imagenet_metadata-random-0.0-LAION400M.meta'
     
     else:
         raise ValueError(f'unknown dataset: {dataset}')

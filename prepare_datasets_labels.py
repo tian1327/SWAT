@@ -16,11 +16,10 @@ def format_txt(split_list, prefix, output_file):
     print(f'Created {output_file}, {len(txt_list)} lines') 
 
 
+def create_labels_oxfordpets():
+    print('\nCreating labels for OxfordPets')
 
-def create_labels_dtd():
-    print('\nCreating labels for DTD')
-
-    file = f'{ROOT}/dataset/dtd/dtd/split_zhou_DescribableTextures.json'
+    file = f'{ROOT}/oxfordpets/split_zhou_OxfordPets.json'
     with open(file, 'r') as f:
         data = json.load(f)
     train_split = data['train']
@@ -28,7 +27,74 @@ def create_labels_dtd():
     test_split = data['test']
 
     # create the train.txt, val.txt, test.txt
-    prefix=f'{ROOT}/dataset/dtd/dtd/images/'
+    prefix=f'oxfordpets/images/'
+    format_txt(train_split, prefix, 'data/oxfordpets/train.txt')
+    format_txt(val_split, prefix, 'data/oxfordpets/val.txt')
+    format_txt(test_split, prefix, 'data/oxfordpets/test.txt')
+
+
+def create_labels_food101():
+    print('\nCreating labels for food101')
+
+    file = f'{ROOT}/food101/split_zhou_Food101.json'
+    with open(file, 'r') as f:
+        data = json.load(f)
+    train_split = data['train']
+    val_split = data['val']
+    test_split = data['test']
+
+    # create the train.txt, val.txt, test.txt
+    prefix=f'food101/images/'
+    format_txt(train_split, prefix, 'data/food101/train.txt')
+    format_txt(val_split, prefix, 'data/food101/val.txt')
+    format_txt(test_split, prefix, 'data/food101/test.txt')
+
+def create_labels_stanfordcars():
+    print('\nCreating labels for stanfordcars')
+
+    file = f'{ROOT}/stanfordcars/split_zhou_StanfordCars.json'
+    with open(file, 'r') as f:
+        data = json.load(f)
+    train_split = data['train']
+    val_split = data['val']
+    test_split = data['test']
+
+    # create the train.txt, val.txt, test.txt
+    prefix=f'stanfordcars/images/'
+    format_txt(train_split, prefix, 'data/stanfordcars/train.txt')
+    format_txt(val_split, prefix, 'data/stanfordcars/val.txt')
+    format_txt(test_split, prefix, 'data/stanfordcars/test.txt')
+
+
+def create_labels_imagenet():
+    print('\nCreating labels for ImageNet')
+
+    file = f'{ROOT}/imagenet/split_ImageNet.json' # this file from CMLP repo, use val for testing
+    with open(file, 'r') as f:
+        data = json.load(f)
+    train_split = data['train']
+    val_split = data['val']
+    test_split = data['test']
+
+    # create the train.txt, val.txt, test.txt
+    prefix=f'imagenet/images/'
+    format_txt(train_split, prefix, 'data/imagenet/train.txt')
+    format_txt(val_split, prefix, 'data/imagenet/val.txt')
+    format_txt(test_split, prefix, 'data/imagenet/test.txt')
+
+
+def create_labels_dtd():
+    print('\nCreating labels for DTD')
+
+    file = f'{ROOT}/dtd/dtd/split_zhou_DescribableTextures.json'
+    with open(file, 'r') as f:
+        data = json.load(f)
+    train_split = data['train']
+    val_split = data['val']
+    test_split = data['test']
+
+    # create the train.txt, val.txt, test.txt
+    prefix=f'dtd/dtd/images/'
     format_txt(train_split, prefix, 'data/dtd/train.txt')
     format_txt(val_split, prefix, 'data/dtd/val.txt')
     format_txt(test_split, prefix, 'data/dtd/test.txt')
@@ -37,7 +103,7 @@ def create_labels_dtd():
 def create_labels_eurosat():
     print('\nCreating labels for EuroSAT')
 
-    file = f'{ROOT}/dataset/eurosat/split_zhou_EuroSAT.json'
+    file = f'{ROOT}/eurosat/split_zhou_EuroSAT.json'
     with open(file, 'r') as f:
         data = json.load(f)
     train_split = data['train']
@@ -45,7 +111,7 @@ def create_labels_eurosat():
     test_split = data['test']
 
     # create the train.txt, val.txt, test.txt
-    prefix=f'{ROOT}/dataset/eurosat/EuroSAT_RGB/'
+    prefix=f'eurosat/EuroSAT_RGB/'
     format_txt(train_split, prefix, 'data/eurosat/train.txt')
     format_txt(val_split, prefix, 'data/eurosat/val.txt')
     format_txt(test_split, prefix, 'data/eurosat/test.txt')
@@ -53,7 +119,7 @@ def create_labels_eurosat():
 def create_labels_flowers():
     print('\nCreating labels for Flowers')
 
-    file = f'{ROOT}/dataset/flowers102/split_zhou_OxfordFlowers.json'
+    file = f'{ROOT}/flowers102/split_zhou_OxfordFlowers.json'
     with open(file, 'r') as f:
         data = json.load(f)
     train_split = data['train']
@@ -61,7 +127,7 @@ def create_labels_flowers():
     test_split = data['test']
 
     # create the train.txt, val.txt, test.txt
-    prefix=f'{ROOT}/dataset/flowers102/jpg/'
+    prefix=f'flowers102/jpg/'
     format_txt(train_split, prefix, 'data/flowers102/train.txt')
     format_txt(val_split, prefix, 'data/flowers102/val.txt')
     format_txt(test_split, prefix, 'data/flowers102/test.txt')
@@ -87,7 +153,7 @@ def format_aircraft_txt(split_list, prefix, output_file, label_dict):
 def create_labels_aircraft():
     print('\nCreating labels for Aircraft')
 
-    file = f'{ROOT}/dataset/fgvc-aircraft/fgvc-aircraft-2013b/data/variants.txt'
+    file = f'{ROOT}/fgvc-aircraft/fgvc-aircraft-2013b/data/variants.txt'
     with open(file, 'r') as f:
         labels = f.readlines()
     # build a dictionary of the labels
@@ -96,9 +162,9 @@ def create_labels_aircraft():
         labels_dict[label.strip()] = i
     print('len(labels_dict):', len(labels_dict))
      
-    train_fn = f'{ROOT}/dataset/fgvc-aircraft/fgvc-aircraft-2013b/data/images_variant_train.txt'
-    val_fn = f'{ROOT}/dataset/fgvc-aircraft/fgvc-aircraft-2013b/data/images_variant_val.txt'
-    test_fn = f'{ROOT}/dataset/fgvc-aircraft/fgvc-aircraft-2013b/data/images_variant_test.txt'
+    train_fn = f'{ROOT}/fgvc-aircraft/fgvc-aircraft-2013b/data/images_variant_train.txt'
+    val_fn = f'{ROOT}/fgvc-aircraft/fgvc-aircraft-2013b/data/images_variant_val.txt'
+    test_fn = f'{ROOT}/fgvc-aircraft/fgvc-aircraft-2013b/data/images_variant_test.txt'
 
     with open(train_fn, 'r') as f:
         train_split = f.readlines()
@@ -108,11 +174,13 @@ def create_labels_aircraft():
         test_split = f.readlines()
     
     # create the train.txt, val.txt, test.txt
-    prefix=f'{ROOT}/dataset/fgvc-aircraft/fgvc-aircraft-2013b/data/images/'
+    prefix=f'fgvc-aircraft/fgvc-aircraft-2013b/data/images/'
 
     format_aircraft_txt(train_split, prefix, 'data/fgvc-aircraft/train.txt', labels_dict)
     format_aircraft_txt(val_split, prefix, 'data/fgvc-aircraft/val.txt', labels_dict)
     format_aircraft_txt(test_split, prefix, 'data/fgvc-aircraft/test.txt', labels_dict)
+
+
 
 def format_aves_txt(split_fn, prefix, output_file):
     with open(split_fn, 'r') as f:
@@ -132,6 +200,7 @@ def format_aves_txt(split_fn, prefix, output_file):
         f.write('\n'.join(txt_list))
     print(f'Created {output_file}, {len(txt_list)} lines') 
 
+
 def create_labels_aves():
     print('\nCreating labels for Aves')
 
@@ -140,7 +209,7 @@ def create_labels_aves():
     test_fn = f'{ROOT}/dataset/semi-aves/test.txt'
 
 
-    prefix=f'{ROOT}/dataset/semi-aves/'
+    prefix=f'semi-aves/'
     format_aves_txt(train_fn, prefix, 'data/semi-aves/ltrain.txt')
     format_aves_txt(val_fn, prefix, 'data/semi-aves/val.txt')
     format_aves_txt(test_fn, prefix, 'data/semi-aves/test.txt')
@@ -149,12 +218,19 @@ def create_labels_aves():
 if __name__ == '__main__':
     
     # read the retrieved path from the config.yml
-    with open('../config.yml') as f:
+    with open('config.yml') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
-        ROOT = config['retrieved_path']  
+        ROOT = config['dataset_path']  
 
-    create_labels_dtd()
-    create_labels_eurosat()
-    create_labels_flowers()
-    create_labels_aircraft()
-    create_labels_aves()
+    # create_labels_dtd()
+    # create_labels_eurosat()
+    # create_labels_flowers()
+    # create_labels_aircraft()
+    # create_labels_aves()
+        
+    create_labels_oxfordpets()
+    create_labels_food101()
+    create_labels_stanfordcars()
+    create_labels_imagenet()
+
+    print('Done')

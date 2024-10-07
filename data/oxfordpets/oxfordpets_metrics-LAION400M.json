@@ -1,0 +1,449 @@
+{
+    "0": {
+        "name": "Abyssinian",
+        "alternates": {
+            "Abyssinian": 3939,
+            "abyssinian cat": 1731,
+            "abyssinian breed": 46,
+            "abyssinian": 3939,
+            "abyssinian kitty": 36,
+            "abyssinian feline": 0
+        },
+        "most_common_name": "Abyssinian",
+        "actual_freq": 3939,
+        "relevant_total": 3420,
+        "llama_relevance_ratio": 0.8681640625
+    },
+    "1": {
+        "name": "american bulldog",
+        "alternates": {
+            "american bulldog": 2996
+        },
+        "most_common_name": "american bulldog",
+        "actual_freq": 2996,
+        "relevant_total": 2873,
+        "llama_relevance_ratio": 0.958984375
+    },
+    "2": {
+        "name": "american pit bull terrier",
+        "alternates": {
+            "pittie": 938,
+            "american pit bull terrier": 2685,
+            "american pitbull": 514,
+            "apbt": 146
+        },
+        "most_common_name": "american pit bull terrier",
+        "actual_freq": 4264,
+        "relevant_total": 4072,
+        "llama_relevance_ratio": 0.955078125
+    },
+    "3": {
+        "name": "basset hound",
+        "alternates": {
+            "basset hound": 10920
+        },
+        "most_common_name": "basset hound",
+        "actual_freq": 10920,
+        "relevant_total": 10280,
+        "llama_relevance_ratio": 0.94140625
+    },
+    "4": {
+        "name": "beagle",
+        "alternates": {
+            "beagle": 34442
+        },
+        "most_common_name": "beagle",
+        "actual_freq": 34442,
+        "relevant_total": 28623,
+        "llama_relevance_ratio": 0.8310546875
+    },
+    "5": {
+        "name": "Bengal cat",
+        "alternates": {
+            "Bengal cat": 2995,
+            "Bengal mix": 6,
+            "Bengal cats": 565,
+            "Bengal breed": 63,
+            "Bengal kitty": 86,
+            "Bengal kitten": 736
+        },
+        "most_common_name": "Bengal cat",
+        "actual_freq": 4386,
+        "relevant_total": 4275,
+        "llama_relevance_ratio": 0.974609375
+    },
+    "6": {
+        "name": "Birman",
+        "alternates": {
+            "Birman cat": 778,
+            "Birman": 3201,
+            "Birman mix": 0,
+            "Birman kitten": 156,
+            "Sacred Burmeese cat": 0
+        },
+        "most_common_name": "Birman",
+        "actual_freq": 3201,
+        "relevant_total": 2426,
+        "llama_relevance_ratio": 0.7578125
+    },
+    "7": {
+        "name": "Bombay cat",
+        "alternates": {
+            "Bombay kitten": 47,
+            "Bombay kitty": 1,
+            "Bombay cats": 16,
+            "Bombay cat": 503
+        },
+        "most_common_name": "Bombay cat",
+        "actual_freq": 567,
+        "relevant_total": 542,
+        "llama_relevance_ratio": 0.9559082892416225
+    },
+    "8": {
+        "name": "boxer dog",
+        "alternates": {
+            "boxer dog": 7102,
+            "boxer puppy": 2324,
+            "boxer breed": 162,
+            "dog boxer": 412,
+            "boxer puppies": 790,
+            "boxer dogs": 655
+        },
+        "most_common_name": "boxer dog",
+        "actual_freq": 11244,
+        "relevant_total": 10662,
+        "llama_relevance_ratio": 0.9482421875
+    },
+    "9": {
+        "name": "British Shorthair",
+        "alternates": {
+            "british shorthaired cat": 11,
+            "british shorthair": 6171,
+            "british shorthair cat": 1418,
+            "British Shorthair": 6171
+        },
+        "most_common_name": "British Shorthair",
+        "actual_freq": 6182,
+        "relevant_total": 5971,
+        "llama_relevance_ratio": 0.9658203125
+    },
+    "10": {
+        "name": "chihuahua",
+        "alternates": {
+            "taco bell dog": 19,
+            "chi chi dog": 2,
+            "teacup chihuahua": 375,
+            "chihuahua": 47538
+        },
+        "most_common_name": "chihuahua",
+        "actual_freq": 47546,
+        "relevant_total": 44064,
+        "llama_relevance_ratio": 0.9267578125
+    },
+    "11": {
+        "name": "Egyptian Mau",
+        "alternates": {
+            "egyptian mau": 970,
+            "Egyptian Mau": 970
+        },
+        "most_common_name": "Egyptian Mau",
+        "actual_freq": 970,
+        "relevant_total": 966,
+        "llama_relevance_ratio": 0.9958762886597938
+    },
+    "12": {
+        "name": "english cocker spaniel",
+        "alternates": {
+            "cocker spaniel": 14613,
+            "english spaniel": 60,
+            "english cocker spaniel": 2474
+        },
+        "most_common_name": "english cocker spaniel",
+        "actual_freq": 14672,
+        "relevant_total": 14056,
+        "llama_relevance_ratio": 0.9580078125
+    },
+    "13": {
+        "name": "english setter",
+        "alternates": {
+            "english setter": 3644,
+            "laverack setter": 0
+        },
+        "most_common_name": "english setter",
+        "actual_freq": 3644,
+        "relevant_total": 2858,
+        "llama_relevance_ratio": 0.7841796875
+    },
+    "14": {
+        "name": "german shorthaired",
+        "alternates": {
+            "german shorthaired": 4746,
+            "german shorthaired pointer": 4368,
+            "german pointer dog": 49
+        },
+        "most_common_name": "german shorthaired",
+        "actual_freq": 4795,
+        "relevant_total": 4350,
+        "llama_relevance_ratio": 0.9072265625
+    },
+    "15": {
+        "name": "great pyrenees",
+        "alternates": {
+            "pyrenean mountain dog": 297,
+            "pyrenees dog": 483,
+            "great pyrenees": 4542
+        },
+        "most_common_name": "great pyrenees",
+        "actual_freq": 4838,
+        "relevant_total": 4630,
+        "llama_relevance_ratio": 0.95703125
+    },
+    "16": {
+        "name": "havanese",
+        "alternates": {
+            "havanese": 7520,
+            "Havana Silk Dog": 3,
+            "havanese dog": 860,
+            "Cuban Bichon": 2,
+            "Bichon Havanais": 41
+        },
+        "most_common_name": "havanese",
+        "actual_freq": 7558,
+        "relevant_total": 7514,
+        "llama_relevance_ratio": 0.994140625
+    },
+    "17": {
+        "name": "japanese chin",
+        "alternates": {
+            "japanese chin dog": 255,
+            "japanese spaniel": 60,
+            "japanese chin": 2486
+        },
+        "most_common_name": "japanese chin",
+        "actual_freq": 2527,
+        "relevant_total": 2483,
+        "llama_relevance_ratio": 0.982421875
+    },
+    "18": {
+        "name": "keeshond",
+        "alternates": {
+            "keeshond": 1854,
+            "dutch barge dog": 9
+        },
+        "most_common_name": "keeshond",
+        "actual_freq": 1855,
+        "relevant_total": 1837,
+        "llama_relevance_ratio": 0.990234375
+    },
+    "19": {
+        "name": "leonberger",
+        "alternates": {
+            "leonberger": 1598
+        },
+        "most_common_name": "leonberger",
+        "actual_freq": 1598,
+        "relevant_total": 1458,
+        "llama_relevance_ratio": 0.912109375
+    },
+    "20": {
+        "name": "Maine Coon",
+        "alternates": {
+            "Maine Coon": 11759,
+            "maine coon": 11759
+        },
+        "most_common_name": "Maine Coon",
+        "actual_freq": 11759,
+        "relevant_total": 11610,
+        "llama_relevance_ratio": 0.9873046875
+    },
+    "21": {
+        "name": "miniature pinscher",
+        "alternates": {
+            "miniature pinscher": 4540,
+            "mini pinscher": 337,
+            "min pin": 971
+        },
+        "most_common_name": "miniature pinscher",
+        "actual_freq": 5686,
+        "relevant_total": 5475,
+        "llama_relevance_ratio": 0.962890625
+    },
+    "22": {
+        "name": "newfoundland dog",
+        "alternates": {
+            "newfie": 1043,
+            "newfoundland dog": 1728
+        },
+        "most_common_name": "newfoundland dog",
+        "actual_freq": 2737,
+        "relevant_total": 2427,
+        "llama_relevance_ratio": 0.88671875
+    },
+    "23": {
+        "name": "Persian cat",
+        "alternates": {
+            "Persian cat": 5841
+        },
+        "most_common_name": "Persian cat",
+        "actual_freq": 5841,
+        "relevant_total": 5453,
+        "llama_relevance_ratio": 0.93359375
+    },
+    "24": {
+        "name": "pomeranian",
+        "alternates": {
+            "pomeranian dog": 2475,
+            "pomeranian": 19248,
+            "pommie": 79,
+            "pomeranian breed": 166,
+            "pomeranian pup": 41,
+            "pom pom dog": 67
+        },
+        "most_common_name": "pomeranian",
+        "actual_freq": 19392,
+        "relevant_total": 18142,
+        "llama_relevance_ratio": 0.935546875
+    },
+    "25": {
+        "name": "pug",
+        "alternates": {
+            "pug": 64756,
+            "puggy": 480
+        },
+        "most_common_name": "pug",
+        "actual_freq": 65209,
+        "relevant_total": 61388,
+        "llama_relevance_ratio": 0.94140625
+    },
+    "26": {
+        "name": "Ragdoll",
+        "alternates": {
+            "Ragdoll": 8081,
+            "Ragdoll cat": 2318
+        },
+        "most_common_name": "Ragdoll",
+        "actual_freq": 8081,
+        "relevant_total": 7702,
+        "llama_relevance_ratio": 0.953125
+    },
+    "27": {
+        "name": "Russian Blue",
+        "alternates": {
+            "Russian Blue": 3040,
+            "Russian Blue cat": 1415,
+            "russian blue": 3040
+        },
+        "most_common_name": "Russian Blue",
+        "actual_freq": 3040,
+        "relevant_total": 2253,
+        "llama_relevance_ratio": 0.7412109375
+    },
+    "28": {
+        "name": "saint bernard",
+        "alternates": {
+            "st. bernard": 4760,
+            "st. bernard dog": 780,
+            "saint bernard dog": 712,
+            "saint bernard": 5485
+        },
+        "most_common_name": "saint bernard",
+        "actual_freq": 9971,
+        "relevant_total": 7420,
+        "llama_relevance_ratio": 0.744140625
+    },
+    "29": {
+        "name": "samoyed",
+        "alternates": {
+            "samoyed": 6594,
+            "Bjelkier": 65
+        },
+        "most_common_name": "samoyed",
+        "actual_freq": 6594,
+        "relevant_total": 6362,
+        "llama_relevance_ratio": 0.96484375
+    },
+    "30": {
+        "name": "scottish terrier",
+        "alternates": {
+            "scottish terrier": 9852,
+            "scottie dog": 4093
+        },
+        "most_common_name": "scottish terrier",
+        "actual_freq": 13575,
+        "relevant_total": 11229,
+        "llama_relevance_ratio": 0.8271484375
+    },
+    "31": {
+        "name": "shiba inu",
+        "alternates": {
+            "shiba inu": 5148
+        },
+        "most_common_name": "shiba inu",
+        "actual_freq": 5148,
+        "relevant_total": 5047,
+        "llama_relevance_ratio": 0.98046875
+    },
+    "32": {
+        "name": "siamese cat",
+        "alternates": {
+            "siamese cat": 7708,
+            "siamese kitty": 148,
+            "siamese feline": 2,
+            "siamese breed": 32,
+            "siamese pet": 10
+        },
+        "most_common_name": "siamese cat",
+        "actual_freq": 7894,
+        "relevant_total": 6244,
+        "llama_relevance_ratio": 0.791015625
+    },
+    "33": {
+        "name": "Sphynx",
+        "alternates": {
+            "bald cat": 43,
+            "Canadian sphynx": 147,
+            "sphynx cat": 2339,
+            "hairless cat": 481,
+            "Sphynx": 5157
+        },
+        "most_common_name": "Sphynx",
+        "actual_freq": 5549,
+        "relevant_total": 5376,
+        "llama_relevance_ratio": 0.96875
+    },
+    "34": {
+        "name": "staffordshire bull terrier",
+        "alternates": {
+            "staffie dog": 48,
+            "staffie bulldog": 0,
+            "staffy bulldog": 2,
+            "staffordshire bull terrier": 3839
+        },
+        "most_common_name": "staffordshire bull terrier",
+        "actual_freq": 3871,
+        "relevant_total": 3716,
+        "llama_relevance_ratio": 0.9599609375
+    },
+    "35": {
+        "name": "wheaten terrier",
+        "alternates": {
+            "wheaten terrier": 3394
+        },
+        "most_common_name": "wheaten terrier",
+        "actual_freq": 3394,
+        "relevant_total": 3189,
+        "llama_relevance_ratio": 0.939453125
+    },
+    "36": {
+        "name": "yorkshire terrier",
+        "alternates": {
+            "yorkie terrier": 475,
+            "yorkshire terrier": 23889,
+            "yorkie dog": 881
+        },
+        "most_common_name": "yorkshire terrier",
+        "actual_freq": 25052,
+        "relevant_total": 24685,
+        "llama_relevance_ratio": 0.9853515625
+    }
+}

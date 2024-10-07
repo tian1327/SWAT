@@ -1,9 +1,14 @@
+# bash script
+env.sh
+
 results/
 output/
 backup/
 
 # pre extracted features
 pre_extracted/
+prompts/
+
 slurm_log/
 
 data/dtd_selected/

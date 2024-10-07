@@ -4,8 +4,10 @@
 #SBATCH --get-user-env=L          # Replicate login environment
 
 ##NECESSARY JOB SPECIFICATIONS
-#SBATCH --job-name=download_dtd_texture
-#SBATCH --time=20:00:00
+#SBATCH --job-name=download_ImageNet
+##SBATCH --job-name=download_food
+##SBATCH --job-name=download_cars
+#SBATCH --time=72:00:00
 #SBATCH --ntasks=16
 #SBATCH --ntasks-per-node=16
 #SBATCH --nodes=1
@@ -21,9 +23,14 @@
 # execute python script
 #python laion_downloader.py --dataset semi-aves --sampling all
 #python laion_downloader.py --dataset flowers102 --sampling random
-python laion_downloader.py --dataset dtd --sampling all
+#python laion_downloader.py --dataset dtd --sampling all
 #python laion_downloader.py --dataset eurosat --sampling all
 #python laion_downloader.py --dataset fgvc-aircraft --sampling all
+
+#python laion_downloader.py --dataset oxfordpets --sampling random
+#python laion_downloader.py --dataset food101 --sampling random
+#python laion_downloader.py --dataset stanfordcars --sampling random
+python laion_downloader.py --dataset imagenet --sampling random
 
 
 # Job Environment variables

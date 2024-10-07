@@ -16,7 +16,7 @@ import argparse
 from collections import defaultdict
 from time import time
 # from pre_extract_features import pre_extract_split
-from utils.prompt_templates import prompt_maker
+from utils.prompt import prompt_maker
 # from torchvision.transforms import Compose, RandomHorizontalFlip
 # import torch.nn.functional as F
 # from scipy.stats import entropy
@@ -496,7 +496,8 @@ def add_t2t_ranked_t2i_tshd_to_split(caption_map,
                 threshold: float = 0, 
                 duplicates_dict: defaultdict = defaultdict(set),
                 filtered_images_dict: defaultdict = defaultdict(set),
-                t2i_threshold = 0.25):
+                t2i_threshold = 0.25 # note the T2I threshold is 0.25 by default
+                ):
 
     ct = 0
     feature_list = []

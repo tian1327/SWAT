@@ -57,7 +57,7 @@ python format_synonyms.py
 
 ```
 
-**As an alternative**, I used the synonyms in the metric files from [REAL](https://github.com/shubhamprshr27/NeglectedTailsVLM/tree/main/analysis/laion), and renamed for each dataset, e.g. `dtd_metrics-LAION400M.json`. Note, I have done this step for you, and you can find the formatted metric files in the `SWAT/data/{dataset}/` folder.
+**As an alternative**, I used the synonyms in the metric files from [REAL](https://github.com/shubhamprshr27/NeglectedTailsVLM/tree/main/analysis/laion), and renamed for each dataset, e.g. `dtd_metrics-LAION400M.json`. Note that I have done this step for you using the commands below, and you can find the formatted metric files in the `SWAT/data/{dataset}/` folder.
 
 ```bash
 # download the metric files into data/xxx folder for each dataset xxx
@@ -86,6 +86,14 @@ python laion_parser.py --dataset dtd
 # python laion_parser.py --dataset dtd --prefix texture # adding a `texture`` prefix for retriveal gives no better performance
 python laion_parser.py --dataset eurosat --prefix satellite # add `satellite` prefix to only match captions containing "satellite" and "classname", this is essential to retrieve the satellite images
 python laion_parser.py --dataset fgvc-aircraft 
+
+python laion_parser.py --dataset oxfordpets
+python laion_parser.py --dataset food101
+python laion_parser.py --dataset stanfordcars
+python laion_parser.py --dataset imagenet
+
+# or use the slurm script to run the string matching
+sbatch run_stringmatching.slurm
 ```
 
 - Obtain the meta data, urls, and then download the images. For small string-matched pools e.g. Semi-Aves, EuroSAT, and Aircraft, we use `--sampling all` to download all string-matched images if available. For datasets like DTD and Flowers, since their string-matched pool contains large amount of images, we set `--sampling random` to download a random subset to ease storage requirements.
@@ -98,11 +106,17 @@ python laion_downloader.py --dataset fgvc-aircraft --sampling all
 python laion_downloader.py --dataset flowers102 --sampling random
 python laion_downloader.py --dataset dtd --sampling random
 
+python laion_downloader.py --dataset oxfordpets --sampling random
+python laion_downloader.py --dataset food101 --sampling random
+python laion_downloader.py --dataset stanfordcars --sampling random
+python laion_downloader.py --dataset imagenet --sampling random
+
 # or use the slurm script to run the retrieval
 sbatch run_retrieval.slurm
 ```
 
 - Optional to delete the retrieved folder `00000/` which contains the nonessential json files.
+
 ```bash
 cd $RETRIEVED/
 rm -rf semi-aves/semi-aves_retrieved_LAION400M-all_synonyms-all/00000
@@ -110,6 +124,11 @@ rm -rf fgvc-aircraft/fgvc-aircraft_retrieved_LAION400M-all_synonyms-all/00000
 rm -rf eurosat/eurosat_retrieved_LAION400M-all_synonyms-all/00000
 rm -rf flowers102/flowers102_retrieved_LAION400M-all_synonyms-random/00000
 rm -rf dtd/dtd_retrieved_LAION400M-all_synonyms-random/00000
+
+rm -rf oxfordpets/oxfordpets_retrieved_LAION400M-all_synonyms-random/00000
+rm -rf food101/food101_retrieved_LAION400M-all_synonyms-random/00000
+rm -rf stanfordcars/stanfordcars_retrieved_LAION400M-all_synonyms-random/00000
+rm -rf imagenet/imagenet_retrieved_LAION400M-all_synonyms-random/00000
 ```
 
 ### Step 3: process the downloaded data
@@ -122,6 +141,11 @@ python process_meta_map.py fgvc-aircraft
 python process_meta_map.py flowers102
 python process_meta_map.py eurosat
 python process_meta_map.py dtd
+
+python process_meta_map.py oxfordpets
+python process_meta_map.py food101
+python process_meta_map.py stanfordcars
+python process_meta_map.py imagenet
 ```
 - Extract the imgae and text features for different sampling methods in the next step.
 ```bash
@@ -131,6 +155,11 @@ python extract_mined_feature.py --dataset eurosat --model_cfg vitb32_openclip_la
 python extract_mined_feature.py --dataset dtd --model_cfg vitb32_openclip_laion400m
 python extract_mined_feature.py --dataset flowers102 --model_cfg vitb32_openclip_laion400m
 python extract_mined_feature.py --dataset semi-aves --model_cfg vitb32_openclip_laion400m
+
+python extract_mined_feature.py --dataset oxfordpets --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset food101 --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset stanfordcars --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset imagenet --model_cfg vitb32_openclip_laion400m
 ```
 
 ### Step 4: sample from the downloaded data 
@@ -141,11 +170,16 @@ python extract_mined_feature.py --dataset semi-aves --model_cfg vitb32_openclip_
 
 ```bash
 # The following command will generate the label file for the retrieved data, e.g. `T2T500+T2I0.25.txt`
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset semi-aves 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset fgvc-aircraft 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset eurosat 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset dtd 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method t2t-rank-t2i-tshd --dataset flowers102 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset semi-aves 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset fgvc-aircraft 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset eurosat 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset dtd 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset flowers102 
+
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset oxfordpets
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset food101
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset stanfordcars
+
 ```
 
 - You can play with different sampling methods, e.g. random, T2T ranking, T2I ranking, I2I ranking, etc.
@@ -162,6 +196,7 @@ python sample_retrieval.py --prefix T2I500 --num_samples 500 --sampling_method t
 # I2I ranking
 # need to run probing first to get the preextracted downstream images features
 python main.py --dataset eurosat --method probing --data_source fewshot --cls_init REAL-Prompt --shots 16 --seed 1 --epochs 10 --pre_extracted True --recal_fea  --cls_init REAL-Prompt --skip_stage3 --folder output_probing
+
 python sample_retrieval.py --prefix I2I500 --num_samples 500 --sampling_method i2i-rank --dataset fgvc-aircraft
 
 # I2T-ranking

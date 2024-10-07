@@ -27,7 +27,7 @@ pip install open_clip_torch
 pip install git+https://github.com/openai/CLIP.git
 
 # for retrieving images from urls
-pip install img2dataset==1.2.0
+pip install img2dataset
 
 # for SaliencyMix
 pip3 uninstall opencv-python
