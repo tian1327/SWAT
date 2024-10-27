@@ -1,6 +1,6 @@
 # How to install downstream datasets
 
-*The dataset installation instruction is modified from official [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md), with some references from [CMLP](https://github.com/linzhiqiu/cross_modal_adaptation/blob/main/DATASETS.md).*
+*The dataset installation instruction is modified from official [CoOp repository](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md), with some references of updates from [CMLP](https://github.com/linzhiqiu/cross_modal_adaptation/blob/main/DATASETS.md).*
 
 
 We suggest putting all datasets under the same folder (say `$DATA`) to ease management and following the instructions below to organize datasets to avoid modifying the source code. The file structure looks like:
@@ -181,11 +181,18 @@ oxford_pets/
 ### StanfordCars
 - Create a folder named `stanford_cars/` under `$DATA`.
 - In case the following link breaks, download dataset from [Kaggle](https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset).
-- Download the train images http://ai.stanford.edu/~jkrause/car196/cars_train.tgz.
-- Download the test images http://ai.stanford.edu/~jkrause/car196/cars_test.tgz.
-- Download the train labels https://ai.stanford.edu/~jkrause/cars/car_devkit.tgz.
-- Download the test labels http://ai.stanford.edu/~jkrause/car196/cars_test_annos_withlabels.mat.
+- Download `car_devkit.tgz`
+```bash
+wget https://github.com/pytorch/vision/files/11644847/car_devkit.tgz
+tar -xzvf car_devkit.tgz
+```
 - Download `split_zhou_StanfordCars.json` from this [link](https://drive.google.com/file/d/1ObCFbaAgVu0I-k_Au-gIUcefirdAuizT/view?usp=sharing).
+
+- ~~Download the train images http://ai.stanford.edu/~jkrause/car196/cars_train.tgz.~~
+- ~~Download the test images http://ai.stanford.edu/~jkrause/car196/cars_test.tgz.~~
+- ~~Download the train labels https://ai.stanford.edu/~jkrause/cars/car_devkit.tgz.~~
+- ~~Download the test labels http://ai.stanford.edu/~jkrause/car196/cars_test_annos_withlabels.mat.~~
+
 
 The directory structure should look like
 ```
@@ -265,6 +272,9 @@ wget --header="Authorization: Bearer YOUR_HUGGINGFACE_TOKEN" https://huggingface
 
 mkdir train
 tar -xzf train_images_0.tar.gz -C train/
+
+mkdir val
+tar -xzf val_images.tar.gz -C val/
 
 ```
 

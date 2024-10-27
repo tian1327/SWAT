@@ -41,6 +41,8 @@ def run_zeroshot(args, test_loader, model, logger, loss, logit_scale, classifier
     # zs_scores = calculate_scores(zs_confusion_matrix)
     # save_test_scores(zs_scores, zs_confusion_matrix, output_dir, 'zeroshot_test')
 
+    return zs_test_acc
+
 
 def train_probing(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader, reload_model=False):
     """ Train the model with Cross-Entropy Loss, linear probing"""
@@ -189,7 +191,10 @@ def train_CMLP(args, logger, loss_logger, model, classifier_head, preprocess, \
 
     best_records = {}    
     best_val_acc = -1
+    test_acc = -1
     num_iter = 0
+    val_loss = -1
+    val_acc = -1
 
     text_loader = text_dataloader
     text_loader_iter = iter(text_loader) 
@@ -225,15 +230,16 @@ def train_CMLP(args, logger, loss_logger, model, classifier_head, preprocess, \
             optimizer.step()
             scheduler.step() # update learning rate for each iteration
         
-        # validate after 1 epoch          
-        val_acc, val_loss, confusion_matrix = validate(args, data_loader=val_loader, model=model, logger=logger, 
+        # validate after 1 epoch     
+        if args.early_stop or epoch == args.epochs:     
+            val_acc, val_loss, confusion_matrix = validate(args, data_loader=val_loader, model=model, logger=logger, 
                                                         loss=args.loss, logit_scale=logit_scale,
                                                         classifier_head=classifier_head, show_confusion_matrix=True,
                                                         dataset=args.dataset, 
                                                         output_dir=args.output_dir, device=args.device,
                                                         pre_extracted=args.pre_extracted, 
                                                         )
-        scores = calculate_scores(confusion_matrix)        
+            scores = calculate_scores(confusion_matrix)        
     
         if (args.early_stop or epoch == args.epochs) and val_acc >= best_val_acc:
             best_val_acc = val_acc
@@ -254,13 +260,14 @@ def train_CMLP(args, logger, loss_logger, model, classifier_head, preprocess, \
             best_records['best_confusion_matrix'] = best_confusion_matrix
 
         # test after 1 epoch
-        test_acc, _, _ = validate(args,data_loader=test_loader, model=model, logger=logger, 
-                                loss=args.loss, logit_scale=logit_scale,
-                                classifier_head=classifier_head,
-                                dataset=args.dataset, 
-                                output_dir=args.output_dir, device=args.device,
-                                pre_extracted=args.pre_extracted, 
-                                )                
+        if args.early_stop or epoch == args.epochs:
+            test_acc, _, _ = validate(args,data_loader=test_loader, model=model, logger=logger, 
+                                    loss=args.loss, logit_scale=logit_scale,
+                                    classifier_head=classifier_head,
+                                    dataset=args.dataset, 
+                                    output_dir=args.output_dir, device=args.device,
+                                    pre_extracted=args.pre_extracted, 
+                                    )                
         
         train_loss_avg = train_loss_sum / len(train_loader)
         loss_logger.write(f'{epoch},{num_iter},{round(train_loss_avg, 6)},{round(val_loss, 6)},{round(val_acc, 6)},{round(test_acc, 6)}\n')

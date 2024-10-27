@@ -21,6 +21,7 @@ from utils.dataloader import extract_train_dataloader, extract_dataloader, set_d
 from utils.optimizers import set_optimizer, set_params
 # from gem import create_gem_model
 # import pickle
+# import shutil
 
 
 def run_tau_normalization(args, best_head, best_model, val_loader, test_loader, logit_scale, logger):
@@ -127,6 +128,7 @@ def run_wsft(args, best_model, best_head, test_loader, zeroshot_model, zeroshot_
 
     return wsft_model, wsft_head, wsft_test_acc
 
+
 def run_wsft_alpha(args, best_model, best_head, val_loader, test_loader, zeroshot_model, zeroshot_head, logit_scale, logger, step=0.1):
     logger.info(f"Checking WSFT ......")
 
@@ -212,14 +214,18 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     # check zeroshot acc
     if args.check_zeroshot or args.method == 'zeroshot':
         logger.info(f"Check Zero-shot Acc ......")
-        run_zeroshot(args, test_loader, model, logger, loss, logit_scale, classifier_head)
+        zs_test_acc = run_zeroshot(args, test_loader, model, logger, loss, logit_scale, classifier_head)
+    
     if args.zeroshot_only or args.method == 'zeroshot':
+        result_summary = f'{args.dataset},{stage1_method},{args.data_source},{args.cls_init},{args.shots},{args.seed},{args.retrieval_split},{round(zs_test_acc,1)}'
+        logger.info(f'{result_summary}')
+        print(f'{result_summary}')
         exit()    
 
 
     reload_model = True if args.model_path else False
     #---------- Training
-    if args.method == 'probing':         
+    if args.method == 'probing' or args.method == 'REAL-Linear':         
         best_model, best_head, best_records, \
             best_logit_scale, val_loader, test_loader = train_probing(args, logger, loss_logger, model, classifier_head, \
                                                                       train_loader, val_loader, test_loader, reload_model)
@@ -321,8 +327,8 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
                                                             best_logit_scale, logger)
 
     # Here we re-extract the val, test dataloader after training, for fast checking of tau normalization
-    new_val_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_val_features_new.pth'
-    new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_test_features_new.pth'
+    new_val_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_val_features_new.pth'
+    new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_test_features_new.pth'
     val_loader = extract_dataloader(args, best_model, args.val_split, new_val_fea_path, preprocess, tokenized_text_prompts)
     test_loader = extract_dataloader(args, best_model, args.test_split, new_test_fea_path, preprocess, tokenized_text_prompts)
     logger.info(f'Extracted val, test dataloader for fast testing after training.')
@@ -358,11 +364,19 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
                                     best_tau_head, wsft_backbone, wsft_head, stage=1)
     logger.info(f'Stage 1 Best Model saved to: {best_model_path}')
 
-    # remove the extracted features
-    os.remove(new_val_fea_path)
-    os.remove(new_test_fea_path)
+    # wait for 1 second to make sure the file is saved
+    time.sleep(1)
 
-    return test_acc, best_model_path, test_loader_copy
+    # remove the extracted features
+    if os.path.exists(new_val_fea_path):
+        os.remove(new_val_fea_path)
+    if os.path.exists(new_test_fea_path):
+        os.remove(new_test_fea_path)
+
+    # remove the folder
+    # shutil.rmtree(f'{args.dataset_root}/pre_extracted')
+
+    return test_acc, best_model_path, test_loader_copy, wsft_test_acc
 
 
 
@@ -374,8 +388,8 @@ def run_stage2_probing(stage1_best_model_path, test_loader):
     load_model(args, logger, model, test_loader, classifier_head)  
 
     # re-extract the train_loader, val_loader, test_loader
-    new_fewshot_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_fewshot_features_new.pth'
-    new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_test_features_new.pth'
+    new_fewshot_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_fewshot_features_new.pth'
+    new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_test_features_new.pth'
     
     train_loader = extract_train_dataloader(args, model, args.fewshot_data, new_fewshot_fea_path, 
                                             preprocess, tokenized_text_prompts, args.bsz)
@@ -432,8 +446,10 @@ def run_stage2_probing(stage1_best_model_path, test_loader):
     logger.info(f'stage 2 Best Model saved to: {best_model_path}')
 
     # remove the extracted features
-    os.remove(new_fewshot_fea_path)
-    os.remove(new_test_fea_path)
+    if os.path.exists(new_fewshot_fea_path):
+        os.remove(new_fewshot_fea_path)
+    if os.path.exists(new_test_fea_path):
+        os.remove(new_test_fea_path)
 
     return test_acc, best_model_path
 
@@ -460,7 +476,7 @@ if __name__ == '__main__':
     classifier_head.to(args.device) 
 
     # run finetuning for stage 1
-    stage1_acc, stage1_best_model_path, test_loader = run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompts)
+    stage1_acc, stage1_best_model_path, test_loader, wsft_test_acc = run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompts)
     stage1_method = args.method # record method here, as in stage 2 method will be updated to probing
 
     # run probing for stage 2
@@ -475,6 +491,6 @@ if __name__ == '__main__':
     program_end = time.time()
     logger.info(f"Total time: {round((program_end-program_start)/60, 1)} mins.")
 
-    result_summary = f'{args.dataset},{stage1_method},{args.data_source},{args.cls_init},{args.shots},{args.seed},{args.retrieval_split},{round(stage1_acc,1)},{round(stage2_acc,1)}'
+    result_summary = f'{args.dataset},{stage1_method},{args.data_source},{args.cls_init},{args.shots},{args.seed},{args.retrieval_split},{round(stage1_acc,1)},{round(wsft_test_acc,1)},{round(stage2_acc,1)}'
     logger.info(f'{result_summary}')
     print(f'{result_summary}')

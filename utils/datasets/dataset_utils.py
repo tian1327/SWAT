@@ -11,13 +11,15 @@ import torch
 from torchvision.datasets import folder as dataset_parser
 
 NUM_CLASSES_DICT = {
-    'imagenet_1k': 1000,
-    'stanford_cars': 196,
+    'semi-aves': 200,
+    'flowers102': 102,
     'fgvc-aircraft': 100,
     'eurosat': 10,
     'dtd': 47,
-    'semi-aves': 200,
-    'flowers102': 102,
+    'food101': 101,
+    'stanford_cars': 196,
+    "oxford_pets": 37,
+    'imagenet': 1000,
     'semi-inat-2021': 810,
 }
 

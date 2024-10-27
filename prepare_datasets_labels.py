@@ -15,11 +15,40 @@ def format_txt(split_list, prefix, output_file):
         f.write('\n'.join(txt_list))
     print(f'Created {output_file}, {len(txt_list)} lines') 
 
+def format_imagenet_txt(split_list, prefix, output_file, split):
+    txt_list = []
+    for entry in split_list:
+        path = entry[0]
+        label = entry[1]
+
+        path_segs = path.split('/')
+        folder = path_segs[0]
+        cls_code = path_segs[1]
+        image_id = path_segs[-1].split('.')[0].split('_')[-1]
+
+        if split == 'train':
+            path_new = folder+'/'+cls_code+'_'+image_id+'_'+cls_code+'.JPEG'            
+        
+        elif split == 'val' or split == 'test':
+            path_new = folder+'/ILSVRC2012_val_'+image_id+'_'+cls_code+'.JPEG'
+        
+        else:
+            raise ValueError(f'Invalid split: {split}')
+
+        txt_list.append(f'{prefix}{path_new} {label} 1') # 1 means downstream data
+    
+    # sort txt_list by {label}
+    txt_list.sort(key=lambda x: int(x.split(' ')[1]))
+    
+    with open(output_file, 'w') as f:
+        f.write('\n'.join(txt_list))
+    print(f'Created {output_file}, {len(txt_list)} lines') 
+    
 
 def create_labels_oxfordpets():
     print('\nCreating labels for OxfordPets')
 
-    file = f'{ROOT}/oxfordpets/split_zhou_OxfordPets.json'
+    file = f'{ROOT}/oxford_pets/split_zhou_OxfordPets.json'
     with open(file, 'r') as f:
         data = json.load(f)
     train_split = data['train']
@@ -27,10 +56,10 @@ def create_labels_oxfordpets():
     test_split = data['test']
 
     # create the train.txt, val.txt, test.txt
-    prefix=f'oxfordpets/images/'
-    format_txt(train_split, prefix, 'data/oxfordpets/train.txt')
-    format_txt(val_split, prefix, 'data/oxfordpets/val.txt')
-    format_txt(test_split, prefix, 'data/oxfordpets/test.txt')
+    prefix=f'images/'
+    format_txt(train_split, prefix, 'data/oxford_pets/train.txt')
+    format_txt(val_split, prefix, 'data/oxford_pets/val.txt')
+    format_txt(test_split, prefix, 'data/oxford_pets/test.txt')
 
 
 def create_labels_food101():
@@ -44,7 +73,7 @@ def create_labels_food101():
     test_split = data['test']
 
     # create the train.txt, val.txt, test.txt
-    prefix=f'food101/images/'
+    prefix=f'images/'
     format_txt(train_split, prefix, 'data/food101/train.txt')
     format_txt(val_split, prefix, 'data/food101/val.txt')
     format_txt(test_split, prefix, 'data/food101/test.txt')
@@ -52,7 +81,7 @@ def create_labels_food101():
 def create_labels_stanfordcars():
     print('\nCreating labels for stanfordcars')
 
-    file = f'{ROOT}/stanfordcars/split_zhou_StanfordCars.json'
+    file = f'{ROOT}/stanford_cars/split_zhou_StanfordCars.json'
     with open(file, 'r') as f:
         data = json.load(f)
     train_split = data['train']
@@ -60,10 +89,10 @@ def create_labels_stanfordcars():
     test_split = data['test']
 
     # create the train.txt, val.txt, test.txt
-    prefix=f'stanfordcars/images/'
-    format_txt(train_split, prefix, 'data/stanfordcars/train.txt')
-    format_txt(val_split, prefix, 'data/stanfordcars/val.txt')
-    format_txt(test_split, prefix, 'data/stanfordcars/test.txt')
+    prefix=f''
+    format_txt(train_split, prefix, 'data/stanford_cars/train.txt')
+    format_txt(val_split, prefix, 'data/stanford_cars/val.txt')
+    format_txt(test_split, prefix, 'data/stanford_cars/test.txt')
 
 
 def create_labels_imagenet():
@@ -77,10 +106,30 @@ def create_labels_imagenet():
     test_split = data['test']
 
     # create the train.txt, val.txt, test.txt
-    prefix=f'imagenet/images/'
-    format_txt(train_split, prefix, 'data/imagenet/train.txt')
-    format_txt(val_split, prefix, 'data/imagenet/val.txt')
-    format_txt(test_split, prefix, 'data/imagenet/test.txt')
+    prefix=f'images/'
+
+    # here the true train split should be the combination of train and val
+    train_split.extend(val_split)
+
+    format_imagenet_txt(train_split, prefix, 'data/imagenet/train.txt', 'train')
+    format_imagenet_txt(test_split, prefix, 'data/imagenet/val.txt', 'val') # note here we pass in the test split
+    format_imagenet_txt(test_split, prefix, 'data/imagenet/test.txt', 'test')
+
+# def create_labels_imagenet():
+#     print('\nCreating labels for ImageNet')
+
+#     file = f'{ROOT}/imagenet/split_ImageNet.json' # this file from CMLP repo, use val for testing
+#     with open(file, 'r') as f:
+#         data = json.load(f)
+#     train_split = data['train']
+#     val_split = data['val']
+#     test_split = data['test']
+
+#     # create the train.txt, val.txt, test.txt
+#     prefix=f'images/'
+#     format_txt(train_split, prefix, 'data/imagenet/train.txt')
+#     format_txt(val_split, prefix, 'data/imagenet/val.txt')
+#     format_txt(test_split, prefix, 'data/imagenet/test.txt')
 
 
 def create_labels_dtd():
@@ -228,9 +277,9 @@ if __name__ == '__main__':
     # create_labels_aircraft()
     # create_labels_aves()
         
-    create_labels_oxfordpets()
-    create_labels_food101()
-    create_labels_stanfordcars()
+    # create_labels_oxfordpets()
+    # create_labels_food101()
+    # create_labels_stanfordcars()
     create_labels_imagenet()
 
     print('Done')

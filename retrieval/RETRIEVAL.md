@@ -15,7 +15,7 @@ The example directory structure should look like:
 $RETRIEVED/
 |–– semi-aves/
 |   |–– semi-aves_retrieved_LAION400M-all_synonyms-all/
-|   |–– pre_extracted/
+|   |–– semi-aves_vitb32_openclip_laion400m_mined.pth
 |   |–– semi-aves_class_frequency-LAION400M.json
 |   |–– semi-aves_downloaded_ct-LAION400M-all_synonyms-all.json
 |   |–– semi-aves_metadata-all-0.0-LAION400M.map
@@ -83,13 +83,17 @@ cd SWAT/retrieval/
 python laion_parser.py --dataset semi-aves 
 python laion_parser.py --dataset flowers102 
 python laion_parser.py --dataset dtd
-# python laion_parser.py --dataset dtd --prefix texture # adding a `texture`` prefix for retriveal gives no better performance
-python laion_parser.py --dataset eurosat --prefix satellite # add `satellite` prefix to only match captions containing "satellite" and "classname", this is essential to retrieve the satellite images
-python laion_parser.py --dataset fgvc-aircraft 
+# adding a `texture`` prefix for retriveal gives no better performance
+# python laion_parser.py --dataset dtd --prefix texture 
 
-python laion_parser.py --dataset oxfordpets
+# add `satellite` prefix to only match captions containing "satellite" and "classname", 
+# this is essential to ensure retrieving satellite images
+python laion_parser.py --dataset eurosat --prefix satellite
+
+python laion_parser.py --dataset fgvc-aircraft 
+python laion_parser.py --dataset oxford_pets
 python laion_parser.py --dataset food101
-python laion_parser.py --dataset stanfordcars
+python laion_parser.py --dataset stanford_cars
 python laion_parser.py --dataset imagenet
 
 # or use the slurm script to run the string matching
@@ -105,17 +109,16 @@ python laion_downloader.py --dataset eurosat --sampling all
 python laion_downloader.py --dataset fgvc-aircraft --sampling all
 python laion_downloader.py --dataset flowers102 --sampling random
 python laion_downloader.py --dataset dtd --sampling random
-
-python laion_downloader.py --dataset oxfordpets --sampling random
+python laion_downloader.py --dataset oxford_pets --sampling random
 python laion_downloader.py --dataset food101 --sampling random
-python laion_downloader.py --dataset stanfordcars --sampling random
+python laion_downloader.py --dataset stanford_cars --sampling random
 python laion_downloader.py --dataset imagenet --sampling random
 
 # or use the slurm script to run the retrieval
 sbatch run_retrieval.slurm
 ```
 
-- Optional to delete the retrieved folder `00000/` which contains the nonessential json files.
+- [Optional] delete the retrieved folder `00000/` which contains the nonessential json files.
 
 ```bash
 cd $RETRIEVED/
@@ -124,10 +127,9 @@ rm -rf fgvc-aircraft/fgvc-aircraft_retrieved_LAION400M-all_synonyms-all/00000
 rm -rf eurosat/eurosat_retrieved_LAION400M-all_synonyms-all/00000
 rm -rf flowers102/flowers102_retrieved_LAION400M-all_synonyms-random/00000
 rm -rf dtd/dtd_retrieved_LAION400M-all_synonyms-random/00000
-
-rm -rf oxfordpets/oxfordpets_retrieved_LAION400M-all_synonyms-random/00000
+rm -rf oxford_pets/oxford_pets_retrieved_LAION400M-all_synonyms-random/00000
 rm -rf food101/food101_retrieved_LAION400M-all_synonyms-random/00000
-rm -rf stanfordcars/stanfordcars_retrieved_LAION400M-all_synonyms-random/00000
+rm -rf stanford_cars/stanford_cars_retrieved_LAION400M-all_synonyms-random/00000
 rm -rf imagenet/imagenet_retrieved_LAION400M-all_synonyms-random/00000
 ```
 
@@ -142,9 +144,9 @@ python process_meta_map.py flowers102
 python process_meta_map.py eurosat
 python process_meta_map.py dtd
 
-python process_meta_map.py oxfordpets
+python process_meta_map.py oxford_pets
 python process_meta_map.py food101
-python process_meta_map.py stanfordcars
+python process_meta_map.py stanford_cars
 python process_meta_map.py imagenet
 ```
 - Extract the imgae and text features for different sampling methods in the next step.
@@ -156,34 +158,52 @@ python extract_mined_feature.py --dataset dtd --model_cfg vitb32_openclip_laion4
 python extract_mined_feature.py --dataset flowers102 --model_cfg vitb32_openclip_laion400m
 python extract_mined_feature.py --dataset semi-aves --model_cfg vitb32_openclip_laion400m
 
-python extract_mined_feature.py --dataset oxfordpets --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset oxford_pets --model_cfg vitb32_openclip_laion400m
 python extract_mined_feature.py --dataset food101 --model_cfg vitb32_openclip_laion400m
-python extract_mined_feature.py --dataset stanfordcars --model_cfg vitb32_openclip_laion400m
+python extract_mined_feature.py --dataset stanford_cars --model_cfg vitb32_openclip_laion400m
 python extract_mined_feature.py --dataset imagenet --model_cfg vitb32_openclip_laion400m
 ```
 
 ### Step 4: sample from the downloaded data 
-- We use prompt-to-caption (T2T) ranking + prompt-to-image (T2I) filtering to sample 500 images for each class. 
+- We follow REAL to select top 500 images for each class using T2T ranking, i.e. ranking the cosine similarity of the prompt embedding (average of all synonyms using OpenAI templates) and the caption embedding, using the OpenCLIP ViT-B/32 model.
+- The result will be a `T2T500.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder.
+- Retrieval statistics are stored in `SWAT/retrieval/output/` folder.
+
+<!-- - We use prompt-to-caption (T2T) ranking + prompt-to-image (T2I) filtering to sample 500 images for each class. 
 - For classes with less than 500 downloaded images, we use all available images after T2I filtering.
 - We set the T2I filtering threshold to 0.25, similar to what is used in the curation of LAION dataset.
-- The result will be a `T2T500+T2I0.25.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder.
+- The result will be a `T2T500+T2I0.25.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder. -->
 
 ```bash
-# The following command will generate the label file for the retrieved data, e.g. `T2T500+T2I0.25.txt`
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset semi-aves 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset fgvc-aircraft 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset eurosat 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset dtd 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset flowers102 
+# run for all datasets
+bash run_sampling.sh
 
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset oxfordpets
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset food101
-python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2Td-rank-T2I-tsh --dataset stanfordcars
-
+# use T2T ranking only, this will crate a `T2T500.txt` file
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset semi-aves 
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset fgvc-aircraft 
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset eurosat 
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset dtd 
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset flowers102 
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset oxford_pets
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset food101
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset stanford_cars
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset imagenet
 ```
 
-- You can play with different sampling methods, e.g. random, T2T ranking, T2I ranking, I2I ranking, etc.
+- You can play with different sampling methods, e.g. random, T2T ranking, T2I ranking, I2I ranking, T2T ranking with T2I filtering, etc.
 ```bash
+
+# T2T500+T2I0.25, e.g. `T2T500+T2I0.25.txt`
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset semi-aves 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset fgvc-aircraft 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset eurosat 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset dtd 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset flowers102 
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset oxford_pets
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset food101
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset stanford_cars
+python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset imagenet
+
 # random500
 python sample_retrieval.py --prefix Random500 --num_samples 500 --sampling_method random --dataset semi-aves
 

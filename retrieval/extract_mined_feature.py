@@ -26,9 +26,9 @@ MINED_DATASET_ROOT_DICT = {
     'dtd': f'{ROOT}/dtd/dtd_retrieved_LAION400M-all_synonyms-random',
     # 'dtd': f'{ROOT}/dtd/dtd_retrieved_LAION400M-all_synonyms-all', # this is for retrieval with texture, no better
     'flowers102': f'{ROOT}/flowers102/flowers102_retrieved_LAION400M-all_synonyms-random',
-    'oxfordpets': f'{ROOT}/oxfordpets/oxfordpets_retrieved_LAION400M-all_synonyms-random',
+    'oxford_pets': f'{ROOT}/oxford_pets/oxford_pets_retrieved_LAION400M-all_synonyms-random',
     'food101': f'{ROOT}/food101/food101_retrieved_LAION400M-all_synonyms-random',
-    'stanfordcars': f'{ROOT}/stanfordcars/stanfordcars_retrieved_LAION400M-all_synonyms-random',
+    'stanford_cars': f'{ROOT}/stanford_cars/stanford_cars_retrieved_LAION400M-all_synonyms-random',
     'imagenet': f'{ROOT}/imagenet/imagenet_retrieved_LAION400M-all_synonyms-random',
     }
 
@@ -39,9 +39,9 @@ CAPTION_MAP_DICT = {
     'dtd': f'{ROOT}/dtd/dtd_metadata-random-0.0-LAION400M.map', 
     # 'dtd': f'{ROOT}/dtd/dtd_metadata-all-0.0-LAION400M.map', # this is for retrieval with texture, no better
     'flowers102': f'{ROOT}/flowers102/flowers102_metadata-random-0.0-LAION400M.map',
-    'oxfordpets': f'{ROOT}/oxfordpets/oxfordpets_metadata-random-0.0-LAION400M.map',
+    'oxford_pets': f'{ROOT}/oxford_pets/oxford_pets_metadata-random-0.0-LAION400M.map',
     'food101': f'{ROOT}/food101/food101_metadata-random-0.0-LAION400M.map',
-    'stanfordcars': f'{ROOT}/stanfordcars/stanfordcars_metadata-random-0.0-LAION400M.map',
+    'stanford_cars': f'{ROOT}/stanford_cars/stanford_cars_metadata-random-0.0-LAION400M.map',
     'imagenet': f'{ROOT}/imagenet/imagenet_metadata-random-0.0-LAION400M.map',
 }
 
@@ -105,8 +105,7 @@ def extract_mined_feats_batch(model, dataloader, tokenizer, save_dir, batch_size
     # Ensure the save directory exists
     os.makedirs(save_dir, exist_ok=True)
 
-    img_feats_lst, labels_lst, captions_lst = [], [], []
-    filepath_lst = []
+    img_feats_lst, labels_lst, captions_lst, filepath_lst = [], [], [], []
     model.eval()
     
     # +++++ calculate the captions_feats_store
@@ -168,7 +167,9 @@ def extract_mined_feats_batch(model, dataloader, tokenizer, save_dir, batch_size
                 'labels': labels_store,
                 'filepath': filepath_lst}
 
+
     # +++++ calculate the img_feats_store
+    batch_idx = 0
     for data in tqdm(dataloader, desc='Extract image features'):
         imgs, labels, file_path, captions = data
         imgs = imgs.cuda()
@@ -178,9 +179,29 @@ def extract_mined_feats_batch(model, dataloader, tokenizer, save_dir, batch_size
         with torch.no_grad():
             img_feats = model.encode_image(imgs)
             img_feats /= img_feats.norm(dim=-1, keepdim=True) # Normalization.
-
+        
         img_feats_lst.append(img_feats.cpu())
 
+        batch_idx += 1
+        if batch_idx % batch_size == 0:
+            img_feats_store = torch.cat(img_feats_lst, dim=0)
+            torch.save(img_feats_store, os.path.join(save_dir, f"images_batch_{batch_idx}.pth"))
+            print(f'Saved images_batch_{batch_idx}.pth')
+
+            img_feats_lst = []
+    
+    # Save the last batch
+    if len(img_feats_lst) > 0:
+        img_feats_store = torch.cat(img_feats_lst, dim=0)
+        torch.save(img_feats_store, os.path.join(save_dir, f"images_batch_{batch_idx}.pth"))
+
+    # combine the saved batches
+    img_feats_lst = []
+    for fn in os.listdir(save_dir):
+        if fn.startswith('images_batch_'):
+            data = torch.load(os.path.join(save_dir, fn))
+            img_feats_lst.append(data)
+        
     img_feats_store = torch.cat(img_feats_lst, dim=0)
     print('img_feats_store.shape:', img_feats_store.shape)
 
@@ -246,10 +267,10 @@ def pre_extract_mined_fea(args, dataset_name, dataset_root, caption_path,
 
     # +++++ extract the image + caption features
     # dataset_dict = extract_mined_feats(model, val_loader, tokenizer)
-    dataset_dict = extract_mined_feats_batch(model, val_loader, tokenizer, save_dir=f'{args.root}/{dataset_name}/pre_extracted/temp')      
+    dataset_dict = extract_mined_feats_batch(model, val_loader, tokenizer, save_dir=f'{args.root}/{dataset_name}/temp')      
 
     # +++++ save the dataset_dict
-    save_root = f'{args.root}/{dataset_name}/pre_extracted' # here since we mined with the alternates
+    save_root = f'{args.root}/{dataset_name}' # here since we mined with the alternates
     if not os.path.exists(save_root):
         os.makedirs(save_root)
 
@@ -269,7 +290,7 @@ if __name__ == '__main__':
                         choices=['vitb32_openclip_laion400m', 'vitb32_openclip_laion2b', 
                                  'vitb32_clip', 'vitb16_clip'],
                         help='ViT Transformer arch.')
-    parser.add_argument('--bsz', type=int, default=256, help='Batch size.')
+    parser.add_argument('--bsz', type=int, default=1024, help='Batch size.')
     parser.add_argument('--num_workers', type=int, default=16, help='Number of workers for dataloader.')
     
     args = parser.parse_args()

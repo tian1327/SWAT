@@ -31,9 +31,10 @@ def parse_args():
 
     # dataset
     parser.add_argument('--dataset', type=str, default='semi-aves', 
-                        choices=['semi-inat-2021', 'semi-aves', 'flowers102', 'cub2011', 'imagenet_1k',
+                        choices=['semi-inat-2021', 'semi-aves', 'flowers102', 'cub2011', 'imagenet',
                                  'fgvc-aircraft', 'dtd', 'eurosat',
-                                 'dtd_selected'
+                                 'dtd_selected', 'oxford_pets', 'stanford_cars', 'food101',
+                                 'sun397', 'ucf101', 'caltech101'
                                  ], 
                         help='Dataset name.')
     
@@ -57,7 +58,9 @@ def parse_args():
     parser.add_argument('--training_seed', type=int, default=1, help='Random seeds for training.') # this is used for stage 2 probing loss error bars
 
     # training
-    parser.add_argument('--method', type=str, default='finetune', choices=['zeroshot','probing', 'finetune', 'finetune-mixed',
+    parser.add_argument('--method', type=str, default='finetune', choices=['zeroshot',
+                                                                           'REAL-Linear',
+                                                                           'probing', 'finetune', 'finetune-mixed',
                                                                            'finetune-multitask', 'CMLP',
                                                                             'mixup',  'mixup-fs', 'cutmix', 'cutmix-fs',
                                                                             'resizemix', 'dataset-cls',
@@ -69,7 +72,7 @@ def parse_args():
 
     parser.add_argument('--mix_prob', type=float, default=0.5, help='Mixing probability, i.e. use mixing strategy or not. Option applied to all mixing methods.')    
     parser.add_argument('--mixup_alpha', type=float, default=1.0, help='Mixup alpha for Beta distribution.')
-    parser.add_argument('--skip_stage2', action='store_true', help='Set to skip stage 2 probing')
+    parser.add_argument('--skip_stage2', default=False, action='store_true', help='Set to skip stage 2 probing')
 
     # attentive mix
     parser.add_argument('--attentive_threshold', type=float, default=0.85, help='Threshold for heatmap binary mask.')
@@ -79,7 +82,7 @@ def parse_args():
     # parser.add_argument('--cross_modal', default=False, type=str2bool, help='cross-modal adaptation.')
     parser.add_argument('--recal_prompt', action='store_true', help='Recalculate the prompt embedding or not.')
     parser.add_argument('--recal_fea', action='store_true', help='re-run feature extraction.')
-    parser.add_argument('--pre_extracted', default=False, type=str2bool, help='use pre-extracted features.')
+    parser.add_argument('--pre_extracted', default=False, action='store_true', help='use pre-extracted features.')
     parser.add_argument('--locked_text', action='store_true', help='Set to freeze the text encoder during training.')
     parser.add_argument('--freeze_visual', default=False, type=str2bool, help='Freeze the visual encoder during training.')
     parser.add_argument('--tau_norm', default=True, type=str2bool, help='try tau normalization, select best tau on val set.')  
@@ -150,7 +153,7 @@ def parse_args():
     elif args.cls_init == 'random':
         args.prompt_name = 'most_common_name'        
 
-    if args.method == "probing" or args.method == "CMLP":
+    if args.method == "probing" or args.method == "CMLP" or args.method == "REAL-Linear":
         args.freeze_visual = True
         # args.pre_extracted = True # because stage 2 has to recalculate the feature using stage 2 model 
     else:
@@ -184,37 +187,37 @@ def parse_args():
         args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split], 
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset)]]
     
-    elif args.data_source == 'fewshot+unlabeled':
-        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split], 
-                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
+    # elif args.data_source == 'fewshot+unlabeled':
+    #     args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split], 
+    #                         [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
 
-    elif args.data_source == 'fewshot+retrieved+unlabeled':
-        args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split, args.unlabeled_split], 
-                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset), 
-                             os.path.join(args.dataset_path, args.dataset)]]
+    # elif args.data_source == 'fewshot+retrieved+unlabeled':
+    #     args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split, args.unlabeled_split], 
+    #                         [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset), 
+    #                          os.path.join(args.dataset_path, args.dataset)]]
 
-    elif args.data_source == 'ltrain':
-        args.train_split = [[f'ltrain.txt'], [os.path.join(args.dataset_path, args.dataset)]]
-        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
-        args.early_stop = True
+    # elif args.data_source == 'ltrain':
+    #     args.train_split = [[f'ltrain.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+    #     args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
+    #     args.early_stop = True
 
-    elif args.data_source == 'ltrain+val':
-        args.train_split = [[f'ltrain+val.txt'], [os.path.join(args.dataset_path, args.dataset)]]
-        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
-        args.early_stop = True
+    # elif args.data_source == 'ltrain+val':
+    #     args.train_split = [[f'ltrain+val.txt'], [os.path.join(args.dataset_path, args.dataset)]]
+    #     args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
+    #     args.early_stop = True
     
-    elif args.data_source == 'ltrain+val+unlabeled':
-        args.train_split = [[f'ltrain+val.txt', args.unlabeled_split], [os.path.join(args.dataset_path, args.dataset), 
-                                                                        os.path.join(args.dataset_path, args.dataset)]]
-        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
-        args.early_stop = True
+    # elif args.data_source == 'ltrain+val+unlabeled':
+    #     args.train_split = [[f'ltrain+val.txt', args.unlabeled_split], [os.path.join(args.dataset_path, args.dataset), 
+    #                                                                     os.path.join(args.dataset_path, args.dataset)]]
+    #     args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
+    #     args.early_stop = True
     
-    elif args.data_source == 'ltrain+val+unlabeled+retrieved':
-        args.train_split = [[f'ltrain+val.txt', args.unlabeled_split, args.retrieval_split], 
-                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset), 
-                             os.path.join(args.retrieved_path, args.dataset)]]
-        args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
-        args.early_stop = True
+    # elif args.data_source == 'ltrain+val+unlabeled+retrieved':
+    #     args.train_split = [[f'ltrain+val.txt', args.unlabeled_split, args.retrieval_split], 
+    #                         [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset), 
+    #                          os.path.join(args.retrieved_path, args.dataset)]]
+    #     args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
+    #     args.early_stop = True
 
     elif args.data_source == 'dataset-cls':
         args.train_split = [['dataset_train.txt'], ['']] # note here the second element for the path is empty, just for dataset classification
@@ -224,24 +227,24 @@ def parse_args():
         raise NotImplementedError
 
 
-    # adjust train_split for fixmatch
-    if args.method == 'fixmatch':
-        # args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], 
-        #                     [os.path.join(args.dataset_path, args.dataset)]]
+    # # adjust train_split for fixmatch
+    # if args.method == 'fixmatch':
+    #     # args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'], 
+    #     #                     [os.path.join(args.dataset_path, args.dataset)]]
         
-        args.train_split = [[f'ltrain+val.txt'], 
-                            [os.path.join(args.dataset_path, args.dataset)]]
+    #     args.train_split = [[f'ltrain+val.txt'], 
+    #                         [os.path.join(args.dataset_path, args.dataset)]]
 
-        # note here, we add the labeled data to the unlabeled split based on the original implementation
-        # args.u_train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split], 
-        #                     [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
+    #     # note here, we add the labeled data to the unlabeled split based on the original implementation
+    #     # args.u_train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split], 
+    #     #                     [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
  
-        args.u_train_split = [['ltrain+val.txt', args.unlabeled_split], 
-                            [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
+    #     args.u_train_split = [['ltrain+val.txt', args.unlabeled_split], 
+    #                         [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
  
 
-        # args.u_train_split = [[args.unlabeled_split], 
-        #                     [os.path.join(args.dataset_path, args.dataset)]]
+    #     # args.u_train_split = [[args.unlabeled_split], 
+    #     #                     [os.path.join(args.dataset_path, args.dataset)]]
 
 
     # adjust folder
@@ -252,5 +255,9 @@ def parse_args():
     # test_file = os.path.join(args.dataset_root, args.test_split[0][0])
     # cls_num_list = get_class_num_list(test_file)
     # args.cls_num_list = cls_num_list
+
+    # swat for imagenet
+    if args.dataset == 'imagenet' and args.method == 'cutmix' and args.data_source == 'fewshot+retrieved':
+        args.epochs = 10
 
     return args

@@ -1417,12 +1417,18 @@ def transform_extracted_fea(pre_extracted_feats):
 
 def cal_prompt_tensors(args, logger, model, tokenizer, metrics, dataset_root):
 
+    prompts_dir = os.path.join('../data', args.dataset, 'prompts/')
+    if not os.path.exists(prompts_dir):
+        os.makedirs(prompts_dir)
+        logger.info(f'Created directory: {prompts_dir}')    
+    
     prompt_tensors_dict= {}
     text_prompts_dict = {}
     # for label_type in ['name', 'most_common_name', 'alternates']:
     for label_type in [args.prompt_name]:
-        prompt_tensors_filename = f"{dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{label_type}_prompt_tensors.pth"
-        text_prompts_filename = f"{dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{label_type}_text_prompts.pth"
+        prompt_tensors_filename = f"{prompts_dir}{args.dataset}_{args.model_cfg}_{label_type}_prompt_tensors.pth"
+        text_prompts_filename = f"{prompts_dir}{args.dataset}_{args.model_cfg}_{label_type}_text_prompts.pth"
+        # tokenized_text_prompts_filename = f"{prompts_dir}{args.dataset}_{args.model_cfg}_{label_type}_tokenized_text_prompts.pth"
 
         if not args.recal_prompt and os.path.exists(prompt_tensors_filename):
             prompt_tensors_dict[label_type] = torch.load(prompt_tensors_filename)
@@ -1464,7 +1470,7 @@ def save_sample_file_list(args, final_file_list, label_tensor):
 
 def sampling(args, logger, model, preprocess, metrics, dataset_root):
 
-    pre_extracted_feats_fn = f'{dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_mined.pth'
+    pre_extracted_feats_fn = f'{dataset_root}/{args.dataset}_{args.model_cfg}_mined.pth'
     if os.path.exists(pre_extracted_feats_fn):
         pre_extracted_feats = torch.load(pre_extracted_feats_fn)
         logger.info(f'Loaded pre-extracted mined features from: {pre_extracted_feats_fn}')
@@ -1563,8 +1569,9 @@ def sampling(args, logger, model, preprocess, metrics, dataset_root):
     #                                                             duplicates_dict=duplicate_images_dict)  
 
     elif args.sampling_method == 'T2T-rank': # T2T ranking
-        mined_split, num_imgs_sampled_dict = t2t_ranked_sampler(args, logger, 
-                                                                prompt_tensors=prompt_tensors_dict['most_common_name'], 
+        mined_split, num_imgs_sampled_dict = t2t_ranked_sampler(args, logger,
+                                                                prompt_tensors=prompt_tensors_dict[args.prompt_name], 
+                                                                # prompt_tensors=prompt_tensors_dict['most_common_name'], 
                                                                 num_samples=args.num_samples, 
                                                                 threshold=0.0, # note we set threshold to 0 here
                                                                 pre_extracted_feats=pre_extracted_feats,
@@ -1573,7 +1580,8 @@ def sampling(args, logger, model, preprocess, metrics, dataset_root):
 
     elif args.sampling_method == 'T2T-rank-T2I-tshd': # T2T ranking with T2I thresholding
         mined_split, num_imgs_sampled_dict = t2t_ranked_t2i_tshd_sampler(args, logger, 
-                                            prompt_tensors=prompt_tensors_dict['most_common_name'], 
+                                            # prompt_tensors=prompt_tensors_dict['most_common_name'], # note here we used most_common_name
+                                            prompt_tensors=prompt_tensors_dict[args.prompt_name], # note here we used alternates                                            
                                             num_samples=args.num_samples, 
                                             threshold=0.0, # note we set threshold to 0 here
                                             pre_extracted_feats=pre_extracted_feats,
@@ -1608,22 +1616,22 @@ def sampling(args, logger, model, preprocess, metrics, dataset_root):
                                         filtered_images_dict=filtered_images_dict,
                                         duplicates_dict=duplicate_images_dict)
 
-    elif args.sampling_method == 'crossentropy':
-        mined_split = crossentropy_sampler(root_folder=root_folder, metrics=metrics, num_samples=args.num_samples, 
-                                    model=model, preprocess=preprocess, threshold=args.sampling_threshold, 
-                                    name_type=args.prompt_name, pre_extracted_feats = pre_extracted_feats,
-                                    duplicates_dict=duplicate_images_dict) 
+    # elif args.sampling_method == 'crossentropy':
+    #     mined_split = crossentropy_sampler(root_folder=root_folder, metrics=metrics, num_samples=args.num_samples, 
+    #                                 model=model, preprocess=preprocess, threshold=args.sampling_threshold, 
+    #                                 name_type=args.prompt_name, pre_extracted_feats = pre_extracted_feats,
+    #                                 duplicates_dict=duplicate_images_dict) 
 
-    elif args.sampling_method == 'totalentropy':
-        zeroshot_weights = features.prompt_sampler(prompt_tensors_dict[args.prompt_name], logger, sample_by='mean')            
-        head = MyLinear(weights=zeroshot_weights, bias=False)
-        head.to(device=device)
-        head.eval()
+    # elif args.sampling_method == 'totalentropy':
+    #     zeroshot_weights = features.prompt_sampler(prompt_tensors_dict[args.prompt_name], logger, sample_by='mean')            
+    #     head = MyLinear(weights=zeroshot_weights, bias=False)
+    #     head.to(device=device)
+    #     head.eval()
 
-        mined_split = totalentropy_sampler(root_folder=root_folder, metrics=metrics, num_samples=args.num_samples, 
-                                    model=model, preprocess=preprocess, threshold=args.sampling_threshold, 
-                                    name_type=args.prompt_name, pre_extracted_feats = pre_extracted_feats,
-                                    duplicates_dict=duplicate_images_dict, head=head)
+    #     mined_split = totalentropy_sampler(root_folder=root_folder, metrics=metrics, num_samples=args.num_samples, 
+    #                                 model=model, preprocess=preprocess, threshold=args.sampling_threshold, 
+    #                                 name_type=args.prompt_name, pre_extracted_feats = pre_extracted_feats,
+    #                                 duplicates_dict=duplicate_images_dict, head=head)
 
     #----------------- Feature preparation  
     feature_list = mined_split['feature_list']
@@ -1674,18 +1682,18 @@ if __name__ == '__main__':
                                  'vitb32_clip', 'vitb16_clip'],
                         help='ViT Transformer arch.')
     parser.add_argument('--database', type=str, default='LAION400M', help='Database from which images are mined.')
-    parser.add_argument('--prompt_name', type=str, default='most_common_name', 
+    parser.add_argument('--prompt_name', type=str, default='alternates', # note here we use alternates to use average text embedding of all synonyms
                         choices=['most_common_name', 'alternates', 'name'], 
                         help='What label to use for making text prompts.')    
 
-    parser.add_argument('--sampling_method', type=str, default='T2T-rank-T2I-tshd', 
+    parser.add_argument('--sampling_method', type=str, default='T2T-rank', 
                         choices=['Random', 'Random-I2I', 'T2T-rank', 'T2T-rank-T2I-tshd', 'I2I-rank',
                                 'T2I-rank', 'crossentropy', 'totalentropy',
                                 'I2T-rank', 'I2T-tshd', 'T2T-rank-I2T-tshd', 'T2T-rank-I2I-tshd',
                                 ], 
                         help='Sampling images randomly or ranked by CLIP(img, prompt) similarity.')
     
-    parser.add_argument('--sampling_threshold', type=float, default=0.0, help='Sampling images over a certain CLIP T2I or I2I threshold.')
+    parser.add_argument('--sampling_threshold', type=float, default=0.0, help='random sampling images over a certain CLIP T2I or I2I threshold.')
     parser.add_argument('--num_samples', type=int, default=500, help='Number of images that are to be sampled.')
     parser.add_argument('--zeroshot_img_filter', action='store_true', default=False, help='zeroshot CLIP image filtering.')
     parser.add_argument('--image_dedup', action='store_true', default=False, help='CLIP image deduplication by filtering duplicates with img sim > 0.9.')

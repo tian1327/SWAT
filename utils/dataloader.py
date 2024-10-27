@@ -34,9 +34,10 @@ def extract_dataloader(args, best_model, split, fea_path, preprocess, tokenized_
 
 def pre_extract_feature(args, logger, model, tokenized_text_prompts, preprocess):
 
-    pre_extract_train_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_train_features.pth'
-    pre_extract_val_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_val_features.pth'
-    pre_extract_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_test_features.pth'
+    pre_extract_train_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.method}_{args.model_cfg}_{args.seed}_train_features.pth'
+    pre_extract_val_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.method}_{args.model_cfg}_{args.seed}_val_features.pth'
+    pre_extract_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.method}_{args.model_cfg}_test_features.pth'
+    BATCH_SIZE = 1024 # this may cause OOM, reduce it if necessary
 
     if args.recal_fea or not os.path.exists(pre_extract_train_fea_path):
         train_dataset = load_dataset(dataset_root=args.dataset_root, 
@@ -44,7 +45,7 @@ def pre_extract_feature(args, logger, model, tokenized_text_prompts, preprocess)
                                     preprocess=transform(224, 'train'),
                                     tokenized_text_prompts=tokenized_text_prompts,
                                     pl_list=None)
-        train_loader = DataLoader(train_dataset, batch_size=128, 
+        train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, pin_memory=True,
                                     shuffle=False, num_workers=args.num_workers, drop_last=False)
 
         train_features = extract_test_feats(model, dataloader=train_loader)
@@ -57,7 +58,7 @@ def pre_extract_feature(args, logger, model, tokenized_text_prompts, preprocess)
                                     preprocess=preprocess,
                                     tokenized_text_prompts=tokenized_text_prompts,
                                     pl_list=None)
-        val_loader = DataLoader(val_dataset, batch_size=128, 
+        val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, pin_memory=True,
                                     shuffle=False, num_workers=args.num_workers, drop_last=False)
 
         val_features = extract_test_feats(model, dataloader=val_loader)
@@ -70,7 +71,7 @@ def pre_extract_feature(args, logger, model, tokenized_text_prompts, preprocess)
                                     preprocess=preprocess,
                                     tokenized_text_prompts=tokenized_text_prompts,
                                     pl_list=None)
-        test_loader = DataLoader(test_dataset, batch_size=128, 
+        test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, pin_memory=True,
                                     shuffle=False, num_workers=args.num_workers, drop_last=False)
 
         test_features = extract_test_feats(model, dataloader=test_loader)

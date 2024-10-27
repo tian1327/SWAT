@@ -59,8 +59,10 @@ Download the checkpoints listed [here](#finetuned-models) and put them under the
 
 ### Running SWAT
 
-You can run SWAT by using either the bash scripts `run_dataset_seed_xxx.sh` (recommended) or the python `main.py` script.
-For example, using the bash scripts:
+You can run SWAT and finetune on few-shot using the following bash scripts.
+
+<!-- You can run SWAT by using either the bash scripts `run_dataset_seed_xxx.sh` (recommended) or the python `main.py` script.
+For example, using the bash scripts: -->
 ```bash
 # 1. check the options in run_dataset_seed_xxx.sh, 
 #    this can be used to run a batch of experiments.
@@ -74,23 +76,47 @@ bash run_dataset_seed_finetune_fewshot.sh semi-aves 1
 bash run_dataset_seed_finetune_fewshot_cutmix.sh semi-aves
 
 # swat
-bash run_dataset_seed_swat.sh semi-aves 1
+bash run_dataset_seed_SWAT.sh semi-aves 1
 ```
 
-For example, using the python `main.py` script with more explicit fine-grained controls:
+<!-- For example, using the python `main.py` script with more explicit fine-grained controls:
 ```bash
 # run finetune on few-shot on semi-aves dataset with 4-shot, seed 1
 python main.py --dataset semi-aves --method finetune --data_source fewshot --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/finetune_on_fewshot
 
 # run SWAT on semi-aves dataset with 4-shot, seed 1
 # note that SWAT uses `--method cutmix` and `--data_source fewshot+retrieved`
-python main.py --dataset semi-aves --method cutmix --data_source fewshot+retrieved --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/swat
+python main.py --dataset semi-aves --method cutmix --data_source fewshot+retrieved --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/swat -->
 
 ```
 The results of the experiments will be saved in the `result` directory. The detailed logs, models, and scores etc. will be saved in the `output` directory.
 
 ### Running other baselines
-[to be updated]
+Below we provide the commands to run the zero-shot and few-shot baselines in the paper. Update the `model_cfg` option in the bash scripts to use different models.
+
+Zero-shot methods:
+```bash
+# OpenCLIP zero-shot
+bash run_dataset_zeroshot.sh semi-aves
+
+# REAL-Prompt
+bash run_dataset_REAL-Prompt.sh semi-aves
+
+# REAL-Linear
+# take the WSFT accuracy with alpha=0.5
+# find the line: `Alpha:0.5, Val Acc: 48.671, Test Acc: 48.562`
+bash run_dataset_REAL-Linear.sh semi-aves
+
+```
+
+Few-shot methods:
+```bash
+# Cross-modal Linear Probing (CMLP)
+bash run_dataset_seed_CMLP.sh semi-aves 1
+```
+
+For [CLAP](https://github.com/jusiro/CLAP), we use the provided code but replace the model from CLIP to OpenCLIP. Our implementation can be found in [CLAP-tian](https://github.com/tian1327/CLAP-tian) with [instructions](https://github.com/tian1327/CLAP-tian/blob/main/tian_log.md).
+
 
 ## Acknowledgment
 This code base is developed with some references on the following projects. We sincerely thank the authors for open-sourcing their projects.

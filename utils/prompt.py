@@ -5,8 +5,11 @@ from utils import features
 
 def get_prompts_tensors(args, model, tokenizer, logger):
 
-    dataset_root = f'{args.retrieved_path}/{args.dataset}'
-    metric_fn = f'{dataset_root}/{args.dataset}_metrics-{args.database.upper()}.json'
+    # dataset_root = f'{args.retrieved_path}/{args.dataset}'
+    # metric_fn = f'{dataset_root}/{args.dataset}_metrics-{args.database.upper()}.json'
+
+    metric_fn = f'data/{args.dataset}/{args.dataset}_metrics-{args.database.upper()}.json'
+
     if args.dataset == 'dtd_selected':
         metric_fn = f'data/dtd_selected/{args.dataset}_metrics-{args.database.upper()}_new_idx.json'
 
@@ -360,6 +363,7 @@ semi_aves_templates = {
     't-name': ['a photo of a {}, a type of bird, commonally known as {}.'],
     'f-name': ['a photo of a {}, a type of bird.'],
     'most_common_name': ['a photo of a {}, a type of bird.'],
+    'alternates': ['a photo of a {}, a type of bird.'],
     'most_common_name_REAL': ['a photo of a {}, a type of bird.'],
     'name': ['a photo of a {}, a type of bird.'],
     # 'name': imagenet_templates, # openai templates
@@ -367,13 +371,14 @@ semi_aves_templates = {
 }
 
 TEMPLATES_DIC = {
+    'imagenet': imagenet_templates,
     'imagenet_1k': imagenet_templates,
     'imagenet_1k_mined': imagenet_templates,
     'flowers102': flowers102_templates,
     'food101': food101_templates,
-    'stanfordcars': stanfordcars_templates,
+    'stanford_cars': stanfordcars_templates,
     'fgvc-aircraft': fgvcaircraft_templates,
-    'oxfordpets': oxfordpets_templates,
+    'oxford_pets': oxfordpets_templates,
     'imagenet_v2': imagenet_templates,
     'dtd': describabletextures_templates,
     'dtd_selected': describabletextures_templates,

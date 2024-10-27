@@ -49,7 +49,7 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
         params = params_classifier # place holder
         logit_scale = torch.tensor([4.60517]).to(device=args.device)
 
-    elif args.method == "probing" or args.method == "CMLP":
+    elif args.method == "probing" or args.method == "REAL-Linear" or args.method == "CMLP":
         logger.info('Freezing the visual encoder.')
         for param in model.parameters():
             param.requires_grad = False

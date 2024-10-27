@@ -3,7 +3,12 @@ env.sh
 
 results/
 output/
+output_backup/
+output_backup1/
+results_backup1/
+slurm_log_backup1/
 backup/
+plots/
 
 # pre extracted features
 pre_extracted/
