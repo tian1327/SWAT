@@ -998,7 +998,7 @@ def get_fewshot_features(dataset):
 
     fewshot_fea = dict()
     # extract feature by class using the saved feature tensor when probing the model.
-    fn = f'../data/{dataset}/pre_extracted/{dataset}_vitb32_openclip_laion400m_1_train_features.pth'
+    fn = f'../data/{dataset}/pre_extracted/{dataset}_probing_vitb32_openclip_laion400m_1_train_features.pth'
     fea = torch.load(fn)
     img_fea = fea['image_features']
     labels = fea['labels']
@@ -1543,7 +1543,7 @@ def sampling(args, logger, model, preprocess, metrics, dataset_root):
         #                                 duplicates_dict=duplicate_images_dict)
 
         mined_split, num_imgs_sampled_dict = i2i_ranked_sampler_p2p(args, logger, 
-                                                                    prompt_tensors=prompt_tensors_dict['most_common_name'], 
+                                                                    prompt_tensors=prompt_tensors_dict[args.prompt_name], 
                                                                     num_samples=args.num_samples, 
                                                                     threshold=0.0, # note we set threshold to 0 here
                                                                     pre_extracted_feats=pre_extracted_feats,
@@ -1552,7 +1552,7 @@ def sampling(args, logger, model, preprocess, metrics, dataset_root):
 
     elif args.sampling_method == 'I2T-rank': # I2T ranking
         mined_split, num_imgs_sampled_dict = i2t_rank_sampler(args, logger, 
-                                                                prompt_tensors=prompt_tensors_dict['most_common_name'], 
+                                                                prompt_tensors=prompt_tensors_dict[args.prompt_name], 
                                                                 num_samples=args.num_samples, 
                                                                 threshold=0.0, # note we set threshold to 0 here
                                                                 pre_extracted_feats=pre_extracted_feats,
@@ -1590,7 +1590,7 @@ def sampling(args, logger, model, preprocess, metrics, dataset_root):
 
     elif args.sampling_method == 'T2T-rank-I2T-tshd': # T2T ranking with I2T thresholding
         mined_split, num_imgs_sampled_dict = t2t_rank_i2t_tshd_sampler(args, logger, 
-                                            prompt_tensors=prompt_tensors_dict['most_common_name'], 
+                                            prompt_tensors=prompt_tensors_dict[args.prompt_name], 
                                             num_samples=args.num_samples, 
                                             threshold=0.0, # note we set threshold to 0 here
                                             pre_extracted_feats=pre_extracted_feats,
@@ -1599,7 +1599,7 @@ def sampling(args, logger, model, preprocess, metrics, dataset_root):
 
     elif args.sampling_method == 'T2T-rank-I2I-tshd': # T2T ranking with I2I thresholding
         mined_split, num_imgs_sampled_dict = t2t_rank_i2i_tshd_sampler(args, logger, 
-                                            prompt_tensors=prompt_tensors_dict['most_common_name'], 
+                                            prompt_tensors=prompt_tensors_dict[args.prompt_name], 
                                             num_samples=args.num_samples, 
                                             threshold=0.0, # note we set threshold to 0 here
                                             pre_extracted_feats=pre_extracted_feats,
@@ -1609,7 +1609,7 @@ def sampling(args, logger, model, preprocess, metrics, dataset_root):
 
     elif args.sampling_method == 'T2I-rank': # T2I ranking
         mined_split, num_imgs_sampled_dict = t2i_ranked_sampler(args, logger, 
-                                        prompt_tensors=prompt_tensors_dict['most_common_name'], 
+                                        prompt_tensors=prompt_tensors_dict[args.prompt_name], 
                                         num_samples=args.num_samples, 
                                         threshold=0.0, 
                                         pre_extracted_feats = pre_extracted_feats,

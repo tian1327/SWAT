@@ -228,6 +228,7 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     if args.method == 'probing' or args.method == 'REAL-Linear':         
         best_model, best_head, best_records, \
             best_logit_scale, val_loader, test_loader = train_probing(args, logger, loss_logger, model, classifier_head, \
+                                                                       tokenized_text_prompts, preprocess, \
                                                                       train_loader, val_loader, test_loader, reload_model)
     
     elif args.method == 'dataset-cls':
@@ -321,17 +322,23 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
         exit()
 
     #---------- Test the wsft, cannot preextract feature, as the model backbone weights is ensembled 
+    wsft_backbone = None
+    wsft_head = None
+    wsft_test_acc = -1
+
     # wsft_backbone, wsft_head, wsft_test_acc = run_wsft(args, best_model, best_head, test_loader, zeroshot_model, zeroshot_weights, best_logit_scale, logger)
-    wsft_backbone, wsft_head, wsft_test_acc = run_wsft_alpha(args, best_model, best_head, val_loader, \
-                                                             test_loader, zeroshot_model, zeroshot_head, \
-                                                            best_logit_scale, logger)
+    if not args.no_wsft:
+        wsft_backbone, wsft_head, wsft_test_acc = run_wsft_alpha(args, best_model, best_head, val_loader, \
+                                                                test_loader, zeroshot_model, zeroshot_head, \
+                                                                best_logit_scale, logger)
 
     # Here we re-extract the val, test dataloader after training, for fast checking of tau normalization
-    new_val_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_val_features_new.pth'
-    new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_test_features_new.pth'
-    val_loader = extract_dataloader(args, best_model, args.val_split, new_val_fea_path, preprocess, tokenized_text_prompts)
-    test_loader = extract_dataloader(args, best_model, args.test_split, new_test_fea_path, preprocess, tokenized_text_prompts)
-    logger.info(f'Extracted val, test dataloader for fast testing after training.')
+    if args.method != "probing" and args.method != "REAL-Linear":
+        new_val_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_val_features_new.pth'
+        new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_test_features_new.pth'
+        val_loader = extract_dataloader(args, best_model, args.val_split, new_val_fea_path, preprocess, tokenized_text_prompts)
+        test_loader = extract_dataloader(args, best_model, args.test_split, new_test_fea_path, preprocess, tokenized_text_prompts)
+        logger.info(f'Extracted val, test dataloader for fast testing after training.')
 
     #---------- Testing 
     test_acc, test_loss, test_confusion_matrix = validate(args,data_loader=test_loader, 
@@ -350,7 +357,11 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     # save_head_weights(best_head, args.output_dir, 'best_val')
 
     #---------- Tau normalization
-    best_tau_head, best_tau, best_tau_test_acc = run_tau_normalization(args, best_head, best_model, val_loader, \
+    best_tau_head = None
+    best_tau = -1
+    best_tau_test_acc = -1
+    if not args.no_tau:
+        best_tau_head, best_tau, best_tau_test_acc = run_tau_normalization(args, best_head, best_model, val_loader, \
                                                                        test_loader, best_logit_scale, logger)
 
     # print the logit_scale
@@ -365,13 +376,13 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     logger.info(f'Stage 1 Best Model saved to: {best_model_path}')
 
     # wait for 1 second to make sure the file is saved
-    time.sleep(1)
+    time.sleep(0.5)
 
     # remove the extracted features
-    if os.path.exists(new_val_fea_path):
-        os.remove(new_val_fea_path)
-    if os.path.exists(new_test_fea_path):
-        os.remove(new_test_fea_path)
+    # if os.path.exists(new_val_fea_path):
+    #     os.remove(new_val_fea_path)
+    # if os.path.exists(new_test_fea_path):
+    #     os.remove(new_test_fea_path)
 
     # remove the folder
     # shutil.rmtree(f'{args.dataset_root}/pre_extracted')
@@ -380,7 +391,7 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
 
 
 
-def run_stage2_probing(stage1_best_model_path, test_loader):
+def run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_text_prompts, preprocess):
 
     logger.info(f"Run stage 2 classifier retraining ......")
 
@@ -416,7 +427,8 @@ def run_stage2_probing(stage1_best_model_path, test_loader):
     args.scheduler = scheduler      
 
     #---------- Training
-    best_model, best_head, best_records, _, _, _ = train_probing(args, logger, loss_logger, model, classifier_head, 
+    best_model, best_head, best_records, _, _, _ = train_probing(args, logger, loss_logger, model, classifier_head,
+                                                                 tokenized_text_prompts, preprocess, 
                                                                  train_loader, val_loader, test_loader, 
                                                                  reload_model=False)
 
@@ -481,7 +493,7 @@ if __name__ == '__main__':
 
     # run probing for stage 2
     if not args.skip_stage2:
-        stage2_acc, stage2_best_model_path = run_stage2_probing(stage1_best_model_path, test_loader)
+        stage2_acc, stage2_best_model_path = run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_text_prompts, preprocess,)
     else:
         logger.info(f"Skip stage 2 Probing.")
         stage2_acc = -1

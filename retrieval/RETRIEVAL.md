@@ -205,19 +205,19 @@ python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_
 python sample_retrieval.py --prefix T2T500+T2I0.25 --num_samples 500 --sampling_method T2T-rank-T2I-tshd --dataset imagenet
 
 # random500
-python sample_retrieval.py --prefix Random500 --num_samples 500 --sampling_method random --dataset semi-aves
+python sample_retrieval.py --prefix Random500 --num_samples 500 --sampling_method Random --dataset semi-aves
 
 # t2t500
-python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method t2t-rank --dataset semi-aves
+python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T2T-rank --dataset semi-aves
 
 # T2I ranking
-python sample_retrieval.py --prefix T2I500 --num_samples 500 --sampling_method t2i-rank --dataset semi-aves
+python sample_retrieval.py --prefix T2I500 --num_samples 500 --sampling_method T2I-rank --dataset semi-aves
 
 # I2I ranking
 # need to run probing first to get the preextracted downstream images features
-python main.py --dataset eurosat --method probing --data_source fewshot --cls_init REAL-Prompt --shots 16 --seed 1 --epochs 10 --pre_extracted True --recal_fea  --cls_init REAL-Prompt --skip_stage3 --folder output_probing
+bash scripts/run_dataset_seed_probing.sh stanford_cars 1
 
-python sample_retrieval.py --prefix I2I500 --num_samples 500 --sampling_method i2i-rank --dataset fgvc-aircraft
+python sample_retrieval.py --prefix I2I500 --num_samples 500 --sampling_method I2I-rank --dataset fgvc-aircraft
 
 # I2T-ranking
 python sample_retrieval.py --prefix I2T-rank500 --num_samples 500 --sampling_method I2T-rank --dataset semi-aves

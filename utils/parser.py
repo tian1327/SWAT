@@ -70,6 +70,9 @@ def parse_args():
     parser.add_argument('--cls_init', type=str, default='REAL-Prompt', choices=['random', 'text', 'REAL-Prompt', 'REAL-Linear'], 
                         help='Initialize the classifier head in different ways.')
 
+    parser.add_argument('--no_wsft', default=False, action='store_true', help='Set to skip WSFT ensembling.')
+    parser.add_argument('--no_tau', default=False, action='store_true', help='Set to skip Tau normalization.')
+
     parser.add_argument('--mix_prob', type=float, default=0.5, help='Mixing probability, i.e. use mixing strategy or not. Option applied to all mixing methods.')    
     parser.add_argument('--mixup_alpha', type=float, default=1.0, help='Mixup alpha for Beta distribution.')
     parser.add_argument('--skip_stage2', default=False, action='store_true', help='Set to skip stage 2 probing')
@@ -102,6 +105,7 @@ def parse_args():
     # parser.add_argument('--train_till_converge', default=False, type=str2bool, help='training until converge.')   
     parser.add_argument('--early_stop', default=False, type=str2bool, help='use val set for early stopping.')    
     parser.add_argument('--epochs', type=int, default=0, help='number of epochs to train the model')
+    # parser.add_argument('--stage2_epochs', type=int, default=10, help='number of epochs to retrain the classifier on fewshot data in stage 2')
     parser.add_argument('--stop_epochs', type=int, default=200, help='number of epochs to stop the training of the model')
     # parser.add_argument('--patience', type=int, default=20, help='Patience for early stopping in epochs.')
     

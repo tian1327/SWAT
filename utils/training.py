@@ -5,7 +5,7 @@ import copy
 from .models import build_classifier_head, save_model_ckpt, save_test_scores
 from .dataloader import extract_dataloader, extract_train_dataloader
 from testing import validate, calculate_scores, validate_dataset, load_model
-
+import time
 
 def set_training_seed(args):
 
@@ -44,23 +44,30 @@ def run_zeroshot(args, test_loader, model, logger, loss, logit_scale, classifier
     return zs_test_acc
 
 
-def train_probing(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader, reload_model=False):
+def train_probing(args, logger, loss_logger, model, classifier_head, 
+                  tokenized_text_prompts, preprocess,
+                  train_loader, val_loader, test_loader, reload_model=False):
     """ Train the model with Cross-Entropy Loss, linear probing"""
 
     if reload_model:
-        load_model(args, logger, model, test_loader, classifier_head)
+        # load_model(args, logger, model, test_loader, classifier_head)
+        load_model(args, logger, model, None, classifier_head)
+
+
         # Here we reextract the test dataloader for fast testing after training, tau normalization, and WiSE-FT
         new_train_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_train_features_new.pth'
         new_val_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_val_features_new.pth'
         new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.seed}_test_features_new.pth'
         
-        train_loader = extract_train_dataloader(args, logger, model, args.train_split, new_train_fea_path, args.bsz)
-        val_loader = extract_dataloader(args, model, args.val_split, new_val_fea_path)
-        test_loader = extract_dataloader(args, model, args.test_split, new_test_fea_path)
-        logger.info(f'Extracted train, val, test dataloader for stage 2 training.')
+        train_loader = extract_train_dataloader(args, model, args.train_split, new_train_fea_path, 
+                                                preprocess, tokenized_text_prompts, bsz=args.bsz)
+        val_loader = extract_dataloader(args, model, args.val_split, new_val_fea_path, preprocess, tokenized_text_prompts)
+        test_loader = extract_dataloader(args, model, args.test_split, new_test_fea_path, preprocess, tokenized_text_prompts)
+        logger.info(f'Extracted train, val, test dataloader for probing.')
         # reset the pre_extracted flag
         args.pre_extracted = True
         logger.info(f'Reset args.pre_extracted: {args.pre_extracted}')
+        time.sleep(0.5)
 
     logger.info(f"Start Training (linear probing) ......")
 

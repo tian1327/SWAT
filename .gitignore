@@ -8,7 +8,22 @@ output_backup1/
 results_backup1/
 slurm_log_backup1/
 backup/
-plots/
+plots_tables/
+
+T2T100.txt
+T2T300.txt
+T2T1000.txt
+T2T2000.txt
+I2I500.txt
+Random500.txt
+I2T500.txt
+T2I500.txt
+T2T10.txt
+T2T20.txt
+T2T50.txt
+T2T100.txt
+I2T*.txt
+
 
 # pre extracted features
 pre_extracted/
