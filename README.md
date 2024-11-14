@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Few-Shot Recognition via Stage-Wise<br>Augmented Finetuning</h1>
+<h1>Few-Shot Recognition via Stage-Wise<br>Retrieval-Augmented Finetuning</h1>
 
 [**Tian Liu**](https://tian1327.github.io/)<sup>1</sup> · [**Huixin Zhang**](https://www.linkedin.com/in/huixin-zhang-a2670a229/)<sup>1</sup> · [**Shubham Parashar**](https://shubhamprshr27.github.io/)<sup>1</sup> · [**Shu Kong**](https://aimerykong.github.io/)<sup>1,2</sup>
 
@@ -14,7 +14,7 @@
 </div>
 
 Our work adapts a pretrained Vision-Language Model (VLM) and retrieves relevant pretraining images to boost few-shot recognition performance.
-To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved data, we propose a novel **Stage-Wise Augmented fineTuning (SWAT)** method, which outperforms previous few-shot recognition methods by >10% in accuracy.
+To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved data, we propose a novel **Stage-Wise retrieval-Augmented fineTuning (SWAT)** method, which outperforms previous few-shot recognition methods by >10% in accuracy.
 
 
 ![teaser](assets/teaser_v7.png)
