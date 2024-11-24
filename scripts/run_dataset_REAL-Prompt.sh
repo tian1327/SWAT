@@ -6,8 +6,8 @@ methods=("zeroshot")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot")
 
-# folder="REAL-Prompt_vitb32"
-folder="REAL-Prompt_vitb16"
+folder="REAL-Prompt_vitb32"
+# folder="REAL-Prompt_vitb16"
 
 # cls_inits=("random" "text" "REAL-Prompt" )
 cls_inits=("REAL-Prompt")
@@ -15,14 +15,14 @@ cls_inits=("REAL-Prompt")
 # shot_values=(4 8 16)
 shot_values=(16)
 
-retrieval_splits=("T2T500+T2I0.25")
+retrieval_splits=("T2T500")
 
 batch_size=32
 
 epochs=50
 
-# model_cfg="vitb32_openclip_laion400m"
-model_cfg="vitb16_openclip_laion400m"
+model_cfg="vitb32_openclip_laion400m"
+# model_cfg="vitb16_openclip_laion400m"
 
 # log_mode="file"
 log_mode="both"

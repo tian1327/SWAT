@@ -6,8 +6,8 @@ methods=("cutmix")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot")
 
-# folder="FTFS-cutmix_vitb32"
-folder="FTFS-cutmix_vitb16"
+folder="FTFS-cutmix_vitb32"
+# folder="FTFS-cutmix_vitb16"
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )

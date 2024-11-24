@@ -6,24 +6,24 @@ methods=("CMLP")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot")
 
-# folder="CMLP_vitb32"
-folder="CMLP_vitb16"
+folder="CMLP_vitb32"
+# folder="CMLP_vitb16"
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )
 cls_inits=("text")
 
-shot_values=(4 8 16)
-# shot_values=(4)
+# shot_values=(4 8 16)
+shot_values=(4)
 
-retrieval_splits=("T2T500+T2I0.25")
+retrieval_splits=("T2T500")
 
 batch_size=32
 
 epochs=50
 
-# model_cfg="vitb32_openclip_laion400m"
-model_cfg="vitb16_openclip_laion400m"
+model_cfg="vitb32_openclip_laion400m"
+# model_cfg="vitb16_openclip_laion400m"
 
 # log_mode="file"
 log_mode="both"

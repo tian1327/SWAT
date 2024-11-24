@@ -6,15 +6,15 @@ methods=("cutmix") # SWAT uses CutMix
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot+retrieved")
 
-folder="swat_vitb32_T2T500_random"
+folder="swat_vitb32_T2T500"
 # folder="swat_vitb16"
 
 # cls_inits=("random" "text" "REAL-Prompt" )
-# cls_inits=("REAL-Prompt")
-cls_inits=("random")
+cls_inits=("REAL-Prompt")
+# cls_inits=("random")
 
-shot_values=(4 8 16)
-# shot_values=(16)
+# shot_values=(4 8 16)
+shot_values=(16)
 
 # retrieval_splits=("T2T500+T2I0.25")
 retrieval_splits=("T2T500")

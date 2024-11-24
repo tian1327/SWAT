@@ -17,8 +17,8 @@ batch_size=32
 
 epochs=10
 
-# model_cfg="vitb32_openclip_laion400m"
-model_cfg="vitb16_openclip_laion400m"
+model_cfg="vitb32_openclip_laion400m"
+# model_cfg="vitb16_openclip_laion400m"
 
 log_mode="both"
 

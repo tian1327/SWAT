@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Few-Shot Recognition via Stage-Wise<br>Retrieval-Augmented Finetuning</h1>
 
-[**Tian Liu**](https://tian1327.github.io/)<sup>1</sup> · [**Huixin Zhang**](https://www.linkedin.com/in/huixin-zhang-a2670a229/)<sup>1</sup> · [**Shubham Parashar**](https://shubhamprshr27.github.io/)<sup>1</sup> · [**Shu Kong**](https://aimerykong.github.io/)<sup>1,2</sup>
+[**Tian Liu**](https://tian1327.github.io/)<sup>1</sup> · [**Huixin Zhang**](https://www.linkedin.com/in/huixin-zhang-a2670a229/)<sup>1</sup> · [**Shubham Parashar**](https://shubhamprshr27.github.io/)<sup>1</sup> · [**Shu Kong**](https://aimerykong.github.io/)<sup>2</sup>
 
 <sup>1</sup>Texas A&M University&emsp;&emsp;&emsp;<sup>2</sup>University of Macau
 <br>
@@ -13,13 +13,15 @@
 <a href='https://huggingface.co/datasets/depth-anything/DA-2K'><img src='https://img.shields.io/badge/Benchmark-DA--2K-yellow' alt='Benchmark'></a> -->
 </div>
 
-Our work adapts a pretrained Vision-Language Model (VLM) and retrieves relevant pretraining images to boost few-shot recognition performance.
-To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved data, we propose a novel **Stage-Wise retrieval-Augmented fineTuning (SWAT)** method, which outperforms previous few-shot recognition methods by >10% in accuracy.
+Our work adapts a pretrained Vision-Language Model (VLM) and retrieves relevant pretraining images to solve few-shot recognition problem.
+To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved data, we propose a novel **Stage-Wise retrieval-Augmented fineTuning (SWAT)** method, which outperforms previous few-shot recognition methods by >6% in accuracy across nine benchmark datasets.
 
 
 ![teaser](assets/teaser_v7.png)
 
 ## News
+<!-- - **2024-11-26:** updated [arXiv paper](), including more datasets. -->
+- **2024-11-24:** Updated code base to include more datasets.
 - **2024-08-22:** Retrieval code released, see [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
 - **2024-07-05:** SWAT finetuning code released.
 - **2024-06-28:** [project page](https://tian1327.github.io/SWAT/) launched.
@@ -67,16 +69,16 @@ For example, using the bash scripts: -->
 # 1. check the options in run_dataset_seed_xxx.sh, 
 #    this can be used to run a batch of experiments.
 # 2. run the corresponding bash script in command line
-# Usage: bash run_dataset_seed_xxx.sh <dataset> [seed]
+# Usage: bash scripts/run_dataset_seed_xxx.sh <dataset> [seed]
 
 # finetune on few-shot, seed 1
-bash run_dataset_seed_finetune_fewshot.sh semi-aves 1
+bash scripts/run_dataset_seed_finetune_fewshot.sh semi-aves 1
 
 # finetune on few-shot with CutMix, 3 seeds
-bash run_dataset_seed_finetune_fewshot_cutmix.sh semi-aves
+bash scripts/run_dataset_seed_finetune_fewshot_cutmix.sh semi-aves
 
 # swat
-bash run_dataset_seed_SWAT.sh semi-aves 1
+bash scripts/run_dataset_seed_SWAT.sh semi-aves 1
 ```
 
 <!-- For example, using the python `main.py` script with more explicit fine-grained controls:
@@ -97,22 +99,22 @@ Below we provide the commands to run the zero-shot and few-shot baselines in the
 Zero-shot methods:
 ```bash
 # OpenCLIP zero-shot
-bash run_dataset_zeroshot.sh semi-aves
+bash scripts/run_dataset_zeroshot.sh semi-aves
 
 # REAL-Prompt
-bash run_dataset_REAL-Prompt.sh semi-aves
+bash scripts/run_dataset_REAL-Prompt.sh semi-aves
 
 # REAL-Linear
 # take the WSFT accuracy with alpha=0.5
 # find the line: `Alpha:0.5, Val Acc: 48.671, Test Acc: 48.562`
-bash run_dataset_REAL-Linear.sh semi-aves
+bash scripts/run_dataset_REAL-Linear.sh semi-aves
 
 ```
 
 Few-shot methods:
 ```bash
 # Cross-modal Linear Probing (CMLP)
-bash run_dataset_seed_CMLP.sh semi-aves 1
+bash scripts/run_dataset_seed_CMLP.sh semi-aves 1
 ```
 
 For [CLAP](https://github.com/jusiro/CLAP), we use the provided code but replace the model from CLIP to OpenCLIP. Our implementation can be found in [CLAP-tian](https://github.com/tian1327/CLAP-tian) with [instructions](https://github.com/tian1327/CLAP-tian/blob/main/tian_log.md).
@@ -131,7 +133,7 @@ If you find our project useful, please consider citing:
 
 ```bibtex
 @article{liu2024few,
-  title={Few-Shot Recognition via Stage-Wise Augmented Finetuning},
+  title={Few-Shot Recognition via Stage-Wise Retrieval-Augmented Finetuning},
   author={Liu, Tian and Zhang, Huixin and Parashar, Shubham and Kong, Shu},
   journal={arXiv preprint arXiv:2406.11148},
   year={2024}

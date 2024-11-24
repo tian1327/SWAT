@@ -6,12 +6,11 @@ methods=("zeroshot")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot")
 
-# folder="zeroshot_text_vitb32"
-folder="zeroshot_text_vitb16"
+folder="zeroshot_text_vitb32"
+# folder="zeroshot_text_vitb16"
 
 # cls_inits=("random" "text" "REAL-Prompt" )
 cls_inits=("text")
-# cls_inits=("REAL-Prompt")
 
 # shot_values=(4 8 16)
 shot_values=(16)
@@ -21,8 +20,8 @@ batch_size=32
 
 epochs=0
 
-# model_cfg="vitb32_openclip_laion400m"
-model_cfg="vitb16_openclip_laion400m"
+model_cfg="vitb32_openclip_laion400m"
+# model_cfg="vitb16_openclip_laion400m"
 
 # log_mode="file"
 log_mode="both"

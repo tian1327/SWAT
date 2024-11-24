@@ -6,8 +6,8 @@ methods=("finetune")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot")
 
-# folder="FTFS_vitb32"
-folder="FTFS_vitb16"
+folder="FTFS_vitb32"
+# folder="FTFS_vitb16"
 
 # cls_inits=("random" "text" "REAL-Prompt" )
 cls_inits=("REAL-Prompt")
@@ -22,8 +22,8 @@ batch_size=32
 epochs=50
 
 
-# model_cfg="vitb32_openclip_laion400m"
-model_cfg="vitb16_openclip_laion400m"
+model_cfg="vitb32_openclip_laion400m"
+# model_cfg="vitb16_openclip_laion400m"
 
 # log_mode="file"
 log_mode="both"
@@ -81,7 +81,10 @@ for dataset in "${datasets[@]}"; do
                             echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split"
 
                             # Run the script and capture the output
-                            output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --bsz "$batch_size" --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --model_cfg "$model_cfg" --folder "$output_folder")
+                            output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  \
+                                    --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epochs" --bsz "$batch_size" \
+                                    --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --model_cfg "$model_cfg" \
+                                    --folder "$output_folder")
                             
                             # Print the output to the console
                             echo "$output"
