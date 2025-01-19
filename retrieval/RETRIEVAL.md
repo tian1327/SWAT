@@ -149,7 +149,7 @@ python process_meta_map.py food101
 python process_meta_map.py stanford_cars
 python process_meta_map.py imagenet
 ```
-- Extract the imgae and text features for different sampling methods in the next step.
+- Extract the image and text features for different sampling methods in the next step.
 ```bash
 # extract mined images features, comment out the dataset selection in the script
 python extract_mined_feature.py --dataset fgvc-aircraft --model_cfg vitb32_openclip_laion400m
