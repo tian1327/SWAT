@@ -90,7 +90,6 @@ python main.py --dataset semi-aves --method finetune --data_source fewshot --cls
 # note that SWAT uses `--method cutmix` and `--data_source fewshot+retrieved`
 python main.py --dataset semi-aves --method cutmix --data_source fewshot+retrieved --cls_init REAL-Prompt --shots 4 --seed 1 --epochs 50 --bsz 32 --log_mode both --retrieval_split T2T500+T2I0.25.txt --model_cfg vitb32_openclip_laion400m --folder output/swat -->
 
-```
 The results of the experiments will be saved in the `result` directory. The detailed logs, models, and scores etc. will be saved in the `output` directory.
 
 ### Running other baselines

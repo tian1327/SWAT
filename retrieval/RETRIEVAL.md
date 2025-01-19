@@ -2,10 +2,10 @@
 
 > Recent studies show that the LAION dataset contains CSAM content, ~~leading to its temporary removal from public access~~. See [Safety Review for LAION](https://laion.ai/notes/laion-maintenance/). We also observed that retrieved images may contain NSFW content. Please exercise caution when using this data.
 
-We provide step-by-step instructions on how to retrieve relevant data from the OpenCLIP's pretraining dataset LAION-400M. In summary, we first use string matching to retrieve pretraining images whose captions contain any of the concept synonyms. We then sample from the retrievd images using T2T ranking to obtain 500 images for each class. The final result is a `T2T500.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder, which stores the retrieved image paths and labels.
+We provide step-by-step instructions on how to retrieve relevant data from the OpenCLIP's pretraining dataset `LAION-400M`. In summary, we first use string matching to retrieve pretraining images whose captions contain any of the concept synonyms. We then sample from the retrievd images using prompt-to-caption (T2T) ranking to obtain 500 images for each class. The final result is a `T2T500.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder, which stores the retrieved image paths and labels.
 
 ### Easy access to our retrieved data
-Since LAION is currently unaccessible to the public, for easy reproduction of our SWAT results, we provide our [matched caption files]() for each dataset, with which users can skip to step 2 and use `laion_downloader.py` to directly download the images and continue from there. Note that some images may no longer be available on the Internet so the downloaded images maybe slightly less than the ones we had. But we expect to see the similar results as we reported in the paper.
+~~Since LAION is currently unaccessible to the public~~, for easy reproduction of our SWAT results, we provide our [matched caption files (including image urls)](https://drive.google.com/drive/folders/1OjZ0pO4OTv3M7M85npPYhkJ3mGg6pqNO?usp=sharing) for each dataset, with which users can skip to [Step 2](#step-2-retrieve-from-laion-400m-using-string-matching) and use `laion_downloader.py` to directly download the images and continue from there. Note that some images may no longer be available on the Internet so the downloaded images maybe slightly less than the ones we had. But we expect to see the similar results as we reported in the paper.
 
 
 
