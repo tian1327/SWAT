@@ -30,7 +30,7 @@ def set_optimizer(args, params, train_loader):
     base_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, total_iter, eta_min=1e-9)
     warmup_lr = 1e-5 if args.lr_backbone > 5e-5 else 1e-6
     scheduler = get_warmup_scheduler(optimizer=optimizer, scheduler=base_scheduler, warmup_iter=50, warmup_lr=warmup_lr)
-    
+
     return optimizer, scheduler, total_iter
 
 
@@ -54,7 +54,7 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
         for param in model.parameters():
             param.requires_grad = False
         params = params_classifier
-        logit_scale = torch.tensor([4.60517]).to(device=args.device) 
+        logit_scale = torch.tensor([4.60517]).to(device=args.device)
         # 4.60517 = np.log(100) = np.log(1 / 0.01), 0.01 is the temperature
 
     elif args.method == "finetune" or args.method == "finetune-multitask" or \
@@ -68,12 +68,14 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
 
         lock_text_tower(model)
         params = params_classifier + params_visual
+        # params = params_visual
+
         if args.method == "finetune-multitask":
             params = params + params_dataset_classifier
 
         logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / args.temperature)) # ln(1/0.07)=2.65926
         params.append({'params': [logit_scale], 'lr': args.lr_classifier})
-    
+
     elif args.method == "FLYP":
         logger.info('Training the visual encoder and text encoder.')
 
@@ -86,7 +88,7 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
         # check if the model.visual.proj and model.text_projection are in the params
         for name, param in model.named_parameters():
             print(name)
-        """        
+        """
 
         if args.lr_projector is None:
             args.lr_projector = args.lr_backbone
@@ -98,7 +100,7 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
         total_params = list(model.parameters())
         params_list = [p for p in total_params if p.requires_grad]
         params = [{'params': params_list, 'lr': args.lr_backbone}]
-        
+
         # set a different learning rate for the model.visual.proj and model.text_projection
         model.visual.proj.requires_grad = True
         model.text_projection.requires_grad = True
@@ -108,7 +110,7 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
         params.append(params_text_proj)
 
         logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / args.temperature)) # ln(1/0.07)=2.65926
-        params.append({'params': [logit_scale], 'lr': args.lr_classifier})        
+        params.append({'params': [logit_scale], 'lr': args.lr_classifier})
 
     else:
         raise NotImplementedError(f'Method {args.method} not implemented.')
@@ -120,13 +122,13 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
 
 
 def get_optimizer(params, optim_type, wd,):
-    if optim_type == 'SGD':        
+    if optim_type == 'SGD':
         # return optim.SGD(params, lr=lr, momentum = 0.9, weight_decay=wd)
         for param in params:
             param['momentum'] = 0.9
             param['weight_decay'] = wd
-        return optim.SGD(params)        
-        
+        return optim.SGD(params)
+
     elif optim_type == 'AdamW':
         # return optim.AdamW(params, lr=lr, betas=(0.9,0.999), weight_decay=wd)
         # return optim.AdamW(params, betas=(0.9,0.999), weight_decay=wd)

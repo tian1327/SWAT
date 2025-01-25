@@ -67,6 +67,7 @@ def parse_args():
                                                                             'saliencymix', 'attentivemix', 'CMO',
                                                                             'FLYP', 'fixmatch'], 
                         help='Method for training.')
+    parser.add_argument('--fewshot_ratio', type=float, default=0.5, help='for cutmix-fs only, the ratio of few-shot data.')
     parser.add_argument('--cls_init', type=str, default='REAL-Prompt', choices=['random', 'text', 'REAL-Prompt', 'REAL-Linear'], 
                         help='Initialize the classifier head in different ways.')
 

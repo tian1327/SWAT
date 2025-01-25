@@ -15,7 +15,7 @@ import torch.nn.functional as F
 import cv2
 from utils.training import set_training_seed, train_probing, run_zeroshot, train_CMLP, \
     train_dataset_cls, train_ce, train_cutmix, train_flyp, train_ce_mixed, train_fixmatch, \
-    train_ce_multitask, train_mixup, train_mixup_fs, train_cutmix_fs, train_resizemix, \
+    train_ce_multitask, train_mixup, train_mixup_fs, train_cutmix_fs2, train_resizemix, \
     train_saliencymix2, train_attentivemix2, train_CMO, train_supervised_contrastive, train_balanced_contrastive
 from utils.dataloader import extract_train_dataloader, extract_dataloader, set_dataloaders, set_text_dataloader
 from utils.optimizers import set_optimizer, set_params
@@ -31,31 +31,31 @@ def run_tau_normalization(args, best_head, best_model, val_loader, test_loader, 
     best_tau_val_acc = 0.0
     best_tau_test_acc = 0.0
     if args.tau_norm:
-        logger.info(f"Check Tau Normalization ......") 
+        logger.info(f"Check Tau Normalization ......")
         tau_list = np.arange(0.0, 2.2, 0.2).tolist()
         for tau in tau_list:
             tau_head = copy.deepcopy(best_head)
-            tau_head.linear.weight.data /= torch.pow(tau_head.linear.weight.data.norm(dim=-1, keepdim=True), tau) 
+            tau_head.linear.weight.data /= torch.pow(tau_head.linear.weight.data.norm(dim=-1, keepdim=True), tau)
             # does not affect FLYP because head is already normalized, thus the norm=1
-            
+
             # check on val set
-            tau_val_acc, _, _ = validate(args,data_loader=val_loader, 
-                                        model=best_model, logger=logger, 
+            tau_val_acc, _, _ = validate(args,data_loader=val_loader,
+                                        model=best_model, logger=logger,
                                         loss=args.loss, logit_scale=logit_scale,
                                         classifier_head=tau_head,
-                                        dataset=args.dataset, 
+                                        dataset=args.dataset,
                                         output_dir=args.output_dir, device=args.device,
-                                        pre_extracted=True, 
+                                        pre_extracted=True,
                                         )
             # check on test set
             tau_test_acc, _, tau_test_confusion_matrix = validate(args,data_loader=test_loader,
-                                            model=best_model, logger=logger, 
+                                            model=best_model, logger=logger,
                                             loss=args.loss, logit_scale=logit_scale,
                                             show_confusion_matrix=True,
-                                            classifier_head=tau_head, 
-                                            dataset=args.dataset, 
+                                            classifier_head=tau_head,
+                                            dataset=args.dataset,
                                             output_dir=args.output_dir, device=args.device,
-                                            pre_extracted=True, 
+                                            pre_extracted=True,
                                             )
             logger.info(f"Tau: {round(tau,2)}, Val Acc: {round(tau_val_acc, 3)}, Test Acc: {round(tau_test_acc, 3)}")
             if tau_val_acc > best_tau_val_acc:
@@ -69,7 +69,7 @@ def run_tau_normalization(args, best_head, best_model, val_loader, test_loader, 
         logger.info(f"+++++ Best Tau: {round(best_tau,1)}, Val Acc: {round(best_tau_val_acc, 3)}, Test Acc: {round(best_tau_test_acc, 3)}")
         # save_test_scores(best_tau_scores, best_tau_confusion_matrix, args.output_dir, 'best_tau_test')
         # save_head_weights(best_tau_head, output_dir, 'best_tau')
-    
+
     return best_tau_head, best_tau, best_tau_test_acc
 
 
@@ -111,15 +111,15 @@ def run_wsft(args, best_model, best_head, test_loader, zeroshot_model, zeroshot_
         wsft_model = ensemble_model(best_model, zeroshot_model, alpha)
         logger.info(f'WiSE-FT model done. alpha: {alpha}')
 
-    wsft_test_acc, _, _ = validate(args,data_loader=test_loader, 
-                                                        model=wsft_model, 
+    wsft_test_acc, _, _ = validate(args,data_loader=test_loader,
+                                                        model=wsft_model,
                                                         classifier_head=wsft_head, # here use the wsft_head
                                                         logger=logger,
-                                                        loss=args.loss, logit_scale=logit_scale, 
+                                                        loss=args.loss, logit_scale=logit_scale,
                                                         show_confusion_matrix=False,
-                                                        dataset=args.dataset, 
+                                                        dataset=args.dataset,
                                                         output_dir=args.output_dir, device=args.device,
-                                                        pre_extracted=args.pre_extracted,                                                    
+                                                        pre_extracted=args.pre_extracted,
                                                         )
     logger.info(f"+++++ WiSE-FT Test Acc: {round(wsft_test_acc, 3)}")
     # wsft_test_scores = calculate_scores(wsft_test_confusion_matrix)
@@ -143,7 +143,7 @@ def run_wsft_alpha(args, best_model, best_head, val_loader, test_loader, zerosho
     best_wsft_model = best_model
     # for alpha in np.arange(0.0, 1.0+step, step):
     for alpha in [0.5]:
-        
+
         wsft_head_weights = alpha * learned_head_weights + (1.0 - alpha) * zeroshot_weights
         wsft_head = MyLinear(weights=wsft_head_weights)
         wsft_head.to(args.device)
@@ -157,26 +157,26 @@ def run_wsft_alpha(args, best_model, best_head, val_loader, test_loader, zerosho
             # ensemble the best_model and zeroshot_model
             wsft_model = ensemble_model(best_model, zeroshot_model, alpha)
 
-        wsft_val_acc, _, _ = validate(args,data_loader=val_loader, 
-                                        model=wsft_model, 
+        wsft_val_acc, _, _ = validate(args,data_loader=val_loader,
+                                        model=wsft_model,
                                         classifier_head=wsft_head, # here use the wsft_head
                                         logger=logger,
-                                        loss=args.loss, logit_scale=logit_scale, 
+                                        loss=args.loss, logit_scale=logit_scale,
                                         show_confusion_matrix=False,
-                                        dataset=args.dataset, 
+                                        dataset=args.dataset,
                                         output_dir=args.output_dir, device=args.device,
-                                        pre_extracted=args.pre_extracted,                                                    
+                                        pre_extracted=args.pre_extracted,
                                         )
-        
-        wsft_test_acc, _, _ = validate(args,data_loader=test_loader, 
-                                        model=wsft_model, 
+
+        wsft_test_acc, _, _ = validate(args,data_loader=test_loader,
+                                        model=wsft_model,
                                         classifier_head=wsft_head, # here use the wsft_head
                                         logger=logger,
-                                        loss=args.loss, logit_scale=logit_scale, 
+                                        loss=args.loss, logit_scale=logit_scale,
                                         show_confusion_matrix=False,
-                                        dataset=args.dataset, 
+                                        dataset=args.dataset,
                                         output_dir=args.output_dir, device=args.device,
-                                        pre_extracted=args.pre_extracted,                                                    
+                                        pre_extracted=args.pre_extracted,
                                         )
         ensemble_val_acc.append(wsft_val_acc)
         ensemble_test_acc.append(wsft_test_acc)
@@ -187,11 +187,11 @@ def run_wsft_alpha(args, best_model, best_head, val_loader, test_loader, zerosho
             best_alpha = alpha
             best_wsft_head = copy.deepcopy(wsft_head)
             best_wsft_model = copy.deepcopy(wsft_model)
-    
+
     logger.info(f"+++++ Best Alpha: {round(best_alpha, 2)}, Val Acc: {round(best_wsft_val_acc, 3)}, Test Acc: {round(best_wsft_test_acc, 3)}")
     # print(f'ensemble_val_acc', ensemble_val_acc)
     # print(f'ensemble_test_acc', ensemble_test_acc)
-    
+
     return best_wsft_model, best_wsft_head, best_wsft_test_acc
 
 
@@ -205,7 +205,7 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     loss = set_loss(args)
     params, logit_scale = set_params(args, model, classifier_head, logger) # depend on method
     optimizer, scheduler, total_iter = set_optimizer(args, params, train_loader)
-    
+
     args.loss = loss
     args.logit_scale = logit_scale
     args.optimizer = optimizer
@@ -215,37 +215,37 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     if args.check_zeroshot or args.method == 'zeroshot':
         logger.info(f"Check Zero-shot Acc ......")
         zs_test_acc = run_zeroshot(args, test_loader, model, logger, loss, logit_scale, classifier_head)
-    
+
     if args.zeroshot_only or args.method == 'zeroshot':
         result_summary = f'{args.dataset},{stage1_method},{args.data_source},{args.cls_init},{args.shots},{args.seed},{args.retrieval_split},{round(zs_test_acc,1)}'
         logger.info(f'{result_summary}')
         print(f'{result_summary}')
-        exit()    
+        exit()
 
 
     reload_model = True if args.model_path else False
     #---------- Training
-    if args.method == 'probing' or args.method == 'REAL-Linear':         
+    if args.method == 'probing' or args.method == 'REAL-Linear':
         best_model, best_head, best_records, \
             best_logit_scale, val_loader, test_loader = train_probing(args, logger, loss_logger, model, classifier_head, \
                                                                        tokenized_text_prompts, preprocess, \
                                                                       train_loader, val_loader, test_loader, reload_model)
-    
+
     elif args.method == 'dataset-cls':
         best_model, best_head, best_records, best_logit_scale = train_dataset_cls(args, logger, loss_logger, model, classifier_head, \
-                                                                                  train_loader, val_loader, test_loader)    
-    
-    elif args.method == 'CMLP': # cross modal linear probing         
+                                                                                  train_loader, val_loader, test_loader)
+
+    elif args.method == 'CMLP': # cross modal linear probing
         best_model, best_head, best_records, \
             best_logit_scale, val_loader, test_loader = train_CMLP(args, logger, loss_logger, model, classifier_head, \
                                                                    preprocess, tokenized_text_prompts, \
                                                                    train_loader, val_loader, test_loader, False, text_dataloader)
-    
+
     elif args.method == 'finetune':
         best_model, best_head, \
             best_records, best_logit_scale = train_ce(args, logger, loss_logger, model, classifier_head, \
-                                                      train_loader, val_loader, test_loader)    
-    
+                                                      train_loader, val_loader, test_loader, reload_model)
+
     elif args.method == 'finetune-mixed': # half batch is retrieved, half batch is fewshot
         best_model, best_head, \
             best_records, best_logit_scale = train_ce_mixed(args, logger, loss_logger, model, classifier_head, \
@@ -254,54 +254,54 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     elif args.method == 'fixmatch': # bs is labeled, bs*mu is unlabeled
         best_model, best_head, \
             best_records, best_logit_scale = train_fixmatch(args, logger, loss_logger, model, classifier_head, \
-                                                            train_loader, val_loader, test_loader)       
+                                                            train_loader, val_loader, test_loader)
 
     elif args.method == 'finetune-multitask': # 1 backbone 2 output heads
 
         best_model, best_head, \
             best_records, best_logit_scale = train_ce_multitask(args, logger, loss_logger, model, classifier_head, \
-                                                                train_loader, val_loader, test_loader, dataset_classifier_head)          
-    
+                                                                train_loader, val_loader, test_loader, dataset_classifier_head)
+
     elif args.method == 'mixup': # random mixup
         best_model, best_head, \
             best_records, best_logit_scale = train_mixup(args, logger, loss_logger, model, classifier_head, \
                                                          train_loader, val_loader, test_loader)
-    
+
     elif args.method == 'mixup-fs': # mix retrieved with few-shot
         best_model, best_head, \
             best_records, best_logit_scale = train_mixup_fs(args, logger, loss_logger, model, classifier_head, \
-                                                             train_loader, val_loader, test_loader)        
-    
+                                                             train_loader, val_loader, test_loader)
+
     elif args.method == 'cutmix': # cutmix
         best_model, best_head, \
             best_records, best_logit_scale = train_cutmix(args, logger, loss_logger, model, classifier_head, \
-                                                          train_loader, val_loader, test_loader)  
-    
+                                                          train_loader, val_loader, test_loader)
+
     elif args.method == 'cutmix-fs': # cutmix with few-shot data
         best_model, best_head, \
-            best_records, best_logit_scale = train_cutmix_fs(args, logger, loss_logger, model, classifier_head, \
-                                                             train_loader, val_loader, test_loader)            
-    
+            best_records, best_logit_scale = train_cutmix_fs2(args, logger, loss_logger, model, classifier_head, \
+                                                             train_loader, val_loader, test_loader)
+
     elif args.method == 'CMO': # CMO
         best_model, best_head, \
             best_records, best_logit_scale = train_CMO(args, logger, loss_logger, model, classifier_head, \
-                                                       train_loader, val_loader, test_loader)        
-    
+                                                       train_loader, val_loader, test_loader)
+
     elif args.method == 'resizemix': # resizemix
         best_model, best_head, \
             best_records, best_logit_scale = train_resizemix(args, logger, loss_logger, model, classifier_head, \
-                                                             train_loader, val_loader, test_loader)            
-    
+                                                             train_loader, val_loader, test_loader)
+
     elif args.method == 'saliencymix': # saliencymix
         #----- paper code, use first image saliency for entire batch
-        # best_model, best_head, best_records, best_logit_scale = train_saliencymix(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)        
+        # best_model, best_head, best_records, best_logit_scale = train_saliencymix(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)
         #----- my code, use individual image saliency for each image in the batch
-        best_model, best_head, best_records, best_logit_scale = train_saliencymix2(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)                    
-    
+        best_model, best_head, best_records, best_logit_scale = train_saliencymix2(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)
+
     elif args.method == 'attentivemix': # attentivemix
         # irregular binary mask
-        # best_model, best_head, best_records, best_logit_scale = train_attentivemix(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)                
-        
+        # best_model, best_head, best_records, best_logit_scale = train_attentivemix(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)
+
         # rectangular patches as SaliencyMix2
         best_model, best_head, best_records, best_logit_scale = train_attentivemix2(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)
 
@@ -314,14 +314,14 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
                                                                                              train_loader, val_loader, test_loader)
     elif args.method == 'BalancedContrastive':
         best_model, best_head, best_records, best_logit_scale = train_balanced_contrastive(args, logger, loss_logger, model, classifier_head, train_loader, val_loader, test_loader)
-    
+
     else:
         raise NotImplementedError(f"Method {args.method} not implemented.")
 
     if args.method == 'dataset-cls':
         exit()
 
-    #---------- Test the wsft, cannot preextract feature, as the model backbone weights is ensembled 
+    #---------- Test the wsft, cannot preextract feature, as the model backbone weights is ensembled
     wsft_backbone = None
     wsft_head = None
     wsft_test_acc = -1
@@ -340,16 +340,16 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
         test_loader = extract_dataloader(args, best_model, args.test_split, new_test_fea_path, preprocess, tokenized_text_prompts)
         logger.info(f'Extracted val, test dataloader for fast testing after training.')
 
-    #---------- Testing 
-    test_acc, test_loss, test_confusion_matrix = validate(args,data_loader=test_loader, 
-                                                        model=best_model, 
-                                                        classifier_head=best_head, 
+    #---------- Testing
+    test_acc, test_loss, test_confusion_matrix = validate(args,data_loader=test_loader,
+                                                        model=best_model,
+                                                        classifier_head=best_head,
                                                         logger=logger,
-                                                        loss=args.loss, logit_scale=best_logit_scale, 
+                                                        loss=args.loss, logit_scale=best_logit_scale,
                                                         show_confusion_matrix=True,
-                                                        dataset=args.dataset, 
+                                                        dataset=args.dataset,
                                                         output_dir=args.output_dir, device=args.device,
-                                                        pre_extracted=True,  
+                                                        pre_extracted=True,
                                                         )
     test_scores = calculate_scores(test_confusion_matrix)
     logger.info(f"+++++ Test Acc: {round(test_acc, 3)}")
@@ -396,19 +396,19 @@ def run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_tex
     logger.info(f"Run stage 2 classifier retraining ......")
 
     args.model_path = stage1_best_model_path
-    load_model(args, logger, model, test_loader, classifier_head)  
+    load_model(args, logger, model, test_loader, classifier_head)
 
     # re-extract the train_loader, val_loader, test_loader
     new_fewshot_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_fewshot_features_new.pth'
     new_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_{args.shots}_{args.seed}_test_features_new.pth'
-    
-    train_loader = extract_train_dataloader(args, model, args.fewshot_data, new_fewshot_fea_path, 
+
+    train_loader = extract_train_dataloader(args, model, args.fewshot_data, new_fewshot_fea_path,
                                             preprocess, tokenized_text_prompts, args.bsz)
-    val_loader = train_loader 
+    val_loader = train_loader
     test_loader = extract_dataloader(args, model, args.test_split, new_test_fea_path,
                                      preprocess, tokenized_text_prompts)
     logger.info(f'Extracted train, val, test dataloader for stage 2 training.')
-    
+
     # reset the pre_extracted flag
     args.method = 'probing'
     args.pre_extracted = True
@@ -420,41 +420,41 @@ def run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_tex
     loss = set_loss(args)
     params, logit_scale = set_params(args, model, classifier_head, logger) # depending on method
     optimizer, scheduler, total_iter = set_optimizer(args, params, train_loader)
-    
+
     args.loss = loss
     args.logit_scale = logit_scale
     args.optimizer = optimizer
-    args.scheduler = scheduler      
+    args.scheduler = scheduler
 
     #---------- Training
     best_model, best_head, best_records, _, _, _ = train_probing(args, logger, loss_logger, model, classifier_head,
-                                                                 tokenized_text_prompts, preprocess, 
-                                                                 train_loader, val_loader, test_loader, 
+                                                                 tokenized_text_prompts, preprocess,
+                                                                 train_loader, val_loader, test_loader,
                                                                  reload_model=False)
 
     # test the best model after probing
-    test_acc, test_loss, test_confusion_matrix = validate(args,data_loader=test_loader, 
-                                                        model=best_model, 
-                                                        classifier_head=best_head, 
+    test_acc, test_loss, test_confusion_matrix = validate(args,data_loader=test_loader,
+                                                        model=best_model,
+                                                        classifier_head=best_head,
                                                         logger=logger,
-                                                        loss=args.loss, 
-                                                        logit_scale=args.logit_scale, 
+                                                        loss=args.loss,
+                                                        logit_scale=args.logit_scale,
                                                         show_confusion_matrix=True,
-                                                        dataset=args.dataset, 
-                                                        output_dir=args.output_dir, 
+                                                        dataset=args.dataset,
+                                                        output_dir=args.output_dir,
                                                         device=args.device,
-                                                        pre_extracted=True,  
+                                                        pre_extracted=True,
                                                         )
     test_scores = calculate_scores(test_confusion_matrix)
     logger.info(f"+++++ stage 2 Test Acc: {round(test_acc, 3)}")
-    save_test_scores(test_scores, test_confusion_matrix, args.output_dir, 'test', stage=2)        
+    save_test_scores(test_scores, test_confusion_matrix, args.output_dir, 'test', stage=2)
 
     #----------- save stage 2 best model
     best_model_path = save_best_model(args, best_records,
                                     best_model, best_head, logit_scale,
                                     test_acc, best_tau=None, best_tau_test_acc=-1, wsft_test_acc=-1,
                                     best_tau_head=None, wsft_backbone=None, wsft_head=None, stage=2)
-    
+
     logger.info(f'stage 2 Best Model saved to: {best_model_path}')
 
     # remove the extracted features
@@ -478,14 +478,14 @@ if __name__ == '__main__':
     model, preprocess, tokenizer = set_model(args, logger)
     zeroshot_model = copy.deepcopy(model)
 
-    # make prompts 
+    # make prompts
     prompt_tensors, text_prompts, \
     tokenized_text_prompts, prompt_tensors_dict = set_prompt(args, model, tokenizer, logger)
 
     # make classifier head
     classifier_head = set_classifier(args, prompt_tensors, logger)
     zeroshot_head = copy.deepcopy(classifier_head)
-    classifier_head.to(args.device) 
+    classifier_head.to(args.device)
 
     # run finetuning for stage 1
     stage1_acc, stage1_best_model_path, test_loader, wsft_test_acc = run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompts)
