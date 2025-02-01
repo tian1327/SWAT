@@ -24,7 +24,7 @@ retrieval_splits=("T2T500")
 
 batch_size=32
 
-epochs=(10 30 50 70 90)
+epochs=(10 30 70 90)
 
 model_cfg="vitb32_openclip_laion400m"
 # model_cfg="vitb16_openclip_laion400m"
@@ -79,7 +79,7 @@ for dataset in "${datasets[@]}"; do
     for method in "${methods[@]}"; do
         for data_source in "${data_sources[@]}"; do
             for shots in "${shot_values[@]}"; do
-                for init in "${cls_inits[@]}"; do                
+                for init in "${cls_inits[@]}"; do
                     for seed in "${seeds[@]}"; do
                         for retrieval_split in "${retrieval_splits[@]}"; do
                             for epoch in "${epochs[@]}"; do
@@ -90,7 +90,7 @@ for dataset in "${datasets[@]}"; do
                                 --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epoch" --bsz "$batch_size" \
                                 --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --model_cfg "$model_cfg" \
                                 --folder "$output_folder")
-                                
+
                                 # Print the output to the console
                                 echo "$output"
 

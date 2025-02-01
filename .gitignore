@@ -8,7 +8,7 @@ output_backup1/
 results_backup1/
 slurm_log_backup1/
 backup/
-plots_tables/
+# plots_tables/
 
 T2T100.txt
 T2T300.txt

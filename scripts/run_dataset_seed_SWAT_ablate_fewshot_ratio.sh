@@ -8,7 +8,7 @@ fewshot_ratios=(0.1 0.3 0.5 0.7 0.9)
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot+retrieved")
 
-folder="swat_vitb32_T2T500"
+folder="swat_vitb32_T2T500_ablate_fewshot_ratio"
 # folder="swat_vitb16"
 
 # cls_inits=("random" "text" "REAL-Prompt" )
@@ -78,11 +78,11 @@ for dataset in "${datasets[@]}"; do
     for method in "${methods[@]}"; do
         for data_source in "${data_sources[@]}"; do
             for shots in "${shot_values[@]}"; do
-                for init in "${cls_inits[@]}"; do                
+                for init in "${cls_inits[@]}"; do
                     for seed in "${seeds[@]}"; do
                         for retrieval_split in "${retrieval_splits[@]}"; do
                             for fewshot_ratio in "${fewshot_ratios[@]}"; do
-                        
+
                                 echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split $fewshot_ratio"
 
                                 # Run the script and capture the output
@@ -91,7 +91,7 @@ for dataset in "${datasets[@]}"; do
                                 --fewshot_ratio "$fewshot_ratio" \
                                 --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --model_cfg "$model_cfg" \
                                 --folder "$output_folder")
-                                
+
                                 # Print the output to the console
                                 echo "$output"
 

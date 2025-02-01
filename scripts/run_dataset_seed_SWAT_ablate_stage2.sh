@@ -69,9 +69,9 @@ fi
 output_file="results/${folder}/${datasets[0]}.csv"
 
 # imagenet
-model_path="output/swat_vitb32_T2T500/output_imagenet/imagenet_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
+# model_path="output/swat_vitb32_T2T500/output_imagenet/imagenet_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
 # semi-aves
-#model_path="output/swat_vitb32_T2T500/output_semi-aves/semi-aves_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_50eps/stage1_model_best-epoch_50_best.pth"
+model_path="output/swat_vitb32_T2T500/output_semi-aves/semi-aves_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_50eps/stage1_model_best-epoch_50_best.pth"
 # eurosat
 #model_path="output/swat_vitb32_T2T500/output_eurosat/eurosat_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_50eps/stage1_model_best-epoch_50_best.pth"
 # dtd
@@ -85,12 +85,12 @@ for dataset in "${datasets[@]}"; do
     for method in "${methods[@]}"; do
         for data_source in "${data_sources[@]}"; do
             for shots in "${shot_values[@]}"; do
-                for init in "${cls_inits[@]}"; do                
+                for init in "${cls_inits[@]}"; do
                     for epoch in "${epochs[@]}"; do
                         for seed in "${seeds[@]}"; do
                             for retrieval_split in "${retrieval_splits[@]}"; do
 
-                                echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split $epoch"                                
+                                echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split $epoch"
 
                                 # Run the script and capture the output
                                 output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  \
@@ -99,7 +99,7 @@ for dataset in "${datasets[@]}"; do
                                 --skip_stage2 \
                                 --model_path "$model_path" \
                                 --folder "$output_folder")
-                                
+
                                 # Print the output to the console
                                 echo "$epoch,$output"
 
