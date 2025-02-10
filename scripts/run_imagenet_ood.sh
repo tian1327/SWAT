@@ -6,15 +6,17 @@ methods=("finetune")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot")
 
-folder="ImageNet_OOD_zeroshot_vitb16"
+# folder="ImageNet_OOD_zeroshot_vitb16"
 # folder="ImageNet_OOD_REAL-Prompt_vitb16"
-# folder="ImageNet_OOD_REAL-Linear_vitb16"
+folder="ImageNet_OOD_REAL-Linear-WSFT_vitb16"
+# folder="ImageNet_OOD_FSFT_vitb16"
+
 
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )
-# cls_inits=("REAL-Prompt")
-cls_inits=("text")
+cls_inits=("REAL-Prompt")
+# cls_inits=("text")
 
 
 
@@ -85,17 +87,17 @@ for dataset in "${datasets[@]}"; do
                                 # ImageNet SWAT checkpoint
                                 # model_path="output/swat_vitb16/output_imagenet/imagenet_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_10eps/stage2_model_best-epoch_10_best.pth"
 
-                                # REAL-Linear
-                                # model_path = "output/REAL-Linear_vitb16/output_imagenet/imagenet_REAL-Linear_retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
+                                # REAL-Linear, note that has to load the WiSE-FT classifier in load_model()!
+                                model_path="output/REAL-Linear_vitb16/output_imagenet/imagenet_REAL-Linear_retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
 
                                 # FTFS w/ CutMix
-                                # model_path = "output/FTFS-cutmix_vitb16/output_imagenet/imagenet_cutmix_fewshot_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
+                                # model_path="output/FTFS-cutmix_vitb16/output_imagenet/imagenet_cutmix_fewshot_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
 
                                 # FT on retrieved. Note this is ViT-B/32
-                                # model_path = "output/FT_retrieved_vitb32/output_imagenet/imagenet_finetune_retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
+                                # model_path="output/FT_retrieved_vitb32/output_imagenet/imagenet_finetune_retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
 
                                 # FT on retrieved + stage 2 classifier retraining. Note this is ViT-B/32
-                                # model_path = "output/FT_retrieved_vitb32/output_imagenet/imagenet_finetune_retrieved_REAL-Prompt_16shots_seed1_10eps/stage2_model_best-epoch_10_best.pth"
+                                # model_path="output/FT_retrieved_vitb32/output_imagenet/imagenet_finetune_retrieved_REAL-Prompt_16shots_seed1_10eps/stage2_model_best-epoch_10_best.pth"
 
 
                                 echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split $epoch"
@@ -106,8 +108,8 @@ for dataset in "${datasets[@]}"; do
                                 --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --model_cfg "$model_cfg" \
                                 --test_imagenet_ood --skip_stage2 \
                                 --folder "$output_folder" \
-                                --check_zeroshot
-                                # --model_path "$model_path" \
+                                --model_path "$model_path" \
+                                # --check_zeroshot
                                 )
 
                             done

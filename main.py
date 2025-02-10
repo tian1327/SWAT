@@ -374,7 +374,7 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     logger.info(f"logit_scale: {round(logit_scale.item(), 8)}")
     logger.info(f"best_logit_scale: {round(best_logit_scale.item(), 8)}")
 
-    #----------- save stage 2 best model
+    #----------- save stage 1 best model
     best_model_path = save_best_model(args, best_records,
                                     best_model, best_head, best_logit_scale,
                                     test_acc, best_tau, best_tau_test_acc, wsft_test_acc,

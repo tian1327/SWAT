@@ -28,8 +28,8 @@ def test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, rel
 
     acc_list = []
     for dataset in [
-        # 'imagenet_v2',
-        'imagenet_sketch'
+        'imagenet_v2',
+        'imagenet_sketch',
         'imagenet_adv',
         'imagenet_ren',
         ]:
@@ -82,8 +82,12 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
 
     if 'clip' in ckpt:
         model.load_state_dict(ckpt['clip'])
-
         classifier_head.load_state_dict(ckpt['head'])
+        # classifier_head.load_state_dict(ckpt['wsft_head'])
+        logger.info(f'ckpt[test_acc]: {ckpt["test_acc"]}')
+        logger.info(f'ckpt[wsft_test_acc]: {ckpt["wsft_test_acc"]}')
+
+
         # classifier_head.load_state_dict(ckpt['best_tau_head'])
         # classifier_head.load_state_dict(ckpt['wsft_head'])
 
@@ -98,7 +102,7 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
         # print('ckpt[best_iter]:', ckpt['best_iter'])
         # print('ckpt[val_acc]:', round(ckpt['val_acc']), 3)
         # print('ckpt[test_acc]:', ckpt['test_acc'])
-        logger.info(f'ckpt[test_acc]: {ckpt["test_acc"]}')
+
         # print('ckpt[best_tau]:', ckpt['best_tau'])
         # print('ckpt[best_tau_test_acc]:', ckpt['best_tau_test_acc'])
         # print('ckpt[wsft_test_acc]:', ckpt['wsft_test_acc'])
