@@ -124,7 +124,7 @@ def get_dataloader(args, train_split, val_split, test_split, tokenized_text_prom
     val_loader = DataLoader(val_dataset, batch_size=128, drop_last=False, pin_memory=True,
                             shuffle=False, num_workers=args.num_workers)
 
-    test_loader = DataLoader(test_dataset, batch_size=128, drop_last=False, pin_memory=True,
+    test_loader = DataLoader(test_dataset, batch_size=1024, drop_last=False, pin_memory=True,
                             shuffle=False, num_workers=args.num_workers)
 
     return train_loader, val_loader, test_loader

@@ -16,6 +16,59 @@ import random
 from utils.datasets.dataset_utils import NUM_CLASSES_DICT, load_dataset, TensorDataset
 from utils.prompt import prompt_maker
 from utils.features import extract_test_feats
+from utils.datasets.imagenet_1k import ImageNet1KDataset, ImageNetAdvDataset, ImageNetRenDataset, ImageNetSketchDataset, indices_in_1k_adv, indices_in_1k_ren
+from tqdm import tqdm
+
+def test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, reload_model):
+
+    if reload_model:
+        load_model(args, args.logger, model, test_loader, classifier_head)
+        # load_model(args, args.logger, model, None, classifier_head)
+    logger = args.logger
+
+    acc_list = []
+    for dataset in [
+        # 'imagenet_v2',
+        'imagenet_sketch'
+        'imagenet_adv',
+        'imagenet_ren',
+        ]:
+        logger.info(f'Testing on: {dataset}')
+
+        if dataset == 'imagenet_v2':
+            val_dataset = ImageNet1KDataset(transform=preprocess, dataset_root='../REAL_dev/data/imagenet_v2')
+            val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
+            logger.info(f'len(val_dataloader): {len(val_dataloader)}')
+            acc = validate_simple(args, val_dataloader, model, classifier_head)
+
+        elif dataset == 'imagenet_sketch':
+            val_dataset = ImageNetSketchDataset(transform=preprocess, dataset_root='../REAL_dev/data/imagenet_sketch/sketch')
+            val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
+            logger.info(f'len(val_dataloader): {len(val_dataloader)}')
+            acc = validate_simple(args, val_dataloader, model, classifier_head)
+
+        elif dataset == 'imagenet_adv':
+            val_dataset = ImageNetAdvDataset(transform=preprocess, dataset_root='../REAL_dev/data/imagenet_adv/imagenet-a')
+            val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
+            logger.info(f'len(val_dataloader): {len(val_dataloader)}')
+            acc = validate_simple(args, val_dataloader, model, classifier_head, indices_in_1k_adv)
+
+        elif dataset == 'imagenet_ren':
+            val_dataset = ImageNetRenDataset(transform=preprocess, dataset_root='../REAL_dev/data/imagenet_ren/imagenet-r')
+            val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
+            logger.info(f'len(val_dataloader): {len(val_dataloader)}')
+            acc = validate_simple(args, val_dataloader, model, classifier_head, indices_in_1k_ren)
+
+        else:
+            raise ValueError('Unknown dataset.')
+
+        acc_list.append(acc)
+        args.logger.info(f'{dataset}, Test Acc: {round(acc, 3)}')
+
+    # average the acc
+    avg_acc = np.mean(acc_list)
+    args.logger.info(f'Average OOD Test Acc: {round(avg_acc, 3)}')
+
 
 
 def load_model(args, logger, model, test_loader=None, classifier_head=None):
@@ -27,7 +80,7 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
     # model.load_state_dict(ckpt['wsft_backbone'])
     # classifier_head.load_state_dict(ckpt['wsft_head'])
 
-    if 'clip' in ckpt: 
+    if 'clip' in ckpt:
         model.load_state_dict(ckpt['clip'])
 
         classifier_head.load_state_dict(ckpt['head'])
@@ -36,7 +89,7 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
 
         # file_path = 'output/FT-CE_fewshot15+real_t2t500-40eps_probing_semi-aves_vitb32_openclip_laion400m_c-name/best_tau_head_weights.pth'
         # best_tau_head = torch.load(file_path)
-        # classifier_head.load_state_dict(best_tau_head)    
+        # classifier_head.load_state_dict(best_tau_head)
 
         # print('ckpt[epoch]:', ckpt['epoch'])
         # print('ckpt[num_iter]:', ckpt['num_iter'])
@@ -48,13 +101,13 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
         logger.info(f'ckpt[test_acc]: {ckpt["test_acc"]}')
         # print('ckpt[best_tau]:', ckpt['best_tau'])
         # print('ckpt[best_tau_test_acc]:', ckpt['best_tau_test_acc'])
-        # print('ckpt[wsft_test_acc]:', ckpt['wsft_test_acc'])    
+        # print('ckpt[wsft_test_acc]:', ckpt['wsft_test_acc'])
 
     elif 'model' in ckpt: # for SuperContrastive ckpt
-        # model.load_state_dict(ckpt['model']) 
+        # model.load_state_dict(ckpt['model'])
         """
-        # Missing key(s) in state_dict: "positional_embedding", "text_projection", 
-        # "logit_scale", "token_embedding.weight", "ln_final.weight", "ln_final.bias". 
+        # Missing key(s) in state_dict: "positional_embedding", "text_projection",
+        # "logit_scale", "token_embedding.weight", "ln_final.weight", "ln_final.bias".
         """
 
         # load only the visual encoder weights, and keep others the same
@@ -66,20 +119,20 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
         print('ckpt.keys():', ckpt.keys())
         classifier_head.load_state_dict(ckpt['best_tau_head'])
         # raise ValueError('No model weights found in the checkpoint.')
-  
+
     del ckpt
 
-    
+
     if test_loader is not None:
-        model_test_acc, _, _ = validate(args, data_loader=test_loader, model=model, 
+        model_test_acc, _, _ = validate(args, data_loader=test_loader, model=model,
                                         logger=logger,
-                                        loss=args.loss, logit_scale=args.logit_scale, 
-                                        classifier_head=classifier_head, 
-                                        dataset=args.dataset, 
+                                        loss=args.loss, logit_scale=args.logit_scale,
+                                        classifier_head=classifier_head,
+                                        dataset=args.dataset,
                                         device=args.device,
-                                        pre_extracted=args.pre_extracted, 
+                                        pre_extracted=args.pre_extracted,
                                         )
-        logger.info(f"Loaded Model Test Acc: {round(model_test_acc, 3)}")        
+        logger.info(f"Loaded Model Test Acc: {round(model_test_acc, 3)}")
 
 
 def calculate_scores(confusion_matrix):
@@ -90,13 +143,13 @@ def calculate_scores(confusion_matrix):
     # the sum of each row of the confusion matrix is the total number of instances for each true class
     # divide the diagonal by the sum of each row is the same as TP / (TP + FN), which is the recall
 
-    scores = {}    
+    scores = {}
     num_class = confusion_matrix.shape[0]
 
     scores['acc'] = np.trace(confusion_matrix) / np.sum(confusion_matrix)
     # print('sum of confusion_matrix: ', np.sum(confusion_matrix))
-    
-    # calculate the avg class accuracy 
+
+    # calculate the avg class accuracy
     class_accuracy = np.diag(confusion_matrix) / np.sum(confusion_matrix, axis=1)
     avg_class_accuracy = class_accuracy.mean()*100
     scores['avg_class_accuracy'] = avg_class_accuracy # this is the micro accuracy, which would be different from the macro accuracy as in test_acc
@@ -117,7 +170,7 @@ def calculate_scores(confusion_matrix):
             recall[i] = 0.0
         else:
             recall[i] = tp / (tp + fn)
-        
+
         if tp+fp == 0:
             precision[i] = 0.0
         else:
@@ -134,14 +187,14 @@ def calculate_scores(confusion_matrix):
     scores['per_class_precision'] = precision
     scores['per_class_f1score'] = f1_score
 
-    return scores    
+    return scores
 
 
 def validate_multitask(args, data_loader, model, logger, loss, logit_scale, classifier_head=None,
              dataset_classifier_head=None, show_confusion_matrix = False, device='cuda',
              dataset='semi-aves', output_dir='output',
              predict_labels=False, predict_split='u_train', pre_extracted=False):
-        
+
     model.eval()
     if classifier_head:
         classifier_head.eval()
@@ -181,13 +234,13 @@ def validate_multitask(args, data_loader, model, logger, loss, logit_scale, clas
             if classifier_head:
                 logit = classifier_head(image_features)
                 dataset_logit = dataset_classifier_head(image_features)
-            else:                
-                logit, _ = model(images, texts) 
+            else:
+                logit, _ = model(images, texts)
                 # similarity between text and image, this is wrong?
 
             max_logits.append(torch.max(logit, dim=1).values.cpu().numpy())
-            
-            pred = torch.argmax(logit, dim=1).cpu() 
+
+            pred = torch.argmax(logit, dim=1).cpu()
             predicted_labels.append(pred.numpy())
 
             val_acc += torch.sum(pred == labels).item()
@@ -199,11 +252,11 @@ def validate_multitask(args, data_loader, model, logger, loss, logit_scale, clas
 
             dataset_val_acc += torch.sum(dataset_pred == source).item()
             dataset_val_count += source.size(0)
-            
+
             if show_confusion_matrix:
                 confusion_matrix.update(pred, labels)
                 dataset_confusion_matrix.update(dataset_pred, source)
-            
+
             # val loss
             logits = logit * logit_scale.exp()
             logits = logits.cpu()
@@ -214,25 +267,25 @@ def validate_multitask(args, data_loader, model, logger, loss, logit_scale, clas
             val_loss_batch.append(loss_batch.item())
 
     # average class validation accuracy
-    val_acc = (val_acc/val_count)*100    
-    dataset_val_acc = (dataset_val_acc/dataset_val_count)*100    
-    
+    val_acc = (val_acc/val_count)*100
+    dataset_val_acc = (dataset_val_acc/dataset_val_count)*100
+
     # average validation loss
     val_loss = np.mean(val_loss_batch)
 
-    
+
     if show_confusion_matrix:
         confusion_matrix = confusion_matrix.compute().numpy()
         dataset_confusion_matrix = dataset_confusion_matrix.compute().numpy()
         return val_acc, val_loss, confusion_matrix, dataset_val_acc, dataset_confusion_matrix
-        
+
     return val_acc, val_loss, None, dataset_val_acc, None
 
 def validate_dataset(args, data_loader, model, logger, loss, logit_scale, classifier_head=None,
              show_confusion_matrix = False, device='cuda',
              dataset='semi-aves', output_dir='output',
              predict_labels=False, predict_split='u_train', pre_extracted=False):
-        
+
     model.eval()
     if classifier_head:
         classifier_head.eval()
@@ -254,8 +307,8 @@ def validate_dataset(args, data_loader, model, logger, loss, logit_scale, classi
             inputs = inputs.to(device)
             # labels = labels.long().cuda()
             labels = source.long().cuda() # use the source as the labels for dataset classification
-            
-            if not pre_extracted:    
+
+            if not pre_extracted:
                 image_features = model.encode_image(inputs)
                 image_features /= image_features.norm(dim=-1, keepdim=True)
             else:
@@ -263,9 +316,9 @@ def validate_dataset(args, data_loader, model, logger, loss, logit_scale, classi
 
             if classifier_head:
                 logit = classifier_head(image_features)
-            else:                
-                logit, _ = model(inputs, texts) 
-            
+            else:
+                logit, _ = model(inputs, texts)
+
             # val loss
             logits = logit * logit_scale.exp()
             logits = logits.cuda()
@@ -273,22 +326,22 @@ def validate_dataset(args, data_loader, model, logger, loss, logit_scale, classi
                 loss_batch = loss(logits, labels, source)
             else:
                 loss_batch = loss(logits, labels)
-            val_loss_batch.append(loss_batch.item())                
+            val_loss_batch.append(loss_batch.item())
 
             labels = labels.cpu()
-            max_logits.append(torch.max(logit, dim=1).values.cpu().numpy())            
+            max_logits.append(torch.max(logit, dim=1).values.cpu().numpy())
             pred = torch.argmax(logit, dim=1).cpu()
             predicted_labels.append(pred.numpy())
 
             val_acc += torch.sum(pred == labels).item()
             val_count += labels.size(0)
-            
+
             if show_confusion_matrix:
                 confusion_matrix.update(pred, labels)
-                
+
     # average class validation accuracy
-    val_acc = (val_acc/val_count)*100        
-    
+    val_acc = (val_acc/val_count)*100
+
     # average validation loss
     val_loss = np.mean(val_loss_batch)
 
@@ -298,7 +351,7 @@ def validate_dataset(args, data_loader, model, logger, loss, logit_scale, classi
         predicted_labels = predicted_labels.tolist()
 
         max_logits = np.concatenate(max_logits)
-        print('max_logits.shape: ', max_logits.shape)            
+        print('max_logits.shape: ', max_logits.shape)
         max_logits = max_logits.tolist()
 
         # save the predicted labels to a text file
@@ -306,20 +359,56 @@ def validate_dataset(args, data_loader, model, logger, loss, logit_scale, classi
         with open(predicted_label_file, 'w') as f:
             for item, logit in zip(predicted_labels, max_logits):
                 f.write("%s %s\n" % (item, logit))
-        logger.info(f'Predicted labels saved to: {predicted_label_file}') 
-    
+        logger.info(f'Predicted labels saved to: {predicted_label_file}')
+
     if show_confusion_matrix:
         confusion_matrix = confusion_matrix.compute().numpy()
         return val_acc, val_loss, confusion_matrix
-        
+
     return val_acc, val_loss, None
+
+
+
+def validate_simple(args, data_loader, model, classifier_head, indices_in_1k=None):
+
+    model.eval()
+    classifier_head.eval()
+
+    val_acc = 0
+    val_count = 0
+
+    with torch.no_grad():
+        # for i, val_data in tqdm(enumerate(data_loader)):
+        for i, val_data in enumerate(data_loader):
+
+            inputs, labels = val_data
+            inputs = inputs.to(args.device)
+            # labels = labels.long().cuda()
+
+            image_features = model.encode_image(inputs)
+            image_features /= image_features.norm(dim=-1, keepdim=True)
+            logit = classifier_head(image_features)
+
+            if indices_in_1k:
+                logit = logit[:, indices_in_1k]
+
+            # labels = labels.cpu()
+            pred = torch.argmax(logit, dim=1).cpu()
+            val_acc += torch.sum(pred == labels).item()
+            val_count += labels.size(0)
+
+    # average class validation accuracy
+    val_acc = (val_acc/val_count)*100
+
+    return val_acc
+
 
 
 def validate(args, data_loader, model, logger, loss, logit_scale, classifier_head = None,
              show_confusion_matrix = False, device='cuda',
              dataset='semi-aves', output_dir='output',
              predict_labels=False, predict_split='u_train', pre_extracted=False):
-        
+
     model.eval()
     if classifier_head:
         classifier_head.eval()
@@ -340,8 +429,8 @@ def validate(args, data_loader, model, logger, loss, logit_scale, classifier_hea
             inputs, labels, texts, source = val_data
             inputs = inputs.to(device)
             labels = labels.long().cuda()
-            
-            if not pre_extracted:    
+
+            if not pre_extracted:
                 image_features = model.encode_image(inputs)
                 image_features /= image_features.norm(dim=-1, keepdim=True)
             else:
@@ -349,9 +438,9 @@ def validate(args, data_loader, model, logger, loss, logit_scale, classifier_hea
 
             if classifier_head:
                 logit = classifier_head(image_features)
-            else:                
-                logit, _ = model(inputs, texts) 
-            
+            else:
+                logit, _ = model(inputs, texts)
+
             # val loss
             logits = logit * logit_scale.exp()
             logits = logits.cuda()
@@ -359,22 +448,22 @@ def validate(args, data_loader, model, logger, loss, logit_scale, classifier_hea
                 loss_batch = loss(logits, labels, source)
             else:
                 loss_batch = loss(logits, labels)
-            val_loss_batch.append(loss_batch.item())                
+            val_loss_batch.append(loss_batch.item())
 
             labels = labels.cpu()
-            max_logits.append(torch.max(logit, dim=1).values.cpu().numpy())            
+            max_logits.append(torch.max(logit, dim=1).values.cpu().numpy())
             pred = torch.argmax(logit, dim=1).cpu()
             predicted_labels.append(pred.numpy())
 
             val_acc += torch.sum(pred == labels).item()
             val_count += labels.size(0)
-            
+
             if show_confusion_matrix:
                 confusion_matrix.update(pred, labels)
-                
+
     # average class validation accuracy
-    val_acc = (val_acc/val_count)*100        
-    
+    val_acc = (val_acc/val_count)*100
+
     # average validation loss
     val_loss = np.mean(val_loss_batch)
 
@@ -384,7 +473,7 @@ def validate(args, data_loader, model, logger, loss, logit_scale, classifier_hea
         predicted_labels = predicted_labels.tolist()
 
         max_logits = np.concatenate(max_logits)
-        print('max_logits.shape: ', max_logits.shape)            
+        print('max_logits.shape: ', max_logits.shape)
         max_logits = max_logits.tolist()
 
         # save the predicted labels to a text file
@@ -392,33 +481,33 @@ def validate(args, data_loader, model, logger, loss, logit_scale, classifier_hea
         with open(predicted_label_file, 'w') as f:
             for item, logit in zip(predicted_labels, max_logits):
                 f.write("%s %s\n" % (item, logit))
-        logger.info(f'Predicted labels saved to: {predicted_label_file}') 
-    
+        logger.info(f'Predicted labels saved to: {predicted_label_file}')
+
     if show_confusion_matrix:
         confusion_matrix = confusion_matrix.compute().numpy()
         return val_acc, val_loss, confusion_matrix
-        
+
     return val_acc, val_loss, None
 
 
 
-def validate_topK(data_loader, model, prompt_vectors, logger, device='cuda', 
+def validate_topK(data_loader, model, prompt_vectors, logger, device='cuda',
                   dataset='semi-inat-2021', show_confusion_matrix= True, k = 3):
-    
+
     with torch.no_grad():
         model.eval()
         correct, wrong, val_acc = 0, 0, 0
         val_count = 0
-        
+
         if show_confusion_matrix:
             num_classes = len(prompt_vectors) # For now.
             confusion_matrix = ConfusionMatrix(task="multiclass", num_classes=num_classes)
         for i, val_data in enumerate(data_loader):
             if dataset == 'semi-inat-2021':
-                inputs, labels, l_target_k, l_target_p, l_target_c, l_target_o, l_target_f, l_target_g = val_data 
+                inputs, labels, l_target_k, l_target_p, l_target_c, l_target_o, l_target_f, l_target_g = val_data
             else:
                 inputs, labels = val_data
-            
+
             images = inputs.to(device)
             labels = labels.to(device).long()
             bsz = labels.shape[0]
@@ -435,10 +524,10 @@ def validate_topK(data_loader, model, prompt_vectors, logger, device='cuda',
                     k = 3
                 desc_prompts = desc_prompts.to(device)
                 desc_prompts = desc_prompts.squeeze()
-                cosine_sim = image_features @ desc_prompts.t() 
+                cosine_sim = image_features @ desc_prompts.t()
                 top_k = cosine_sim.topk(k=k, dim=-1).values
                 logits[j] = top_k.mean(dim=-1)
-    
+
             #print(time.time()-start)
             logits = logits.to(device)
             pred = torch.argmax(logits, dim=0)
@@ -448,7 +537,7 @@ def validate_topK(data_loader, model, prompt_vectors, logger, device='cuda',
                 preds = pred.cpu()
                 labels = labels.cpu()
                 confusion_matrix.update(preds, labels)
-                
+
             images.cpu()
         val_acc = (val_acc/val_count)*100
 
@@ -464,34 +553,34 @@ if __name__ == '__main__':
 
     start = time()
     parser = argparse.ArgumentParser(description='Arguments for script.')
-    parser.add_argument('--model_cfg', type=str, default='vitb32_openclip_laion400m', 
-                        choices=['vitb32_openclip_laion400m', 'vitb32_openclip_laion2b', 
+    parser.add_argument('--model_cfg', type=str, default='vitb32_openclip_laion400m',
+                        choices=['vitb32_openclip_laion400m', 'vitb32_openclip_laion2b',
                                  'vitb32_clip', 'vitb16_clip'],
                         help='ViT Transformer arch.')
     parser.add_argument('--model_ckpt', type=str, default=None, help='model ckpt for testing.')
-    parser.add_argument('--prompt_name', type=str, default='translated-name', 
+    parser.add_argument('--prompt_name', type=str, default='translated-name',
                         choices=['c-name', 's-name', 't-name', 'f-name'], help='names for prompts.')
     parser.add_argument('--recal_prompt', action='store_true', help='Recalculate the prompt embedding or not.')
     parser.add_argument('--log_mode', type=str, default='both', choices=['console', 'file', 'both'], help='where to log.')
-    parser.add_argument('--dataset', type=str, default='semi-aves', 
-                        choices=['semi-inat-2021', 'semi-aves', 'flowers102', 'cub2011', 'imagenet_1k'], 
+    parser.add_argument('--dataset', type=str, default='semi-aves',
+                        choices=['semi-inat-2021', 'semi-aves', 'flowers102', 'cub2011', 'imagenet_1k'],
                         help='Dataset name.')
     parser.add_argument('--dataset_root', type=str, default='data/semi-aves/', help='Root of Dataset.')
 
     parser.add_argument('--pre_extracted', default=True, help='use pre-extracted features.')
     parser.add_argument('--text_classifier_head',default=True, help='Initialize the classifier head with text embedding or not.')
-    parser.add_argument('--tau', type=float, default=0, help='Tau for Normalization.')    
+    parser.add_argument('--tau', type=float, default=0, help='Tau for Normalization.')
     parser.add_argument('--seed', type=int, default=0, help='Seed for random number generator.')
     parser.add_argument('--prefix', type=str, default='Testing', help='Prefix for Log file Name.')
     parser.add_argument('--predict', type=str, default=None, help='unlabeled data file to predict.')
     parser.add_argument('--folder', type=str, default='output/', help='Folder for saving output.')
-    
+
     args = parser.parse_args()
 
     #---------- init
     random.seed(args.seed)
     torch.manual_seed(args.seed)
-    
+
     # case_name
     case_name = f'{args.prefix}_testing_{args.dataset}_{args.model_cfg}_{args.prompt_name}'
 
@@ -507,12 +596,12 @@ if __name__ == '__main__':
     ## setup logger
     logger = get_logger(log_path, case_name, args.log_mode)
     logger.info('logging started')
-    logger.info(f'case_name: {case_name}')   
+    logger.info(f'case_name: {case_name}')
 
     # print args
     for arg in vars(args):
         logger.info(f'{arg} = {getattr(args, arg)}')
-    
+
     #---------- load model
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
     logger.info(f"Device: {device}")
@@ -521,9 +610,9 @@ if __name__ == '__main__':
 
     model, preprocess, tokenizer = get_engine(model_cfg=args.model_cfg, device=device)
     logger.info(f'Loaded model: {args.model_cfg}')
-    
+
     #---------- make prompt tensors
-    metric_fn = f'{dataset_root}/prompts/s-names_prompts.json' 
+    metric_fn = f'{dataset_root}/prompts/s-names_prompts.json'
     with open(metric_fn, 'r') as f:
         metrics = json.load(f)
 
@@ -568,27 +657,27 @@ if __name__ == '__main__':
             prompt_tensors_dict[label_type] = prompt_tensors
             torch.save(prompt_tensors, prompt_tensors_filename)
             logger.info(f'Saved prompt tensors to {prompt_tensors_filename}')
-    
+
     prompt_tensors = prompt_tensors_dict[args.prompt_name]
     text_prompts = text_prompts_dict[args.prompt_name]
     tokenized_text_prompts = tokenized_text_prompts_dict[args.prompt_name]
 
     #---------- pre-extract test features
     pre_extract_test_fea_path = f'{dataset_root}/pre_extracted/{args.dataset}_{args.model_cfg}_test_features.pth'
-    
+
     if not os.path.exists(pre_extract_test_fea_path):
         logger.info(f'Pre-extracting test features ...')
-        test_dataset = load_dataset(dataset=args.dataset, dataset_root=dataset_root, 
-                                    split='test', 
+        test_dataset = load_dataset(dataset=args.dataset, dataset_root=dataset_root,
+                                    split='test',
                                     preprocess=preprocess,
                                     tokenized_text_prompts=tokenized_text_prompts,
                                     pl_list=None, return_text=False)
-        test_loader = DataLoader(test_dataset, batch_size=128, 
+        test_loader = DataLoader(test_dataset, batch_size=128,
                                     shuffle=False, num_workers=8, drop_last=False)
 
         test_features = extract_test_feats(model, dataloader=test_loader)
         torch.save(test_features, pre_extract_test_fea_path)
-        logger.info(f'Saved test features to {pre_extract_test_fea_path}')    
+        logger.info(f'Saved test features to {pre_extract_test_fea_path}')
 
     #---------- load classifier head
     if args.text_classifier_head: # initialize the classifier head with text embedding
@@ -600,7 +689,7 @@ if __name__ == '__main__':
     else: # random init
         num_class = NUM_CLASSES_DICT[args.dataset]
         logger.info(f'Number of classes: {num_class}')
-        classifier_head = MyLinear(inp_dim=512, num_classes=num_class, bias=False)    
+        classifier_head = MyLinear(inp_dim=512, num_classes=num_class, bias=False)
         logger.info('Initialized classifier head with random weights.')
 
     classifier_head.to(device)
@@ -631,7 +720,7 @@ if __name__ == '__main__':
     else:
         val_dataset = TensorDataset(pre_extracted_path=pre_extract_test_fea_path, device=device)
         logger.info(f'Loaded pre-extracted test features from: {pre_extract_test_fea_path}')
-        val_loader = DataLoader(val_dataset, batch_size=128, shuffle=False, drop_last=False, num_workers=0)        
+        val_loader = DataLoader(val_dataset, batch_size=128, shuffle=False, drop_last=False, num_workers=0)
 
     #---------- tau normalization
     if args.tau != 0:
@@ -641,24 +730,24 @@ if __name__ == '__main__':
         logger.info('No TAU normalization.')
 
     #---------- testing
-    val_acc, confusion_matrix = validate(data_loader=val_loader, model=model, classifier_head=classifier_head, 
+    val_acc, confusion_matrix = validate(data_loader=val_loader, model=model, classifier_head=classifier_head,
                                          logger=logger, show_confusion_matrix = True, dataset=args.dataset,
-                                         pre_extracted=args.pre_extracted,                            
+                                         pre_extracted=args.pre_extracted,
                                          )
-    
+
     scores = calculate_scores(confusion_matrix)
-    logger.info(f"Validation Accuracy: {round(val_acc, 1)}")  
+    logger.info(f"Validation Accuracy: {round(val_acc, 1)}")
 
     file_path = f'{output_dir}/{args.prefix}_{args.dataset}_testing_scores.json'
     with open(file_path, 'w') as f:
         json.dump(scores, f, indent=4)
     logger.info(f'Saved scores to: {file_path}')
-    
+
     file_path = f'{output_dir}/{args.prefix}_{args.dataset}_testing_confusion_matrix.pkl'
     with open(file_path, 'wb') as f:
         pickle.dump(confusion_matrix, f)
     logger.info(f'Saved confusion matrix to: {file_path}')
-    
+
 
     # predict labels for unlabeled data
     if args.predict:
@@ -667,13 +756,13 @@ if __name__ == '__main__':
         logger.info('Predicting labels for unlabeled data: ', args.predict)
         u_train_dataloader = DataLoader(u_train_dataset, batch_size=128,
                                         shuffle=False, num_workers=8, drop_last=False)
-        
-        u_train_acc, confusion_matrix = validate(data_loader=u_train_dataloader, model=model, logger=logger, 
-                                                classifier_head=classifier_head, 
+
+        u_train_acc, confusion_matrix = validate(data_loader=u_train_dataloader, model=model, logger=logger,
+                                                classifier_head=classifier_head,
                                                 show_confusion_matrix=False, # set to false due to -1 is the fake label
                                                 dataset=args.dataset,
-                                                predict_labels=True, 
-                                                predict_split=args.predict                                         
-                                                )        
-    
+                                                predict_labels=True,
+                                                predict_split=args.predict
+                                                )
+
     logger.info(f'Total time taken: {round(time()-start)} seconds.')

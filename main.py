@@ -5,7 +5,7 @@ import time
 import numpy as np
 from utils.parser import parse_args
 from utils.logger import set_logger
-from testing import validate, load_model
+from testing import validate, load_model, test_imagenet_ood
 from testing import calculate_scores
 from utils.datasets.dataset_utils import NUM_CLASSES_DICT
 from utils.prompt import set_prompt
@@ -222,8 +222,14 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
         print(f'{result_summary}')
         exit()
 
-
     reload_model = True if args.model_path else False
+
+    #---------- Test ImageNet OOD performance
+    if args.test_imagenet_ood:
+        logger.info(f"Test ImageNet OOD ......")
+        test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, reload_model)
+        exit()
+
     #---------- Training
     if args.method == 'probing' or args.method == 'REAL-Linear':
         best_model, best_head, best_records, \
@@ -472,6 +478,8 @@ if __name__ == '__main__':
     program_start = time.time()
     args = parse_args()
     logger, loss_logger = set_logger(args)
+    args.logger = logger
+    args.loss_logger = loss_logger
     set_training_seed(args)
 
     # load model
