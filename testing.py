@@ -83,7 +83,10 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
     if 'clip' in ckpt:
         model.load_state_dict(ckpt['clip'])
         classifier_head.load_state_dict(ckpt['head'])
+
+        # model.load_state_dict(ckpt['wsft_backbone'])
         # classifier_head.load_state_dict(ckpt['wsft_head'])
+
         logger.info(f'ckpt[test_acc]: {ckpt["test_acc"]}')
         logger.info(f'ckpt[wsft_test_acc]: {ckpt["wsft_test_acc"]}')
 

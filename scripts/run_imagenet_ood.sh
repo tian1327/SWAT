@@ -8,16 +8,14 @@ data_sources=("fewshot")
 
 # folder="ImageNet_OOD_zeroshot_vitb16"
 # folder="ImageNet_OOD_REAL-Prompt_vitb16"
-folder="ImageNet_OOD_REAL-Linear-WSFT_vitb16"
+# folder="ImageNet_OOD_REAL-Linear-WSFT_vitb16"
 # folder="ImageNet_OOD_FSFT_vitb16"
-
-
+folder="ImageNet_OOD_FSFT-WSFT_vitb16"
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )
 cls_inits=("REAL-Prompt")
 # cls_inits=("text")
-
 
 
 # shot_values=(4 8 16)
@@ -88,10 +86,10 @@ for dataset in "${datasets[@]}"; do
                                 # model_path="output/swat_vitb16/output_imagenet/imagenet_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_10eps/stage2_model_best-epoch_10_best.pth"
 
                                 # REAL-Linear, note that has to load the WiSE-FT classifier in load_model()!
-                                model_path="output/REAL-Linear_vitb16/output_imagenet/imagenet_REAL-Linear_retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
+                                # model_path="output/REAL-Linear_vitb16/output_imagenet/imagenet_REAL-Linear_retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
 
                                 # FTFS w/ CutMix
-                                # model_path="output/FTFS-cutmix_vitb16/output_imagenet/imagenet_cutmix_fewshot_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
+                                model_path="output/FTFS-cutmix_vitb16/output_imagenet/imagenet_cutmix_fewshot_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
 
                                 # FT on retrieved. Note this is ViT-B/32
                                 # model_path="output/FT_retrieved_vitb32/output_imagenet/imagenet_finetune_retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
