@@ -68,7 +68,7 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
 
         lock_text_tower(model)
         params = params_classifier + params_visual
-        # params = params_visual
+        # params = params_visual # for ablating stage 2 with frozen classifier
 
         if args.method == "finetune-multitask":
             params = params + params_dataset_classifier

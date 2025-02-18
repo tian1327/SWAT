@@ -36,25 +36,25 @@ def test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, rel
         logger.info(f'Testing on: {dataset}')
 
         if dataset == 'imagenet_v2':
-            val_dataset = ImageNet1KDataset(transform=preprocess, dataset_root='../REAL_dev/data/imagenet_v2')
+            val_dataset = ImageNet1KDataset(transform=preprocess, dataset_root=f'{args.dataset_path}/imagenet_v2')
             val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
             logger.info(f'len(val_dataloader): {len(val_dataloader)}')
             acc = validate_simple(args, val_dataloader, model, classifier_head)
 
         elif dataset == 'imagenet_sketch':
-            val_dataset = ImageNetSketchDataset(transform=preprocess, dataset_root='../REAL_dev/data/imagenet_sketch/sketch')
+            val_dataset = ImageNetSketchDataset(transform=preprocess, dataset_root=f'{args.dataset_path}/imagenet_sketch/sketch')
             val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
             logger.info(f'len(val_dataloader): {len(val_dataloader)}')
             acc = validate_simple(args, val_dataloader, model, classifier_head)
 
         elif dataset == 'imagenet_adv':
-            val_dataset = ImageNetAdvDataset(transform=preprocess, dataset_root='../REAL_dev/data/imagenet_adv/imagenet-a')
+            val_dataset = ImageNetAdvDataset(transform=preprocess, dataset_root=f'{args.dataset_path}/imagenet_adv/imagenet-a')
             val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
             logger.info(f'len(val_dataloader): {len(val_dataloader)}')
             acc = validate_simple(args, val_dataloader, model, classifier_head, indices_in_1k_adv)
 
         elif dataset == 'imagenet_ren':
-            val_dataset = ImageNetRenDataset(transform=preprocess, dataset_root='../REAL_dev/data/imagenet_ren/imagenet-r')
+            val_dataset = ImageNetRenDataset(transform=preprocess, dataset_root=f'{args.dataset_path}/imagenet_ren/imagenet-r')
             val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
             logger.info(f'len(val_dataloader): {len(val_dataloader)}')
             acc = validate_simple(args, val_dataloader, model, classifier_head, indices_in_1k_ren)
@@ -76,7 +76,7 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
     logger.info(f'Loading model from: {args.model_path}')
     ckpt = torch.load(args.model_path)
 
-    # for WSFT ensembled model
+
     # model.load_state_dict(ckpt['wsft_backbone'])
     # classifier_head.load_state_dict(ckpt['wsft_head'])
 
@@ -84,6 +84,7 @@ def load_model(args, logger, model, test_loader=None, classifier_head=None):
         model.load_state_dict(ckpt['clip'])
         classifier_head.load_state_dict(ckpt['head'])
 
+        # for WSFT ensembled model
         # model.load_state_dict(ckpt['wsft_backbone'])
         # classifier_head.load_state_dict(ckpt['wsft_head'])
 
