@@ -24,7 +24,8 @@ def set_optimizer(args, params, train_loader):
     optimizer = get_optimizer(params, optim_type=args.optim, wd=args.wd)
     # check if train_loader is tuple
     if isinstance(train_loader, tuple):
-        total_iter = len(train_loader[-1]) * args.epochs # this is for various mixing methods
+        # total_iter = len(train_loader[-1]) * args.epochs # this is for various mixing methods
+        total_iter = len(train_loader[0]) * args.epochs # this is for various mixing methods
     else:
         total_iter = len(train_loader) * args.epochs
     base_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, total_iter, eta_min=1e-9)
