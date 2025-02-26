@@ -21,6 +21,7 @@ To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved
 
 ## News
 <!-- - **2024-11-26:** updated [arXiv paper](), including more datasets. -->
+- **2025-02-26:** SWAT is accepted to CVPR 2025! ;)
 - **2025-01-18:** We provide access to our retrieved data through URLs. See [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
 - **2024-11-24:** Updated code base to include more datasets.
 - **2024-08-22:** Retrieval code released, see [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
