@@ -2,6 +2,7 @@
 env.sh
 
 results/
+results_no_legend/
 output/
 output_backup/
 output_backup1/
