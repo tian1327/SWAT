@@ -4,7 +4,7 @@ import json
 
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.style'] = 'normal'
-plt.rcParams['font.variant'] = 'normal' 
+plt.rcParams['font.variant'] = 'normal'
 
 NUM_CLASSES_DICT = {
     'semi-aves': 200,
@@ -21,7 +21,7 @@ NUM_CLASSES_DICT = {
 
 NAMES_DICT = {
     'semi-aves': 'Semi-Aves',
-    'flowers102': 'Flowers',    
+    'flowers102': 'Flowers',
     'fgvc-aircraft': 'Aircraft',
     'eurosat': 'EuroSAT',
     'dtd': 'DTD',
@@ -60,7 +60,7 @@ for dataset in NAMES_DICT.keys():
 
     while len(y)<num_class:
         y.append(0)
-    
+
     x = [(v+1)/num_class*100 for v in x]
     X.append(x)
     Y.append(y)
@@ -79,14 +79,14 @@ plt.ylabel('# of imags / class', fontsize=LABELSIZE)
 # plt.xlabel("Class sorted w/ decreasing frequency", fontsize=19)
 plt.xlabel("% of class number", fontsize=LABELSIZE)
 
-plt.legend(handles=plt.gca().get_legend_handles_labels()[0], 
-           loc='lower left', prop={'size': 17}, 
-           frameon=True, facecolor='white', framealpha=0.3)    
+plt.legend(handles=plt.gca().get_legend_handles_labels()[0],
+           loc='lower left', prop={'size': 17},
+           frameon=True, facecolor='white', framealpha=0.3)
 
 plt.yticks(fontsize=TICKSIZE)
 plt.xticks(fontsize=TICKSIZE)
 
 plt.tight_layout()
-plt.savefig(f'imbalanced_all.png', dpi=600)
+plt.savefig(f'imbalanced_all.png', dpi=300)
 plt.clf()  # clear the current figure
 print('done')

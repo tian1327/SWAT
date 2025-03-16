@@ -51,6 +51,7 @@ norm_weights/
 
 # plots
 *.png
+*.pdf
 
 
 # retrieval
