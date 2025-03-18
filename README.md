@@ -133,7 +133,7 @@ This code base is developed with some references on the following projects. We s
 If you find our project useful, please consider citing:
 
 ```bibtex
-@article{liu2025few,
+@inproceedings{liu2025few,
   title={Few-Shot Recognition via Stage-Wise Retrieval-Augmented Finetuning},
   author={Liu, Tian and Zhang, Huixin and Parashar, Shubham and Kong, Shu},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
