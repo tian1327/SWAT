@@ -10,7 +10,7 @@
   <meta property="og:description" content="" />
   <meta property="og:url" content="" />
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/images/teaser_v7.png" />
+  <meta property="og:image" content="static/images/swat.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="Few-Shot Recognition via Stage-Wise Retrieval-Augmented Finetuning.">
   <meta name="twitter:description" content="">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/teaser_v7.png">
+  <meta name="twitter:image" content="static/images/swat.png">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="VLMs,few-shot_recognition">
@@ -128,18 +128,29 @@
             <h2 class="title is-3">Motivation</h2>
             <div class="content has-text-justified">
               <p style="text-align: justify;">
-                Few-Shot Recognition (FSR) aims to train a classification model with only a few labeled
+                <!-- Few-Shot Recognition (FSR) aims to train a classification model with only a few labeled
                 examples per concept provided by a downstream task. Inspired by the significant improvements
                 achieved by <b>retrieval-augmented learning (RAL)</b> in zero-shot recognition with Vision-Language Models
                 (VLMs, e.g., CLIP, OpenCLIP), we adapt a pretrained VLM and, for the first time, explore RAL for FSR
-                 by retrieving relevant images from VLMs' pretraining dataset (e.g., LAION).
+                 by retrieving relevant images from VLMs' pretraining dataset (e.g., LAION). -->
+                 Few-Shot Recognition (FSR) aims to train a classification model with only a few labeled examples per concept
+                 concerned by a downstream task. With an <b>open-world philosophy</b>, we exploit Vision-Language Model (VLM) which
+                 is pretrained in the open world and <b>open data</b> (e.g., the VLM's pretraining data) to facilitate few-shot learning.
+
                 <br>
                 <br>
 
-                Additionally, in contrast to prior FSR methods (prompt-learning or adapter-learning) that focus on parameter-efficient finetuning (PEFT), our work is motivated
+                <!-- Additionally, in contrast to prior FSR methods (prompt-learning or adapter-learning) that focus on parameter-efficient finetuning (PEFT), our work is motivated
                 by the <b>realistic data annotation application</b>, where we priortize accuracy over parameter efficiency. To this end,
                 we explore full-model finetuning using few-shot and retrieved data.
-                Through the process, we identify novel challenges and opportunities.
+                Through the process, we identify novel challenges and opportunities. -->
+
+                Furthermore, our few-shot recognition setup is motivated by <b>data annotation application</b>, where there are annotation
+                guidelines that provide a few visual examples for each concept concerned by the downstream task. Hence, we explore methods to
+                prioritize recognition accuracy without limiting to parameter-efficient finetuning (PEFT) such as prompt tuning or
+                adapter learning, both of which are popular few-shot learning methods. We explore methods as simple as full-model
+                finetuning over few-shot and/or retrieved data. Through the process, we identify novel challenges and opportunities.
+
               </p>
             </div>
           </div>
@@ -176,7 +187,7 @@
                       yet effective method:
                       <span style="color: red;"><b>S</b>tage-<b>W</b>ise retrieval-<b>A</b>ugmented fine<b>T</b>uning (<b>SWAT</b>)</span>,
                       resoundingly surpassing prior FSR methods by >6% in accuracy,
-                  with 20-30% accuracy improvements on challenging datasets such as Semi-Aves, Aircraft, EuroSAT.
+                  with 20-30% accuracy improvements on challenging datasets such as Semi-Aves, Aircraft, EuroSAT (see details in the paper).
                       <!-- which first
                       end-to-end finetune on mixed retrieved and few-shot data and then retrain
                       the classifier solely on the few-shot data. -->
