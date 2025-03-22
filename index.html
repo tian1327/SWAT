@@ -125,47 +125,76 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Motivation and Findings</h2>
+            <h2 class="title is-3">Motivation</h2>
             <div class="content has-text-justified">
               <p style="text-align: justify;">
                 Few-Shot Recognition (FSR) aims to train a classification model with only a few labeled
                 examples per concept provided by a downstream task. Inspired by the significant improvements
-                achieved by retrieval-augmented learning (RAL) in zero-shot recognition with Vision-Language Models
+                achieved by <b>retrieval-augmented learning (RAL)</b> in zero-shot recognition with Vision-Language Models
                 (VLMs, e.g., CLIP, OpenCLIP), we adapt a pretrained VLM and, for the first time, explore RAL for FSR
-                 by retrieving relevant images from VLMs' pretraining dataset.
+                 by retrieving relevant images from VLMs' pretraining dataset (e.g., LAION).
                 <br>
                 <br>
 
-                In contrast to prior FSR methods (prompt-learning or adapter-learning) that focus on parameter-efficient finetuning (PEFT), our work is motivated
-                by the realistic data annotation application, where we priortize accuracy over parameter efficiency. To this end,
+                Additionally, in contrast to prior FSR methods (prompt-learning or adapter-learning) that focus on parameter-efficient finetuning (PEFT), our work is motivated
+                by the <b>realistic data annotation application</b>, where we priortize accuracy over parameter efficiency. To this end,
                 we explore full-model finetuning using few-shot and retrieved data.
-                We identify novel challenges and opportunities:
-
-                <ol>
-                  <li>Finetuning VLMs on large amounts of retrieved data barely
-                    surpasses state-of-the-art zero-shot methods due to the <b>domain gaps</b> of retrieved data
-                    compared to few-shot annotated data and its <b>imbalanced distribution</b>.</li>
-
-                  <li>Simply finetuning a VLM on few-shot examples alone significantly outperforms
-                    prior FSR methods (>3%), without suffering from overfitting issue. Moreover, finetuning on the mixed retrieved
-                    and few-shot data
-                    yields even better results.</li>
-
-                  <li>To mitigate the issues of <b>domain gaps</b> and <b>imbalanced distribution</b>, we propose a simple
-                    yet effective method:
-                    <b>S</b>tage-<b>W</b>ise retrieval-<b>A</b>ugmented fine<b>T</b>uning (<b>SWAT</b>), which first
-                    end-to-end finetune on mixed retrieved and few-shot data and then retrain
-                    the classifier solely on the few-shot data.</li>
-                </ol>
-
-                Over nine standard benchmark datasets, SWAT resoundingly outperforms prior FSR methods by >6% in accuracy,
-                with 20-30% accuracy improvements on challenging datasets such as Semi-Aves, Aircraft, EuroSAT.
+                Through the process, we identify novel challenges and opportunities.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+
+    <section class="section hero is-light2">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview of Findings</h2>
+            <div class="content has-text-justified">
+
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/sota_plots.png" alt="1" style="width: 500px; height: auto; display: block; margin: 0 auto;"/>
+                <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                  <!-- We retrieve relevent images from LAION  -->
+                  Over nine standard benchmark datasets, we show that:
+                  <ol>
+                    <!-- <li><span style="color: orange;">finetuning on retrieved data</span> merely outperforms zero-shot methods due to domain gap and imbalanced distribution.</li> -->
+                    <li><span style="color: orange;">Finetuning VLMs on large amounts of retrieved data</span> barely
+                      surpasses state-of-the-art zero-shot methods due to the <b>domain gaps</b> of retrieved data
+                      compared to few-shot annotated data and its <b>imbalanced distribution</b> issues.</li>
+
+                    <li>Simply <span style="color: green;">finetuning a VLM on few-shot examples alone</span> significantly outperforms
+                      prior FSR methods (>3%), without suffering from overfitting issue. Moreover, finetuning on the mixed retrieved
+                      and few-shot data
+                      yields even better results.</li>
+
+                    <li>To mitigate <b>domain gaps</b> and <b>imbalanced distribution</b> issues, we propose a simple
+                      yet effective method:
+                      <span style="color: red;"><b>S</b>tage-<b>W</b>ise retrieval-<b>A</b>ugmented fine<b>T</b>uning (<b>SWAT</b>)</span>,
+                      resoundingly surpassing prior FSR methods by >6% in accuracy,
+                  with 20-30% accuracy improvements on challenging datasets such as Semi-Aves, Aircraft, EuroSAT.
+                      <!-- which first
+                      end-to-end finetune on mixed retrieved and few-shot data and then retrain
+                      the classifier solely on the few-shot data. -->
+                    </li>
+                  </ol>
+
+                  <!-- Over nine standard benchmark datasets, SWAT resoundingly outperforms prior FSR methods by >6% in accuracy, -->
+                  <!-- with 20-30% accuracy improvements on challenging datasets such as Semi-Aves, Aircraft, EuroSAT. -->
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <!-- End paper overview -->
 
   <!-- Paper abstract -->
@@ -209,8 +238,8 @@
   <!-- End paper abstract -->
 
 
-  <!-- Method Overview -->
-  <section class="section hero is-light2">
+
+  <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -225,7 +254,8 @@
                 Left: we show that the retrieved data exhibits different visual patterns
                 (styles, backgrounds, resolutions, semantics, etc.) compared to the downstream few-shot data.
                 Right: the retrieved data follows an imbalanced distribution, where some classes
-                naturally appear less frequently than others.
+                naturally appear less frequently than others. We retrieve relevant images from <a href="https://laion.ai/blog/laion-400-open-dataset/">LAION</a>
+                dataset following <a href="https://shubhamprshr27.github.io/neglected-tails-of-vlms/">REAL</a>.
               </p>
             </div>
 
@@ -234,10 +264,10 @@
       </div>
     </div>
   </section>
-  <!-- End Method Overview -->
 
 
-  <section class="section hero is-light">
+
+  <section class="section hero is-light1">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -267,7 +297,7 @@
   </section>
 
 
-  <section class="section hero is-light1">
+  <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
 
@@ -295,7 +325,7 @@
 
 
   <!-- Text-Image generation -->
-  <section class="section hero is-light">
+  <section class="section hero is-light1">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -332,7 +362,7 @@
   </section>
   <!-- End Prompt Inversion -->
 
-  <section class="section hero is-light1">
+  <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
 
@@ -356,7 +386,7 @@
 
 
   <!--BibTex citation -->
-  <section class="section hero is-light" id="BibTeX">
+  <section class="section hero is-light1" id="BibTeX">
     <div class="container is-max-desktop content ">
       <h2 class="title">BibTeX</h2>
       <p> If you find our work useful, please consider citing our papers:</p>
