@@ -77,15 +77,6 @@ else
     ckpt_number=50
 fi
 
-# imagenet
-# model_path="output/swat_vitb32_T2T500/output_imagenet/imagenet_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_10eps/stage1_model_best-epoch_10_best.pth"
-# semi-aves
-# model_path="output/swat_vitb32_T2T500/output_semi-aves/semi-aves_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_50eps/stage1_model_best-epoch_50_best.pth"
-# eurosat
-#model_path="output/swat_vitb32_T2T500/output_eurosat/eurosat_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_50eps/stage1_model_best-epoch_50_best.pth"
-# dtd
-#model_path="output/swat_vitb32_T2T500/output_dtd/dtd_cutmix_fewshot+retrieved_REAL-Prompt_16shots_seed1_50eps/stage1_model_best-epoch_50_best.pth"
-
 # Create or clear the output file
 echo "epoch,Dataset,Method,DataSource,Init,Shots,Seed,Retrieve,Stage1Acc,Stage2Acc" > "$output_file"
 

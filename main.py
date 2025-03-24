@@ -230,6 +230,10 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
         test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, reload_model)
         exit()
 
+    if args.skip_stage1:
+        logger.info(f"Skip stage 1 finetuning.")
+        return -1, None, test_loader_copy, -1
+
     #---------- Training
     if args.method == 'probing' or args.method == 'REAL-Linear':
         best_model, best_head, best_records, \
@@ -473,6 +477,72 @@ def run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_tex
 
 
 
+def run_stage2_FSFT(model, stage1_best_model_path, test_loader):
+
+    # reset the pre_extracted flag
+    args.method = 'finetune'
+    args.pre_extracted = False
+    logger.info(f'Reset args.pre_extracted: {args.pre_extracted}')
+    args.epochs = 10
+    args.early_stop = False
+    args.save_ckpt = False
+
+    logger.info(f"Run stage 2 few-shot finetuning ......")
+
+    args.model_path = stage1_best_model_path
+    # load_model(args, logger, model, test_loader, classifier_head)
+    load_model(args, logger, model, None, classifier_head)
+
+    # set the dataloaders
+    args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'],
+                        [os.path.join(args.dataset_path, args.dataset)]]
+    train_loader, val_loader, test_loader = set_dataloaders(args, model, tokenized_text_prompts, preprocess, logger)
+
+    # Imporatnt! Need to reset the params, optimizer, scheduler, loss, logit_scale
+    loss = set_loss(args)
+    params, logit_scale = set_params(args, model, classifier_head, logger) # depending on method
+    optimizer, scheduler, total_iter = set_optimizer(args, params, train_loader)
+
+    args.loss = loss
+    args.logit_scale = logit_scale
+    args.optimizer = optimizer
+    args.scheduler = scheduler
+
+    #---------- Training
+    best_model, best_head, best_records, _  = train_ce(args, logger, loss_logger, model, classifier_head, \
+                                                      train_loader, val_loader, test_loader, reload_model=False)
+
+    # test the best model after FSFT
+    test_acc, test_loss, test_confusion_matrix = validate(args, data_loader=test_loader,
+                                                        model=best_model,
+                                                        classifier_head=best_head,
+                                                        logger=logger,
+                                                        loss=args.loss,
+                                                        logit_scale=args.logit_scale,
+                                                        show_confusion_matrix=True,
+                                                        dataset=args.dataset,
+                                                        output_dir=args.output_dir,
+                                                        device=args.device,
+                                                        )
+    test_scores = calculate_scores(test_confusion_matrix)
+    logger.info(f"+++++ Stage 2 FSFT Test Acc: {round(test_acc, 3)}")
+    save_test_scores(test_scores, test_confusion_matrix, args.output_dir, 'test', stage=3)
+
+    #----------- save stage 2 best model
+    best_model_path = save_best_model(args, best_records,
+                                    best_model, best_head, logit_scale,
+                                    test_acc, best_tau=None, best_tau_test_acc=-1, wsft_test_acc=-1,
+                                    best_tau_head=None, wsft_backbone=None, wsft_head=None,
+                                    stage=3 # note here I set the stage to 3 for FSFT
+                                    )
+
+    logger.info(f'Stage 2 FSFT Best Model saved to: {best_model_path}')
+
+
+    return test_acc, best_model_path
+
+
+
 if __name__ == '__main__':
 
     program_start = time.time()
@@ -499,18 +569,34 @@ if __name__ == '__main__':
     stage1_acc, stage1_best_model_path, test_loader, wsft_test_acc = run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompts)
     stage1_method = args.method # record method here, as in stage 2 method will be updated to probing
 
+    # replace the stage1_best_model_path to run stage 2 for certrain checkpoints
+    if args.skip_stage1:
+        stage1_best_model_path = args.stage1_model_path
+
+    test_loader_copy = copy.deepcopy(test_loader)
+    stage2_lp_acc = -1
+    stage2_fsft_acc = -1
+
     # run probing for stage 2
+    # if not args.skip_stage2:
+    #     stage2_lp_acc, stage2_best_model_path = run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_text_prompts, preprocess,)
+    # else:
+    #     logger.info(f"Skip stage 2 Probing.")
+    #     stage2_lp_acc = -1
+    #     stage2_best_model_path = 'None'
+
+    # run FSFT for stage 2
     if not args.skip_stage2:
-        stage2_acc, stage2_best_model_path = run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_text_prompts, preprocess,)
+        stage2_fsft_acc, stage2_best_model_path = run_stage2_FSFT(model, stage1_best_model_path, test_loader_copy)
     else:
-        logger.info(f"Skip stage 2 Probing.")
-        stage2_acc = -1
+        logger.info(f"Skip stage 2 FSFT.")
+        stage2_fsft_acc = -1
         stage2_best_model_path = 'None'
 
     loss_logger.close()
     program_end = time.time()
     logger.info(f"Total time: {round((program_end-program_start)/60, 1)} mins.")
 
-    result_summary = f'{args.dataset},{stage1_method},{args.data_source},{args.cls_init},{args.shots},{args.seed},{args.retrieval_split},{round(stage1_acc,1)},{round(wsft_test_acc,1)},{round(stage2_acc,1)}'
+    result_summary = f'{args.dataset},{stage1_method},{args.data_source},{args.cls_init},{args.shots},{args.seed},{args.retrieval_split},{round(stage1_acc,1)},{round(wsft_test_acc,1)},{round(stage2_lp_acc,1)},{round(stage2_fsft_acc,1)}'
     logger.info(f'{result_summary}')
     print(f'{result_summary}')

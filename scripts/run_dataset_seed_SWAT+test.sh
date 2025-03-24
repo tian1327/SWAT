@@ -6,30 +6,29 @@ methods=("finetune")
 # data_sources=("fewshot" "retrieved" "fewshot+retrieved" "fewshot+unlabeled" "fewshot+retrieved+unlabeled")
 data_sources=("fewshot")
 
-folder="swat+_vitb32_20eps"
+folder="test_swat+_vitb32"
+# folder="swat+_vitb16"
+
 
 
 # cls_inits=("random" "text" "REAL-Prompt" )
 cls_inits=("REAL-Prompt")
 
 
-shot_values=(4 8 16)
-# shot_values=(16)
+# shot_values=(4 8 16)
+shot_values=(16)
 
 # retrieval_splits=("T2T500+T2I0.25")
 # retrieval_splits=("T2T100" "T2T200" "T2T300" "T2T1000" "T2T2000")
 retrieval_splits=("T2T500")
 
-
 batch_size=32
-
-# epochs=50
 
 model_cfg="vitb32_openclip_laion400m"
 # model_cfg="vitb16_openclip_laion400m"
 
 ckpt_foler='swat_vitb32_T2T500'
-
+# ckpt_foler='swat_vitb16'
 
 # log_mode="file"
 log_mode="both"
@@ -55,7 +54,7 @@ seeds=(1)
 #     epochs=10
 # fi
 
-epochs=(20)
+epochs=(0)
 
 # Check if the results folder exists, if not create it
 if [ ! -d "results/$folder" ]; then
@@ -78,9 +77,8 @@ else
     ckpt_number=50
 fi
 
-
 # Create or clear the output file
-echo "epoch,Dataset,Method,DataSource,Init,Shots,Seed,Retrieve,Stage1Acc,Stage2Acc" > "$output_file"
+echo "epoch,Dataset,Method,DataSource,Init,Shots,Seed,Retrieve,Stage1Acc,Stage1WSFTAcc,Stage2LPAcc,Stage2FSFTAcc" > "$output_file"
 
 # Loop through all combinations and run the script
 for dataset in "${datasets[@]}"; do
@@ -95,15 +93,15 @@ for dataset in "${datasets[@]}"; do
                                 echo "Running: $dataset $method $data_source $init $shots $seed $retrieval_split $epoch"
 
                                 # Set the model path
-                                model_path="output/${ckpt_foler}/output_${dataset}/${dataset}_cutmix_fewshot+retrieved_REAL-Prompt_${shots}shots_seed${seed}_${ckpt_number}eps/stage1_model_best-epoch_${ckpt_number}_best.pth"
-                                echo "model_path: $model_path"
+                                stage1_model_path="output/${ckpt_foler}/output_${dataset}/${dataset}_cutmix_fewshot+retrieved_REAL-Prompt_${shots}shots_seed${seed}_${ckpt_number}eps/stage1_model_best-epoch_${ckpt_number}_best.pth"
+                                echo "stage1_model_path: $stage1_model_path"
 
                                 # Run the script and capture the output
                                 output=$(python main.py --dataset "$dataset" --method "$method" --data_source "$data_source"  \
                                 --cls_init "$init" --shots "$shots" --seed "$seed" --epochs "$epoch" --bsz "$batch_size" \
                                 --log_mode "$log_mode" --retrieval_split "${retrieval_split}.txt" --model_cfg "$model_cfg" \
-                                --skip_stage2 \
-                                --model_path "$model_path" \
+                                --skip_stage1 \
+                                --stage1_model_path "$stage1_model_path" \
                                 --folder "$output_folder")
 
                                 # Print the output to the console

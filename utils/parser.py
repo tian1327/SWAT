@@ -79,7 +79,10 @@ def parse_args():
 
     parser.add_argument('--mix_prob', type=float, default=0.5, help='Mixing probability, i.e. use mixing strategy or not. Option applied to all mixing methods.')
     parser.add_argument('--mixup_alpha', type=float, default=1.0, help='Mixup alpha for Beta distribution.')
+    parser.add_argument('--skip_stage1', default=False, action='store_true', help='Set to skip stage 1 training')
     parser.add_argument('--skip_stage2', default=False, action='store_true', help='Set to skip stage 2 probing')
+    parser.add_argument('--stage1_model_path', default=None, type=str, help='stage 1 best model path to start stage 2.')
+
 
     # attentive mix
     parser.add_argument('--attentive_threshold', type=float, default=0.85, help='Threshold for heatmap binary mask.')

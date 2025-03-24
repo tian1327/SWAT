@@ -67,6 +67,9 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
 
         logger.info('Training the visual encoder and linear head.')
 
+        for param in model.parameters():
+            param.requires_grad = True
+
         lock_text_tower(model)
         params = params_classifier + params_visual
         # params = params_visual # for ablating stage 2 with frozen classifier
@@ -79,6 +82,9 @@ def set_params(args, model, classifier_head, logger, dataset_classifier_head=Non
 
     elif args.method == "FLYP":
         logger.info('Training the visual encoder and text encoder.')
+
+        for param in model.parameters():
+            param.requires_grad = True
 
         if args.locked_text:
             logger.info('Freezing the text encoder.')
