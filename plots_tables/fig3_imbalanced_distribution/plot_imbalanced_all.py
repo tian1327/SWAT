@@ -33,7 +33,7 @@ NAMES_DICT = {
 
 MARKERSIZE = 12
 LINEWIDTH = 4
-LABELSIZE = 30
+LABELSIZE = 25
 LEGENDSIZE = 20
 TICKSIZE = 22
 
@@ -80,7 +80,7 @@ plt.ylabel('# of imags / class', fontsize=LABELSIZE)
 plt.xlabel("% of class number", fontsize=LABELSIZE)
 
 plt.legend(handles=plt.gca().get_legend_handles_labels()[0],
-           loc='lower left', prop={'size': 17},
+           loc='lower left', prop={'size': 19},
            frameon=True, facecolor='white', framealpha=0.3)
 
 plt.yticks(fontsize=TICKSIZE)
