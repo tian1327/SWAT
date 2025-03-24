@@ -224,12 +224,6 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
 
     reload_model = True if args.model_path else False
 
-    #---------- Test ImageNet OOD performance
-    if args.test_imagenet_ood:
-        logger.info(f"Test ImageNet OOD ......")
-        test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, reload_model)
-        exit()
-
     if args.skip_stage1:
         logger.info(f"Skip stage 1 finetuning.")
         return -1, None, test_loader_copy, -1
@@ -578,12 +572,12 @@ if __name__ == '__main__':
     stage2_fsft_acc = -1
 
     # run probing for stage 2
-    # if not args.skip_stage2:
-    #     stage2_lp_acc, stage2_best_model_path = run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_text_prompts, preprocess,)
-    # else:
-    #     logger.info(f"Skip stage 2 Probing.")
-    #     stage2_lp_acc = -1
-    #     stage2_best_model_path = 'None'
+    if not args.skip_stage2:
+        stage2_lp_acc, stage2_best_model_path = run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_text_prompts, preprocess,)
+    else:
+        logger.info(f"Skip stage 2 Probing.")
+        stage2_lp_acc = -1
+        stage2_best_model_path = 'None'
 
     # run FSFT for stage 2
     if not args.skip_stage2:
@@ -596,6 +590,12 @@ if __name__ == '__main__':
     loss_logger.close()
     program_end = time.time()
     logger.info(f"Total time: {round((program_end-program_start)/60, 1)} mins.")
+
+
+    #---------- Test ImageNet OOD performance
+    if args.test_imagenet_ood:
+        logger.info(f"Test ImageNet OOD ......")
+        test_imagenet_ood(args, model, classifier_head, preprocess, test_loader)
 
     result_summary = f'{args.dataset},{stage1_method},{args.data_source},{args.cls_init},{args.shots},{args.seed},{args.retrieval_split},{round(stage1_acc,1)},{round(wsft_test_acc,1)},{round(stage2_lp_acc,1)},{round(stage2_fsft_acc,1)}'
     logger.info(f'{result_summary}')

@@ -19,12 +19,14 @@ from utils.features import extract_test_feats
 from utils.datasets.imagenet_1k import ImageNet1KDataset, ImageNetAdvDataset, ImageNetRenDataset, ImageNetSketchDataset, indices_in_1k_adv, indices_in_1k_ren
 from tqdm import tqdm
 
-def test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, reload_model):
+def test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, reload_model=False):
 
     if reload_model:
         load_model(args, args.logger, model, test_loader, classifier_head)
         # load_model(args, args.logger, model, None, classifier_head)
     logger = args.logger
+
+    BATCH_SIZE = 512
 
     acc_list = []
     for dataset in [
@@ -37,25 +39,25 @@ def test_imagenet_ood(args, model, classifier_head, preprocess, test_loader, rel
 
         if dataset == 'imagenet_v2':
             val_dataset = ImageNet1KDataset(transform=preprocess, dataset_root=f'{args.dataset_path}/imagenet_v2')
-            val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
+            val_dataloader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, drop_last=False, num_workers=args.num_workers)
             logger.info(f'len(val_dataloader): {len(val_dataloader)}')
             acc = validate_simple(args, val_dataloader, model, classifier_head)
 
         elif dataset == 'imagenet_sketch':
             val_dataset = ImageNetSketchDataset(transform=preprocess, dataset_root=f'{args.dataset_path}/imagenet_sketch/sketch')
-            val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
+            val_dataloader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, drop_last=False, num_workers=args.num_workers)
             logger.info(f'len(val_dataloader): {len(val_dataloader)}')
             acc = validate_simple(args, val_dataloader, model, classifier_head)
 
         elif dataset == 'imagenet_adv':
             val_dataset = ImageNetAdvDataset(transform=preprocess, dataset_root=f'{args.dataset_path}/imagenet_adv/imagenet-a')
-            val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
+            val_dataloader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, drop_last=False, num_workers=args.num_workers)
             logger.info(f'len(val_dataloader): {len(val_dataloader)}')
             acc = validate_simple(args, val_dataloader, model, classifier_head, indices_in_1k_adv)
 
         elif dataset == 'imagenet_ren':
             val_dataset = ImageNetRenDataset(transform=preprocess, dataset_root=f'{args.dataset_path}/imagenet_ren/imagenet-r')
-            val_dataloader = DataLoader(val_dataset, batch_size=1024, shuffle=False, drop_last=False, num_workers=args.num_workers)
+            val_dataloader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, drop_last=False, num_workers=args.num_workers)
             logger.info(f'len(val_dataloader): {len(val_dataloader)}')
             acc = validate_simple(args, val_dataloader, model, classifier_head, indices_in_1k_ren)
 

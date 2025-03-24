@@ -1,6 +1,7 @@
 # bash script
 env.sh
 
+scripts/OOD/
 results/
 results_no_legend/
 output/
