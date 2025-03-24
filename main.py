@@ -210,6 +210,7 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     args.logit_scale = logit_scale
     args.optimizer = optimizer
     args.scheduler = scheduler
+    stage1_method = args.method
 
     # check zeroshot acc
     if args.check_zeroshot or args.method == 'zeroshot':
@@ -559,7 +560,7 @@ if __name__ == '__main__':
     zeroshot_head = copy.deepcopy(classifier_head)
     classifier_head.to(args.device)
 
-    # run finetuning for stage 1
+    #---------- run finetuning for stage 1
     stage1_acc, stage1_best_model_path, test_loader, wsft_test_acc = run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompts)
     stage1_method = args.method # record method here, as in stage 2 method will be updated to probing
 
@@ -571,7 +572,7 @@ if __name__ == '__main__':
     stage2_lp_acc = -1
     stage2_fsft_acc = -1
 
-    # run probing for stage 2
+    #---------- run probing for stage 2
     if not args.skip_stage2:
         stage2_lp_acc, stage2_best_model_path = run_stage2_probing(model, stage1_best_model_path, test_loader, tokenized_text_prompts, preprocess,)
     else:
@@ -579,7 +580,7 @@ if __name__ == '__main__':
         stage2_lp_acc = -1
         stage2_best_model_path = 'None'
 
-    # run FSFT for stage 2
+    #---------- run FSFT for stage 2
     if not args.skip_stage2:
         stage2_fsft_acc, stage2_best_model_path = run_stage2_FSFT(model, stage1_best_model_path, test_loader_copy)
     else:
