@@ -37,22 +37,10 @@ def pre_extract_feature(args, logger, model, tokenized_text_prompts, preprocess)
     pre_extract_train_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.method}_{args.model_cfg}_{args.seed}_train_features.pth'
     pre_extract_val_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.method}_{args.model_cfg}_{args.seed}_val_features.pth'
     pre_extract_test_fea_path = f'{args.dataset_root}/pre_extracted/{args.dataset}_{args.method}_{args.model_cfg}_test_features.pth'
-    BATCH_SIZE = 1024 # this may cause OOM, reduce it if necessary
-
-    if args.recal_fea or not os.path.exists(pre_extract_train_fea_path):
-        train_dataset = load_dataset(dataset_root=args.dataset_root,
-                                    split=args.train_split,
-                                    preprocess=transform(224, 'train'),
-                                    tokenized_text_prompts=tokenized_text_prompts,
-                                    pl_list=None)
-        train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, pin_memory=True,
-                                    shuffle=False, num_workers=args.num_workers, drop_last=False)
-
-        train_features = extract_test_feats(model, dataloader=train_loader)
-        torch.save(train_features, pre_extract_train_fea_path)
-        logger.info(f'Extracted train features to {pre_extract_train_fea_path}')
+    BATCH_SIZE = 512 # this may cause OOM, reduce it if necessary
 
     if args.recal_fea or not os.path.exists(pre_extract_val_fea_path):
+        logger.info(f'Extracting val features ...')
         val_dataset = load_dataset(dataset_root=args.dataset_root,
                                     split=args.val_split,
                                     preprocess=preprocess,
@@ -66,6 +54,7 @@ def pre_extract_feature(args, logger, model, tokenized_text_prompts, preprocess)
         logger.info(f'Extracted val features to {pre_extract_val_fea_path}')
 
     if args.recal_fea or not os.path.exists(pre_extract_test_fea_path):
+        logger.info(f'Extracting test features ...')
         test_dataset = load_dataset(dataset_root=args.dataset_root,
                                     split=args.test_split,
                                     preprocess=preprocess,
@@ -77,6 +66,22 @@ def pre_extract_feature(args, logger, model, tokenized_text_prompts, preprocess)
         test_features = extract_test_feats(model, dataloader=test_loader)
         torch.save(test_features, pre_extract_test_fea_path)
         logger.info(f'Extracted test features to {pre_extract_test_fea_path}')
+
+    if args.recal_fea or not os.path.exists(pre_extract_train_fea_path):
+        logger.info(f'Extracting train features ...')
+        train_dataset = load_dataset(dataset_root=args.dataset_root,
+                                    split=args.train_split,
+                                    preprocess=transform(224, 'train'),
+                                    tokenized_text_prompts=tokenized_text_prompts,
+                                    pl_list=None)
+        train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, pin_memory=True,
+                                    shuffle=False, num_workers=args.num_workers, drop_last=False)
+
+        train_features = extract_test_feats(model, dataloader=train_loader)
+        torch.save(train_features, pre_extract_train_fea_path)
+        logger.info(f'Extracted train features to {pre_extract_train_fea_path}')
+
+
 
     return pre_extract_train_fea_path, pre_extract_val_fea_path, pre_extract_test_fea_path
 
@@ -124,7 +129,7 @@ def get_dataloader(args, train_split, val_split, test_split, tokenized_text_prom
     val_loader = DataLoader(val_dataset, batch_size=128, drop_last=False, pin_memory=True,
                             shuffle=False, num_workers=args.num_workers)
 
-    test_loader = DataLoader(test_dataset, batch_size=1024, drop_last=False, pin_memory=True,
+    test_loader = DataLoader(test_dataset, batch_size=256, drop_last=False, pin_memory=True,
                             shuffle=False, num_workers=args.num_workers)
 
     return train_loader, val_loader, test_loader
@@ -178,6 +183,7 @@ def set_dataloaders(args, model, tokenized_text_prompts, preprocess, logger):
 
     # pre-extracted features
     if args.pre_extracted:
+        logger.info(f'Use pre-extracted features.')
         train_fea_path, val_fea_path, test_fea_path = pre_extract_feature(args, logger, model, tokenized_text_prompts, preprocess)
 
     # dataset

@@ -1,6 +1,7 @@
 # bash script
 env.sh
 
+slurm_log_backup2/
 scripts/OOD/
 results/
 results_no_legend/

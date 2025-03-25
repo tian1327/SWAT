@@ -212,6 +212,9 @@ def run_stage1_finetuning(args, logger, model, preprocess, tokenized_text_prompt
     args.scheduler = scheduler
     stage1_method = args.method
 
+    if args.model_path:
+        load_model(args, logger, model, test_loader, classifier_head)
+
     # check zeroshot acc
     if args.check_zeroshot or args.method == 'zeroshot':
         logger.info(f"Check Zero-shot Acc ......")

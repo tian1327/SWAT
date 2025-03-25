@@ -10,8 +10,8 @@ import pickle
 from tqdm import tqdm
 
 def prompt_sampler(prompt_tensors, sample_by='mean'):
-    
-    sampled_prompts = [] 
+
+    sampled_prompts = []
     for i in prompt_tensors.keys():
         if sample_by == 'mean':
             sampled_prompts.append(prompt_tensors[i]['mean'])
@@ -30,7 +30,7 @@ def operate_on_prompt(model, text, operation, tokenize):
         features = model.encode_text(tokenize(text).cuda())
         features /= features.norm(dim=-1, keepdim=True) # Normalization. +++++
         return features # this is text embedding
-    
+
     elif operation == 'tokenize':
         tokens = tokenize(text)
         return tokens # this is tokenized text
@@ -50,13 +50,13 @@ def get_text_features(model, prompt_dict, tokenize, operation='encode'):
 
             stacked_tensor = operate_on_prompt(model, prompts, operation, tokenize)
             stacked_tensor.cpu()
-            
+
             source['all'] = stacked_tensor
 
             # also compute the mean tensor if operation is encode
             if operation == 'encode':
                 mean_tensor = torch.mean(stacked_tensor, dim=0)
-                mean_tensor /= mean_tensor.norm(dim=-1, keepdim=True) 
+                mean_tensor /= mean_tensor.norm(dim=-1, keepdim=True)
                 source['mean'] = mean_tensor
 
             tensor_dict[key] = source
@@ -75,17 +75,17 @@ def get_text_features(model, prompt_dict, mode, tokenize, prompt_mode = 'All', o
             class_id = obj['class_id']
             source = {}
 
-            # no prompts means just using the s-name or c-name depending on the mode 
+            # no prompts means just using the s-name or c-name depending on the mode
             if prompt_mode == 'no_prompts' or (prompt_mode == 'ChatGPT' and obj['data_source'] != prompt_mode): # Helpful for validation.
-                
+
                 # use the scientific name or common name depending on the mode
                 if mode == 'c-name':
                     name = obj['common_name']
                 elif mode == 's-name':
                     name = obj['species']
                 else:
-                    raise ValueError(f'Invalid mode: {mode}')                
-                
+                    raise ValueError(f'Invalid mode: {mode}')
+
                 text = f'Here is a photo of the: {name}.'  # single prompt
 
                 features = operate_on_prompt(model, text, operation, tokenize) # encode or tokenize
@@ -95,9 +95,9 @@ def get_text_features(model, prompt_dict, mode, tokenize, prompt_mode = 'All', o
                 source['mean'] = features
 
                 tensor_list.append(source) # list of dict
-                continue 
-            
-            # else, for case when prompt_mode == 'All' 
+                continue
+
+            # else, for case when prompt_mode == 'All'
             # or other cases, including when prompt_mode == 'ChatGPT' and obj['data_source'] == prompt_mode i.e. obj['data_source']=='ChatGPT'
             prompts = []
             for prompt in obj['corpus']:
@@ -123,8 +123,8 @@ def extract_test_feats(model, dataloader):
 
     img_feats_lst, labels_lst = [], []
 
-    # for data in tqdm(dataloader):
-    for data in dataloader:
+    for data in tqdm(dataloader):
+    # for data in dataloader:
         imgs, labels, text, source = data
         imgs = imgs.cuda()
         labels = labels.long()
@@ -142,19 +142,19 @@ def extract_test_feats(model, dataloader):
     # print('img_feats_store.shape:', img_feats_store.shape)
     # print('labels_store.shape:', labels_store.shape)
 
-    result = {'image_features': img_feats_store, 
+    result = {'image_features': img_feats_store,
                 'labels': labels_store}
-    
+
     return result
 
-    
+
 # if __name__=='__main__':
 #     parser = argparse.ArgumentParser(description='Arguments for script.')
 #     parser.add_argument('--model_path', type=str, default='', help='learning rate for optimizer')
 #     parser.add_argument('--prompt_source', type=str, default='', help='Prompt Source for feature extraction.')
-    
-#     args = parser.parse_args() 
-    
+
+#     args = parser.parse_args()
+
 #     torch.cuda.empty_cache()
 #     prompt_source = json.load(open(f'/scratch/user/shubhamprshr/research/data/semi-inat-2021/{args.prompt_source}'))
 #     model, _ = clip.load('ViT-B/32', 'cpu')
@@ -163,14 +163,13 @@ def extract_test_feats(model, dataloader):
 #         ckpt = torch.load(f'/scratch/user/shubhamprshr/research/clip_models/finetuned/{args.model_path}')
 #         model.load_state_dict(ckpt['clip'])
 #     prompt_tensors = get_text_features(copy.deepcopy(model).cpu(), prompt_source, prompt_mode='All')
-    
+
 #     # model_prompts = json.dumps(prompt_tensors, indent=4)
 #     with open(f'{args.model_path}-{args.prompt_source}.pkl', 'wb') as outfile:
 #         pickle.dump(prompt_tensors, outfile)
 #         # outfile.write(model_prompts)
-    
-    
-        
-        
-            
-    
+
+
+
+
+
