@@ -1488,6 +1488,8 @@ def train_cutmix(args, logger, loss_logger, model, classifier_head, train_loader
             optimizer.step()
             scheduler.step() # update learning rate for each iteration
 
+            # break # for fast debugging
+
         # validate after 1 epoch
         if args.early_stop or epoch == args.epochs:
             val_acc, val_loss, confusion_matrix = validate(args, data_loader=val_loader, model=model, logger=logger,
@@ -1534,6 +1536,9 @@ def train_cutmix(args, logger, loss_logger, model, classifier_head, train_loader
         loss_logger.write(f'{epoch},{num_iter},{round(train_loss_avg, 6)},{round(val_loss, 6)},{round(val_acc, 6)},{round(test_acc, 6)}\n')
         loss_logger.flush()
         logger.info(f"Epoch {int(epoch)}, Iter {num_iter}, Trn Loss: {round(train_loss_avg, 6)}, Val Loss: {round(val_loss, 6)}, Val Acc: {round(val_acc, 3)}, Test Acc: {round(test_acc, 3)}")
+
+        # flush the logger message out
+        logger.handlers[0].flush()
 
         ## save model checkpoints every X epochs
         if args.save_ckpt and (num_iter % args.save_freq == 0 or epoch == args.epochs):
