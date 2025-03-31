@@ -45,14 +45,14 @@ class TransformFixMatch(object):
                               interpolation=Image.BICUBIC),
             RandomHorizontalFlip(),
             _convert_image_to_rgb])
-        
+
         self.strong = transforms.Compose([
             RandomResizedCrop(n_px, scale=(0.9, 1.0), ratio=(0.75, 1.3333),
                               interpolation=Image.BICUBIC),
             RandomHorizontalFlip(),
             _convert_image_to_rgb,
             RandAugmentMC(n=2, m=10)]) # add RandAugmentMC here for strong augmentation !!!
-        
+
         self.normalize = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))])
@@ -74,6 +74,14 @@ def transform(n_px , mode='train'):
             _convert_image_to_rgb,
             ToTensor(),
             normalize
+        ])
+    else:
+        return Compose([
+            Resize(n_px, interpolation=InterpolationMode.BICUBIC),
+            CenterCrop(n_px),
+            _convert_image_to_rgb,
+            ToTensor(),
+            normalize,
         ])
 
 OpenCLIP_model_dic_LAION400M = {
@@ -133,13 +141,13 @@ def get_engine(model_cfg, device='cuda', mode='val'):
     arch = cfgs[0]
     model_name = cfgs[1]
     pretraining_dataset = cfgs[2] if len(cfgs) == 3 else None
-    
+
     if model_name == 'clip':
         arch = CLIP_MODEL_DIC[arch]
         model, preprocess = clip.load(arch, device)
         tokenizer = clip.tokenize
         # get the train preprocess for CLIP
-        # train_preprocess = transform(224, mode='train') 
+        # train_preprocess = transform(224, mode='train')
         train_preprocess = preprocess
 
     elif model_name == 'openclip':
@@ -147,7 +155,7 @@ def get_engine(model_cfg, device='cuda', mode='val'):
         model, train_preprocess, preprocess = open_clip.create_model_and_transforms(model_arch, pretrained=corpus_config)
         # print('train_preprocess:', train_preprocess)
         tokenizer = open_clip.get_tokenizer(model_arch)
-    
+
     else:
         raise NotImplementedError
 
@@ -221,7 +229,7 @@ def get_worstk_class(score, confusion_matrix, N=30, fname=None):
                 max_conf_count = conf_count
                 confusing_pairs[classid].append(conf_id) # this is a list
             else:
-                pass            
+                pass
 
             ct += 1
             if ct == C:
@@ -231,7 +239,7 @@ def get_worstk_class(score, confusion_matrix, N=30, fname=None):
     # print()
     # for k, v in confusing_pairs.items():
     #     print(f"{k}: {v}")
-    
+
     return confusing_pairs
 
 
@@ -311,10 +319,10 @@ def cal_easy_avg_acc(score):
     return acc
 
 def get_class_num_list(test_file):
-    
+
     with open(test_file, 'r') as f:
         lines = f.readlines()
-    
+
     class_id_set =set()
     for line in lines:
         entries = line.strip('\n').split()
@@ -323,7 +331,7 @@ def get_class_num_list(test_file):
         # source = int(entries[2])
         class_id_set.add(classid)
     # print('len(class_id_set):', len(class_id_set))
-    
+
     cls_num_list = [0] * len(class_id_set)
     for line in lines:
         entries = line.strip('\n').split()

@@ -280,7 +280,7 @@ def extract_train_dataloader(args, best_model, split, fea_path, preprocess, toke
     # extract features using the best model
     dataset = load_dataset(dataset_root=args.dataset_root,
                             split=split,
-                            preprocess=preprocess,
+                            preprocess=transform(224, 'train'),
                             tokenized_text_prompts=tokenized_text_prompts,
                             pl_list=None)
     dataloader = DataLoader(dataset, batch_size=bsz, pin_memory=True,
