@@ -198,64 +198,12 @@ def parse_args():
         args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split],
                             [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset)]]
 
-    # elif args.data_source == 'fewshot+unlabeled':
-    #     args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split],
-    #                         [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
-
-    # elif args.data_source == 'fewshot+retrieved+unlabeled':
-    #     args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.retrieval_split, args.unlabeled_split],
-    #                         [os.path.join(args.dataset_path, args.dataset), os.path.join(args.retrieved_path, args.dataset),
-    #                          os.path.join(args.dataset_path, args.dataset)]]
-
-    # elif args.data_source == 'ltrain':
-    #     args.train_split = [[f'ltrain.txt'], [os.path.join(args.dataset_path, args.dataset)]]
-    #     args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
-    #     args.early_stop = True
-
-    # elif args.data_source == 'ltrain+val':
-    #     args.train_split = [[f'ltrain+val.txt'], [os.path.join(args.dataset_path, args.dataset)]]
-    #     args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
-    #     args.early_stop = True
-
-    # elif args.data_source == 'ltrain+val+unlabeled':
-    #     args.train_split = [[f'ltrain+val.txt', args.unlabeled_split], [os.path.join(args.dataset_path, args.dataset),
-    #                                                                     os.path.join(args.dataset_path, args.dataset)]]
-    #     args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
-    #     args.early_stop = True
-
-    # elif args.data_source == 'ltrain+val+unlabeled+retrieved':
-    #     args.train_split = [[f'ltrain+val.txt', args.unlabeled_split, args.retrieval_split],
-    #                         [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset),
-    #                          os.path.join(args.retrieved_path, args.dataset)]]
-    #     args.val_split = [[f'test.txt'], [os.path.join(args.dataset_path, args.dataset)]] # use test set as val set
-    #     args.early_stop = True
-
     elif args.data_source == 'dataset-cls':
         args.train_split = [['dataset_train.txt'], ['']] # note here the second element for the path is empty, just for dataset classification
         args.val_split = [['dataset_val.txt'], ['']]
         args.test_split = [['dataset_test.txt'], ['']]
     else:
         raise NotImplementedError
-
-
-    # # adjust train_split for fixmatch
-    # if args.method == 'fixmatch':
-    #     # args.train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt'],
-    #     #                     [os.path.join(args.dataset_path, args.dataset)]]
-
-    #     args.train_split = [[f'ltrain+val.txt'],
-    #                         [os.path.join(args.dataset_path, args.dataset)]]
-
-    #     # note here, we add the labeled data to the unlabeled split based on the original implementation
-    #     # args.u_train_split = [[f'fewshot{args.shots}_seed{args.seed}.txt', args.unlabeled_split],
-    #     #                     [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
-
-    #     args.u_train_split = [['ltrain+val.txt', args.unlabeled_split],
-    #                         [os.path.join(args.dataset_path, args.dataset), os.path.join(args.dataset_path, args.dataset)]]
-
-
-    #     # args.u_train_split = [[args.unlabeled_split],
-    #     #                     [os.path.join(args.dataset_path, args.dataset)]]
 
 
     # adjust folder
@@ -266,9 +214,5 @@ def parse_args():
     # test_file = os.path.join(args.dataset_root, args.test_split[0][0])
     # cls_num_list = get_class_num_list(test_file)
     # args.cls_num_list = cls_num_list
-
-    # swat for imagenet
-    if args.dataset == 'imagenet' and args.method == 'cutmix' and args.data_source == 'fewshot+retrieved':
-        args.epochs = 10
 
     return args
