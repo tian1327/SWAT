@@ -87,6 +87,13 @@ slurm_log/
 *.pkl
 
 
+!assets/swat.png
+
+
+
+
+
+
 # Byte-compiled / optimized / DLL files
 *.pyc
 __pycache__/

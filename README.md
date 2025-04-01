@@ -17,7 +17,7 @@ Our work adapts a pretrained Vision-Language Model (VLM) and retrieves relevant 
 To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved data, we propose a novel **Stage-Wise retrieval-Augmented fineTuning (SWAT)** method, which outperforms previous few-shot recognition methods by >6% in accuracy across nine benchmark datasets.
 
 
-![teaser](assets/teaser_v7.png)
+![teaser](assets/swat.png)
 
 ## News
 <!-- - **2024-11-26:** updated [arXiv paper](), including more datasets. -->
@@ -68,7 +68,7 @@ You can run SWAT and finetune on few-shot using the following bash scripts.
 <!-- You can run SWAT by using either the bash scripts `run_dataset_seed_xxx.sh` (recommended) or the python `main.py` script.
 For example, using the bash scripts: -->
 ```bash
-# 1. check the options in run_dataset_seed_xxx.sh, 
+# 1. check the options in run_dataset_seed_xxx.sh,
 #    this can be used to run a batch of experiments.
 # 2. run the corresponding bash script in command line
 # Usage: bash scripts/run_dataset_seed_xxx.sh <dataset> [seed]
