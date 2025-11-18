@@ -25,7 +25,9 @@ $RETRIEVED/
 ```
 
 ---
+
 ### Step 1: query GPT-3.5/4 for concept synonyms
+
 From my experiences, GPT-4 usually gives more diverse synonyms than GPT-3.5, 
 including names that are in other languages e.g. Chinese, Japaneses, etc. 
 and some unformatted text. To avoid this issue and get English synonyms only, 
@@ -34,7 +36,7 @@ I appended the following instruction in the prompt:
 See `query_synonyms.py` for more details.
 
 ```bash 
-# I experimented following code with Semi-Aves using GPT4
+# Run Semi-Aves using GPT4
 cd SWAT/retrieval/query_synonyms/
 
 # paste your openai key in the openai_key.txt file
@@ -57,7 +59,8 @@ python format_synonyms.py
 
 ```
 
-**As an alternative**, I used the synonyms in the metric files from [REAL](https://github.com/shubhamprshr27/NeglectedTailsVLM/tree/main/analysis/laion), and renamed for each dataset, e.g. `dtd_metrics-LAION400M.json`. Note that I have done this step for you using the commands below, and you can find the formatted metric files in the `SWAT/data/{dataset}/` folder.
+**As an alternative**, one can use the synonyms in the metric files from [REAL](https://github.com/shubhamprshr27/NeglectedTailsVLM/tree/main/analysis/laion), and renamed for each dataset, e.g. `dtd_metrics-LAION400M.json`. 
+Note that this step is done using the commands below, and one can find the formatted metric files in the `SWAT/data/{dataset}/` folder.
 
 ```bash
 # download the metric files into data/xxx folder for each dataset xxx
