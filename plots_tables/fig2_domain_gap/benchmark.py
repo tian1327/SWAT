@@ -209,7 +209,7 @@ def plot_results(dataset):
         plt.plot(x, swat, label='SWAT (ours)', linestyle='solid',linewidth=LINEWIDTH, color='tab:red', marker='^', markersize=MARKERSIZE, alpha=0.8)
 
     # SWAT+
-    plt.plot(x, swat_plus, label='SWAT+ (ours)', linestyle='dashed',linewidth=LINEWIDTH, color='tab:red', marker='^', markersize=MARKERSIZE, alpha=0.8)
+    # plt.plot(x, swat_plus, label='SWAT+ (ours)', linestyle='dashed',linewidth=LINEWIDTH, color='tab:red', marker='^', markersize=MARKERSIZE, alpha=0.8)
 
 
     plt.title(f"{dataset_name}", fontsize=20)
@@ -239,53 +239,56 @@ def plot_results(dataset):
     # elif dataset == 'average':
     #     plt.yticks(np.arange(50, 80, 5), fontsize=15)
     else:
-        plt.yticks(fontsize=18)
+        plt.ylim(55, 82)
+        plt.yticks(np.arange(55, 83, 5), fontsize=18)
 
 
     # plot the legend
-    # ft_retr_legend = plt.Line2D([0], [0], marker='v', color='w', markerfacecolor='tab:orange', markersize=MARKERSIZE, label='Finetune on retrieved data')
-    real_prompt_legend = plt.Line2D([0], [0], marker='d', color='w', markerfacecolor='tab:pink', markersize=MARKERSIZE, label="REAL-Prompt (CVPR'24)")
-    openai_prompt_legend = plt.Line2D([0], [0], marker='s', color='w', markerfacecolor='tab:gray', markersize=MARKERSIZE, label="OpenCLIP (CVPR'23)")
-    real_linear_legend = plt.Line2D([0], [0], marker='p', color='w', markerfacecolor='tab:purple', markersize=MARKERSIZE, label="REAL-Linear (CVPR'24)")
+    if plot_legend == True:
+            
+        # ft_retr_legend = plt.Line2D([0], [0], marker='v', color='w', markerfacecolor='tab:orange', markersize=MARKERSIZE, label='Finetune on retrieved data')
+        real_prompt_legend = plt.Line2D([0], [0], marker='d', color='w', markerfacecolor='tab:pink', markersize=MARKERSIZE, label="REAL-Prompt (CVPR'24)")
+        openai_prompt_legend = plt.Line2D([0], [0], marker='s', color='w', markerfacecolor='tab:gray', markersize=MARKERSIZE, label="OpenCLIP (CVPR'23)")
+        real_linear_legend = plt.Line2D([0], [0], marker='p', color='w', markerfacecolor='tab:purple', markersize=MARKERSIZE, label="REAL-Linear (CVPR'24)")
 
-    legend_location = 'upper left' if dataset == 'fgvc-aircraft' else 'lower right'
-
-
-    # Reorder legend items to make 'SWAT' appear first
-    handles, labels = plt.gca().get_legend_handles_labels()
-
-    swat_plus_index = labels.index('SWAT+ (ours)')
-    handles.insert(0, handles.pop(swat_plus_index))
-    labels.insert(0, labels.pop(swat_plus_index))
-
-    swat_index = labels.index('SWAT (ours)')
-    handles.insert(1, handles.pop(swat_index))
-    labels.insert(1, labels.pop(swat_index))
-
-    ft_fs_index = labels.index('FT on few-shot (ours)')
-    handles.insert(2, handles.pop(ft_fs_index))
-    labels.insert(2, labels.pop(ft_fs_index))
-
-    ft_retr_index = labels.index('FT on retrieved (ours)')
-    handles.insert(3, handles.pop(ft_retr_index))
-    labels.insert(3, labels.pop(ft_retr_index))
-
-    # if dataset in swat_improved_map:
-    #     swat_improved_index = labels.index('SWAT-improved (ours)')
-    #     handles.insert(0, handles.pop(swat_improved_index))
-    #     labels.insert(0, labels.pop(swat_improved_index))
-
-    handles = handles + [real_prompt_legend, real_linear_legend, openai_prompt_legend]
-    labels = labels + ["REAL-Prompt (CVPR'24)", "REAL-Linear (CVPR'24)", "OpenCLIP (CVPR'23)"]
+        legend_location = 'upper left' if dataset == 'fgvc-aircraft' else 'lower right'
 
 
-    # Update the legend with reordered handles and labels
+        # Reorder legend items to make 'SWAT' appear first
+        handles, labels = plt.gca().get_legend_handles_labels()
 
-    # plt.legend(handles=handles, labels=labels,
-    #         loc=legend_location, prop={'size': 17}, frameon=True, facecolor='white', framealpha=1.0)
+        swat_plus_index = labels.index('SWAT+ (ours)')
+        handles.insert(0, handles.pop(swat_plus_index))
+        labels.insert(0, labels.pop(swat_plus_index))
 
-    # plt.legend(handles=plt.gca().get_legend_handles_labels()[0] + [real_linear_legend] +[real_prompt_legend] + [openai_prompt_legend]
-    #             , loc=legend_location, prop={'size': 11}, frameon=True, facecolor='white', framealpha=0.3)
+        swat_index = labels.index('SWAT (ours)')
+        handles.insert(1, handles.pop(swat_index))
+        labels.insert(1, labels.pop(swat_index))
+
+        ft_fs_index = labels.index('FT on few-shot (ours)')
+        handles.insert(2, handles.pop(ft_fs_index))
+        labels.insert(2, labels.pop(ft_fs_index))
+
+        ft_retr_index = labels.index('FT on retrieved (ours)')
+        handles.insert(3, handles.pop(ft_retr_index))
+        labels.insert(3, labels.pop(ft_retr_index))
+
+        # if dataset in swat_improved_map:
+        #     swat_improved_index = labels.index('SWAT-improved (ours)')
+        #     handles.insert(0, handles.pop(swat_improved_index))
+        #     labels.insert(0, labels.pop(swat_improved_index))
+
+        handles = handles + [real_prompt_legend, real_linear_legend, openai_prompt_legend]
+        labels = labels + ["REAL-Prompt (CVPR'24)", "REAL-Linear (CVPR'24)", "OpenCLIP (CVPR'23)"]
+
+
+        # Update the legend with reordered handles and labels
+
+        plt.legend(handles=handles, labels=labels,
+                loc=legend_location, prop={'size': 17}, frameon=True, facecolor='white', framealpha=1.0)
+
+        # plt.legend(handles=plt.gca().get_legend_handles_labels()[0] + [real_linear_legend] +[real_prompt_legend] + [openai_prompt_legend]
+        #             , loc=legend_location, prop={'size': 11}, frameon=True, facecolor='white', framealpha=1.0)
 
 
     plt.grid(alpha=0.2)
@@ -310,4 +313,5 @@ if __name__ == '__main__':
         # 'imagenet',
         'average'
         ]:
+        plot_legend = False
         plot_results(dataset)
