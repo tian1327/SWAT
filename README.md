@@ -20,7 +20,8 @@ To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved
 ![teaser](assets/swat.png)
 
 ## News
-<!-- - **2024-11-26:** updated [arXiv paper](), including more datasets. -->
+
+- **2025-12-06:** We release pre-created `laion400m.db` file for easy retrieval. See [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
 - **2025-05-27:** SWAT is accepted to 4th CVinW and FGVC12 workshops at CVPR'25! 
 - **2025-02-26:** SWAT is accepted to CVPR 2025! ;)
 - **2025-01-18:** We provide access to our retrieved data through URLs. See [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
@@ -46,7 +47,8 @@ We provide SWAT finetuned model (based on OpenCLIP ViT-B/32) for each dataset ex
 
 ## Usage
 
-### Prepraration
+### Datasets and Env Preparation
+
 Create conda environment and install dependencies following the instructions in [ENV.md](./ENV.md).
 
 Prepare the datasets following the instructions in [DATASETS.md](./DATASETS.md).

@@ -1,16 +1,22 @@
-# Retrieve data from pretraining dataset
+# Retrieving data from VLM's pretraining dataset
+
 
 > Recent studies show that the LAION dataset contains CSAM content, ~~leading to its temporary removal from public access~~. See [Safety Review for LAION](https://laion.ai/notes/laion-maintenance/). We also observed that retrieved images may contain NSFW content. Please exercise caution when using this data.
+
+
+![Retrieved examples](../assets/retrieved_data_v3.jpg)
+
 
 We provide step-by-step instructions on how to retrieve relevant data from the OpenCLIP's pretraining dataset `LAION-400M`. In summary, we first use string matching to retrieve pretraining images whose captions contain any of the concept synonyms. We then sample from the retrievd images using prompt-to-caption (T2T) ranking to obtain 500 images for each class. The final result is a `T2T500.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder, which stores the retrieved image paths and labels.
 
 ### Easy access to our retrieved data
+
 ~~Since LAION is currently unaccessible to the public~~, for easy reproduction of our SWAT results, we provide our [matched caption files (including image URLs)](https://drive.google.com/drive/folders/1OjZ0pO4OTv3M7M85npPYhkJ3mGg6pqNO?usp=sharing) for each dataset, with which users can skip to [Step 2](#step-2-retrieve-from-laion-400m-using-string-matching) and use `laion_downloader.py` to directly download the images and continue from there. Note that some images may no longer be available on the Internet so the downloaded images maybe slightly less than the ones we had. But we expect to see the similar results as we reported in the paper.
 
-
-
 ### Example retrieved structure
+
 The example directory structure should look like:
+
 ```
 $RETRIEVED/
 |–– semi-aves/
@@ -31,7 +37,7 @@ $RETRIEVED/
 From my experiences, GPT-4 usually gives more diverse synonyms than GPT-3.5, 
 including names that are in other languages e.g. Chinese, Japaneses, etc. 
 and some unformatted text. To avoid this issue and get English synonyms only, 
-I appended the following instruction in the prompt:
+we append the following instruction in the prompt:
 `Don't give any other text. Give me English names only.` 
 See `query_synonyms.py` for more details.
 
@@ -56,11 +62,10 @@ python format_synonyms.py
 
 # you might want to manually check the `output/{dataset}_synonyms_filtered_final.json` 
 # file and add some synonyms back if needed.
-
 ```
 
-**As an alternative**, one can use the synonyms in the metric files from [REAL](https://github.com/shubhamprshr27/NeglectedTailsVLM/tree/main/analysis/laion), and renamed for each dataset, e.g. `dtd_metrics-LAION400M.json`. 
-Note that this step is done using the commands below, and one can find the formatted metric files in the `SWAT/data/{dataset}/` folder.
+**As an alternative**, one can use the synonyms in the metric files from [REAL](https://github.com/shubhamprshr27/NeglectedTailsVLM/tree/main/analysis/laion), and renamed them for each dataset, e.g. `dtd_metrics-LAION400M.json`. 
+Note that this step is already done using the commands below, and one can find the formatted metric files in the `SWAT/data/{dataset}/` folder.
 
 ```bash
 # download the metric files into data/xxx folder for each dataset xxx
@@ -76,7 +81,7 @@ python format_metrics.py ../data/dtd/dtd_metrics-LAION400M.json
 Once obtained the metric files which contains the concept synonyms, we retrieve relevant pretraining images whose captions contain any of the concept synonyms. This is referred to as *string matching retrieval*. For our experiments, we retrieve from LAION-400M dataset.
 
 - Create the `laion400.db` file from LAION's parquet files using the `create_table()` and `create_fts_table()` functions in `laion_parser.py`. Only execute this step once.
-- Place the `laion400m.db` file in the `SWAT/retrieval/database` folder.
+- Place the `laion400m.db` file in the `SWAT/retrieval/database` folder. One can download the pre-created `laion400m.db` file (135 GB) from [here](https://drive.google.com/drive/folders/1nAcJJ-kr6vNljv3MjTA7WPFNIAG9sXAi?usp=sharing).
 - Run string matching to obtain the matched captions.
 
 ```bash
@@ -121,7 +126,7 @@ python laion_downloader.py --dataset imagenet --sampling random
 sbatch run_retrieval.slurm
 ```
 
-- [Optional] delete the retrieved folder `00000/` which contains the nonessential json files.
+- [Optional] delete the retrieved folder `00000/` which contains the non-essential json files.
 
 ```bash
 cd $RETRIEVED/
@@ -137,6 +142,7 @@ rm -rf imagenet/imagenet_retrieved_LAION400M-all_synonyms-random/00000
 ```
 
 ### Step 3: process the downloaded data
+
 - After obtaining the downloaded images, we format the captions for each downloaded image.
 
 ```bash
@@ -152,7 +158,9 @@ python process_meta_map.py food101
 python process_meta_map.py stanford_cars
 python process_meta_map.py imagenet
 ```
+
 - Extract the image and text features for different sampling methods in the next step.
+
 ```bash
 # extract mined images features, comment out the dataset selection in the script
 python extract_mined_feature.py --dataset fgvc-aircraft --model_cfg vitb32_openclip_laion400m
@@ -167,7 +175,8 @@ python extract_mined_feature.py --dataset stanford_cars --model_cfg vitb32_openc
 python extract_mined_feature.py --dataset imagenet --model_cfg vitb32_openclip_laion400m
 ```
 
-### Step 4: sample from the downloaded data 
+### Step 4: sample from the downloaded data
+
 - We follow REAL to select top 500 images for each class using T2T ranking, i.e. ranking the cosine similarity of the prompt embedding (average of all synonyms using OpenAI templates) and the caption embedding, using the OpenCLIP ViT-B/32 model.
 - The result will be a `T2T500.txt` file for each dataset, stored at `SWAT/data/{dataset}/` folder.
 - Retrieval statistics are stored in `SWAT/retrieval/output/` folder.
@@ -194,6 +203,7 @@ python sample_retrieval.py --prefix T2T500 --num_samples 500 --sampling_method T
 ```
 
 - You can play with different sampling methods, e.g. random, T2T ranking, T2I ranking, I2I ranking, T2T ranking with T2I filtering, etc.
+
 ```bash
 
 # T2T500+T2I0.25, e.g. `T2T500+T2I0.25.txt`
@@ -236,4 +246,3 @@ python sample_retrieval.py --prefix T2T500+I2I0.65 --num_samples 500 --sampling_
 # I2T-filtering
 # python sample_retrieval.py --prefix I2T-tshd500 --num_samples 500 --sampling_method I2T-tshd --dataset semi-aves
 ```
-
