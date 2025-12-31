@@ -123,6 +123,17 @@ bash scripts/run_dataset_seed_CMLP.sh semi-aves 1
 
 For [CLAP](https://github.com/jusiro/CLAP), we use the provided code but replace the model from CLIP to OpenCLIP. Our implementation can be found in [CLAP-tian](https://github.com/tian1327/CLAP-tian) with [instructions](https://github.com/tian1327/CLAP-tian/blob/main/tian_log.md).
 
+## Related Works
+
+Check out our related works below:
+
+- [POC](https://tian1327.github.io/POC/) (arXiv 2025): harnessing large multimodal models for few-shot visual species recognition
+- [SWIFT](https://tian1327.github.io/SWIFT/) (arXiv 2025): enabling successful semi-supervised learning with VLM
+- [VEST](https://hannawang09.github.io/projects/vest/) (arXiv 2025): retriving open data for validation in few-shot learning
+- [SWAT](https://tian1327.github.io/SWAT/) (CVPR 2025): retrieving open data for few-shot finetuning a VLM
+- [REAL](https://shubhamprshr27.github.io/neglected-tails-of-vlms/) (CVPR 2024): uncovering the failures and causes in zero-shot VLMs
+
+
 
 ## Acknowledgment
 This code base is developed with some references on the following projects. We sincerely thank the authors for open-sourcing their projects.
@@ -150,4 +161,24 @@ If you find our project useful, please consider citing:
   year={2024}
 }
 
+@article{liu2025swift,
+title={Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective}, 
+author={Liu, Tian and Basu, Anwesha and Kong, Shu},
+journal={arXiv preprint arXiv:2512.10244},
+year={2025}
+}
+
+@article{liu2025poc,
+title={Surely Large Multimodal Models (Don’t) Excel in Visual Species Recognition?}, 
+author={Liu, Tian and Basu, Anwesha and Kong, Shu},
+journal={arXiv preprint arXiv:2512.15748},
+year={2025}
+}
+
+@article{wang2025enabling,
+title={Enabling Validation for Robust Few-Shot Recognition}, 
+author={Wang, Hanxin and Liu, Tian and Kong, Shu},
+journal={arXiv preprint arXiv:2506.04713},
+year={2025}
+}
 ```
