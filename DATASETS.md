@@ -134,9 +134,9 @@ fgvc_aircraft/
 - Create a folder named `eurosat/` under `$DATA`.
 - Download the dataset from http://madm.dfki.de/files/sentinel/EuroSAT.zip and extract it to `$DATA/eurosat/`.
 ```bash
-wget https://zenodo.org/records/7711810/files/EuroSAT_RGB.zip?download=1
+wget https://zenodo.org/records/7711810/files/EuroSAT_RGB.zip
 ```
-- Renmae the extracted folder `2750` to `EuroSAT_RGB`.
+- Rename the extracted folder `2750` to `EuroSAT_RGB`.
 - We have reformatted labels and provided to you as `train.txt`, `val.txt` and `test.txt` in the `SWAT/data/eurosat/` folder.
 
 The directory structure should look like:
