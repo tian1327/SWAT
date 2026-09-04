@@ -22,7 +22,7 @@ To mitigate the `domain gap` and `imbalanced distribution` problems of retrieved
 ## News
 
 - **2025-12-06:** We release pre-created `laion400m.db` file for easy retrieval. See [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
-- **2025-05-27:** SWAT is accepted to 4th CVinW and FGVC12 workshops at CVPR'25! 
+- **2025-05-27:** SWAT is accepted to 4th CVinW and FGVC12 workshops at CVPR'25!
 - **2025-02-26:** SWAT is accepted to CVPR 2025! ;)
 - **2025-01-18:** We provide access to our retrieved data through URLs. See [RETRIEVAL.md](./retrieval/RETRIEVAL.md).
 - **2024-11-24:** Updated code base to include more datasets.
@@ -127,8 +127,8 @@ For [CLAP](https://github.com/jusiro/CLAP), we use the provided code but replace
 
 Check out our related works below:
 
-- [POC](https://tian1327.github.io/POC/) (arXiv 2025): harnessing large multimodal models for few-shot visual species recognition
-- [SWIFT](https://tian1327.github.io/SWIFT/) (arXiv 2025): enabling successful semi-supervised learning with VLM
+- [POC](https://tian1327.github.io/POC/) (arXiv 2026): harnessing large multimodal models for few-shot visual species recognition
+- [SWIFT](https://tian1327.github.io/SWIFT/) (ECCV 2026): enabling successful semi-supervised learning with VLM
 - [VEST](https://hannawang09.github.io/projects/vest/) (arXiv 2025): retrieving open data for validation in few-shot learning
 - [SWAT](https://tian1327.github.io/SWAT/) (CVPR 2025): retrieving open data for few-shot finetuning a VLM
 - [REAL](https://shubhamprshr27.github.io/neglected-tails-of-vlms/) (CVPR 2024): uncovering the failures and causes in zero-shot VLMs
@@ -161,22 +161,22 @@ If you find our project useful, please consider citing:
   year={2024}
 }
 
-@article{liu2025swift,
-title={Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective}, 
-author={Liu, Tian and Basu, Anwesha and Kong, Shu},
-journal={arXiv preprint arXiv:2512.10244},
-year={2025}
+@article{liu2026solving,
+title={Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective},
+author={Liu, Tian and Basu, Anwesha and Caverlee, James and Kong, Shu},
+journal={European Conference on Computer Vision (ECCV)},
+year={2026}
 }
 
-@article{liu2025poc,
-title={Surely Large Multimodal Models (Don’t) Excel in Visual Species Recognition?}, 
+@article{liu2026poc,
+title={Visual Species Recognition with Large Multimodal Models as Post-Hoc Correctors},
 author={Liu, Tian and Basu, Anwesha and Kong, Shu},
 journal={arXiv preprint arXiv:2512.15748},
-year={2025}
+year={2026}
 }
 
 @article{wang2025enabling,
-title={Enabling Validation for Robust Few-Shot Recognition}, 
+title={Enabling Validation for Robust Few-Shot Recognition},
 author={Wang, Hanxin and Liu, Tian and Kong, Shu},
 journal={arXiv preprint arXiv:2506.04713},
 year={2025}
